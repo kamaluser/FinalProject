@@ -9,7 +9,7 @@ namespace Cinema.Core.Entites
 {
     public class Order:BaseEntity
     {
-        public int UserId { get; set; }
+        //public int UserId { get; set; }
         //public AppUser User { get; set; }
 
         public int SessionId { get; set; }

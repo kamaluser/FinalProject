@@ -12,7 +12,8 @@ namespace Cinema.Core.Entites
         public string Description { get; set; }
         public string TrailerLink { get; set; }
         public DateTime ReleaseDate { get; set; }
-        public string AgeLimit { get; set; } 
+        public string AgeLimit { get; set; }
+        public string Photo { get; set; }
 
         public List<Session> Sessions { get; set; }
         public List<MovieLanguage> MovieLanguages { get; set; }
