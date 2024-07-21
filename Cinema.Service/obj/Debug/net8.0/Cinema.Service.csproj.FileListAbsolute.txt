@@ -1,0 +1,17 @@
+C:\Users\kamal\Desktop\FinalProjectCinemaApp\Cinema.Service\bin\Debug\net8.0\Cinema.Service.deps.json
+C:\Users\kamal\Desktop\FinalProjectCinemaApp\Cinema.Service\bin\Debug\net8.0\Cinema.Service.dll
+C:\Users\kamal\Desktop\FinalProjectCinemaApp\Cinema.Service\bin\Debug\net8.0\Cinema.Service.pdb
+C:\Users\kamal\Desktop\FinalProjectCinemaApp\Cinema.Service\bin\Debug\net8.0\Cinema.Core.dll
+C:\Users\kamal\Desktop\FinalProjectCinemaApp\Cinema.Service\bin\Debug\net8.0\Cinema.Data.dll
+C:\Users\kamal\Desktop\FinalProjectCinemaApp\Cinema.Service\bin\Debug\net8.0\Cinema.Data.pdb
+C:\Users\kamal\Desktop\FinalProjectCinemaApp\Cinema.Service\bin\Debug\net8.0\Cinema.Core.pdb
+C:\Users\kamal\Desktop\FinalProjectCinemaApp\Cinema.Service\obj\Debug\net8.0\Cinema.Service.csproj.AssemblyReference.cache
+C:\Users\kamal\Desktop\FinalProjectCinemaApp\Cinema.Service\obj\Debug\net8.0\Cinema.Service.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\kamal\Desktop\FinalProjectCinemaApp\Cinema.Service\obj\Debug\net8.0\Cinema.Service.AssemblyInfoInputs.cache
+C:\Users\kamal\Desktop\FinalProjectCinemaApp\Cinema.Service\obj\Debug\net8.0\Cinema.Service.AssemblyInfo.cs
+C:\Users\kamal\Desktop\FinalProjectCinemaApp\Cinema.Service\obj\Debug\net8.0\Cinema.Service.csproj.CoreCompileInputs.cache
+C:\Users\kamal\Desktop\FinalProjectCinemaApp\Cinema.Service\obj\Debug\net8.0\Cinema.S.1C19B611.Up2Date
+C:\Users\kamal\Desktop\FinalProjectCinemaApp\Cinema.Service\obj\Debug\net8.0\Cinema.Service.dll
+C:\Users\kamal\Desktop\FinalProjectCinemaApp\Cinema.Service\obj\Debug\net8.0\refint\Cinema.Service.dll
+C:\Users\kamal\Desktop\FinalProjectCinemaApp\Cinema.Service\obj\Debug\net8.0\Cinema.Service.pdb
+C:\Users\kamal\Desktop\FinalProjectCinemaApp\Cinema.Service\obj\Debug\net8.0\ref\Cinema.Service.dll
