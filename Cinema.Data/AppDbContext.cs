@@ -23,12 +23,12 @@ namespace Cinema.Data
         public DbSet<Hall> Halls { get; set; }
         public DbSet<Seat> Seats { get; set; }
         public DbSet<Session> Sessions { get; set; }
-        public DbSet<Order> Orders { get; set; }
-        public DbSet<OrderSeat> OrderSeats { get; set; }
         public DbSet<MovieLanguage> MovieLanguages { get; set; }
         public DbSet<Language> Languages { get; set; }
         public DbSet<Slider> Sliders { get; set; }
         public DbSet<Setting> Settings { get; set; }
+        /*  public DbSet<Order> Orders { get; set; }
+        public DbSet<OrderSeat> OrderSeats { get; set; }*/
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

@@ -9,3 +9,7 @@ C:\Users\kamal\Desktop\FinalProjectCinemaApp\Cinema.Core\obj\Debug\net8.0\Cinema
 C:\Users\kamal\Desktop\FinalProjectCinemaApp\Cinema.Core\obj\Debug\net8.0\refint\Cinema.Core.dll
 C:\Users\kamal\Desktop\FinalProjectCinemaApp\Cinema.Core\obj\Debug\net8.0\Cinema.Core.pdb
 C:\Users\kamal\Desktop\FinalProjectCinemaApp\Cinema.Core\obj\Debug\net8.0\ref\Cinema.Core.dll
+C:\Users\kamal\Desktop\FinalProjectCinemaApp\Cinema.Core\obj\Debug\net8.0\Cinema.Core.sourcelink.json
+C:\Users\kamal\Desktop\FinalProjectCinemaApp\Cinema.Core\bin\Debug\net8.0\Cinema.Core.runtimeconfig.json
+C:\Users\kamal\Desktop\FinalProjectCinemaApp\Cinema.Core\obj\Debug\net8.0\Cinema.Core.csproj.AssemblyReference.cache
+C:\Users\kamal\Desktop\FinalProjectCinemaApp\Cinema.Core\obj\Debug\net8.0\Cinema.Core.genruntimeconfig.cache

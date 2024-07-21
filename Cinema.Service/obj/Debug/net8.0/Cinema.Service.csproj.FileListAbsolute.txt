@@ -15,3 +15,6 @@ C:\Users\kamal\Desktop\FinalProjectCinemaApp\Cinema.Service\obj\Debug\net8.0\Cin
 C:\Users\kamal\Desktop\FinalProjectCinemaApp\Cinema.Service\obj\Debug\net8.0\refint\Cinema.Service.dll
 C:\Users\kamal\Desktop\FinalProjectCinemaApp\Cinema.Service\obj\Debug\net8.0\Cinema.Service.pdb
 C:\Users\kamal\Desktop\FinalProjectCinemaApp\Cinema.Service\obj\Debug\net8.0\ref\Cinema.Service.dll
+C:\Users\kamal\Desktop\FinalProjectCinemaApp\Cinema.Service\obj\Debug\net8.0\Cinema.Service.sourcelink.json
+C:\Users\kamal\Desktop\FinalProjectCinemaApp\Cinema.Service\bin\Debug\net8.0\Cinema.Service.runtimeconfig.json
+C:\Users\kamal\Desktop\FinalProjectCinemaApp\Cinema.Service\obj\Debug\net8.0\Cinema.Service.genruntimeconfig.cache

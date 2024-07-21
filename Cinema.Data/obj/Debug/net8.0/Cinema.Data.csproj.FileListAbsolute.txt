@@ -15,3 +15,4 @@ C:\Users\kamal\Desktop\FinalProjectCinemaApp\Cinema.Data\obj\Debug\net8.0\refint
 C:\Users\kamal\Desktop\FinalProjectCinemaApp\Cinema.Data\obj\Debug\net8.0\Cinema.Data.pdb
 C:\Users\kamal\Desktop\FinalProjectCinemaApp\Cinema.Data\obj\Debug\net8.0\Cinema.Data.genruntimeconfig.cache
 C:\Users\kamal\Desktop\FinalProjectCinemaApp\Cinema.Data\obj\Debug\net8.0\ref\Cinema.Data.dll
+C:\Users\kamal\Desktop\FinalProjectCinemaApp\Cinema.Data\obj\Debug\net8.0\Cinema.Data.sourcelink.json
