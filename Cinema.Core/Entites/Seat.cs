@@ -8,11 +8,11 @@ namespace Cinema.Core.Entites
 {
     public class Seat:BaseEntity
     {
-        public int Number { get; set; } 
+        public int Number { get; set; }
 
         public int HallId { get; set; }
         public Hall Hall { get; set; }
 
-        public ICollection<Order> Orders { get; set; }
+        public List<OrderSeat> OrderSeats { get; set; }
     }
 }

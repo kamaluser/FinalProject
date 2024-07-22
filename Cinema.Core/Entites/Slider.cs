@@ -8,6 +8,7 @@ namespace Cinema.Core.Entites
 {
     public class Slider:AuditEntity
     {
+        public int Order { get; set; }
         public string Image { get; set; }
     }
 }

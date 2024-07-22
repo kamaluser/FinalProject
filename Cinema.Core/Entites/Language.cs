@@ -9,7 +9,7 @@ namespace Cinema.Core.Entites
     public class Language:BaseEntity
     {
         public string Name { get; set; }
-
+        public string FlagPhoto { get; set; }
         public List<MovieLanguage> MovieLanguages { get; set; }
     }
 }

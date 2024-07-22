@@ -1,0 +1,33 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\kamal\\Desktop\\FinalProject\\CinemaApp\\wwwroot\\uploads\\sliders\\670f26f3-f219-4812-84db-fb83d944b4b7_slider2.jpg",
+      "PackagePath": "staticwebassets\\uploads\\sliders\\670f26f3-f219-4812-84db-fb83d944b4b7_slider2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\kamal\\Desktop\\FinalProject\\CinemaApp\\wwwroot\\uploads\\sliders\\97be0955-4547-4f70-83af-a8e7bc88195d_slider1.jpg",
+      "PackagePath": "staticwebassets\\uploads\\sliders\\97be0955-4547-4f70-83af-a8e7bc88195d_slider1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\kamal\\Desktop\\FinalProject\\CinemaApp\\wwwroot\\uploads\\sliders\\fea521e7-4656-4c7b-b7e0-038a5099af8d_slider1.jpg",
+      "PackagePath": "staticwebassets\\uploads\\sliders\\fea521e7-4656-4c7b-b7e0-038a5099af8d_slider1.jpg"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.CinemaApp.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.CinemaApp.props",
+      "PackagePath": "build\\CinemaApp.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.CinemaApp.props",
+      "PackagePath": "buildMultiTargeting\\CinemaApp.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.CinemaApp.props",
+      "PackagePath": "buildTransitive\\CinemaApp.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

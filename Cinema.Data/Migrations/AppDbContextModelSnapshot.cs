@@ -96,6 +96,11 @@ namespace Cinema.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<string>("FlagPhoto")
+                        .IsRequired()
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(100)
@@ -235,6 +240,21 @@ namespace Cinema.Data.Migrations
                     b.HasIndex("SessionId");
 
                     b.ToTable("Orders");
+                });
+
+            modelBuilder.Entity("Cinema.Core.Entites.OrderSeat", b =>
+                {
+                    b.Property<int>("OrderId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("SeatId")
+                        .HasColumnType("int");
+
+                    b.HasKey("OrderId", "SeatId");
+
+                    b.HasIndex("SeatId");
+
+                    b.ToTable("OrderSeats");
                 });
 
             modelBuilder.Entity("Cinema.Core.Entites.Seat", b =>
@@ -394,24 +414,12 @@ namespace Cinema.Data.Migrations
                     b.Property<DateTime>("ModifiedAt")
                         .HasColumnType("datetime2");
 
+                    b.Property<int>("Order")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
                     b.ToTable("Sliders");
-                });
-
-            modelBuilder.Entity("OrderSeat", b =>
-                {
-                    b.Property<int>("OrdersId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("SeatsId")
-                        .HasColumnType("int");
-
-                    b.HasKey("OrdersId", "SeatsId");
-
-                    b.HasIndex("SeatsId");
-
-                    b.ToTable("OrderSeat");
                 });
 
             modelBuilder.Entity("Cinema.Core.Entites.Hall", b =>
@@ -459,6 +467,25 @@ namespace Cinema.Data.Migrations
                     b.Navigation("Session");
                 });
 
+            modelBuilder.Entity("Cinema.Core.Entites.OrderSeat", b =>
+                {
+                    b.HasOne("Cinema.Core.Entites.Order", "Order")
+                        .WithMany("OrderSeats")
+                        .HasForeignKey("OrderId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.HasOne("Cinema.Core.Entites.Seat", "Seat")
+                        .WithMany("OrderSeats")
+                        .HasForeignKey("SeatId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.Navigation("Order");
+
+                    b.Navigation("Seat");
+                });
+
             modelBuilder.Entity("Cinema.Core.Entites.Seat", b =>
                 {
                     b.HasOne("Cinema.Core.Entites.Hall", "Hall")
@@ -493,21 +520,6 @@ namespace Cinema.Data.Migrations
                     b.Navigation("Movie");
                 });
 
-            modelBuilder.Entity("OrderSeat", b =>
-                {
-                    b.HasOne("Cinema.Core.Entites.Order", null)
-                        .WithMany()
-                        .HasForeignKey("OrdersId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Cinema.Core.Entites.Seat", null)
-                        .WithMany()
-                        .HasForeignKey("SeatsId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
             modelBuilder.Entity("Cinema.Core.Entites.Branch", b =>
                 {
                     b.Navigation("Halls");
@@ -530,6 +542,16 @@ namespace Cinema.Data.Migrations
                     b.Navigation("MovieLanguages");
 
                     b.Navigation("Sessions");
+                });
+
+            modelBuilder.Entity("Cinema.Core.Entites.Order", b =>
+                {
+                    b.Navigation("OrderSeats");
+                });
+
+            modelBuilder.Entity("Cinema.Core.Entites.Seat", b =>
+                {
+                    b.Navigation("OrderSeats");
                 });
 
             modelBuilder.Entity("Cinema.Core.Entites.Session", b =>

@@ -19,6 +19,6 @@ namespace Cinema.Core.Entites
         public int NumberOfSeats { get; set; }
         public decimal TotalPrice { get; set; }
 
-        public ICollection<Seat> Seats { get; set; }
+        public List<OrderSeat> OrderSeats { get; set; }
     }
 }
