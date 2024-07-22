@@ -196,7 +196,7 @@ namespace Cinema.Data.Migrations
                         column: x => x.HallId,
                         principalTable: "Halls",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_Sessions_Movies_MovieId",
                         column: x => x.MovieId,
@@ -206,7 +206,7 @@ namespace Cinema.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Order",
+                name: "Orders",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -218,9 +218,9 @@ namespace Cinema.Data.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Order", x => x.Id);
+                    table.PrimaryKey("PK_Orders", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Order_Sessions_SessionId",
+                        name: "FK_Orders_Sessions_SessionId",
                         column: x => x.SessionId,
                         principalTable: "Sessions",
                         principalColumn: "Id",
@@ -257,21 +257,21 @@ namespace Cinema.Data.Migrations
                 name: "OrderSeat",
                 columns: table => new
                 {
-                    OrderId = table.Column<int>(type: "int", nullable: false),
-                    SeatId = table.Column<int>(type: "int", nullable: false)
+                    OrdersId = table.Column<int>(type: "int", nullable: false),
+                    SeatsId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_OrderSeat", x => new { x.OrderId, x.SeatId });
+                    table.PrimaryKey("PK_OrderSeat", x => new { x.OrdersId, x.SeatsId });
                     table.ForeignKey(
-                        name: "FK_OrderSeat_Order_OrderId",
-                        column: x => x.OrderId,
-                        principalTable: "Order",
+                        name: "FK_OrderSeat_Orders_OrdersId",
+                        column: x => x.OrdersId,
+                        principalTable: "Orders",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_OrderSeat_Seats_SeatId",
-                        column: x => x.SeatId,
+                        name: "FK_OrderSeat_Seats_SeatsId",
+                        column: x => x.SeatsId,
                         principalTable: "Seats",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
@@ -293,14 +293,14 @@ namespace Cinema.Data.Migrations
                 column: "LanguageId1");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Order_SessionId",
-                table: "Order",
+                name: "IX_Orders_SessionId",
+                table: "Orders",
                 column: "SessionId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_OrderSeat_SeatId",
+                name: "IX_OrderSeat_SeatsId",
                 table: "OrderSeat",
-                column: "SeatId");
+                column: "SeatsId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Seats_HallId",
@@ -345,7 +345,7 @@ namespace Cinema.Data.Migrations
                 name: "Languages");
 
             migrationBuilder.DropTable(
-                name: "Order");
+                name: "Orders");
 
             migrationBuilder.DropTable(
                 name: "Seats");

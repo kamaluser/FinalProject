@@ -234,30 +234,7 @@ namespace Cinema.Data.Migrations
 
                     b.HasIndex("SessionId");
 
-                    b.ToTable("Order");
-                });
-
-            modelBuilder.Entity("Cinema.Core.Entites.OrderSeat", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("OrderId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("SeatId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("OrderId");
-
-                    b.HasIndex("SeatId");
-
-                    b.ToTable("OrderSeat");
+                    b.ToTable("Orders");
                 });
 
             modelBuilder.Entity("Cinema.Core.Entites.Seat", b =>
@@ -422,6 +399,21 @@ namespace Cinema.Data.Migrations
                     b.ToTable("Sliders");
                 });
 
+            modelBuilder.Entity("OrderSeat", b =>
+                {
+                    b.Property<int>("OrdersId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("SeatsId")
+                        .HasColumnType("int");
+
+                    b.HasKey("OrdersId", "SeatsId");
+
+                    b.HasIndex("SeatsId");
+
+                    b.ToTable("OrderSeat");
+                });
+
             modelBuilder.Entity("Cinema.Core.Entites.Hall", b =>
                 {
                     b.HasOne("Cinema.Core.Entites.Branch", "Branch")
@@ -467,25 +459,6 @@ namespace Cinema.Data.Migrations
                     b.Navigation("Session");
                 });
 
-            modelBuilder.Entity("Cinema.Core.Entites.OrderSeat", b =>
-                {
-                    b.HasOne("Cinema.Core.Entites.Order", "Order")
-                        .WithMany("OrderSeats")
-                        .HasForeignKey("OrderId")
-                        .OnDelete(DeleteBehavior.NoAction)
-                        .IsRequired();
-
-                    b.HasOne("Cinema.Core.Entites.Seat", "Seat")
-                        .WithMany("OrderSeats")
-                        .HasForeignKey("SeatId")
-                        .OnDelete(DeleteBehavior.NoAction)
-                        .IsRequired();
-
-                    b.Navigation("Order");
-
-                    b.Navigation("Seat");
-                });
-
             modelBuilder.Entity("Cinema.Core.Entites.Seat", b =>
                 {
                     b.HasOne("Cinema.Core.Entites.Hall", "Hall")
@@ -520,6 +493,21 @@ namespace Cinema.Data.Migrations
                     b.Navigation("Movie");
                 });
 
+            modelBuilder.Entity("OrderSeat", b =>
+                {
+                    b.HasOne("Cinema.Core.Entites.Order", null)
+                        .WithMany()
+                        .HasForeignKey("OrdersId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Cinema.Core.Entites.Seat", null)
+                        .WithMany()
+                        .HasForeignKey("SeatsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("Cinema.Core.Entites.Branch", b =>
                 {
                     b.Navigation("Halls");
@@ -542,16 +530,6 @@ namespace Cinema.Data.Migrations
                     b.Navigation("MovieLanguages");
 
                     b.Navigation("Sessions");
-                });
-
-            modelBuilder.Entity("Cinema.Core.Entites.Order", b =>
-                {
-                    b.Navigation("OrderSeats");
-                });
-
-            modelBuilder.Entity("Cinema.Core.Entites.Seat", b =>
-                {
-                    b.Navigation("OrderSeats");
                 });
 
             modelBuilder.Entity("Cinema.Core.Entites.Session", b =>

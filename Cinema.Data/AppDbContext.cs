@@ -27,8 +27,7 @@ namespace Cinema.Data
         public DbSet<Language> Languages { get; set; }
         public DbSet<Slider> Sliders { get; set; }
         public DbSet<Setting> Settings { get; set; }
-        /*  public DbSet<Order> Orders { get; set; }
-        public DbSet<OrderSeat> OrderSeats { get; set; }*/
+        public DbSet<Order> Orders { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

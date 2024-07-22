@@ -13,6 +13,6 @@ namespace Cinema.Core.Entites
         public int HallId { get; set; }
         public Hall Hall { get; set; }
 
-        public List<OrderSeat> OrderSeats { get; set; }
+        public ICollection<Order> Orders { get; set; }
     }
 }
