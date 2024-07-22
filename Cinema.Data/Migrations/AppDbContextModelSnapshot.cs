@@ -239,13 +239,21 @@ namespace Cinema.Data.Migrations
 
             modelBuilder.Entity("Cinema.Core.Entites.OrderSeat", b =>
                 {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
                     b.Property<int>("OrderId")
                         .HasColumnType("int");
 
                     b.Property<int>("SeatId")
                         .HasColumnType("int");
 
-                    b.HasKey("OrderId", "SeatId");
+                    b.HasKey("Id");
+
+                    b.HasIndex("OrderId");
 
                     b.HasIndex("SeatId");
 
@@ -464,13 +472,13 @@ namespace Cinema.Data.Migrations
                     b.HasOne("Cinema.Core.Entites.Order", "Order")
                         .WithMany("OrderSeats")
                         .HasForeignKey("OrderId")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("Cinema.Core.Entites.Seat", "Seat")
                         .WithMany("OrderSeats")
                         .HasForeignKey("SeatId")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("Order");

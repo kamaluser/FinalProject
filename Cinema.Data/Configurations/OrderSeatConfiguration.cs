@@ -13,17 +13,16 @@ namespace Cinema.Data.Configurations
     {
         public void Configure(EntityTypeBuilder<OrderSeat> builder)
         {
-            builder.HasKey(os => new { os.OrderId, os.SeatId });
 
             builder.HasOne(os => os.Order)
                    .WithMany(o => o.OrderSeats)
                    .HasForeignKey(os => os.OrderId)
-                   .OnDelete(DeleteBehavior.Restrict);
+                   .OnDelete(DeleteBehavior.NoAction);
 
             builder.HasOne(os => os.Seat)
                    .WithMany(s => s.OrderSeats)
                    .HasForeignKey(os => os.SeatId)
-                   .OnDelete(DeleteBehavior.Restrict);
+                   .OnDelete(DeleteBehavior.NoAction);
         }
     }
 }

@@ -3,8 +3,24 @@
   "WorkspaceRootPath": "C:\\Users\\kamal\\Desktop\\FinalProjectCinemaApp\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{92B2D1AD-C42F-4704-8CDD-62531BFE17BA}|Cinema.Data\\Cinema.Data.csproj|c:\\users\\kamal\\desktop\\finalprojectcinemaapp\\cinema.data\\repositories\\implementations\\settingrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{92B2D1AD-C42F-4704-8CDD-62531BFE17BA}|Cinema.Data\\Cinema.Data.csproj|solutionrelative:cinema.data\\repositories\\implementations\\settingrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{92B2D1AD-C42F-4704-8CDD-62531BFE17BA}|Cinema.Data\\Cinema.Data.csproj|c:\\users\\kamal\\desktop\\finalprojectcinemaapp\\cinema.data\\configurations\\seatconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{92B2D1AD-C42F-4704-8CDD-62531BFE17BA}|Cinema.Data\\Cinema.Data.csproj|solutionrelative:cinema.data\\configurations\\seatconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{92B2D1AD-C42F-4704-8CDD-62531BFE17BA}|Cinema.Data\\Cinema.Data.csproj|c:\\users\\kamal\\desktop\\finalprojectcinemaapp\\cinema.data\\configurations\\orderconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{92B2D1AD-C42F-4704-8CDD-62531BFE17BA}|Cinema.Data\\Cinema.Data.csproj|solutionrelative:cinema.data\\configurations\\orderconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{92B2D1AD-C42F-4704-8CDD-62531BFE17BA}|Cinema.Data\\Cinema.Data.csproj|c:\\users\\kamal\\desktop\\finalprojectcinemaapp\\cinema.data\\configurations\\orderseatconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{92B2D1AD-C42F-4704-8CDD-62531BFE17BA}|Cinema.Data\\Cinema.Data.csproj|solutionrelative:cinema.data\\configurations\\orderseatconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EE9DF657-466A-438A-AF1B-E513B525039A}|Cinema.Core\\Cinema.Core.csproj|c:\\users\\kamal\\desktop\\finalprojectcinemaapp\\cinema.core\\entites\\orderseat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EE9DF657-466A-438A-AF1B-E513B525039A}|Cinema.Core\\Cinema.Core.csproj|solutionrelative:cinema.core\\entites\\orderseat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{92B2D1AD-C42F-4704-8CDD-62531BFE17BA}|Cinema.Data\\Cinema.Data.csproj|c:\\users\\kamal\\desktop\\finalprojectcinemaapp\\cinema.data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{92B2D1AD-C42F-4704-8CDD-62531BFE17BA}|Cinema.Data\\Cinema.Data.csproj|solutionrelative:cinema.data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{92B2D1AD-C42F-4704-8CDD-62531BFE17BA}|Cinema.Data\\Cinema.Data.csproj|c:\\users\\kamal\\desktop\\finalprojectcinemaapp\\cinema.data\\repositories\\implementations\\sessionrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -17,18 +33,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{92B2D1AD-C42F-4704-8CDD-62531BFE17BA}|Cinema.Data\\Cinema.Data.csproj|c:\\users\\kamal\\desktop\\finalprojectcinemaapp\\cinema.data\\repositories\\implementations\\orderrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{92B2D1AD-C42F-4704-8CDD-62531BFE17BA}|Cinema.Data\\Cinema.Data.csproj|solutionrelative:cinema.data\\repositories\\implementations\\orderrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{92B2D1AD-C42F-4704-8CDD-62531BFE17BA}|Cinema.Data\\Cinema.Data.csproj|c:\\users\\kamal\\desktop\\finalprojectcinemaapp\\cinema.data\\repositories\\implementations\\newsrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{92B2D1AD-C42F-4704-8CDD-62531BFE17BA}|Cinema.Data\\Cinema.Data.csproj|solutionrelative:cinema.data\\repositories\\implementations\\newsrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{92B2D1AD-C42F-4704-8CDD-62531BFE17BA}|Cinema.Data\\Cinema.Data.csproj|c:\\users\\kamal\\desktop\\finalprojectcinemaapp\\cinema.data\\repositories\\implementations\\movierepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{92B2D1AD-C42F-4704-8CDD-62531BFE17BA}|Cinema.Data\\Cinema.Data.csproj|solutionrelative:cinema.data\\repositories\\implementations\\movierepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{92B2D1AD-C42F-4704-8CDD-62531BFE17BA}|Cinema.Data\\Cinema.Data.csproj|c:\\users\\kamal\\desktop\\finalprojectcinemaapp\\cinema.data\\repositories\\implementations\\languagerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{92B2D1AD-C42F-4704-8CDD-62531BFE17BA}|Cinema.Data\\Cinema.Data.csproj|solutionrelative:cinema.data\\repositories\\implementations\\languagerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{92B2D1AD-C42F-4704-8CDD-62531BFE17BA}|Cinema.Data\\Cinema.Data.csproj|c:\\users\\kamal\\desktop\\finalprojectcinemaapp\\cinema.data\\repositories\\implementations\\hallrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -95,28 +99,12 @@
       "RelativeMoniker": "D:0:0:{92B2D1AD-C42F-4704-8CDD-62531BFE17BA}|Cinema.Data\\Cinema.Data.csproj|solutionrelative:cinema.data\\repositories\\interfaces\\isliderrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{92B2D1AD-C42F-4704-8CDD-62531BFE17BA}|Cinema.Data\\Cinema.Data.csproj|c:\\users\\kamal\\desktop\\finalprojectcinemaapp\\cinema.data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{92B2D1AD-C42F-4704-8CDD-62531BFE17BA}|Cinema.Data\\Cinema.Data.csproj|solutionrelative:cinema.data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{92B2D1AD-C42F-4704-8CDD-62531BFE17BA}|Cinema.Data\\Cinema.Data.csproj|c:\\users\\kamal\\desktop\\finalprojectcinemaapp\\cinema.data\\configurations\\sessionconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{92B2D1AD-C42F-4704-8CDD-62531BFE17BA}|Cinema.Data\\Cinema.Data.csproj|solutionrelative:cinema.data\\configurations\\sessionconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{92B2D1AD-C42F-4704-8CDD-62531BFE17BA}|Cinema.Data\\Cinema.Data.csproj|c:\\users\\kamal\\desktop\\finalprojectcinemaapp\\cinema.data\\migrations\\20240721201948_updateorderseatforeignkeys.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{92B2D1AD-C42F-4704-8CDD-62531BFE17BA}|Cinema.Data\\Cinema.Data.csproj|solutionrelative:cinema.data\\migrations\\20240721201948_updateorderseatforeignkeys.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{92B2D1AD-C42F-4704-8CDD-62531BFE17BA}|Cinema.Data\\Cinema.Data.csproj|c:\\users\\kamal\\desktop\\finalprojectcinemaapp\\cinema.data\\configurations\\orderseatconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{92B2D1AD-C42F-4704-8CDD-62531BFE17BA}|Cinema.Data\\Cinema.Data.csproj|solutionrelative:cinema.data\\configurations\\orderseatconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{61478171-EE21-45CE-89C1-3E8EEDCCE928}|CinemaApp\\CinemaApp.csproj|c:\\users\\kamal\\desktop\\finalprojectcinemaapp\\cinemaapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{61478171-EE21-45CE-89C1-3E8EEDCCE928}|CinemaApp\\CinemaApp.csproj|solutionrelative:cinemaapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\kamal\\Desktop\\FinalProjectCinemaApp\\Cinema.Data\\Migrations\\20240721195801_Init.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Cinema.Data\\Migrations\\20240721195801_Init.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{92B2D1AD-C42F-4704-8CDD-62531BFE17BA}|Cinema.Data\\Cinema.Data.csproj|c:\\users\\kamal\\desktop\\finalprojectcinemaapp\\cinema.data\\configurations\\branchconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -125,14 +113,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{92B2D1AD-C42F-4704-8CDD-62531BFE17BA}|Cinema.Data\\Cinema.Data.csproj|c:\\users\\kamal\\desktop\\finalprojectcinemaapp\\cinema.data\\configurations\\hallconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{92B2D1AD-C42F-4704-8CDD-62531BFE17BA}|Cinema.Data\\Cinema.Data.csproj|solutionrelative:cinema.data\\configurations\\hallconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{92B2D1AD-C42F-4704-8CDD-62531BFE17BA}|Cinema.Data\\Cinema.Data.csproj|c:\\users\\kamal\\desktop\\finalprojectcinemaapp\\cinema.data\\configurations\\orderconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{92B2D1AD-C42F-4704-8CDD-62531BFE17BA}|Cinema.Data\\Cinema.Data.csproj|solutionrelative:cinema.data\\configurations\\orderconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{92B2D1AD-C42F-4704-8CDD-62531BFE17BA}|Cinema.Data\\Cinema.Data.csproj|c:\\users\\kamal\\desktop\\finalprojectcinemaapp\\cinema.data\\configurations\\seatconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{92B2D1AD-C42F-4704-8CDD-62531BFE17BA}|Cinema.Data\\Cinema.Data.csproj|solutionrelative:cinema.data\\configurations\\seatconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{92B2D1AD-C42F-4704-8CDD-62531BFE17BA}|Cinema.Data\\Cinema.Data.csproj|c:\\users\\kamal\\desktop\\finalprojectcinemaapp\\cinema.data\\configurations\\languageconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -167,12 +147,12 @@
       "RelativeMoniker": "D:0:0:{EE9DF657-466A-438A-AF1B-E513B525039A}|Cinema.Core\\Cinema.Core.csproj|solutionrelative:cinema.core\\entites\\seat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EE9DF657-466A-438A-AF1B-E513B525039A}|Cinema.Core\\Cinema.Core.csproj|c:\\users\\kamal\\desktop\\finalprojectcinemaapp\\cinema.core\\entites\\orderseat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EE9DF657-466A-438A-AF1B-E513B525039A}|Cinema.Core\\Cinema.Core.csproj|solutionrelative:cinema.core\\entites\\orderseat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{EE9DF657-466A-438A-AF1B-E513B525039A}|Cinema.Core\\Cinema.Core.csproj|c:\\users\\kamal\\desktop\\finalprojectcinemaapp\\cinema.core\\entites\\movielanguage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{EE9DF657-466A-438A-AF1B-E513B525039A}|Cinema.Core\\Cinema.Core.csproj|solutionrelative:cinema.core\\entites\\movielanguage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{92B2D1AD-C42F-4704-8CDD-62531BFE17BA}|Cinema.Data\\Cinema.Data.csproj|c:\\users\\kamal\\desktop\\finalprojectcinemaapp\\cinema.data\\migrations\\20240721195801_init.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{92B2D1AD-C42F-4704-8CDD-62531BFE17BA}|Cinema.Data\\Cinema.Data.csproj|solutionrelative:cinema.data\\migrations\\20240721195801_init.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -182,370 +162,19 @@
       "DocumentGroups": [
         {
           "DockedWidth": 222,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 9,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "SettingRepository.cs",
-              "DocumentMoniker": "C:\\Users\\kamal\\Desktop\\FinalProjectCinemaApp\\Cinema.Data\\Repositories\\Implementations\\SettingRepository.cs",
-              "RelativeDocumentMoniker": "Cinema.Data\\Repositories\\Implementations\\SettingRepository.cs",
-              "ToolTip": "C:\\Users\\kamal\\Desktop\\FinalProjectCinemaApp\\Cinema.Data\\Repositories\\Implementations\\SettingRepository.cs",
-              "RelativeToolTip": "Cinema.Data\\Repositories\\Implementations\\SettingRepository.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAA3AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-21T21:05:44.547Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "SessionRepository.cs",
-              "DocumentMoniker": "C:\\Users\\kamal\\Desktop\\FinalProjectCinemaApp\\Cinema.Data\\Repositories\\Implementations\\SessionRepository.cs",
-              "RelativeDocumentMoniker": "Cinema.Data\\Repositories\\Implementations\\SessionRepository.cs",
-              "ToolTip": "C:\\Users\\kamal\\Desktop\\FinalProjectCinemaApp\\Cinema.Data\\Repositories\\Implementations\\SessionRepository.cs",
-              "RelativeToolTip": "Cinema.Data\\Repositories\\Implementations\\SessionRepository.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAFAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-21T21:05:02.545Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "SeatRepository.cs",
-              "DocumentMoniker": "C:\\Users\\kamal\\Desktop\\FinalProjectCinemaApp\\Cinema.Data\\Repositories\\Implementations\\SeatRepository.cs",
-              "RelativeDocumentMoniker": "Cinema.Data\\Repositories\\Implementations\\SeatRepository.cs",
-              "ToolTip": "C:\\Users\\kamal\\Desktop\\FinalProjectCinemaApp\\Cinema.Data\\Repositories\\Implementations\\SeatRepository.cs",
-              "RelativeToolTip": "Cinema.Data\\Repositories\\Implementations\\SeatRepository.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAxAAAA",
+              "Title": "OrderSeatConfiguration.cs",
+              "DocumentMoniker": "C:\\Users\\kamal\\Desktop\\FinalProjectCinemaApp\\Cinema.Data\\Configurations\\OrderSeatConfiguration.cs",
+              "RelativeDocumentMoniker": "Cinema.Data\\Configurations\\OrderSeatConfiguration.cs",
+              "ToolTip": "C:\\Users\\kamal\\Desktop\\FinalProjectCinemaApp\\Cinema.Data\\Configurations\\OrderSeatConfiguration.cs",
+              "RelativeToolTip": "Cinema.Data\\Configurations\\OrderSeatConfiguration.cs",
+              "ViewState": "AQIAAAUAAAAAAAAAAAAzwBcAAAAyAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-21T21:04:19.43Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "OrderRepository.cs",
-              "DocumentMoniker": "C:\\Users\\kamal\\Desktop\\FinalProjectCinemaApp\\Cinema.Data\\Repositories\\Implementations\\OrderRepository.cs",
-              "RelativeDocumentMoniker": "Cinema.Data\\Repositories\\Implementations\\OrderRepository.cs",
-              "ToolTip": "C:\\Users\\kamal\\Desktop\\FinalProjectCinemaApp\\Cinema.Data\\Repositories\\Implementations\\OrderRepository.cs",
-              "RelativeToolTip": "Cinema.Data\\Repositories\\Implementations\\OrderRepository.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAABGAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-21T21:03:35.295Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "NewsRepository.cs",
-              "DocumentMoniker": "C:\\Users\\kamal\\Desktop\\FinalProjectCinemaApp\\Cinema.Data\\Repositories\\Implementations\\NewsRepository.cs",
-              "RelativeDocumentMoniker": "Cinema.Data\\Repositories\\Implementations\\NewsRepository.cs",
-              "ToolTip": "C:\\Users\\kamal\\Desktop\\FinalProjectCinemaApp\\Cinema.Data\\Repositories\\Implementations\\NewsRepository.cs",
-              "RelativeToolTip": "Cinema.Data\\Repositories\\Implementations\\NewsRepository.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAJAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-21T21:01:43.354Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "MovieRepository.cs",
-              "DocumentMoniker": "C:\\Users\\kamal\\Desktop\\FinalProjectCinemaApp\\Cinema.Data\\Repositories\\Implementations\\MovieRepository.cs",
-              "RelativeDocumentMoniker": "Cinema.Data\\Repositories\\Implementations\\MovieRepository.cs",
-              "ToolTip": "C:\\Users\\kamal\\Desktop\\FinalProjectCinemaApp\\Cinema.Data\\Repositories\\Implementations\\MovieRepository.cs",
-              "RelativeToolTip": "Cinema.Data\\Repositories\\Implementations\\MovieRepository.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAJAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-21T21:00:52.276Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "LanguageRepository.cs",
-              "DocumentMoniker": "C:\\Users\\kamal\\Desktop\\FinalProjectCinemaApp\\Cinema.Data\\Repositories\\Implementations\\LanguageRepository.cs",
-              "RelativeDocumentMoniker": "Cinema.Data\\Repositories\\Implementations\\LanguageRepository.cs",
-              "ToolTip": "C:\\Users\\kamal\\Desktop\\FinalProjectCinemaApp\\Cinema.Data\\Repositories\\Implementations\\LanguageRepository.cs",
-              "RelativeToolTip": "Cinema.Data\\Repositories\\Implementations\\LanguageRepository.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAABHAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-21T20:59:33.479Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "HallRepository.cs",
-              "DocumentMoniker": "C:\\Users\\kamal\\Desktop\\FinalProjectCinemaApp\\Cinema.Data\\Repositories\\Implementations\\HallRepository.cs",
-              "RelativeDocumentMoniker": "Cinema.Data\\Repositories\\Implementations\\HallRepository.cs",
-              "ToolTip": "C:\\Users\\kamal\\Desktop\\FinalProjectCinemaApp\\Cinema.Data\\Repositories\\Implementations\\HallRepository.cs",
-              "RelativeToolTip": "Cinema.Data\\Repositories\\Implementations\\HallRepository.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAABDAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-21T20:58:07.464Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "BranchRepository.cs",
-              "DocumentMoniker": "C:\\Users\\kamal\\Desktop\\FinalProjectCinemaApp\\Cinema.Data\\Repositories\\Implementations\\BranchRepository.cs",
-              "RelativeDocumentMoniker": "Cinema.Data\\Repositories\\Implementations\\BranchRepository.cs",
-              "ToolTip": "C:\\Users\\kamal\\Desktop\\FinalProjectCinemaApp\\Cinema.Data\\Repositories\\Implementations\\BranchRepository.cs",
-              "RelativeToolTip": "Cinema.Data\\Repositories\\Implementations\\BranchRepository.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-21T20:53:15.576Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "SliderRepository.cs",
-              "DocumentMoniker": "C:\\Users\\kamal\\Desktop\\FinalProjectCinemaApp\\Cinema.Data\\Repositories\\Implementations\\SliderRepository.cs",
-              "RelativeDocumentMoniker": "Cinema.Data\\Repositories\\Implementations\\SliderRepository.cs",
-              "ToolTip": "C:\\Users\\kamal\\Desktop\\FinalProjectCinemaApp\\Cinema.Data\\Repositories\\Implementations\\SliderRepository.cs",
-              "RelativeToolTip": "Cinema.Data\\Repositories\\Implementations\\SliderRepository.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAJAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-21T20:51:05.801Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "Repository.cs",
-              "DocumentMoniker": "C:\\Users\\kamal\\Desktop\\FinalProjectCinemaApp\\Cinema.Data\\Repositories\\Implementations\\Repository.cs",
-              "RelativeDocumentMoniker": "Cinema.Data\\Repositories\\Implementations\\Repository.cs",
-              "ToolTip": "C:\\Users\\kamal\\Desktop\\FinalProjectCinemaApp\\Cinema.Data\\Repositories\\Implementations\\Repository.cs",
-              "RelativeToolTip": "Cinema.Data\\Repositories\\Implementations\\Repository.cs",
-              "ViewState": "AQIAAAYAAAAAAAAAAAAzwBIAAAAJAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-21T20:49:23.063Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "ISessionRepository.cs",
-              "DocumentMoniker": "C:\\Users\\kamal\\Desktop\\FinalProjectCinemaApp\\Cinema.Data\\Repositories\\Interfaces\\ISessionRepository.cs",
-              "RelativeDocumentMoniker": "Cinema.Data\\Repositories\\Interfaces\\ISessionRepository.cs",
-              "ToolTip": "C:\\Users\\kamal\\Desktop\\FinalProjectCinemaApp\\Cinema.Data\\Repositories\\Interfaces\\ISessionRepository.cs",
-              "RelativeToolTip": "Cinema.Data\\Repositories\\Interfaces\\ISessionRepository.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAA7AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-21T20:48:56.307Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "ISeatRepository.cs",
-              "DocumentMoniker": "C:\\Users\\kamal\\Desktop\\FinalProjectCinemaApp\\Cinema.Data\\Repositories\\Interfaces\\ISeatRepository.cs",
-              "RelativeDocumentMoniker": "Cinema.Data\\Repositories\\Interfaces\\ISeatRepository.cs",
-              "ToolTip": "C:\\Users\\kamal\\Desktop\\FinalProjectCinemaApp\\Cinema.Data\\Repositories\\Interfaces\\ISeatRepository.cs",
-              "RelativeToolTip": "Cinema.Data\\Repositories\\Interfaces\\ISeatRepository.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAA1AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-21T20:48:36.31Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "IOrderRepository.cs",
-              "DocumentMoniker": "C:\\Users\\kamal\\Desktop\\FinalProjectCinemaApp\\Cinema.Data\\Repositories\\Interfaces\\IOrderRepository.cs",
-              "RelativeDocumentMoniker": "Cinema.Data\\Repositories\\Interfaces\\IOrderRepository.cs",
-              "ToolTip": "C:\\Users\\kamal\\Desktop\\FinalProjectCinemaApp\\Cinema.Data\\Repositories\\Interfaces\\IOrderRepository.cs",
-              "RelativeToolTip": "Cinema.Data\\Repositories\\Interfaces\\IOrderRepository.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAA3AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-21T20:48:11.304Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "IMovieRepository.cs",
-              "DocumentMoniker": "C:\\Users\\kamal\\Desktop\\FinalProjectCinemaApp\\Cinema.Data\\Repositories\\Interfaces\\IMovieRepository.cs",
-              "RelativeDocumentMoniker": "Cinema.Data\\Repositories\\Interfaces\\IMovieRepository.cs",
-              "ToolTip": "C:\\Users\\kamal\\Desktop\\FinalProjectCinemaApp\\Cinema.Data\\Repositories\\Interfaces\\IMovieRepository.cs",
-              "RelativeToolTip": "Cinema.Data\\Repositories\\Interfaces\\IMovieRepository.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAA4AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-21T20:46:04.778Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "Language.cs",
-              "DocumentMoniker": "C:\\Users\\kamal\\Desktop\\FinalProjectCinemaApp\\Cinema.Core\\Entites\\Language.cs",
-              "RelativeDocumentMoniker": "Cinema.Core\\Entites\\Language.cs",
-              "ToolTip": "C:\\Users\\kamal\\Desktop\\FinalProjectCinemaApp\\Cinema.Core\\Entites\\Language.cs",
-              "RelativeToolTip": "Cinema.Core\\Entites\\Language.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-21T20:41:13.608Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "ILanguageRepository.cs",
-              "DocumentMoniker": "C:\\Users\\kamal\\Desktop\\FinalProjectCinemaApp\\Cinema.Data\\Repositories\\Interfaces\\ILanguageRepository.cs",
-              "RelativeDocumentMoniker": "Cinema.Data\\Repositories\\Interfaces\\ILanguageRepository.cs",
-              "ToolTip": "C:\\Users\\kamal\\Desktop\\FinalProjectCinemaApp\\Cinema.Data\\Repositories\\Interfaces\\ILanguageRepository.cs",
-              "RelativeToolTip": "Cinema.Data\\Repositories\\Interfaces\\ILanguageRepository.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAA9AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-21T20:40:30.882Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "IRepository.cs",
-              "DocumentMoniker": "C:\\Users\\kamal\\Desktop\\FinalProjectCinemaApp\\Cinema.Data\\Repositories\\Interfaces\\IRepository.cs",
-              "RelativeDocumentMoniker": "Cinema.Data\\Repositories\\Interfaces\\IRepository.cs",
-              "ToolTip": "C:\\Users\\kamal\\Desktop\\FinalProjectCinemaApp\\Cinema.Data\\Repositories\\Interfaces\\IRepository.cs",
-              "RelativeToolTip": "Cinema.Data\\Repositories\\Interfaces\\IRepository.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAFAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-21T20:31:56.941Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "ISettingRepository.cs",
-              "DocumentMoniker": "C:\\Users\\kamal\\Desktop\\FinalProjectCinemaApp\\Cinema.Data\\Repositories\\Interfaces\\ISettingRepository.cs",
-              "RelativeDocumentMoniker": "Cinema.Data\\Repositories\\Interfaces\\ISettingRepository.cs",
-              "ToolTip": "C:\\Users\\kamal\\Desktop\\FinalProjectCinemaApp\\Cinema.Data\\Repositories\\Interfaces\\ISettingRepository.cs",
-              "RelativeToolTip": "Cinema.Data\\Repositories\\Interfaces\\ISettingRepository.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAA8AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-21T20:38:08.122Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 19,
-              "Title": "IBranchRepository.cs",
-              "DocumentMoniker": "C:\\Users\\kamal\\Desktop\\FinalProjectCinemaApp\\Cinema.Data\\Repositories\\Interfaces\\IBranchRepository.cs",
-              "RelativeDocumentMoniker": "Cinema.Data\\Repositories\\Interfaces\\IBranchRepository.cs",
-              "ToolTip": "C:\\Users\\kamal\\Desktop\\FinalProjectCinemaApp\\Cinema.Data\\Repositories\\Interfaces\\IBranchRepository.cs",
-              "RelativeToolTip": "Cinema.Data\\Repositories\\Interfaces\\IBranchRepository.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAdAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-21T20:37:35.224Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 20,
-              "Title": "IHallRepository.cs",
-              "DocumentMoniker": "C:\\Users\\kamal\\Desktop\\FinalProjectCinemaApp\\Cinema.Data\\Repositories\\Interfaces\\IHallRepository.cs",
-              "RelativeDocumentMoniker": "Cinema.Data\\Repositories\\Interfaces\\IHallRepository.cs",
-              "ToolTip": "C:\\Users\\kamal\\Desktop\\FinalProjectCinemaApp\\Cinema.Data\\Repositories\\Interfaces\\IHallRepository.cs",
-              "RelativeToolTip": "Cinema.Data\\Repositories\\Interfaces\\IHallRepository.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAA1AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-21T20:36:59.818Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 21,
-              "Title": "INewsRepository.cs",
-              "DocumentMoniker": "C:\\Users\\kamal\\Desktop\\FinalProjectCinemaApp\\Cinema.Data\\Repositories\\Interfaces\\INewsRepository.cs",
-              "RelativeDocumentMoniker": "Cinema.Data\\Repositories\\Interfaces\\INewsRepository.cs",
-              "ToolTip": "C:\\Users\\kamal\\Desktop\\FinalProjectCinemaApp\\Cinema.Data\\Repositories\\Interfaces\\INewsRepository.cs",
-              "RelativeToolTip": "Cinema.Data\\Repositories\\Interfaces\\INewsRepository.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-21T20:35:43.972Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 22,
-              "Title": "ISliderRepository.cs",
-              "DocumentMoniker": "C:\\Users\\kamal\\Desktop\\FinalProjectCinemaApp\\Cinema.Data\\Repositories\\Interfaces\\ISliderRepository.cs",
-              "RelativeDocumentMoniker": "Cinema.Data\\Repositories\\Interfaces\\ISliderRepository.cs",
-              "ToolTip": "C:\\Users\\kamal\\Desktop\\FinalProjectCinemaApp\\Cinema.Data\\Repositories\\Interfaces\\ISliderRepository.cs",
-              "RelativeToolTip": "Cinema.Data\\Repositories\\Interfaces\\ISliderRepository.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-21T20:32:31.996Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 25,
-              "Title": "20240721201948_UpdateOrderSeatForeignKeys.cs",
-              "DocumentMoniker": "C:\\Users\\kamal\\Desktop\\FinalProjectCinemaApp\\Cinema.Data\\Migrations\\20240721201948_UpdateOrderSeatForeignKeys.cs",
-              "RelativeDocumentMoniker": "Cinema.Data\\Migrations\\20240721201948_UpdateOrderSeatForeignKeys.cs",
-              "ToolTip": "C:\\Users\\kamal\\Desktop\\FinalProjectCinemaApp\\Cinema.Data\\Migrations\\20240721201948_UpdateOrderSeatForeignKeys.cs",
-              "RelativeToolTip": "Cinema.Data\\Migrations\\20240721201948_UpdateOrderSeatForeignKeys.cs",
-              "ViewState": "AQIAAFoAAAAAAAAAAAAAAFoAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-21T20:19:48.5Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 27,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\kamal\\Desktop\\FinalProjectCinemaApp\\CinemaApp\\Program.cs",
-              "RelativeDocumentMoniker": "CinemaApp\\Program.cs",
-              "ToolTip": "C:\\Users\\kamal\\Desktop\\FinalProjectCinemaApp\\CinemaApp\\Program.cs",
-              "RelativeToolTip": "CinemaApp\\Program.cs",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAAABcAAAABAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-21T20:16:11.031Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 24,
-              "Title": "SessionConfiguration.cs",
-              "DocumentMoniker": "C:\\Users\\kamal\\Desktop\\FinalProjectCinemaApp\\Cinema.Data\\Configurations\\SessionConfiguration.cs",
-              "RelativeDocumentMoniker": "Cinema.Data\\Configurations\\SessionConfiguration.cs",
-              "ToolTip": "C:\\Users\\kamal\\Desktop\\FinalProjectCinemaApp\\Cinema.Data\\Configurations\\SessionConfiguration.cs",
-              "RelativeToolTip": "Cinema.Data\\Configurations\\SessionConfiguration.cs",
-              "ViewState": "AQIAAAsAAAAAAAAAAAA4wB8AAAArAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-21T20:10:01.457Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 28,
-              "Title": "20240721195801_Init.cs",
-              "DocumentMoniker": "C:\\Users\\kamal\\Desktop\\FinalProjectCinemaApp\\Cinema.Data\\Migrations\\20240721195801_Init.cs",
-              "RelativeDocumentMoniker": "Cinema.Data\\Migrations\\20240721195801_Init.cs",
-              "ToolTip": "C:\\Users\\kamal\\Desktop\\FinalProjectCinemaApp\\Cinema.Data\\Migrations\\20240721195801_Init.cs",
-              "RelativeToolTip": "Cinema.Data\\Migrations\\20240721195801_Init.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAABoAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-21T19:58:01.343Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 23,
-              "Title": "AppDbContext.cs",
-              "DocumentMoniker": "C:\\Users\\kamal\\Desktop\\FinalProjectCinemaApp\\Cinema.Data\\AppDbContext.cs",
-              "RelativeDocumentMoniker": "Cinema.Data\\AppDbContext.cs",
-              "ToolTip": "C:\\Users\\kamal\\Desktop\\FinalProjectCinemaApp\\Cinema.Data\\AppDbContext.cs",
-              "RelativeToolTip": "Cinema.Data\\AppDbContext.cs",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAAAA8AAABTAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-21T19:27:07.079Z",
+              "WhenOpened": "2024-07-22T12:51:07.007Z",
               "EditorCaption": ""
             },
             {
@@ -562,33 +191,323 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 31,
+              "DocumentIndex": 3,
+              "Title": "OrderSeat.cs",
+              "DocumentMoniker": "C:\\Users\\kamal\\Desktop\\FinalProjectCinemaApp\\Cinema.Core\\Entites\\OrderSeat.cs",
+              "RelativeDocumentMoniker": "Cinema.Core\\Entites\\OrderSeat.cs",
+              "ToolTip": "C:\\Users\\kamal\\Desktop\\FinalProjectCinemaApp\\Cinema.Core\\Entites\\OrderSeat.cs",
+              "RelativeToolTip": "Cinema.Core\\Entites\\OrderSeat.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAjAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-21T16:26:17.995Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "AppDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\kamal\\Desktop\\FinalProjectCinemaApp\\Cinema.Data\\AppDbContext.cs",
+              "RelativeDocumentMoniker": "Cinema.Data\\AppDbContext.cs",
+              "ToolTip": "C:\\Users\\kamal\\Desktop\\FinalProjectCinemaApp\\Cinema.Data\\AppDbContext.cs",
+              "RelativeToolTip": "Cinema.Data\\AppDbContext.cs",
+              "ViewState": "AQIAABAAAAAAAAAAAAAkwB4AAAA6AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-21T19:27:07.079Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "SessionRepository.cs",
+              "DocumentMoniker": "C:\\Users\\kamal\\Desktop\\FinalProjectCinemaApp\\Cinema.Data\\Repositories\\Implementations\\SessionRepository.cs",
+              "RelativeDocumentMoniker": "Cinema.Data\\Repositories\\Implementations\\SessionRepository.cs",
+              "ToolTip": "C:\\Users\\kamal\\Desktop\\FinalProjectCinemaApp\\Cinema.Data\\Repositories\\Implementations\\SessionRepository.cs",
+              "RelativeToolTip": "Cinema.Data\\Repositories\\Implementations\\SessionRepository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-21T21:05:02.545Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "HallRepository.cs",
+              "DocumentMoniker": "C:\\Users\\kamal\\Desktop\\FinalProjectCinemaApp\\Cinema.Data\\Repositories\\Implementations\\HallRepository.cs",
+              "RelativeDocumentMoniker": "Cinema.Data\\Repositories\\Implementations\\HallRepository.cs",
+              "ToolTip": "C:\\Users\\kamal\\Desktop\\FinalProjectCinemaApp\\Cinema.Data\\Repositories\\Implementations\\HallRepository.cs",
+              "RelativeToolTip": "Cinema.Data\\Repositories\\Implementations\\HallRepository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAABDAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-21T20:58:07.464Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "OrderConfiguration.cs",
               "DocumentMoniker": "C:\\Users\\kamal\\Desktop\\FinalProjectCinemaApp\\Cinema.Data\\Configurations\\OrderConfiguration.cs",
               "RelativeDocumentMoniker": "Cinema.Data\\Configurations\\OrderConfiguration.cs",
               "ToolTip": "C:\\Users\\kamal\\Desktop\\FinalProjectCinemaApp\\Cinema.Data\\Configurations\\OrderConfiguration.cs",
               "RelativeToolTip": "Cinema.Data\\Configurations\\OrderConfiguration.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAArAAAA",
+              "ViewState": "AQIAAAQAAAAAAAAAAAAzwBcAAAA2AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-07-21T19:11:23.326Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
-              "Title": "OrderSeatConfiguration.cs",
-              "DocumentMoniker": "C:\\Users\\kamal\\Desktop\\FinalProjectCinemaApp\\Cinema.Data\\Configurations\\OrderSeatConfiguration.cs",
-              "RelativeDocumentMoniker": "Cinema.Data\\Configurations\\OrderSeatConfiguration.cs",
-              "ToolTip": "C:\\Users\\kamal\\Desktop\\FinalProjectCinemaApp\\Cinema.Data\\Configurations\\OrderSeatConfiguration.cs",
-              "RelativeToolTip": "Cinema.Data\\Configurations\\OrderSeatConfiguration.cs",
-              "ViewState": "AQIAAAQAAAAAAAAAAAAQwBkAAAA2AAAA",
+              "DocumentIndex": 0,
+              "Title": "SeatConfiguration.cs",
+              "DocumentMoniker": "C:\\Users\\kamal\\Desktop\\FinalProjectCinemaApp\\Cinema.Data\\Configurations\\SeatConfiguration.cs",
+              "RelativeDocumentMoniker": "Cinema.Data\\Configurations\\SeatConfiguration.cs",
+              "ToolTip": "C:\\Users\\kamal\\Desktop\\FinalProjectCinemaApp\\Cinema.Data\\Configurations\\SeatConfiguration.cs",
+              "RelativeToolTip": "Cinema.Data\\Configurations\\SeatConfiguration.cs",
+              "ViewState": "AQIAAAIAAAAAAAAAAAAzwA0AAAA+AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-21T19:11:00.752Z",
+              "WhenOpened": "2024-07-21T19:11:46.795Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
+              "DocumentIndex": 7,
+              "Title": "OrderRepository.cs",
+              "DocumentMoniker": "C:\\Users\\kamal\\Desktop\\FinalProjectCinemaApp\\Cinema.Data\\Repositories\\Implementations\\OrderRepository.cs",
+              "RelativeDocumentMoniker": "Cinema.Data\\Repositories\\Implementations\\OrderRepository.cs",
+              "ToolTip": "C:\\Users\\kamal\\Desktop\\FinalProjectCinemaApp\\Cinema.Data\\Repositories\\Implementations\\OrderRepository.cs",
+              "RelativeToolTip": "Cinema.Data\\Repositories\\Implementations\\OrderRepository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAABGAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-21T21:03:35.295Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "SeatRepository.cs",
+              "DocumentMoniker": "C:\\Users\\kamal\\Desktop\\FinalProjectCinemaApp\\Cinema.Data\\Repositories\\Implementations\\SeatRepository.cs",
+              "RelativeDocumentMoniker": "Cinema.Data\\Repositories\\Implementations\\SeatRepository.cs",
+              "ToolTip": "C:\\Users\\kamal\\Desktop\\FinalProjectCinemaApp\\Cinema.Data\\Repositories\\Implementations\\SeatRepository.cs",
+              "RelativeToolTip": "Cinema.Data\\Repositories\\Implementations\\SeatRepository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAxAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-21T21:04:19.43Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "BranchRepository.cs",
+              "DocumentMoniker": "C:\\Users\\kamal\\Desktop\\FinalProjectCinemaApp\\Cinema.Data\\Repositories\\Implementations\\BranchRepository.cs",
+              "RelativeDocumentMoniker": "Cinema.Data\\Repositories\\Implementations\\BranchRepository.cs",
+              "ToolTip": "C:\\Users\\kamal\\Desktop\\FinalProjectCinemaApp\\Cinema.Data\\Repositories\\Implementations\\BranchRepository.cs",
+              "RelativeToolTip": "Cinema.Data\\Repositories\\Implementations\\BranchRepository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-21T20:53:15.576Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "SliderRepository.cs",
+              "DocumentMoniker": "C:\\Users\\kamal\\Desktop\\FinalProjectCinemaApp\\Cinema.Data\\Repositories\\Implementations\\SliderRepository.cs",
+              "RelativeDocumentMoniker": "Cinema.Data\\Repositories\\Implementations\\SliderRepository.cs",
+              "ToolTip": "C:\\Users\\kamal\\Desktop\\FinalProjectCinemaApp\\Cinema.Data\\Repositories\\Implementations\\SliderRepository.cs",
+              "RelativeToolTip": "Cinema.Data\\Repositories\\Implementations\\SliderRepository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-21T20:51:05.801Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Repository.cs",
+              "DocumentMoniker": "C:\\Users\\kamal\\Desktop\\FinalProjectCinemaApp\\Cinema.Data\\Repositories\\Implementations\\Repository.cs",
+              "RelativeDocumentMoniker": "Cinema.Data\\Repositories\\Implementations\\Repository.cs",
+              "ToolTip": "C:\\Users\\kamal\\Desktop\\FinalProjectCinemaApp\\Cinema.Data\\Repositories\\Implementations\\Repository.cs",
+              "RelativeToolTip": "Cinema.Data\\Repositories\\Implementations\\Repository.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAzwBIAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-21T20:49:23.063Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "ISessionRepository.cs",
+              "DocumentMoniker": "C:\\Users\\kamal\\Desktop\\FinalProjectCinemaApp\\Cinema.Data\\Repositories\\Interfaces\\ISessionRepository.cs",
+              "RelativeDocumentMoniker": "Cinema.Data\\Repositories\\Interfaces\\ISessionRepository.cs",
+              "ToolTip": "C:\\Users\\kamal\\Desktop\\FinalProjectCinemaApp\\Cinema.Data\\Repositories\\Interfaces\\ISessionRepository.cs",
+              "RelativeToolTip": "Cinema.Data\\Repositories\\Interfaces\\ISessionRepository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAA7AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-21T20:48:56.307Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "ISeatRepository.cs",
+              "DocumentMoniker": "C:\\Users\\kamal\\Desktop\\FinalProjectCinemaApp\\Cinema.Data\\Repositories\\Interfaces\\ISeatRepository.cs",
+              "RelativeDocumentMoniker": "Cinema.Data\\Repositories\\Interfaces\\ISeatRepository.cs",
+              "ToolTip": "C:\\Users\\kamal\\Desktop\\FinalProjectCinemaApp\\Cinema.Data\\Repositories\\Interfaces\\ISeatRepository.cs",
+              "RelativeToolTip": "Cinema.Data\\Repositories\\Interfaces\\ISeatRepository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAA1AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-21T20:48:36.31Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "IOrderRepository.cs",
+              "DocumentMoniker": "C:\\Users\\kamal\\Desktop\\FinalProjectCinemaApp\\Cinema.Data\\Repositories\\Interfaces\\IOrderRepository.cs",
+              "RelativeDocumentMoniker": "Cinema.Data\\Repositories\\Interfaces\\IOrderRepository.cs",
+              "ToolTip": "C:\\Users\\kamal\\Desktop\\FinalProjectCinemaApp\\Cinema.Data\\Repositories\\Interfaces\\IOrderRepository.cs",
+              "RelativeToolTip": "Cinema.Data\\Repositories\\Interfaces\\IOrderRepository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAA3AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-21T20:48:11.304Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "IMovieRepository.cs",
+              "DocumentMoniker": "C:\\Users\\kamal\\Desktop\\FinalProjectCinemaApp\\Cinema.Data\\Repositories\\Interfaces\\IMovieRepository.cs",
+              "RelativeDocumentMoniker": "Cinema.Data\\Repositories\\Interfaces\\IMovieRepository.cs",
+              "ToolTip": "C:\\Users\\kamal\\Desktop\\FinalProjectCinemaApp\\Cinema.Data\\Repositories\\Interfaces\\IMovieRepository.cs",
+              "RelativeToolTip": "Cinema.Data\\Repositories\\Interfaces\\IMovieRepository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAA4AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-21T20:46:04.778Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "Language.cs",
+              "DocumentMoniker": "C:\\Users\\kamal\\Desktop\\FinalProjectCinemaApp\\Cinema.Core\\Entites\\Language.cs",
+              "RelativeDocumentMoniker": "Cinema.Core\\Entites\\Language.cs",
+              "ToolTip": "C:\\Users\\kamal\\Desktop\\FinalProjectCinemaApp\\Cinema.Core\\Entites\\Language.cs",
+              "RelativeToolTip": "Cinema.Core\\Entites\\Language.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-21T20:41:13.608Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "ILanguageRepository.cs",
+              "DocumentMoniker": "C:\\Users\\kamal\\Desktop\\FinalProjectCinemaApp\\Cinema.Data\\Repositories\\Interfaces\\ILanguageRepository.cs",
+              "RelativeDocumentMoniker": "Cinema.Data\\Repositories\\Interfaces\\ILanguageRepository.cs",
+              "ToolTip": "C:\\Users\\kamal\\Desktop\\FinalProjectCinemaApp\\Cinema.Data\\Repositories\\Interfaces\\ILanguageRepository.cs",
+              "RelativeToolTip": "Cinema.Data\\Repositories\\Interfaces\\ILanguageRepository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAA9AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-21T20:40:30.882Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "IRepository.cs",
+              "DocumentMoniker": "C:\\Users\\kamal\\Desktop\\FinalProjectCinemaApp\\Cinema.Data\\Repositories\\Interfaces\\IRepository.cs",
+              "RelativeDocumentMoniker": "Cinema.Data\\Repositories\\Interfaces\\IRepository.cs",
+              "ToolTip": "C:\\Users\\kamal\\Desktop\\FinalProjectCinemaApp\\Cinema.Data\\Repositories\\Interfaces\\IRepository.cs",
+              "RelativeToolTip": "Cinema.Data\\Repositories\\Interfaces\\IRepository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-21T20:31:56.941Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "ISettingRepository.cs",
+              "DocumentMoniker": "C:\\Users\\kamal\\Desktop\\FinalProjectCinemaApp\\Cinema.Data\\Repositories\\Interfaces\\ISettingRepository.cs",
+              "RelativeDocumentMoniker": "Cinema.Data\\Repositories\\Interfaces\\ISettingRepository.cs",
+              "ToolTip": "C:\\Users\\kamal\\Desktop\\FinalProjectCinemaApp\\Cinema.Data\\Repositories\\Interfaces\\ISettingRepository.cs",
+              "RelativeToolTip": "Cinema.Data\\Repositories\\Interfaces\\ISettingRepository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAA8AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-21T20:38:08.122Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "IBranchRepository.cs",
+              "DocumentMoniker": "C:\\Users\\kamal\\Desktop\\FinalProjectCinemaApp\\Cinema.Data\\Repositories\\Interfaces\\IBranchRepository.cs",
+              "RelativeDocumentMoniker": "Cinema.Data\\Repositories\\Interfaces\\IBranchRepository.cs",
+              "ToolTip": "C:\\Users\\kamal\\Desktop\\FinalProjectCinemaApp\\Cinema.Data\\Repositories\\Interfaces\\IBranchRepository.cs",
+              "RelativeToolTip": "Cinema.Data\\Repositories\\Interfaces\\IBranchRepository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAdAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-21T20:37:35.224Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "IHallRepository.cs",
+              "DocumentMoniker": "C:\\Users\\kamal\\Desktop\\FinalProjectCinemaApp\\Cinema.Data\\Repositories\\Interfaces\\IHallRepository.cs",
+              "RelativeDocumentMoniker": "Cinema.Data\\Repositories\\Interfaces\\IHallRepository.cs",
+              "ToolTip": "C:\\Users\\kamal\\Desktop\\FinalProjectCinemaApp\\Cinema.Data\\Repositories\\Interfaces\\IHallRepository.cs",
+              "RelativeToolTip": "Cinema.Data\\Repositories\\Interfaces\\IHallRepository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAA1AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-21T20:36:59.818Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "INewsRepository.cs",
+              "DocumentMoniker": "C:\\Users\\kamal\\Desktop\\FinalProjectCinemaApp\\Cinema.Data\\Repositories\\Interfaces\\INewsRepository.cs",
+              "RelativeDocumentMoniker": "Cinema.Data\\Repositories\\Interfaces\\INewsRepository.cs",
+              "ToolTip": "C:\\Users\\kamal\\Desktop\\FinalProjectCinemaApp\\Cinema.Data\\Repositories\\Interfaces\\INewsRepository.cs",
+              "RelativeToolTip": "Cinema.Data\\Repositories\\Interfaces\\INewsRepository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-21T20:35:43.972Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "ISliderRepository.cs",
+              "DocumentMoniker": "C:\\Users\\kamal\\Desktop\\FinalProjectCinemaApp\\Cinema.Data\\Repositories\\Interfaces\\ISliderRepository.cs",
+              "RelativeDocumentMoniker": "Cinema.Data\\Repositories\\Interfaces\\ISliderRepository.cs",
+              "ToolTip": "C:\\Users\\kamal\\Desktop\\FinalProjectCinemaApp\\Cinema.Data\\Repositories\\Interfaces\\ISliderRepository.cs",
+              "RelativeToolTip": "Cinema.Data\\Repositories\\Interfaces\\ISliderRepository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-21T20:32:31.996Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\kamal\\Desktop\\FinalProjectCinemaApp\\CinemaApp\\Program.cs",
+              "RelativeDocumentMoniker": "CinemaApp\\Program.cs",
+              "ToolTip": "C:\\Users\\kamal\\Desktop\\FinalProjectCinemaApp\\CinemaApp\\Program.cs",
+              "RelativeToolTip": "CinemaApp\\Program.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAABcAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-21T20:16:11.031Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "SessionConfiguration.cs",
+              "DocumentMoniker": "C:\\Users\\kamal\\Desktop\\FinalProjectCinemaApp\\Cinema.Data\\Configurations\\SessionConfiguration.cs",
+              "RelativeDocumentMoniker": "Cinema.Data\\Configurations\\SessionConfiguration.cs",
+              "ToolTip": "C:\\Users\\kamal\\Desktop\\FinalProjectCinemaApp\\Cinema.Data\\Configurations\\SessionConfiguration.cs",
+              "RelativeToolTip": "Cinema.Data\\Configurations\\SessionConfiguration.cs",
+              "ViewState": "AQIAAAsAAAAAAAAAAAA4wB8AAAArAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-21T20:10:01.457Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 37,
+              "Title": "20240721195801_Init.cs",
+              "DocumentMoniker": "C:\\Users\\kamal\\Desktop\\FinalProjectCinemaApp\\Cinema.Data\\Migrations\\20240721195801_Init.cs",
+              "RelativeDocumentMoniker": "Cinema.Data\\Migrations\\20240721195801_Init.cs",
+              "ToolTip": "C:\\Users\\kamal\\Desktop\\FinalProjectCinemaApp\\Cinema.Data\\Migrations\\20240721195801_Init.cs",
+              "RelativeToolTip": "Cinema.Data\\Migrations\\20240721195801_Init.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAABoAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-21T19:58:01.343Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
               "Title": "HallConfiguration.cs",
               "DocumentMoniker": "C:\\Users\\kamal\\Desktop\\FinalProjectCinemaApp\\Cinema.Data\\Configurations\\HallConfiguration.cs",
               "RelativeDocumentMoniker": "Cinema.Data\\Configurations\\HallConfiguration.cs",
@@ -596,25 +515,11 @@
               "RelativeToolTip": "Cinema.Data\\Configurations\\HallConfiguration.cs",
               "ViewState": "AQIAAAkAAAAAAAAAAAAAABIAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-21T19:03:10.598Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-07-21T19:03:10.598Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 32,
-              "Title": "SeatConfiguration.cs",
-              "DocumentMoniker": "C:\\Users\\kamal\\Desktop\\FinalProjectCinemaApp\\Cinema.Data\\Configurations\\SeatConfiguration.cs",
-              "RelativeDocumentMoniker": "Cinema.Data\\Configurations\\SeatConfiguration.cs",
-              "ToolTip": "C:\\Users\\kamal\\Desktop\\FinalProjectCinemaApp\\Cinema.Data\\Configurations\\SeatConfiguration.cs",
-              "RelativeToolTip": "Cinema.Data\\Configurations\\SeatConfiguration.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAABDAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-21T19:11:46.795Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 26,
               "Title": "BranchConfiguration.cs",
               "DocumentMoniker": "C:\\Users\\kamal\\Desktop\\FinalProjectCinemaApp\\Cinema.Data\\Configurations\\BranchConfiguration.cs",
               "RelativeDocumentMoniker": "Cinema.Data\\Configurations\\BranchConfiguration.cs",
@@ -622,12 +527,11 @@
               "RelativeToolTip": "Cinema.Data\\Configurations\\BranchConfiguration.cs",
               "ViewState": "AQIAAAMAAAAAAAAAAAAAAA8AAAAmAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-21T19:02:09.932Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-07-21T19:02:09.932Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 33,
+              "DocumentIndex": 28,
               "Title": "LanguageConfiguration.cs",
               "DocumentMoniker": "C:\\Users\\kamal\\Desktop\\FinalProjectCinemaApp\\Cinema.Data\\Configurations\\LanguageConfiguration.cs",
               "RelativeDocumentMoniker": "Cinema.Data\\Configurations\\LanguageConfiguration.cs",
@@ -635,12 +539,11 @@
               "RelativeToolTip": "Cinema.Data\\Configurations\\LanguageConfiguration.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAABCAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-21T19:06:54.934Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-07-21T19:06:54.934Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 34,
+              "DocumentIndex": 29,
               "Title": "NewsConfiguration.cs",
               "DocumentMoniker": "C:\\Users\\kamal\\Desktop\\FinalProjectCinemaApp\\Cinema.Data\\Configurations\\NewsConfiguration.cs",
               "RelativeDocumentMoniker": "Cinema.Data\\Configurations\\NewsConfiguration.cs",
@@ -648,12 +551,11 @@
               "RelativeToolTip": "Cinema.Data\\Configurations\\NewsConfiguration.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABUAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-21T19:10:26.658Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-07-21T19:10:26.658Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 35,
+              "DocumentIndex": 30,
               "Title": "SettingConfiguration.cs",
               "DocumentMoniker": "C:\\Users\\kamal\\Desktop\\FinalProjectCinemaApp\\Cinema.Data\\Configurations\\SettingConfiguration.cs",
               "RelativeDocumentMoniker": "Cinema.Data\\Configurations\\SettingConfiguration.cs",
@@ -661,12 +563,11 @@
               "RelativeToolTip": "Cinema.Data\\Configurations\\SettingConfiguration.cs",
               "ViewState": "AQIAAAYAAAAAAAAAAAAQwBIAAABBAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-21T19:09:44.162Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-07-21T19:09:44.162Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 36,
+              "DocumentIndex": 31,
               "Title": "SliderConfiguration.cs",
               "DocumentMoniker": "C:\\Users\\kamal\\Desktop\\FinalProjectCinemaApp\\Cinema.Data\\Configurations\\SliderConfiguration.cs",
               "RelativeDocumentMoniker": "Cinema.Data\\Configurations\\SliderConfiguration.cs",
@@ -674,12 +575,11 @@
               "RelativeToolTip": "Cinema.Data\\Configurations\\SliderConfiguration.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-21T19:09:03.942Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-07-21T19:09:03.942Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 37,
+              "DocumentIndex": 32,
               "Title": "MovieLanguageConfiguration.cs",
               "DocumentMoniker": "C:\\Users\\kamal\\Desktop\\FinalProjectCinemaApp\\Cinema.Data\\Configurations\\MovieLanguageConfiguration.cs",
               "RelativeDocumentMoniker": "Cinema.Data\\Configurations\\MovieLanguageConfiguration.cs",
@@ -687,12 +587,11 @@
               "RelativeToolTip": "Cinema.Data\\Configurations\\MovieLanguageConfiguration.cs",
               "ViewState": "AQIAAAMAAAAAAAAAAABOwBoAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-21T19:07:15.57Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-07-21T19:07:15.57Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 38,
+              "DocumentIndex": 33,
               "Title": "MovieConfiguration.cs",
               "DocumentMoniker": "C:\\Users\\kamal\\Desktop\\FinalProjectCinemaApp\\Cinema.Data\\Configurations\\MovieConfiguration.cs",
               "RelativeDocumentMoniker": "Cinema.Data\\Configurations\\MovieConfiguration.cs",
@@ -700,12 +599,11 @@
               "RelativeToolTip": "Cinema.Data\\Configurations\\MovieConfiguration.cs",
               "ViewState": "AQIAAAYAAAAAAAAAAABOwB4AAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-21T19:06:44.209Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-07-21T19:06:44.209Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 42,
+              "DocumentIndex": 36,
               "Title": "MovieLanguage.cs",
               "DocumentMoniker": "C:\\Users\\kamal\\Desktop\\FinalProjectCinemaApp\\Cinema.Core\\Entites\\MovieLanguage.cs",
               "RelativeDocumentMoniker": "Cinema.Core\\Entites\\MovieLanguage.cs",
@@ -713,25 +611,11 @@
               "RelativeToolTip": "Cinema.Core\\Entites\\MovieLanguage.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-21T16:18:18.464Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-07-21T16:18:18.464Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 41,
-              "Title": "OrderSeat.cs",
-              "DocumentMoniker": "C:\\Users\\kamal\\Desktop\\FinalProjectCinemaApp\\Cinema.Core\\Entites\\OrderSeat.cs",
-              "RelativeDocumentMoniker": "Cinema.Core\\Entites\\OrderSeat.cs",
-              "ToolTip": "C:\\Users\\kamal\\Desktop\\FinalProjectCinemaApp\\Cinema.Core\\Entites\\OrderSeat.cs",
-              "RelativeToolTip": "Cinema.Core\\Entites\\OrderSeat.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-21T16:26:17.995Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 40,
+              "DocumentIndex": 35,
               "Title": "Seat.cs",
               "DocumentMoniker": "C:\\Users\\kamal\\Desktop\\FinalProjectCinemaApp\\Cinema.Core\\Entites\\Seat.cs",
               "RelativeDocumentMoniker": "Cinema.Core\\Entites\\Seat.cs",
@@ -739,12 +623,11 @@
               "RelativeToolTip": "Cinema.Core\\Entites\\Seat.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-21T16:27:37.577Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-07-21T16:27:37.577Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 39,
+              "DocumentIndex": 34,
               "Title": "Session.cs",
               "DocumentMoniker": "C:\\Users\\kamal\\Desktop\\FinalProjectCinemaApp\\Cinema.Core\\Entites\\Session.cs",
               "RelativeDocumentMoniker": "Cinema.Core\\Entites\\Session.cs",
@@ -752,8 +635,7 @@
               "RelativeToolTip": "Cinema.Core\\Entites\\Session.cs",
               "ViewState": "AQIAAAcAAAAAAAAAAAAzwBgAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-21T16:29:26.145Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-07-21T16:29:26.145Z"
             }
           ]
         }

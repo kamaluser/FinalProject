@@ -19,8 +19,9 @@ namespace Cinema.Data.Configurations
             builder.Property(o => o.TotalPrice).HasColumnType("decimal(18,2)").IsRequired();
 
             builder.HasMany(o => o.OrderSeats)
-                   .WithOne(os => os.Order)
-                   .HasForeignKey(os => os.OrderId);
+                    .WithOne(os => os.Order)
+                    .HasForeignKey(os => os.OrderId)
+                    .OnDelete(DeleteBehavior.Cascade);
         }
     }
 
