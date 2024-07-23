@@ -45,7 +45,7 @@ namespace Cinema.Service.Implementations
 
         public void Edit(int id, AdminSliderEditDto editDto)
         {
-            var slider = _repository.Get(x => x.Id == id);
+            var slider = _repository.Get(x => x.Id == id && !x.IsDeleted);
 
             if (slider == null)
             {
@@ -92,30 +92,21 @@ namespace Cinema.Service.Implementations
 
             slider.ModifiedAt = DateTime.Now;
             slider.IsDeleted = true;
-            _repository.Delete(slider);
+            //_repository.Delete(slider);
             _repository.Save();
         }
 
         public PaginatedList<AdminSliderGetDto> GetAllByPage(int page = 1, int size = 10)
         {
             var query = _repository.GetAll(x => !x.IsDeleted);
-            var totalItems = query.Count();
-
-            if (totalItems == 0)
-            {
-                return new PaginatedList<AdminSliderGetDto>(new List<AdminSliderGetDto>(), 0, page, size);
-            }
-
-            if (page < 1) page = 1;
-            var totalPages = (int)Math.Ceiling(totalItems / (double)size);
-            if (page > totalPages) page = totalPages;
-
             var paginated = PaginatedList<Slider>.Create(query, page, size);
-            var resultList = _mapper.Map<List<AdminSliderGetDto>>(paginated.Items);
-
-            return new PaginatedList<AdminSliderGetDto>(resultList, totalPages, page, size);
+            if (page > paginated.TotalPages)
+            {
+                page = paginated.TotalPages;
+                paginated = PaginatedList<Slider>.Create(query, page, size);
+            }
+            return new PaginatedList<AdminSliderGetDto>(_mapper.Map<List<AdminSliderGetDto>>(paginated.Items), paginated.TotalPages, page, size);
         }
-
 
         public AdminSliderGetDto GetById(int id)
         {
