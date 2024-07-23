@@ -14,8 +14,8 @@ namespace Cinema.Data.Configurations
         public void Configure(EntityTypeBuilder<Language> builder)
         {
             builder.HasKey(l => l.Id);
-            builder.Property(l => l.Name).IsRequired().HasMaxLength(100);
-            builder.Property(m => m.FlagPhoto).IsRequired().HasMaxLength(500);
+            builder.Property(l => l.Name).IsRequired().HasMaxLength(30);
+            builder.Property(m => m.FlagPhoto).IsRequired();
         }
     }
 

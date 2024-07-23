@@ -2,6 +2,7 @@
 using Cinema.Core.Entites;
 using Cinema.Service.Dtos.BranchDtos;
 using Cinema.Service.Dtos.HallDtos;
+using Cinema.Service.Dtos.LanguageDtos;
 using Cinema.Service.Dtos.SliderDtos;
 using Microsoft.AspNetCore.Http;
 using System;
@@ -53,6 +54,19 @@ namespace Cinema.Service.Profiles
 
             CreateMap<AdminHallCreateDto, Hall>();
             CreateMap<AdminHallEditDto, Hall>();
+
+            //language(admin)
+            CreateMap<Language, AdminLanguageGetDto>()
+                .ForMember(dest => dest.FlagPhoto, opt => opt.MapFrom((src, dest, destMember, context) =>
+                {
+                    return baseUrl + $"/uploads/flags/{src.FlagPhoto}";
+                }));
+
+            CreateMap<AdminLanguageCreateDto, Language>()
+                .ForMember(dest => dest.FlagPhoto, opt => opt.Ignore());
+
+            CreateMap<AdminLanguageEditDto, Language>()
+                .ForMember(dest => dest.FlagPhoto, opt => opt.Ignore());
         }
     }
 }

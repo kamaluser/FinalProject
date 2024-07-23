@@ -59,16 +59,16 @@ namespace Cinema.Service.Implementations
         public List<AdminHallGetDto> GetAll(string? search = null)
         {
 
-            var students = _hallRepository.GetAll(x => (search == null || x.Name.Contains(search)) && !x.IsDeleted, "Branch").ToList();
+            var halls = _hallRepository.GetAll(x => (search == null || x.Name.Contains(search)) && !x.IsDeleted, "Branch").ToList();
 
-            var studentDtos = students.Select(student =>
+            var hallDtos = halls.Select(hall =>
             {
-                var dto = _mapper.Map<AdminHallGetDto>(student);
+                var dto = _mapper.Map<AdminHallGetDto>(hall);
                 return dto;
             }).ToList();
 
 
-            return studentDtos;
+            return hallDtos;
         }
 
         public AdminHallGetDto GetById(int id)
@@ -109,11 +109,12 @@ namespace Cinema.Service.Implementations
         public void Delete(int id)
         {
 
-            var student = _hallRepository.Get(s => s.Id == id && !s.IsDeleted);
-            if (student == null)
+            var hall = _hallRepository.Get(s => s.Id == id && !s.IsDeleted);
+            if (hall == null)
                 throw new RestException(StatusCodes.Status404NotFound, $"Hall with {id} ID not found.");
 
-            student.IsDeleted = true;
+            hall.IsDeleted = true;
+            hall.ModifiedAt = DateTime.Now;
             _hallRepository.Save();
 
         }
