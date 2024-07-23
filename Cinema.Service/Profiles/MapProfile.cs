@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Cinema.Core.Entites;
 using Cinema.Service.Dtos.BranchDtos;
+using Cinema.Service.Dtos.HallDtos;
 using Cinema.Service.Dtos.SliderDtos;
 using Microsoft.AspNetCore.Http;
 using System;
@@ -45,6 +46,13 @@ namespace Cinema.Service.Profiles
             CreateMap<Branch, AdminBranchGetDto>();
             CreateMap<AdminBranchCreateDto, Branch>();
             CreateMap<AdminBranchEditDto, Branch>();
+
+            //hall(admin)
+            CreateMap<Hall, AdminHallGetDto>()
+                .ForMember(dest => dest.BranchName, opt => opt.MapFrom(src => src.Branch.Name));
+
+            CreateMap<AdminHallCreateDto, Hall>();
+            CreateMap<AdminHallEditDto, Hall>();
         }
     }
 }

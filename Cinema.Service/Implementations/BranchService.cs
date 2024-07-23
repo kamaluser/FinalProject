@@ -45,18 +45,13 @@ namespace Cinema.Service.Implementations
 
         public PaginatedList<AdminBranchGetDto> GetAllByPage(string? search = null, int page = 1, int size = 10)
         {
-            if (page < 1) page = 1;
-            if (size < 1) size = 10;
-
             var query = _repository.GetAll(x => !x.IsDeleted && (search == null || x.Name.Contains(search)), "Halls");
             var paginated = PaginatedList<Branch>.Create(query, page, size);
-
             if (page > paginated.TotalPages)
             {
                 page = paginated.TotalPages;
                 paginated = PaginatedList<Branch>.Create(query, page, size);
             }
-
             return new PaginatedList<AdminBranchGetDto>(_mapper.Map<List<AdminBranchGetDto>>(paginated.Items), paginated.TotalPages, page, size);
         }
 

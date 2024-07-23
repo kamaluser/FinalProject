@@ -27,17 +27,7 @@ namespace CinemaApp.Controllers
         [HttpGet("")]
         public ActionResult<PaginatedList<AdminBranchGetDto>> GetAllByPagination(string? search = null, int page = 1, int size = 3)
         {
-            if (page < 1) page = 1;
-            if (size < 1) size = 3;
-
-            var paginatedList = _branchService.GetAllByPage(search, page, size);
-
-            if (!paginatedList.Items.Any() && page > 1)
-            {
-                return BadRequest(new { message = "No branches found for this page." });
-            }
-
-            return StatusCode(200, paginatedList);
+            return StatusCode(200, _branchService.GetAllByPage(search, page, size));
         }
 
         [HttpGet("all")]

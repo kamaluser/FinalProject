@@ -15,7 +15,7 @@ namespace Cinema.Data.Configurations
         {
             builder.HasKey(slider => slider.Id);
             builder.Property(slider => slider.Order).IsRequired();
-            builder.Property(slider => slider.Image).IsRequired().HasMaxLength(500);
+            builder.Property(slider => slider.Image).IsRequired();
         }
     }
 

@@ -14,7 +14,7 @@ namespace Cinema.Data.Configurations
         public void Configure(EntityTypeBuilder<Hall> builder)
         {
             builder.HasKey(h => h.Id);
-            builder.Property(h => h.Name).IsRequired().HasMaxLength(200);
+            builder.Property(h => h.Name).IsRequired().HasMaxLength(100);
             builder.Property(h => h.SeatCount).IsRequired();
 
             builder.HasMany(h => h.Sessions)

@@ -14,8 +14,8 @@ namespace Cinema.Data.Configurations
         public void Configure(EntityTypeBuilder<Branch> builder)
         {
             builder.HasKey(b => b.Id);
-            builder.Property(b => b.Name).IsRequired().HasMaxLength(200);
-            builder.Property(b => b.Address).IsRequired();
+            builder.Property(b => b.Name).IsRequired().HasMaxLength(100);
+            builder.Property(b => b.Address).IsRequired().HasMaxLength(200);
 
             builder.HasMany(b => b.Halls)
                    .WithOne(h => h.Branch)
