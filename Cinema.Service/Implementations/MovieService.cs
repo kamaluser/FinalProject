@@ -73,7 +73,7 @@ namespace Cinema.Service.Implementations
 
         public void Edit(int id, AdminMovieEditDto editDto)
         {
-            var movie = _movieRepository.Get(x => x.Id == id && !x.IsDeleted);
+            var movie = _movieRepository.Get(x => x.Id == id && !x.IsDeleted, "MovieLanguages");
 
             if (movie == null)
             {
@@ -94,33 +94,31 @@ namespace Cinema.Service.Implementations
             if (editDto.Photo != null)
             {
                 var photoPath = SavePhoto(editDto.Photo);
-                if (!string.IsNullOrEmpty(movie.Photo) && System.IO.File.Exists(Path.Combine(_environment.WebRootPath, movie.Photo)))
+                if (!string.IsNullOrEmpty(movie.Photo) && System.IO.File.Exists(Path.Combine(_environment.WebRootPath, "uploads", "movies", movie.Photo)))
                 {
-                    System.IO.File.Delete(Path.Combine(_environment.WebRootPath, movie.Photo));
+                    System.IO.File.Delete(Path.Combine(_environment.WebRootPath, "uploads", "movies", movie.Photo));
                 }
                 movie.Photo = photoPath;
             }
 
             _mapper.Map(editDto, movie);
 
-            movie.MovieLanguages = null;
-            
+            movie.MovieLanguages = new List<MovieLanguage>();
+
             foreach (var item in languages)
             {
-                MovieLanguage ml = new MovieLanguage();
-                ml.Movie = movie;
-                ml.Language = item;
+                MovieLanguage ml = new MovieLanguage
+                {
+                    Movie = movie,
+                    Language = item
+                };
                 movie.MovieLanguages.Add(ml);
             }
-
-            //var newMovieLanguages = languages.Select(l => new MovieLanguage { Movie = movie, Language = l }).ToList();
-
-            //movie.MovieLanguages = newMovieLanguages;
 
             _movieRepository.Save();
         }
 
-        public void Delete(int id) 
+        public void Delete(int id)
         {
             var movie = _movieRepository.Get(x => x.Id == id && !x.IsDeleted);
             if (movie == null)
