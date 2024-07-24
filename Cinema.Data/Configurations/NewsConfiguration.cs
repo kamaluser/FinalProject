@@ -15,9 +15,8 @@ namespace Cinema.Data.Configurations
         {
             builder.HasKey(n => n.Id);
             builder.Property(n => n.Title).IsRequired().HasMaxLength(200);
-            builder.Property(n => n.Image).IsRequired().HasMaxLength(500);
-            builder.Property(n => n.Description).IsRequired();
+            builder.Property(n => n.Image).IsRequired();
+            builder.Property(n => n.Description).IsRequired().HasMaxLength(600);
         }
     }
-
 }

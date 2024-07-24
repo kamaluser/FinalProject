@@ -14,12 +14,12 @@ namespace Cinema.Data.Configurations
         public void Configure(EntityTypeBuilder<Movie> builder)
         {
             builder.HasKey(m => m.Id);
-            builder.Property(m => m.Title).IsRequired().HasMaxLength(200);
-            builder.Property(m => m.Description).IsRequired();
-            builder.Property(m => m.TrailerLink).IsRequired().HasMaxLength(500);
+            builder.Property(m => m.Title).IsRequired().HasMaxLength(100);
+            builder.Property(m => m.Description).IsRequired().HasMaxLength(500);
+            builder.Property(m => m.TrailerLink).IsRequired();
             builder.Property(m => m.ReleaseDate).IsRequired();
-            builder.Property(m => m.AgeLimit).IsRequired();
-            builder.Property(m => m.Photo).IsRequired().HasMaxLength(500);
+            builder.Property(m => m.AgeLimit).IsRequired().HasMaxLength(30);
+            builder.Property(m => m.Photo).IsRequired();
 
             builder.HasMany(m => m.Sessions)
                    .WithOne(s => s.Movie)

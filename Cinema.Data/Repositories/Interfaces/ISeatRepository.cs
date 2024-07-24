@@ -9,5 +9,6 @@ namespace Cinema.Data.Repositories.Interfaces
 {
     public interface ISeatRepository:IRepository<Seat>
     {
+        void AddRange(IEnumerable<Seat> seats);
     }
 }

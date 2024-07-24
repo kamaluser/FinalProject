@@ -22,24 +22,24 @@ namespace Cinema.Service.Implementations
     {
         private readonly IHallRepository _hallRepository;
         private readonly IBranchRepository _branchRepository;
+        private readonly ISeatRepository _seatRepository;
         private readonly IWebHostEnvironment _environment;
         private readonly IMapper _mapper;
 
-        public HallService(IHallRepository hallRepository, IBranchRepository branchRepository, IWebHostEnvironment environment, IMapper mapper)
+        public HallService(IHallRepository hallRepository, IBranchRepository branchRepository, ISeatRepository seatRepository, IWebHostEnvironment environment, IMapper mapper)
         {
             _hallRepository = hallRepository;
             _branchRepository = branchRepository;
+            _seatRepository = seatRepository;
             _environment = environment;
             _mapper = mapper;
         }
         public int Create(AdminHallCreateDto dto)
         {
-
             if (_hallRepository.Exists(x => x.Name.ToLower() == dto.Name.ToLower() && x.BranchId == dto.BranchId && !x.IsDeleted))
             {
                 throw new RestException(StatusCodes.Status400BadRequest, "Name", "A hall with the given name already exists in this branch.");
             }
-
 
             Branch branch = _branchRepository.Get(x => x.Id == dto.BranchId && !x.IsDeleted, "Halls");
 
@@ -53,7 +53,20 @@ namespace Cinema.Service.Implementations
             _hallRepository.Add(hall);
             _hallRepository.Save();
 
+            CreateSeatsForHall(hall);
+
             return hall.Id;
+        }
+
+        private void CreateSeatsForHall(Hall hall)
+        {
+            List<Seat> seats = new List<Seat>();
+            for (int i = 1; i <= hall.SeatCount; i++)
+            {
+                seats.Add(new Seat { HallId = hall.Id, Number = i });
+            }
+            _seatRepository.AddRange(seats);
+            _seatRepository.Save();
         }
 
         public List<AdminHallGetDto> GetAll(string? search = null)

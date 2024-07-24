@@ -57,6 +57,5 @@ namespace CinemaApp.Controllers
             _branchService.Delete(id);
             return NoContent();
         }
-
     }
 }

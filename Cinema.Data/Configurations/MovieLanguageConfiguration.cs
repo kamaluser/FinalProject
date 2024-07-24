@@ -20,10 +20,8 @@ namespace Cinema.Data.Configurations
                    .HasForeignKey(ml => ml.MovieId);
 
             builder.HasOne(ml => ml.Language)
-                   .WithMany()
+                   .WithMany(l=>l.MovieLanguages)
                    .HasForeignKey(ml => ml.LanguageId);
         }
     }
-
-
 }

@@ -10,9 +10,16 @@ namespace Cinema.Data.Repositories.Implementations
 {
     public class SeatRepository : Repository<Seat>, ISeatRepository
     {
+        private readonly AppDbContext _context;
+
         public SeatRepository(AppDbContext context) : base(context)
         {
+            _context = context;
+        }
 
+        public void AddRange(IEnumerable<Seat> seats)
+        {
+            _context.Seats.AddRange(seats);
         }
     }
 }

@@ -3,6 +3,8 @@ using Cinema.Core.Entites;
 using Cinema.Service.Dtos.BranchDtos;
 using Cinema.Service.Dtos.HallDtos;
 using Cinema.Service.Dtos.LanguageDtos;
+using Cinema.Service.Dtos.MovieDtos;
+using Cinema.Service.Dtos.NewsDtos;
 using Cinema.Service.Dtos.SliderDtos;
 using Microsoft.AspNetCore.Http;
 using System;
@@ -55,7 +57,7 @@ namespace Cinema.Service.Profiles
             CreateMap<AdminHallCreateDto, Hall>();
             CreateMap<AdminHallEditDto, Hall>();
 
-            //language(admin)
+            // language(admin)
             CreateMap<Language, AdminLanguageGetDto>()
                 .ForMember(dest => dest.FlagPhoto, opt => opt.MapFrom((src, dest, destMember, context) =>
                 {
@@ -67,6 +69,30 @@ namespace Cinema.Service.Profiles
 
             CreateMap<AdminLanguageEditDto, Language>()
                 .ForMember(dest => dest.FlagPhoto, opt => opt.Ignore());
+
+            // news(admin)
+            CreateMap<News, AdminNewsGetDto>()
+                .ForMember(dest => dest.Image, opt => opt.MapFrom((src, dest, destMember, context) =>
+                {
+                    return baseUrl + $"/uploads/news/{src.Image}";
+                }));
+
+            CreateMap<AdminNewsCreateDto, News>()
+                .ForMember(dest => dest.Image, opt => opt.Ignore());
+
+            CreateMap<AdminNewsEditDto, News>()
+                .ForMember(dest => dest.Image, opt => opt.Ignore());
+
+            // Movie
+            CreateMap<Movie, AdminMovieGetDto>()
+                .ForMember(dest => dest.LanguageNames, opt => opt.MapFrom(src => src.MovieLanguages.Select(ml => ml.Language.Name).ToList()))
+                .ForMember(dest => dest.Photo, opt => opt.MapFrom(src => $"{baseUrl}/uploads/movies/{src.Photo}"));
+
+            CreateMap<AdminMovieCreateDto, Movie>()
+                .ForMember(dest => dest.Photo, opt => opt.Ignore());
+
+            CreateMap<AdminMovieEditDto, Movie>()
+                .ForMember(dest => dest.Photo, opt => opt.Ignore());
         }
     }
 }
