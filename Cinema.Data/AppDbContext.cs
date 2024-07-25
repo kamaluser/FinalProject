@@ -11,7 +11,7 @@ using Cinema.Core.Entites;
 
 namespace Cinema.Data
 {
-    public class AppDbContext : DbContext
+    public class AppDbContext : IdentityDbContext
     {
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {
@@ -29,6 +29,8 @@ namespace Cinema.Data
         public DbSet<Setting> Settings { get; set; }
         public DbSet<Order> Orders { get; set; }
         public DbSet<OrderSeat> OrderSeats { get; set; }
+        public DbSet<AppUser> AppUsers { get; set; }
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
