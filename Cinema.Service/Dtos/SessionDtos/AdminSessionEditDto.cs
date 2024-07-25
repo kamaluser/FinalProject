@@ -5,7 +5,6 @@ namespace Cinema.Service.Dtos.SessionDtos
 {
     public class AdminSessionEditDto
     {
-        public int Id { get; set; }
         public int MovieId { get; set; }
         public int HallId { get; set; }
         public int LanguageId { get; set; }
@@ -18,10 +17,6 @@ namespace Cinema.Service.Dtos.SessionDtos
     {
         public AdminSessionEditDtoValidator()
         {
-            RuleFor(x => x.Id)
-                .NotEmpty().WithMessage("Id is required.")
-                .GreaterThan(0).WithMessage("Id must be a positive integer.");
-
             RuleFor(x => x.MovieId)
                 .NotEmpty().WithMessage("MovieId is required.")
                 .GreaterThan(0).WithMessage("MovieId must be a positive integer.");

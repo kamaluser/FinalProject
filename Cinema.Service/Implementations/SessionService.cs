@@ -122,9 +122,15 @@ namespace Cinema.Service.Implementations
             if (session == null)
                 throw new RestException(StatusCodes.Status404NotFound, "Session not found");
 
-            var movie = _movieRepository.Get(x => x.Id == dto.MovieId);
+            var movie = _movieRepository.GetAll(x => x.Id == dto.MovieId)
+                .Include(x => x.MovieLanguages)
+                .FirstOrDefault();
+
             if (movie == null)
                 throw new RestException(StatusCodes.Status404NotFound, "Movie not found");
+
+            if (movie.MovieLanguages == null || !movie.MovieLanguages.Any())
+                throw new RestException(StatusCodes.Status400BadRequest, "Language", "The movie has no associated languages.");
 
             var language = _languageRepository.Get(x => x.Id == dto.LanguageId);
             if (language == null)
