@@ -60,6 +60,7 @@ builder.Services.AddScoped<IMovieService, MovieService>();
 builder.Services.AddScoped<IMovieRepository, MovieRepository>();
 builder.Services.AddScoped<IOrderRepository, OrderRepository>();
 builder.Services.AddScoped<ISeatRepository, SeatRepository>();
+builder.Services.AddScoped<ISessionService, SessionService>();
 builder.Services.AddScoped<ISessionRepository, SessionRepository>();
 builder.Services.AddScoped<ISettingRepository, SettingRepository>();
     

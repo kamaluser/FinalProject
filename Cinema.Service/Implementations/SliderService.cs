@@ -100,10 +100,9 @@ namespace Cinema.Service.Implementations
         {
             var query = _repository.GetAll(x => !x.IsDeleted);
             var paginated = PaginatedList<Slider>.Create(query, page, size);
-            if (page > paginated.TotalPages)
+            if (paginated.TotalPages == 0)
             {
-                page = paginated.TotalPages;
-                paginated = PaginatedList<Slider>.Create(query, page, size);
+                page = 1;
             }
             return new PaginatedList<AdminSliderGetDto>(_mapper.Map<List<AdminSliderGetDto>>(paginated.Items), paginated.TotalPages, page, size);
         }

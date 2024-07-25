@@ -9,5 +9,6 @@ namespace Cinema.Data.Repositories.Interfaces
 {
     public interface ISessionRepository:IRepository<Session>
     {
+        Session Get(Func<Session, bool> predicate, string includeProperties = "");
     }
 }

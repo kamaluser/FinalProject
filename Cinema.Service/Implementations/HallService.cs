@@ -136,6 +136,10 @@ namespace Cinema.Service.Implementations
         {
             var query = _hallRepository.GetAll(x => (search == null || x.Name.Contains(search)) && !x.IsDeleted, "Branch");
             var paginated = PaginatedList<Hall>.Create(query, page, size);
+            if (paginated.TotalPages == 0)
+            {
+                page = 1;
+            }
             return new PaginatedList<AdminHallGetDto>(_mapper.Map<List<AdminHallGetDto>>(paginated.Items), paginated.TotalPages, page, size);
         }
     }

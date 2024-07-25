@@ -298,6 +298,9 @@ namespace Cinema.Data.Migrations
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
 
+                    b.Property<int>("LanguageId")
+                        .HasColumnType("int");
+
                     b.Property<DateTime>("ModifiedAt")
                         .HasColumnType("datetime2");
 
@@ -313,6 +316,8 @@ namespace Cinema.Data.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("HallId");
+
+                    b.HasIndex("LanguageId");
 
                     b.HasIndex("MovieId");
 
@@ -499,6 +504,12 @@ namespace Cinema.Data.Migrations
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
+                    b.HasOne("Cinema.Core.Entites.Language", "Language")
+                        .WithMany()
+                        .HasForeignKey("LanguageId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
                     b.HasOne("Cinema.Core.Entites.Movie", "Movie")
                         .WithMany("Sessions")
                         .HasForeignKey("MovieId")
@@ -506,6 +517,8 @@ namespace Cinema.Data.Migrations
                         .IsRequired();
 
                     b.Navigation("Hall");
+
+                    b.Navigation("Language");
 
                     b.Navigation("Movie");
                 });

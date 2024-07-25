@@ -3,20 +3,36 @@
   "WorkspaceRootPath": "C:\\Users\\kamal\\Desktop\\FinalProject\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{E7332E47-5DBB-4781-8879-917A17602440}|Cinema.Service\\Cinema.Service.csproj|c:\\users\\kamal\\desktop\\finalproject\\cinema.service\\implementations\\movieservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E7332E47-5DBB-4781-8879-917A17602440}|Cinema.Service\\Cinema.Service.csproj|solutionrelative:cinema.service\\implementations\\movieservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{E7332E47-5DBB-4781-8879-917A17602440}|Cinema.Service\\Cinema.Service.csproj|c:\\users\\kamal\\desktop\\finalproject\\cinema.service\\implementations\\sessionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E7332E47-5DBB-4781-8879-917A17602440}|Cinema.Service\\Cinema.Service.csproj|solutionrelative:cinema.service\\implementations\\sessionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{61478171-EE21-45CE-89C1-3E8EEDCCE928}|CinemaApp\\CinemaApp.csproj|c:\\users\\kamal\\desktop\\finalproject\\cinemaapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{61478171-EE21-45CE-89C1-3E8EEDCCE928}|CinemaApp\\CinemaApp.csproj|solutionrelative:cinemaapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{92B2D1AD-C42F-4704-8CDD-62531BFE17BA}|Cinema.Data\\Cinema.Data.csproj|c:\\users\\kamal\\desktop\\finalproject\\cinema.data\\repositories\\implementations\\repository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{92B2D1AD-C42F-4704-8CDD-62531BFE17BA}|Cinema.Data\\Cinema.Data.csproj|solutionrelative:cinema.data\\repositories\\implementations\\repository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{E7332E47-5DBB-4781-8879-917A17602440}|Cinema.Service\\Cinema.Service.csproj|c:\\users\\kamal\\desktop\\finalproject\\cinema.service\\profiles\\mapprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E7332E47-5DBB-4781-8879-917A17602440}|Cinema.Service\\Cinema.Service.csproj|solutionrelative:cinema.service\\profiles\\mapprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E7332E47-5DBB-4781-8879-917A17602440}|Cinema.Service\\Cinema.Service.csproj|c:\\users\\kamal\\desktop\\finalproject\\cinema.service\\dtos\\moviedtos\\adminmoviegetdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E7332E47-5DBB-4781-8879-917A17602440}|Cinema.Service\\Cinema.Service.csproj|solutionrelative:cinema.service\\dtos\\moviedtos\\adminmoviegetdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{92B2D1AD-C42F-4704-8CDD-62531BFE17BA}|Cinema.Data\\Cinema.Data.csproj|c:\\users\\kamal\\desktop\\finalproject\\cinema.data\\repositories\\interfaces\\isessionrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{92B2D1AD-C42F-4704-8CDD-62531BFE17BA}|Cinema.Data\\Cinema.Data.csproj|solutionrelative:cinema.data\\repositories\\interfaces\\isessionrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{92B2D1AD-C42F-4704-8CDD-62531BFE17BA}|Cinema.Data\\Cinema.Data.csproj|c:\\users\\kamal\\desktop\\finalproject\\cinema.data\\repositories\\implementations\\sessionrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{92B2D1AD-C42F-4704-8CDD-62531BFE17BA}|Cinema.Data\\Cinema.Data.csproj|solutionrelative:cinema.data\\repositories\\implementations\\sessionrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{61478171-EE21-45CE-89C1-3E8EEDCCE928}|CinemaApp\\CinemaApp.csproj|c:\\users\\kamal\\desktop\\finalproject\\cinemaapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{61478171-EE21-45CE-89C1-3E8EEDCCE928}|CinemaApp\\CinemaApp.csproj|solutionrelative:cinemaapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{61478171-EE21-45CE-89C1-3E8EEDCCE928}|CinemaApp\\CinemaApp.csproj|c:\\users\\kamal\\desktop\\finalproject\\cinemaapp\\controllers\\sessionscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{61478171-EE21-45CE-89C1-3E8EEDCCE928}|CinemaApp\\CinemaApp.csproj|solutionrelative:cinemaapp\\controllers\\sessionscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E7332E47-5DBB-4781-8879-917A17602440}|Cinema.Service\\Cinema.Service.csproj|c:\\users\\kamal\\desktop\\finalproject\\cinema.service\\dtos\\sessiondtos\\adminsessioncreatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E7332E47-5DBB-4781-8879-917A17602440}|Cinema.Service\\Cinema.Service.csproj|solutionrelative:cinema.service\\dtos\\sessiondtos\\adminsessioncreatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,8 +42,21 @@
       "DocumentGroups": [
         {
           "DockedWidth": 222,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 9,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "MapProfile.cs",
+              "DocumentMoniker": "C:\\Users\\kamal\\Desktop\\FinalProject\\Cinema.Service\\Profiles\\MapProfile.cs",
+              "RelativeDocumentMoniker": "Cinema.Service\\Profiles\\MapProfile.cs",
+              "ToolTip": "C:\\Users\\kamal\\Desktop\\FinalProject\\Cinema.Service\\Profiles\\MapProfile.cs",
+              "RelativeToolTip": "Cinema.Service\\Profiles\\MapProfile.cs",
+              "ViewState": "AQIAAF4AAAAAAAAAAAAkwGEAAAAcAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-25T10:35:22.886Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
@@ -43,51 +72,88 @@
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\kamal\\Desktop\\FinalProject\\CinemaApp\\Program.cs",
-              "RelativeDocumentMoniker": "CinemaApp\\Program.cs",
-              "ToolTip": "C:\\Users\\kamal\\Desktop\\FinalProject\\CinemaApp\\Program.cs",
-              "RelativeToolTip": "CinemaApp\\Program.cs",
-              "ViewState": "AQIAAFsAAAAAAAAAAAAAAGAAAAAAAAAA",
+              "Title": "Repository.cs",
+              "DocumentMoniker": "C:\\Users\\kamal\\Desktop\\FinalProject\\Cinema.Data\\Repositories\\Implementations\\Repository.cs",
+              "RelativeDocumentMoniker": "Cinema.Data\\Repositories\\Implementations\\Repository.cs",
+              "ToolTip": "C:\\Users\\kamal\\Desktop\\FinalProject\\Cinema.Data\\Repositories\\Implementations\\Repository.cs",
+              "RelativeToolTip": "Cinema.Data\\Repositories\\Implementations\\Repository.cs",
+              "ViewState": "AQIAACgAAAAAAAAAAAAUwAYAAAAPAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-24T13:19:45.773Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "MovieService.cs",
-              "DocumentMoniker": "C:\\Users\\kamal\\Desktop\\FinalProject\\Cinema.Service\\Implementations\\MovieService.cs",
-              "RelativeDocumentMoniker": "Cinema.Service\\Implementations\\MovieService.cs",
-              "ToolTip": "C:\\Users\\kamal\\Desktop\\FinalProject\\Cinema.Service\\Implementations\\MovieService.cs",
-              "RelativeToolTip": "Cinema.Service\\Implementations\\MovieService.cs",
-              "ViewState": "AQIAAD0AAAAAAAAAAAAzwF4AAAANAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-24T12:59:28.766Z",
+              "WhenOpened": "2024-07-25T09:56:00.821Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "AdminMovieGetDto.cs",
-              "DocumentMoniker": "C:\\Users\\kamal\\Desktop\\FinalProject\\Cinema.Service\\Dtos\\MovieDtos\\AdminMovieGetDto.cs",
-              "RelativeDocumentMoniker": "Cinema.Service\\Dtos\\MovieDtos\\AdminMovieGetDto.cs",
-              "ToolTip": "C:\\Users\\kamal\\Desktop\\FinalProject\\Cinema.Service\\Dtos\\MovieDtos\\AdminMovieGetDto.cs",
-              "RelativeToolTip": "Cinema.Service\\Dtos\\MovieDtos\\AdminMovieGetDto.cs",
-              "ViewState": "AQIAAAgAAAAAAAAAAAA0wBEAAAApAAAA",
+              "Title": "ISessionRepository.cs",
+              "DocumentMoniker": "C:\\Users\\kamal\\Desktop\\FinalProject\\Cinema.Data\\Repositories\\Interfaces\\ISessionRepository.cs",
+              "RelativeDocumentMoniker": "Cinema.Data\\Repositories\\Interfaces\\ISessionRepository.cs",
+              "ToolTip": "C:\\Users\\kamal\\Desktop\\FinalProject\\Cinema.Data\\Repositories\\Interfaces\\ISessionRepository.cs",
+              "RelativeToolTip": "Cinema.Data\\Repositories\\Interfaces\\ISessionRepository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-24T12:52:39.001Z"
+              "WhenOpened": "2024-07-25T09:54:11.521Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "MapProfile.cs",
-              "DocumentMoniker": "C:\\Users\\kamal\\Desktop\\FinalProject\\Cinema.Service\\Profiles\\MapProfile.cs",
-              "RelativeDocumentMoniker": "Cinema.Service\\Profiles\\MapProfile.cs",
-              "ToolTip": "C:\\Users\\kamal\\Desktop\\FinalProject\\Cinema.Service\\Profiles\\MapProfile.cs",
-              "RelativeToolTip": "Cinema.Service\\Profiles\\MapProfile.cs",
-              "ViewState": "AQIAAE4AAAAAAAAAAAAIwFcAAAA1AAAA",
+              "DocumentIndex": 5,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\kamal\\Desktop\\FinalProject\\CinemaApp\\Program.cs",
+              "RelativeDocumentMoniker": "CinemaApp\\Program.cs",
+              "ToolTip": "C:\\Users\\kamal\\Desktop\\FinalProject\\CinemaApp\\Program.cs",
+              "RelativeToolTip": "CinemaApp\\Program.cs",
+              "ViewState": "AQIAAFkAAAAAAAAAAAAAAGIAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-24T12:50:40.3Z"
+              "WhenOpened": "2024-07-25T09:49:28.238Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "SessionsController.cs",
+              "DocumentMoniker": "C:\\Users\\kamal\\Desktop\\FinalProject\\CinemaApp\\Controllers\\SessionsController.cs",
+              "RelativeDocumentMoniker": "CinemaApp\\Controllers\\SessionsController.cs",
+              "ToolTip": "C:\\Users\\kamal\\Desktop\\FinalProject\\CinemaApp\\Controllers\\SessionsController.cs",
+              "RelativeToolTip": "CinemaApp\\Controllers\\SessionsController.cs",
+              "ViewState": "AQIAABAAAAAAAAAAAAAmwBcAAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-25T09:31:09.206Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "AdminSessionCreateDto.cs",
+              "DocumentMoniker": "C:\\Users\\kamal\\Desktop\\FinalProject\\Cinema.Service\\Dtos\\SessionDtos\\AdminSessionCreateDto.cs",
+              "RelativeDocumentMoniker": "Cinema.Service\\Dtos\\SessionDtos\\AdminSessionCreateDto.cs",
+              "ToolTip": "C:\\Users\\kamal\\Desktop\\FinalProject\\Cinema.Service\\Dtos\\SessionDtos\\AdminSessionCreateDto.cs",
+              "RelativeToolTip": "Cinema.Service\\Dtos\\SessionDtos\\AdminSessionCreateDto.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAuwAcAAAAoAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-24T21:08:38.952Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "SessionService.cs",
+              "DocumentMoniker": "C:\\Users\\kamal\\Desktop\\FinalProject\\Cinema.Service\\Implementations\\SessionService.cs",
+              "RelativeDocumentMoniker": "Cinema.Service\\Implementations\\SessionService.cs",
+              "ToolTip": "C:\\Users\\kamal\\Desktop\\FinalProject\\Cinema.Service\\Implementations\\SessionService.cs",
+              "RelativeToolTip": "Cinema.Service\\Implementations\\SessionService.cs",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAzwBEAAAAxAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-25T09:29:36.535Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "SessionRepository.cs",
+              "DocumentMoniker": "C:\\Users\\kamal\\Desktop\\FinalProject\\Cinema.Data\\Repositories\\Implementations\\SessionRepository.cs",
+              "RelativeDocumentMoniker": "Cinema.Data\\Repositories\\Implementations\\SessionRepository.cs",
+              "ToolTip": "C:\\Users\\kamal\\Desktop\\FinalProject\\Cinema.Data\\Repositories\\Implementations\\SessionRepository.cs",
+              "RelativeToolTip": "Cinema.Data\\Repositories\\Implementations\\SessionRepository.cs",
+              "ViewState": "AQIAAA8AAAAAAAAAAAAswBsAAAANAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-25T09:54:26.03Z"
             }
           ]
         }

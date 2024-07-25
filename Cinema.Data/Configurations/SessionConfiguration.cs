@@ -1,11 +1,6 @@
 ﻿using Cinema.Core.Entites;
-using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Cinema.Data.Configurations
 {
@@ -26,6 +21,11 @@ namespace Cinema.Data.Configurations
             builder.HasOne(s => s.Hall)
                    .WithMany(h => h.Sessions)
                    .HasForeignKey(s => s.HallId)
+                   .OnDelete(DeleteBehavior.Restrict);
+
+            builder.HasOne(s => s.Language)
+                   .WithMany()
+                   .HasForeignKey(s => s.LanguageId)
                    .OnDelete(DeleteBehavior.Restrict);
 
             builder.HasMany(s => s.Orders)

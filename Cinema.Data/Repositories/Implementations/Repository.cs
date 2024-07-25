@@ -11,7 +11,7 @@ namespace Cinema.Data.Repositories.Implementations
 {
     public class Repository<TEntity> : IRepository<TEntity> where TEntity : class
     {
-        private readonly AppDbContext _context;
+        protected readonly AppDbContext _context;
 
         public Repository(AppDbContext context)
         {

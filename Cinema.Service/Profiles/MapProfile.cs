@@ -5,6 +5,7 @@ using Cinema.Service.Dtos.HallDtos;
 using Cinema.Service.Dtos.LanguageDtos;
 using Cinema.Service.Dtos.MovieDtos;
 using Cinema.Service.Dtos.NewsDtos;
+using Cinema.Service.Dtos.SessionDtos;
 using Cinema.Service.Dtos.SliderDtos;
 using Microsoft.AspNetCore.Http;
 using System;
@@ -93,6 +94,23 @@ namespace Cinema.Service.Profiles
 
             CreateMap<AdminMovieEditDto, Movie>()
                 .ForMember(dest => dest.Photo, opt => opt.Ignore());
+
+            // Session(admin)
+            CreateMap<Session, AdminSessionGetDto>()
+           .ForMember(dest => dest.MovieTitle, opt => opt.MapFrom(src => src.Movie.Title))
+           .ForMember(dest => dest.HallName, opt => opt.MapFrom(src => src.Hall.Name))
+           .ForMember(dest => dest.BranchName, opt => opt.MapFrom(src => src.Hall.Branch.Name))
+           .ForMember(dest => dest.LanguageName, opt => opt.MapFrom(src => src.Language.Name));
+
+            CreateMap<AdminSessionCreateDto, Session>()
+                .ForMember(dest => dest.Movie, opt => opt.Ignore())
+                .ForMember(dest => dest.Hall, opt => opt.Ignore())
+                .ForMember(dest => dest.Language, opt => opt.Ignore());
+
+            CreateMap<AdminSessionEditDto, Session>()
+                .ForMember(dest => dest.Movie, opt => opt.Ignore())
+                .ForMember(dest => dest.Hall, opt => opt.Ignore())
+                .ForMember(dest => dest.Language, opt => opt.Ignore());
         }
     }
 }
