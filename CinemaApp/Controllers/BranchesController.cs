@@ -3,11 +3,13 @@ using Cinema.Service.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Cinema.Service.Dtos.BranchDtos;
 using Cinema.Core.Entites;
+using Microsoft.AspNetCore.Authorization;
 
 namespace CinemaApp.Controllers
 {
     [Route("api/admin/[controller]")]
     [ApiController]
+    [Authorize(Roles = "Admin")]
     public class BranchesController : Controller
     {
         private readonly IBranchService _branchService;

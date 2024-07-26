@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "46YUVTEvS36c60hX8iwCQv+fiaMduvchWeOiTQ5xqSXVXIbzOe3XGNxJHnh1S9YP1obIHpDjnTZwSw4tlgnBvQ==",
+  "dgSpecHash": "uREQpY/FYahX3qmg4ww6iokElX+I+oKkZgRp6VVU4QQp50FIvz9MCiznBNrXv4hSEkIbDbumuchBIKwv9yXYVg==",
   "success": true,
   "projectFilePath": "C:\\Users\\kamal\\Desktop\\FinalProject\\Cinema.Service\\Cinema.Service.csproj",
   "expectedPackageFiles": [
@@ -52,9 +52,11 @@
     "C:\\Users\\kamal\\.nuget\\packages\\microsoft.identitymodel.tokens\\6.35.0\\microsoft.identitymodel.tokens.6.35.0.nupkg.sha512",
     "C:\\Users\\kamal\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
     "C:\\Users\\kamal\\.nuget\\packages\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",
+    "C:\\Users\\kamal\\.nuget\\packages\\microsoft.openapi\\1.6.14\\microsoft.openapi.1.6.14.nupkg.sha512",
     "C:\\Users\\kamal\\.nuget\\packages\\microsoft.sqlserver.server\\1.0.0\\microsoft.sqlserver.server.1.0.0.nupkg.sha512",
     "C:\\Users\\kamal\\.nuget\\packages\\microsoft.win32.systemevents\\6.0.0\\microsoft.win32.systemevents.6.0.0.nupkg.sha512",
     "C:\\Users\\kamal\\.nuget\\packages\\mono.texttemplating\\2.2.1\\mono.texttemplating.2.2.1.nupkg.sha512",
+    "C:\\Users\\kamal\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.6.2\\swashbuckle.aspnetcore.swagger.6.6.2.nupkg.sha512",
     "C:\\Users\\kamal\\.nuget\\packages\\system.codedom\\4.4.0\\system.codedom.4.4.0.nupkg.sha512",
     "C:\\Users\\kamal\\.nuget\\packages\\system.collections.immutable\\6.0.0\\system.collections.immutable.6.0.0.nupkg.sha512",
     "C:\\Users\\kamal\\.nuget\\packages\\system.composition\\6.0.0\\system.composition.6.0.0.nupkg.sha512",

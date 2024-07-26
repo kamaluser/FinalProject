@@ -20,5 +20,7 @@ namespace Cinema.Core.Entites
         public string ContactWorkHours { get; set; }
         public string ContactMarketingDepartment { get; set; }
         public string ContactMap { get; set; }
+        public string AboutTitle { get; set; }
+        public string AboutDesc { get; set; }
     }
 }

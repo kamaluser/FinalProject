@@ -2,12 +2,14 @@
 using Cinema.Service.Dtos.HallDtos;
 using Cinema.Service.Implementations;
 using Cinema.Service.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CinemaApp.Controllers
 {
     [Route("api/admin/[controller]")]
     [ApiController]
+    [Authorize(Roles = "Admin")]
     public class HallsController : Controller
     {
         private readonly IHallService _hallService;

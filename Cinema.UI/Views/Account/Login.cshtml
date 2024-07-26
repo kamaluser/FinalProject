@@ -1,0 +1,101 @@
+﻿@model LoginRequest
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+   <link rel="stylesheet" href="~/assets/css/login.css"/>
+</head>
+<body>
+    <div id="particles-js" class="snow"></div>
+
+    <main>
+        <div class="left-side"></div>
+
+        <div class="right-side">
+            <form method="post">
+                <input type="hidden" name="returnUrl" value="@ViewData["ReturnUrl"]" />
+                <label for="username">Username</label>
+                <input asp-for="UserName" type="text" placeholder="Enter Username" name="username" required />
+
+                <label for="password">Password</label>
+                <input asp-for="Password" type="password" placeholder="Enter Password" name="password" required />
+
+                <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+                <button type="submit" class="login-btn">Sign in</button>
+            </form>
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0"></script>
+    <script>
+        particlesJS("particles-js", {
+            particles: {
+                number: {
+                    value: 310,
+                    density: {
+                        enable: true,
+                        value_area: 800,
+                    },
+                },
+                color: {
+                    value: "#fff",
+                },
+                shape: {
+                    type: "circle",
+                    stroke: {
+                        width: 0,
+                        color: "#000000",
+                    },
+                    polygon: {
+                        nb_sides: 5,
+                    },
+                },
+                opacity: {
+                    value: 1,
+                    random: false,
+                    anim: {
+                        enable: false,
+                        speed: 1,
+                        opacity_min: 0.1,
+                        sync: false,
+                    },
+                },
+                size: {
+                    value: 3,
+                    random: true,
+                    anim: {
+                        enable: false,
+                    },
+                },
+                line_linked: {
+                    enable: false,
+                },
+                move: {
+                    enable: true,
+                    speed: 2,
+                    direction: "bottom",
+                    random: false,
+                    straight: false,
+                    out_mode: "out",
+                    bounce: false,
+                    attract: {
+                        enable: false,
+                        rotateX: 600,
+                        rotateY: 1200,
+                    },
+                },
+            },
+            retina_detect: true,
+        });
+    </script>
+</body>
+</html>

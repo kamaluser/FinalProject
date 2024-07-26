@@ -4,11 +4,13 @@ using Cinema.Service.Dtos;
 using Cinema.Service.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 
 namespace CinemaApp.Controllers
 {
     [Route("api/admin/[controller]")]
     [ApiController]
+    [Authorize(Roles = "Admin")]
     public class SessionsController : Controller
     {
         private readonly ISessionService _sessionService;

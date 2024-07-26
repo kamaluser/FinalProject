@@ -6,11 +6,13 @@ using Cinema.Service.Dtos.LanguageDtos;
 using Cinema.Core.Entites;
 using Cinema.Service.Dtos.HallDtos;
 using Cinema.Service.Implementations;
+using Microsoft.AspNetCore.Authorization;
 
 namespace CinemaApp.Controllers
 {
     [Route("api/admin/[controller]")]
     [ApiController]
+    [Authorize(Roles = "Admin")]
     public class LanguagesController : Controller
     {
         private readonly ILanguageService _languageService;

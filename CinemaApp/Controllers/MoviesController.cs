@@ -3,11 +3,13 @@ using Cinema.Service.Dtos.MovieDtos;
 using Cinema.Service.Dtos;
 using Cinema.Service.Interfaces;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 
 namespace CinemaApp.Controllers
 {
     [Route("api/admin/[controller]")]
     [ApiController]
+    [Authorize(Roles = "Admin")]
     public class MoviesController : Controller
     {
         private readonly IMovieService _movieService;

@@ -2,12 +2,14 @@
 using Cinema.Service.Dtos.LanguageDtos;
 using Cinema.Service.Dtos.NewsDtos;
 using Cinema.Service.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CinemaApp.Controllers
 {
     [Route("api/admin/[controller]")]
     [ApiController]
+    [Authorize(Roles = "Admin")]
     public class NewsController:Controller
     {
 

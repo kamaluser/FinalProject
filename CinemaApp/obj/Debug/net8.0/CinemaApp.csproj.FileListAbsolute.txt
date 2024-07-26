@@ -453,3 +453,4 @@ C:\Users\kamal\Desktop\FinalProject\CinemaApp\bin\Debug\net8.0\FluentValidation.
 C:\Users\kamal\Desktop\FinalProject\CinemaApp\bin\Debug\net8.0\FluentValidation.AspNetCore.dll
 C:\Users\kamal\Desktop\FinalProject\CinemaApp\bin\Debug\net8.0\FluentValidation.DependencyInjectionExtensions.dll
 C:\Users\kamal\Desktop\FinalProject\CinemaApp\bin\Debug\net8.0\CinemaApp.staticwebassets.runtime.json
+C:\Users\kamal\Desktop\FinalProject\CinemaApp\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
