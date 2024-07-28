@@ -30,6 +30,18 @@ build_property._RazorSourceGeneratorDebug =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/kamal/Desktop/FinalProject/Cinema.UI/Views/Branch/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQnJhbmNoXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/kamal/Desktop/FinalProject/Cinema.UI/Views/Branch/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQnJhbmNoXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/kamal/Desktop/FinalProject/Cinema.UI/Views/Branch/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQnJhbmNoXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/kamal/Desktop/FinalProject/Cinema.UI/Views/Hall/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSGFsbFxDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 

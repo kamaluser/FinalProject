@@ -3,6 +3,26 @@
   "WorkspaceRootPath": "C:\\Users\\kamal\\Desktop\\FinalProject\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{B62453B1-D22F-4EFE-A68C-39ED45B79F6F}|Cinema.UI\\Cinema.UI.csproj|c:\\users\\kamal\\desktop\\finalproject\\cinema.ui\\views\\branch\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{B62453B1-D22F-4EFE-A68C-39ED45B79F6F}|Cinema.UI\\Cinema.UI.csproj|solutionrelative:cinema.ui\\views\\branch\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B62453B1-D22F-4EFE-A68C-39ED45B79F6F}|Cinema.UI\\Cinema.UI.csproj|c:\\users\\kamal\\desktop\\finalproject\\cinema.ui\\views\\branch\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{B62453B1-D22F-4EFE-A68C-39ED45B79F6F}|Cinema.UI\\Cinema.UI.csproj|solutionrelative:cinema.ui\\views\\branch\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B62453B1-D22F-4EFE-A68C-39ED45B79F6F}|Cinema.UI\\Cinema.UI.csproj|c:\\users\\kamal\\desktop\\finalproject\\cinema.ui\\views\\branch\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{B62453B1-D22F-4EFE-A68C-39ED45B79F6F}|Cinema.UI\\Cinema.UI.csproj|solutionrelative:cinema.ui\\views\\branch\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B62453B1-D22F-4EFE-A68C-39ED45B79F6F}|Cinema.UI\\Cinema.UI.csproj|c:\\users\\kamal\\desktop\\finalproject\\cinema.ui\\controllers\\branchcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B62453B1-D22F-4EFE-A68C-39ED45B79F6F}|Cinema.UI\\Cinema.UI.csproj|solutionrelative:cinema.ui\\controllers\\branchcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B62453B1-D22F-4EFE-A68C-39ED45B79F6F}|Cinema.UI\\Cinema.UI.csproj|c:\\users\\kamal\\desktop\\finalproject\\cinema.ui\\views\\hall\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{B62453B1-D22F-4EFE-A68C-39ED45B79F6F}|Cinema.UI\\Cinema.UI.csproj|solutionrelative:cinema.ui\\views\\hall\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{B62453B1-D22F-4EFE-A68C-39ED45B79F6F}|Cinema.UI\\Cinema.UI.csproj|c:\\users\\kamal\\desktop\\finalproject\\cinema.ui\\views\\hall\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{B62453B1-D22F-4EFE-A68C-39ED45B79F6F}|Cinema.UI\\Cinema.UI.csproj|solutionrelative:cinema.ui\\views\\hall\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
@@ -11,20 +31,8 @@
       "RelativeMoniker": "D:0:0:{B62453B1-D22F-4EFE-A68C-39ED45B79F6F}|Cinema.UI\\Cinema.UI.csproj|solutionrelative:cinema.ui\\controllers\\hallcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B62453B1-D22F-4EFE-A68C-39ED45B79F6F}|Cinema.UI\\Cinema.UI.csproj|c:\\users\\kamal\\desktop\\finalproject\\cinema.ui\\views\\hall\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{B62453B1-D22F-4EFE-A68C-39ED45B79F6F}|Cinema.UI\\Cinema.UI.csproj|solutionrelative:cinema.ui\\views\\hall\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B62453B1-D22F-4EFE-A68C-39ED45B79F6F}|Cinema.UI\\Cinema.UI.csproj|c:\\users\\kamal\\desktop\\finalproject\\cinema.ui\\models\\halleditrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B62453B1-D22F-4EFE-A68C-39ED45B79F6F}|Cinema.UI\\Cinema.UI.csproj|solutionrelative:cinema.ui\\models\\halleditrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{B62453B1-D22F-4EFE-A68C-39ED45B79F6F}|Cinema.UI\\Cinema.UI.csproj|c:\\users\\kamal\\desktop\\finalproject\\cinema.ui\\models\\halllistitemgetresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B62453B1-D22F-4EFE-A68C-39ED45B79F6F}|Cinema.UI\\Cinema.UI.csproj|solutionrelative:cinema.ui\\models\\halllistitemgetresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B62453B1-D22F-4EFE-A68C-39ED45B79F6F}|Cinema.UI\\Cinema.UI.csproj|c:\\users\\kamal\\desktop\\finalproject\\cinema.ui\\models\\hallgetresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B62453B1-D22F-4EFE-A68C-39ED45B79F6F}|Cinema.UI\\Cinema.UI.csproj|solutionrelative:cinema.ui\\models\\hallgetresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,7 +42,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 222,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
@@ -51,56 +59,84 @@
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "Create.cshtml",
-              "DocumentMoniker": "C:\\Users\\kamal\\Desktop\\FinalProject\\Cinema.UI\\Views\\Hall\\Create.cshtml",
-              "RelativeDocumentMoniker": "Cinema.UI\\Views\\Hall\\Create.cshtml",
-              "ToolTip": "C:\\Users\\kamal\\Desktop\\FinalProject\\Cinema.UI\\Views\\Hall\\Create.cshtml",
-              "RelativeToolTip": "Cinema.UI\\Views\\Hall\\Create.cshtml",
-              "ViewState": "AQIAABgAAAAAAAAAAAAAACoAAAAAAAAA",
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "C:\\Users\\kamal\\Desktop\\FinalProject\\Cinema.UI\\Views\\Branch\\Edit.cshtml",
+              "RelativeDocumentMoniker": "Cinema.UI\\Views\\Branch\\Edit.cshtml",
+              "ToolTip": "C:\\Users\\kamal\\Desktop\\FinalProject\\Cinema.UI\\Views\\Branch\\Edit.cshtml",
+              "RelativeToolTip": "Cinema.UI\\Views\\Branch\\Edit.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABsAAAAGAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-07-28T14:27:04.011Z",
+              "WhenOpened": "2024-07-28T16:56:53.955Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "C:\\Users\\kamal\\Desktop\\FinalProject\\Cinema.UI\\Views\\Branch\\Create.cshtml",
+              "RelativeDocumentMoniker": "Cinema.UI\\Views\\Branch\\Create.cshtml",
+              "ToolTip": "C:\\Users\\kamal\\Desktop\\FinalProject\\Cinema.UI\\Views\\Branch\\Create.cshtml",
+              "RelativeToolTip": "Cinema.UI\\Views\\Branch\\Create.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABkAAAAOAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-07-28T16:53:09.901Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\kamal\\Desktop\\FinalProject\\Cinema.UI\\Views\\Branch\\Index.cshtml",
+              "RelativeDocumentMoniker": "Cinema.UI\\Views\\Branch\\Index.cshtml",
+              "ToolTip": "C:\\Users\\kamal\\Desktop\\FinalProject\\Cinema.UI\\Views\\Branch\\Index.cshtml",
+              "RelativeToolTip": "Cinema.UI\\Views\\Branch\\Index.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAABCAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-07-28T16:42:56.326Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "BranchController.cs",
+              "DocumentMoniker": "C:\\Users\\kamal\\Desktop\\FinalProject\\Cinema.UI\\Controllers\\BranchController.cs",
+              "RelativeDocumentMoniker": "Cinema.UI\\Controllers\\BranchController.cs",
+              "ToolTip": "C:\\Users\\kamal\\Desktop\\FinalProject\\Cinema.UI\\Controllers\\BranchController.cs",
+              "RelativeToolTip": "Cinema.UI\\Controllers\\BranchController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAGAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-28T16:31:31.946Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "C:\\Users\\kamal\\Desktop\\FinalProject\\Cinema.UI\\Views\\Hall\\Create.cshtml",
+              "RelativeDocumentMoniker": "Cinema.UI\\Views\\Hall\\Create.cshtml",
+              "ToolTip": "C:\\Users\\kamal\\Desktop\\FinalProject\\Cinema.UI\\Views\\Hall\\Create.cshtml",
+              "RelativeToolTip": "Cinema.UI\\Views\\Hall\\Create.cshtml",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAAAoAAAAgAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-07-28T14:27:04.011Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\kamal\\Desktop\\FinalProject\\Cinema.UI\\Views\\Hall\\Index.cshtml",
               "RelativeDocumentMoniker": "Cinema.UI\\Views\\Hall\\Index.cshtml",
               "ToolTip": "C:\\Users\\kamal\\Desktop\\FinalProject\\Cinema.UI\\Views\\Hall\\Index.cshtml",
               "RelativeToolTip": "Cinema.UI\\Views\\Hall\\Index.cshtml",
-              "ViewState": "AQIAAB8AAAAAAAAAAAAAACwAAABPAAAA",
+              "ViewState": "AQIAACAAAAAAAAAAAAAqwCsAAABsAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-07-28T14:19:15.134Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "HallEditRequest.cs",
-              "DocumentMoniker": "C:\\Users\\kamal\\Desktop\\FinalProject\\Cinema.UI\\Models\\HallEditRequest.cs",
-              "RelativeDocumentMoniker": "Cinema.UI\\Models\\HallEditRequest.cs",
-              "ToolTip": "C:\\Users\\kamal\\Desktop\\FinalProject\\Cinema.UI\\Models\\HallEditRequest.cs",
-              "RelativeToolTip": "Cinema.UI\\Models\\HallEditRequest.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAqAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-28T14:03:51.873Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "HallGetResponse.cs",
-              "DocumentMoniker": "C:\\Users\\kamal\\Desktop\\FinalProject\\Cinema.UI\\Models\\HallGetResponse.cs",
-              "RelativeDocumentMoniker": "Cinema.UI\\Models\\HallGetResponse.cs",
-              "ToolTip": "C:\\Users\\kamal\\Desktop\\FinalProject\\Cinema.UI\\Models\\HallGetResponse.cs",
-              "RelativeToolTip": "Cinema.UI\\Models\\HallGetResponse.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAqAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-28T14:03:18.027Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 7,
               "Title": "HallListItemGetResponse.cs",
               "DocumentMoniker": "C:\\Users\\kamal\\Desktop\\FinalProject\\Cinema.UI\\Models\\HallListItemGetResponse.cs",
               "RelativeDocumentMoniker": "Cinema.UI\\Models\\HallListItemGetResponse.cs",
@@ -112,13 +148,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 6,
               "Title": "HallController.cs",
               "DocumentMoniker": "C:\\Users\\kamal\\Desktop\\FinalProject\\Cinema.UI\\Controllers\\HallController.cs",
               "RelativeDocumentMoniker": "Cinema.UI\\Controllers\\HallController.cs",
               "ToolTip": "C:\\Users\\kamal\\Desktop\\FinalProject\\Cinema.UI\\Controllers\\HallController.cs",
               "RelativeToolTip": "Cinema.UI\\Controllers\\HallController.cs",
-              "ViewState": "AQIAAL0AAAAAAAAAAAAqwMkAAAAFAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-07-28T13:44:32.029Z",
               "EditorCaption": ""
