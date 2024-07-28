@@ -1,0 +1,45 @@
+﻿@model NewsCreateRequest
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="container-fluid">
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">Create News</h1>
+        <a asp-action="index" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+            Back to List
+        </a>
+    </div>
+    <div class="row">
+        <div class="col-md-8 mx-auto">
+            <form class="user" asp-action="Create" method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="titleInput">Title</label>
+                    <input asp-for="Title" class="form-control" id="titleInput" placeholder="Enter Title here..">
+                    <span class="text-danger" asp-validation-for="Title"></span>
+                </div>
+                <div class="form-group">
+                    <label for="descInput">Description</label>
+                    <input asp-for="Description" class="form-control" id="descInput" placeholder="Enter Description here..">
+                    <span class="text-danger" asp-validation-for="Description"></span>
+                </div>
+                <div class="form-group">
+                    <label for="imageInput">Image</label>
+                    <input asp-for="Image" class="form-control-file" id="imageInput" onchange="previewImage(event)">
+                    <span class="text-danger" asp-validation-for="Image"></span>
+                </div>
+                <div class="form-group">
+                    <img id="imagePreview" alt="Image Preview" style="max-width: 100%; height: auto; display: none;" />
+                </div>
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <button class="btn btn-primary" type="submit">
+                    Create News
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section scripts {
+    @Html.Partial("_ValidationScriptsPartial");
+}

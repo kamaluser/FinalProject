@@ -23,9 +23,12 @@
                     <span class="text-danger" asp-validation-for="Name"></span>
                 </div>
                 <div class="form-group">
-                    <label for="flagPhotoInput">Flag Photo</label>
-                    <input asp-for="FlagPhoto" class="form-control-file" id="flagPhotoInput">
+                    <label for="imageInput">Image</label>
+                    <input asp-for="FlagPhoto" class="form-control-file" id="imageInput" onchange="previewImage(event)">
                     <span class="text-danger" asp-validation-for="FlagPhoto"></span>
+                </div>
+                <div class="form-group">
+                    <img id="imagePreview" src="@Model.FlagPhotoUrl" alt="Image Preview" style="max-width: 100%; height: auto; display: @(string.IsNullOrEmpty(Model.FlagPhotoUrl) ? "none" : "block");" />
                 </div>
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                 <button class="btn btn-primary" type="submit">

@@ -63,7 +63,7 @@ namespace Cinema.Service.Implementations
 
             if (editDto.Order != null && editDto.Order > 0)
             {
-                slider.Order = editDto.Order;
+                slider.Order = editDto.Order.Value;
             }
             if (editDto.Image != null && editDto.Image.Length > 0)
             {

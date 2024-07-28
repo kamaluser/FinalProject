@@ -10,9 +10,9 @@ namespace Cinema.Service.Dtos.NewsDtos
 {
     public class AdminNewsEditDto
     {
-        public string Title { get; set; }
-        public string Description { get; set; }
-        public IFormFile Image { get; set; }
+        public string? Title { get; set; }
+        public string? Description { get; set; }
+        public IFormFile? Image { get; set; }
     }
 
     public class AdminNewsEditDtoValidator : AbstractValidator<AdminNewsEditDto>
@@ -20,11 +20,9 @@ namespace Cinema.Service.Dtos.NewsDtos
         public AdminNewsEditDtoValidator()
         {
             RuleFor(x => x.Title)
-                .NotEmpty().WithMessage("Title is required.")
                 .MaximumLength(200).WithMessage("Title must not exceed 200 characters.");
 
             RuleFor(x => x.Description)
-                .NotEmpty().WithMessage("Description is required.")
                 .MaximumLength(600).WithMessage("Description must not exceed 600 characters.");
 
             RuleFor(x => x.Image)
