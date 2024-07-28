@@ -8,7 +8,7 @@ namespace CinemaApp.Controllers
 {
     [Route("api/admin/[controller]")]
     [ApiController]
-    [Authorize(Roles = "Admin")]
+    //[Authorize(Roles = "Admin")]
     public class SlidersController : Controller
     {
         private readonly ISliderService _sliderService;

@@ -9,7 +9,7 @@ namespace CinemaApp.Controllers
 {
     [Route("api/admin/[controller]")]
     [ApiController]
-    [Authorize(Roles = "Admin")]
+    //[Authorize(Roles = "Admin")]
     public class BranchesController : Controller
     {
         private readonly IBranchService _branchService;

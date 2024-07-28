@@ -1,0 +1,119 @@
+﻿@model PaginatedResponse<HallListItemGetResponse>
+
+@{
+    ViewData["Title"] = "Halls";
+}
+
+<!-- Begin Page Content -->
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">Halls</h1>
+        <a asp-action="create" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+            <i class="fas fa-plus fa-sm text-white-50"></i> Create
+        </a>
+    </div>
+
+    <!-- Hall Table -->
+    <div class="row">
+        <div class="col-md-12 mx-auto">
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Seat Count</th>
+                            <th scope="col">Branch</th>
+                            <th scope="col">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.Items)
+                        {
+                            <tr>
+                                <th scope="row">@item.Id</th>
+                                <td>@item.Name</td>
+                                <td>@item.SeatCount</td>
+                                <td>@item.BranchName</td>
+                                <td>
+                                    <a class="btn btn-warning btn-sm" asp-action="edit" asp-route-id="@item.Id">
+                                        <i class="fas fa-edit"></i> Edit
+                                    </a>
+                                    <a href="/Hall/Delete/@item.Id" class="btn btn-danger btn-sm delete-btn" data-id="@item.Id">
+                                        <i class="fas fa-trash-alt"></i> Delete
+                                    </a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Pagination -->
+            <nav aria-label="Page navigation example" class="d-flex justify-content-center">
+                <ul class="pagination">
+                    @if (Model.PageIndex == 1)
+                    {
+                        <li class="page-item disabled">
+                            <span class="page-link">Previous</span>
+                        </li>
+                    }
+                    else
+                    {
+                        <li class="page-item">
+                            <a class="page-link" asp-route-page="@(Model.PageIndex-1)">Previous</a>
+                        </li>
+                    }
+
+                    @{
+                        var startPage = Math.Max(1, Model.PageIndex - 1);
+                        var endPage = Math.Min(Model.TotalPages, Model.PageIndex + 1);
+
+                        if (Model.PageIndex == 1)
+                        {
+                            endPage = Math.Min(Model.TotalPages, startPage + 2);
+                        }
+                        else if (Model.PageIndex == Model.TotalPages)
+                        {
+                            startPage = Math.Max(1, endPage - 2);
+                        }
+
+                        for (int i = startPage; i <= endPage; i++)
+                        {
+                            if (Model.PageIndex == i)
+                            {
+                                <li class="page-item active" aria-current="page">
+                                    <span class="page-link">@i</span>
+                                </li>
+                            }
+                            else
+                            {
+                                <li class="page-item"><a class="page-link" asp-route-page="@i">@i</a></li>
+                            }
+                        }
+                    }
+
+                    @if (Model.PageIndex == Model.TotalPages)
+                    {
+                        <li class="page-item disabled">
+                            <span class="page-link">Next</span>
+                        </li>
+                    }
+                    else
+                    {
+                        <li class="page-item">
+                            <a class="page-link" asp-route-page="@(Model.PageIndex+1)">Next</a>
+                        </li>
+                    }
+                </ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+@section scripts {
+    @Html.Partial("_ValidationScriptsPartial");
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+}
