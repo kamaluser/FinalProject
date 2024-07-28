@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Cinema.UI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fc180660ef4b7488341fd6930cab6c421658c32a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bddbce7e8df0ea4b1e44fef8a95ff28ed90d1bac")]
 [assembly: System.Reflection.AssemblyProductAttribute("Cinema.UI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Cinema.UI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

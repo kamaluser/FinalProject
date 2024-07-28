@@ -257,7 +257,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#">
+                            <a asp-action="index" asp-controller="language">
                                 <i class="fas fa-desktop"></i>
                                 <p>Languages</p>
                             </a>
@@ -812,9 +812,9 @@
                 </div>
             </div>
         </div>
-        <div class="custom-toggle">
+        @* <div class="custom-toggle">
             <i class="icon-settings"></i>
-        </div>
+        </div> *@
     </div>
     <!-- End Custom template -->
     </div>
@@ -854,6 +854,11 @@
     <!-- Kaiadmin DEMO methods, don't include it in your project! -->
     <script src="~/assets/js/setting-demo.js"></script>
     <script src="~/assets/js/demo.js"></script>
+    <script src="~/assets/js/main.js"></script>
+    @RenderSection("scripts", required: false)
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn-script.com/ajax/libs/jquery/3.7.1/jquery.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <script>
         $("#lineChart").sparkline([102, 109, 120, 99, 110, 105, 115], {
             type: "line",

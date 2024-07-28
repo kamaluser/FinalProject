@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "z916xau0i9MPDCgqByRyGsyvDxeaH8W9twZm0XBd5/o=",
+  "Hash": "PlVrr8ls65VWeIDPKKETgnwvU1P3kdaRjW7Mq1aifFU=",
   "Source": "Cinema.UI",
   "BasePath": "_content/Cinema.UI",
   "Mode": "Default",
@@ -7178,6 +7178,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\js\\kaiadmin.min.js"
+    },
+    {
+      "Identity": "C:\\Users\\kamal\\Desktop\\FinalProject\\Cinema.UI\\wwwroot\\assets\\js\\main.js",
+      "SourceId": "Cinema.UI",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\kamal\\Desktop\\FinalProject\\Cinema.UI\\wwwroot\\",
+      "BasePath": "_content/Cinema.UI",
+      "RelativePath": "assets/js/main.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\js\\main.js"
     },
     {
       "Identity": "C:\\Users\\kamal\\Desktop\\FinalProject\\Cinema.UI\\wwwroot\\assets\\js\\plugin\\bootstrap-notify\\bootstrap-notify.min.js",

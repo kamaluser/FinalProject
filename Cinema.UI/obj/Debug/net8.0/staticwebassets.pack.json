@@ -1513,6 +1513,10 @@
       "PackagePath": "staticwebassets\\assets\\js\\kaiadmin.min.js"
     },
     {
+      "Id": "C:\\Users\\kamal\\Desktop\\FinalProject\\Cinema.UI\\wwwroot\\assets\\js\\main.js",
+      "PackagePath": "staticwebassets\\assets\\js\\main.js"
+    },
+    {
       "Id": "C:\\Users\\kamal\\Desktop\\FinalProject\\Cinema.UI\\wwwroot\\assets\\js\\plugin\\bootstrap-notify\\bootstrap-notify.min.js",
       "PackagePath": "staticwebassets\\assets\\js\\plugin\\bootstrap-notify\\bootstrap-notify.min.js"
     },
