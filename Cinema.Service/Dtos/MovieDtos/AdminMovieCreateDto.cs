@@ -17,7 +17,7 @@ namespace Cinema.Service.Dtos.MovieDtos
         public DateTime ReleaseDate { get; set; }
         public string AgeLimit { get; set; }
         public IFormFile Photo { get; set; }
-        public List<int> LanguageIds { get; set; }
+        public List<int>? LanguageIds { get; set; } = new List<int>();
     }
 
     public class AdminMovieCreateDtoValidator : AbstractValidator<AdminMovieCreateDto>

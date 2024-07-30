@@ -1,3 +1,5 @@
+using Cinema.Service.Implementations;
+using Cinema.Service.Interfaces;
 using Cinema.UI.Filters;
 using Cinema.UI.Middlewares;
 using Cinema.UI.Services;
@@ -16,7 +18,7 @@ builder.Services.AddHttpClient("http://localhost:5194/").ConfigurePrimaryHttpMes
 });*/
 
 builder.Services.AddScoped<AuthFilter>();
-
+//builder.Services.AddScoped<ILanguageService, LanguageService>();
 builder.Services.AddScoped<ICrudService, CrudService>();
 builder.Services.AddHttpContextAccessor();
 var app = builder.Build();
