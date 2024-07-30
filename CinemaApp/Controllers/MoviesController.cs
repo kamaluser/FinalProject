@@ -60,5 +60,13 @@ namespace CinemaApp.Controllers
             return NoContent();
         }
 
+        [HttpGet("{id}/languages")]
+        public ActionResult<List<MovieLanguageDto>> GetLanguagesByMovieId(int id)
+        {
+            var languages = _movieService.GetLanguagesByMovieId(id);
+            return Ok(languages);
+        }
+
+
     }
 }

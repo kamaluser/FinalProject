@@ -16,5 +16,6 @@ namespace Cinema.Service.Interfaces
         void Delete(int id);
         AdminMovieGetDto GetById(int id);
         List<AdminMovieGetDto> GetAll(string? search = null);
+        List<MovieLanguageDto> GetLanguagesByMovieId(int movieId);
     }
 }

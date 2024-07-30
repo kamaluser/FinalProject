@@ -170,5 +170,20 @@ namespace Cinema.Service.Implementations
                 File.Delete(filePath);
             }
         }
+
+        public List<MovieLanguageDto> GetLanguagesByMovieId(int movieId)
+        {
+            var movie = _movieRepository.Get(x => x.Id == movieId && !x.IsDeleted, "MovieLanguages.Language");
+            if (movie == null)
+                throw new RestException(StatusCodes.Status404NotFound, $"Movie with {movieId} ID not found.");
+
+            return movie.MovieLanguages
+                        .Select(ml => new MovieLanguageDto
+                        {
+                            Id = ml.Language.Id,
+                            Name = ml.Language.Name
+                        }).ToList();
+        }
+
     }
 }

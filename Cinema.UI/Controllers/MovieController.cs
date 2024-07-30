@@ -1,4 +1,5 @@
-﻿using Cinema.UI.Exceptions;
+﻿using Cinema.Core.Entites;
+using Cinema.UI.Exceptions;
 using Cinema.UI.Models;
 using Cinema.UI.Services;
 using Microsoft.AspNetCore.Mvc;
@@ -13,6 +14,7 @@ public class MovieController : Controller
     {
         _crudService = crudService;
         _client = new HttpClient();
+        _client.BaseAddress = new Uri("http://localhost:5194/");
     }
 
     public async Task<IActionResult> Index(int page = 1)
@@ -68,7 +70,7 @@ public class MovieController : Controller
 
         try
         {
-            await _crudService.Create<MovieCreateRequest>(createRequest, "movies");
+            await _crudService.CreateFromForm<MovieCreateRequest>(createRequest, "movies");
             return RedirectToAction("index");
         }
         catch (ModelException e)
@@ -118,41 +120,21 @@ public class MovieController : Controller
                 TrailerLink = movieDto.TrailerLink,
                 AgeLimit = movieDto.AgeLimit,
                 PhotoUrl = movieDto.Photo,
-                LanguageIds = movieDto.Languages?.Select(l => l.Id).ToList()
+                LanguageIds = movieDto.Languages?.Select(l => l.Id).ToList() ?? new List<int>()
             };
 
             ViewBag.Languages = await getLanguages();
 
             if (ViewBag.Languages == null) return RedirectToAction("error", "home");
 
-
             return View(editRequest);
-        }
-        catch (ModelException e)
-        {
-            foreach (var item in e.Error.Errors)
-            {
-                ModelState.AddModelError(item.Key, item.Message);
-            }
-
-            return View();
-        }
-        catch (HttpException e)
-        {
-            if (e.Status == System.Net.HttpStatusCode.NotFound)
-            {
-                return NotFound();
-            }
-            else
-            {
-                return RedirectToAction("error", "home");
-            }
         }
         catch (Exception e)
         {
             return RedirectToAction("error", "home");
         }
     }
+
 
     [HttpPost]
     public async Task<IActionResult> Edit(int id, MovieEditRequest editRequest)
@@ -168,7 +150,7 @@ public class MovieController : Controller
 
         try
         {
-            await _crudService.Update<MovieEditRequest>(editRequest, $"movies/{id}");
+            await _crudService.UpdateFromForm<MovieEditRequest>(editRequest, $"movies/{id}");
             return RedirectToAction("index");
         }
         catch (ModelException e)
@@ -217,18 +199,33 @@ public class MovieController : Controller
         }
     }
 
-    private async Task<List<MovieListItemGetResponse>> getLanguages()
+    private async Task<List<Language>> getLanguages()
     {
-        using (var response = await _client.GetAsync("http://localhost:5194/api/admin/Languages/all"))
+        try
         {
-            if (response.IsSuccessStatusCode)
+            using (var response = await _client.GetAsync("api/admin/Languages/all"))
             {
-                var options = new JsonSerializerOptions() { PropertyNameCaseInsensitive = true };
-                var data = JsonSerializer.Deserialize<List<MovieListItemGetResponse>>(await response.Content.ReadAsStringAsync(), options);
-
-                return data;
+                if (response.IsSuccessStatusCode)
+                {
+                    var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+                    var data = JsonSerializer.Deserialize<List<Language>>(await response.Content.ReadAsStringAsync(), options);
+                    return data;
+                }
+                else
+                {
+                    Console.WriteLine($"Response failed with status code: {response.StatusCode}");
+                }
             }
         }
-        return null;
+        catch (HttpRequestException ex)
+        {
+            Console.WriteLine($"HttpRequestException: {ex.Message}");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Exception: {ex.Message}");
+        }
+        return new List<Language>();
     }
+
 }

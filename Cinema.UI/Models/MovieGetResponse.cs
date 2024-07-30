@@ -12,6 +12,6 @@ namespace Cinema.UI.Models
 
         public string AgeLimit { get; set; }
         public string Photo { get; set; }
-        public List<Language>? Languages { get; set; }
+        public List<LanguageGetResponse>? Languages { get; set; }
     }
 }

@@ -1,0 +1,65 @@
+﻿@model Cinema.UI.Models.SessionEditRequest
+
+@{
+    ViewData["Title"] = "Edit Session";
+}
+
+<div class="container-fluid">
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">Edit Session</h1>
+        <a asp-action="Index" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+            Back to List
+        </a>
+    </div>
+    <div class="row">
+        <div class="col-md-8 mx-auto">
+            <form class="user" asp-action="Edit" method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="movieInput">Movie</label>
+                    <select asp-for="MovieId" class="form-control" id="movieInput" asp-items="@(new SelectList(ViewBag.Movies, "Id", "Title"))">
+                        <option value="">Select a Movie</option>
+                    </select>
+                    <span class="text-danger" asp-validation-for="MovieId"></span>
+                </div>
+                <div class="form-group">
+                    <label for="hallInput">Hall</label>
+                    <select asp-for="HallId" class="form-control" id="hallInput" asp-items="@(new SelectList(ViewBag.Halls, "Id", "Name"))">
+                        <option value="">Select a Hall</option>
+                    </select>
+                    <span class="text-danger" asp-validation-for="HallId"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="LanguageId" class="control-label">Language</label>
+                    <select asp-for="LanguageId" class="form-control" asp-items="@(new SelectList(ViewBag.Languages, "Id", "Name"))"></select>
+                    <span asp-validation-for="LanguageId" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label for="showDateTimeInput">Show Date & Time</label>
+                    <input asp-for="ShowDateTime" class="form-control" id="showDateTimeInput" type="datetime-local">
+                    <span class="text-danger" asp-validation-for="ShowDateTime"></span>
+                </div>
+                <div class="form-group">
+                    <label for="priceInput">Price</label>
+                    <input asp-for="Price" class="form-control" id="priceInput" type="number" step="0.01" placeholder="Enter Price here..">
+                    <span class="text-danger" asp-validation-for="Price"></span>
+                </div>
+                <div class="form-group">
+                    <label for="durationInput">Duration (minutes)</label>
+                    <input asp-for="Duration" class="form-control" id="durationInput" type="number" placeholder="Enter Duration here..">
+                    <span class="text-danger" asp-validation-for="Duration"></span>
+                </div>
+                <div class="form-group">
+                    <img id="imagePreview" alt="Image Preview" style="max-width: 100%; height: auto; display: none;" />
+                </div>
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <button class="btn btn-primary" type="submit">
+                    Edit Session
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @Html.Partial("_ValidationScriptsPartial")
+}
