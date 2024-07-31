@@ -16,7 +16,7 @@ using System.Threading.Tasks;
 
 namespace Cinema.Service.Implementations
 {
-    public class AuthService:IAuthService
+    public class AuthService : IAuthService
     {
         private readonly UserManager<AppUser> _userManager;
         private readonly IConfiguration _configuration;
@@ -27,27 +27,26 @@ namespace Cinema.Service.Implementations
             _configuration = configuration;
         }
 
-        public string Login(UserLoginDto loginDto)
+        public async Task<string> Login(UserLoginDto loginDto)
         {
-            AppUser? user = _userManager.FindByNameAsync(loginDto.UserName).Result;
+            AppUser? user = await _userManager.FindByNameAsync(loginDto.UserName);
 
-            if (user == null || !_userManager.CheckPasswordAsync(user, loginDto.Password).Result)
+            if (user == null || !await _userManager.CheckPasswordAsync(user, loginDto.Password))
             {
                 throw new RestException(StatusCodes.Status401Unauthorized, "UserName or Password is incorrect!");
             }
 
-            List<Claim> claims = new List<Claim>();
+            List<Claim> claims = new List<Claim>
+            {
+                new Claim(ClaimTypes.NameIdentifier, user.Id),
+                new Claim(ClaimTypes.Name, user.UserName),
+                new Claim("FullName", user.FullName)
+            };
 
-            claims.Add(new Claim(ClaimTypes.NameIdentifier, user.Id));
-            claims.Add(new Claim(ClaimTypes.Name, user.UserName));
-            claims.Add(new Claim("FullName", user.FullName));
-
-            var roles = _userManager.GetRolesAsync(user).Result;
-
+            var roles = await _userManager.GetRolesAsync(user);
             claims.AddRange(roles.Select(x => new Claim(ClaimTypes.Role, x)).ToList());
 
             string secret = _configuration.GetSection("JWT:Secret").Value;
-
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secret));
             var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
@@ -57,10 +56,9 @@ namespace Cinema.Service.Implementations
                 audience: _configuration.GetSection("JWT:Audience").Value,
                 issuer: _configuration.GetSection("JWT:Issuer").Value,
                 expires: DateTime.Now.AddDays(3)
-                );
+            );
 
             string tokenStr = new JwtSecurityTokenHandler().WriteToken(token);
-
             return tokenStr;
         }
     }

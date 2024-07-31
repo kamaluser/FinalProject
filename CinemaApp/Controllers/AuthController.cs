@@ -4,6 +4,7 @@ using Cinema.Service.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
 
 namespace CinemaApp.Controllers
 {
@@ -37,7 +38,6 @@ namespace CinemaApp.Controllers
             {
                 await _roleManager.CreateAsync(new IdentityRole("Member"));
             }
-           
 
             AppUser user1 = new AppUser
             {
@@ -45,7 +45,6 @@ namespace CinemaApp.Controllers
                 UserName = "member",
             };
             await _userManager.CreateAsync(user1, "Member123");
-
 
             AppUser user2 = new AppUser
             {
@@ -69,12 +68,11 @@ namespace CinemaApp.Controllers
         }
 
         [HttpPost("login")]
-        public ActionResult Login(UserLoginDto loginDto)
+        public async Task<ActionResult> Login(UserLoginDto loginDto)
         {
-            var token = "Bearer " + _authService.Login(loginDto);
+            var token = "Bearer " + await _authService.Login(loginDto);
             return Ok(new { token });
         }
-
 
         [Authorize]
         [HttpGet("profile")]

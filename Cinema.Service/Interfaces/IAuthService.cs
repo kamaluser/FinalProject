@@ -9,7 +9,7 @@ namespace Cinema.Service.Interfaces
 {
     public interface IAuthService
     {
-        string Login(UserLoginDto loginDto);
+        Task<string> Login(UserLoginDto loginDto);
 
     }
 }

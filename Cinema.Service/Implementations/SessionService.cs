@@ -146,9 +146,10 @@ namespace Cinema.Service.Implementations
 
             session.Movie = movie;
             session.Hall = hall;
-            session.ShowDateTime = dto.ShowDateTime;
-            session.Price = dto.Price;
-            session.Duration = dto.Duration;
+            session.Language = language; 
+            session.ShowDateTime = dto.ShowDateTime.Value;
+            session.Price = dto.Price.Value;
+            session.Duration = dto.Duration.Value;
             session.ModifiedAt = DateTime.Now;
 
             _sessionRepository.Save();
