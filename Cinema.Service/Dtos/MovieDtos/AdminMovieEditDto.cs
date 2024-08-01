@@ -35,9 +35,12 @@ namespace Cinema.Service.Dtos.MovieDtos
             RuleFor(x => x.AgeLimit)
                 .MaximumLength(30).WithMessage("AgeLimit must not exceed 30 characters.");
 
-            RuleFor(x => x.Photo)
-                .Must(IsValidContentType).WithMessage("Invalid photo format. Only .jpg, .jpeg, and .png are allowed.")
-                .Must(IsValidSize).WithMessage("Photo size must be less than 5MB.");
+            When(x => x.Photo != null, () =>
+            {
+                RuleFor(x => x.Photo)
+                    .Must(IsValidContentType).WithMessage("Invalid photo format. Only .jpg, .jpeg, and .png are allowed.")
+                    .Must(IsValidSize).WithMessage("Photo size must be less than 5MB.");
+            });
 
             RuleFor(x => x.LanguageIds)
                 .Must(ids => ids.All(id => id > 0)).WithMessage("Language IDs must be greater than zero.");

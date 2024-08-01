@@ -15,6 +15,6 @@ namespace Cinema.Service.Dtos.MovieDtos
         public DateTime ReleaseDate { get; set; }
         public string AgeLimit { get; set; }
         public string Photo { get; set; }
-        public List<string> LanguageNames { get; set; }
+        public List<int> LanguageIds { get; set; }
     }
 }

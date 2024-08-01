@@ -120,7 +120,7 @@ public class MovieController : Controller
                 TrailerLink = movieDto.TrailerLink,
                 AgeLimit = movieDto.AgeLimit,
                 PhotoUrl = movieDto.Photo,
-                LanguageIds = movieDto.Languages?.Select(l => l.Id).ToList() ?? new List<int>()
+                LanguageIds = movieDto.LanguageIds
             };
 
             ViewBag.Languages = await getLanguages();

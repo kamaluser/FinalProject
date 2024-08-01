@@ -1,4 +1,6 @@
-﻿namespace Cinema.UI.Models
+﻿using System.Text.Json.Serialization;
+
+namespace Cinema.UI.Models
 {
     public class MovieEditRequest
     {
@@ -8,6 +10,7 @@
         public DateTime? ReleaseDate { get; set; }
         public string? AgeLimit { get; set; }
         public IFormFile? Photo { get; set; }
+        [JsonIgnore]
         public string? PhotoUrl { get; set; }
         public List<int>? LanguageIds { get; set; }
     }

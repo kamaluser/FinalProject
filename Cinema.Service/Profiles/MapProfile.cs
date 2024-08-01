@@ -86,7 +86,7 @@ namespace Cinema.Service.Profiles
 
             // Movie
             CreateMap<Movie, AdminMovieGetDto>()
-                .ForMember(dest => dest.LanguageNames, opt => opt.MapFrom(src => src.MovieLanguages.Select(ml => ml.Language.Name).ToList()))
+                .ForMember(dest => dest.LanguageIds, opt => opt.MapFrom(src => src.MovieLanguages.Select(ml => ml.Language.Id).ToList()))
                 .ForMember(dest => dest.Photo, opt => opt.MapFrom(src => $"{baseUrl}/uploads/movies/{src.Photo}"));
 
             CreateMap<AdminMovieCreateDto, Movie>()
