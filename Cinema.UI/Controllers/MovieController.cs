@@ -199,7 +199,7 @@ public class MovieController : Controller
         }
     }
 
-    private async Task<List<Language>> getLanguages()
+    private async Task<List<LanguageListItemGetResponse>> getLanguages()
     {
         try
         {
@@ -209,7 +209,15 @@ public class MovieController : Controller
                 {
                     var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
                     var data = JsonSerializer.Deserialize<List<Language>>(await response.Content.ReadAsStringAsync(), options);
-                    return data;
+
+                    var languages = data.Select(l => new LanguageListItemGetResponse
+                    {
+                        Id = l.Id,
+                        Name = l.Name,
+                        FlagPhoto = l.FlagPhoto
+                    }).ToList();
+
+                    return languages;
                 }
                 else
                 {
@@ -225,7 +233,7 @@ public class MovieController : Controller
         {
             Console.WriteLine($"Exception: {ex.Message}");
         }
-        return new List<Language>();
+        return new List<LanguageListItemGetResponse>();
     }
 
 }
