@@ -10,5 +10,6 @@ namespace Cinema.Core.Entites
     public class AppUser : IdentityUser
     {
         public string FullName { get; set; }
+        public bool NeedsPasswordReset { get; set; }
     }
 }

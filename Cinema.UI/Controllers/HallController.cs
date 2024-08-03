@@ -1,5 +1,6 @@
 ﻿using Cinema.UI.Exceptions;
-using Cinema.UI.Models;
+using Cinema.UI.Models.BranchModels;
+using Cinema.UI.Models.HallModels;
 using Cinema.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using System.Text.Json;

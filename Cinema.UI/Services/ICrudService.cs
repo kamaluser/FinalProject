@@ -1,4 +1,5 @@
 ﻿using Cinema.UI.Models;
+using Cinema.UI.Models.UserModels;
 
 namespace Cinema.UI.Services
 {
@@ -12,5 +13,7 @@ namespace Cinema.UI.Services
 
         Task<CreateResponse> CreateFromForm<TRequest>(TRequest request, string path);
         Task UpdateFromForm<TRequest>(TRequest request, string path);
+
+        Task<AdminCreateResponse> CreateAdmin<TRequest>(TRequest request, string path);
     }
 }

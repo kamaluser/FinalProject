@@ -3,6 +3,7 @@ using Cinema.UI.Models;
 using Microsoft.Net.Http.Headers;
 using System.Text.Json;
 using System.Text;
+using Cinema.UI.Models.UserModels;
 
 namespace Cinema.UI.Services
 {
@@ -95,7 +96,7 @@ namespace Cinema.UI.Services
         {
             AddAuthorizationHeader();
             var content = new StringContent(JsonSerializer.Serialize(request), Encoding.UTF8, "application/json");
-            var response = await _client.PutAsync(baseUrl + path, content);
+            var response = await _client.PutAsync(baseUrl + "Auth/"+path, content);
             var responseContent = await response.Content.ReadAsStringAsync();
             var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
 
@@ -164,6 +165,33 @@ namespace Cinema.UI.Services
             {
                 var errorResponse = JsonSerializer.Deserialize<ErrorResponse>(responseContent, options);
                 throw new HttpException(response.StatusCode, errorResponse.Message);
+            }
+        }
+
+        async Task<AdminCreateResponse> ICrudService.CreateAdmin<TRequest>(TRequest request, string path)
+        {
+            _client.DefaultRequestHeaders.Remove(HeaderNames.Authorization);
+            _client.DefaultRequestHeaders.Add(HeaderNames.Authorization, _httpContextAccessor.HttpContext.Request.Cookies["token"]);
+
+            var content = new StringContent(JsonSerializer.Serialize(request), Encoding.UTF8, "application/json");
+            using (HttpResponseMessage response = await _client.PostAsync(baseUrl + "Auth/" + path, content))
+            {
+                var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+
+                if (response.IsSuccessStatusCode)
+                {
+                    return JsonSerializer.Deserialize<AdminCreateResponse>(await response.Content.ReadAsStringAsync(), options);
+                }
+                else if (response.StatusCode == System.Net.HttpStatusCode.BadRequest)
+                {
+                    ErrorResponse errorResponse = JsonSerializer.Deserialize<ErrorResponse>(await response.Content.ReadAsStringAsync(), options);
+                    throw new ModelException(System.Net.HttpStatusCode.BadRequest, errorResponse);
+                }
+                else
+                {
+                    ErrorResponse errorResponse = JsonSerializer.Deserialize<ErrorResponse>(await response.Content.ReadAsStringAsync(), options);
+                    throw new HttpException(response.StatusCode, errorResponse.Message);
+                }
             }
         }
 

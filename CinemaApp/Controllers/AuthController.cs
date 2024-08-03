@@ -1,4 +1,5 @@
 ﻿using Cinema.Core.Entites;
+using Cinema.Service.Dtos;
 using Cinema.Service.Dtos.UserDtos;
 using Cinema.Service.Interfaces;
 using Microsoft.AspNetCore.Authorization;
@@ -23,7 +24,7 @@ namespace CinemaApp.Controllers
             _userManager = userManager;
         }
 
-        [HttpGet("users")]
+        /*[HttpGet("users")]
         public async Task<IActionResult> CreateUser()
         {
             if (!await _roleManager.RoleExistsAsync("SuperAdmin"))
@@ -65,12 +66,19 @@ namespace CinemaApp.Controllers
             var result3 = await _userManager.AddToRoleAsync(user3, "SuperAdmin");
 
             return Ok(user1.Id);
+        }*/
+
+        [Authorize(Roles = "SuperAdmin")]
+        [HttpPost("CreateAdmin")]
+        public IActionResult Create(SuperAdminCreateAdminDto createDto)
+        {
+            return StatusCode(201, new { Id = _authService.CreateAdmin(createDto) });
         }
 
         [HttpPost("login")]
-        public async Task<ActionResult> Login(UserLoginDto loginDto)
+        public ActionResult Login(AdminLoginDto loginDto)
         {
-            var token = "Bearer " + await _authService.Login(loginDto);
+            var token = _authService.Login(loginDto);
             return Ok(new { token });
         }
 
@@ -78,7 +86,55 @@ namespace CinemaApp.Controllers
         [HttpGet("profile")]
         public ActionResult Profile()
         {
-            return Ok(User.Identity.Name);
+            var userName = User.Identity.Name;
+            var user = _userManager.FindByNameAsync(userName).Result;
+
+            if (user == null)
+            {
+                return NotFound("User not found.");
+            }
+
+            var userDto = new AdminGetDto
+            {
+                Id = user.Id,
+                UserName = user.UserName
+            };
+
+            return Ok(userDto);
+        }
+
+        [Authorize(Roles = "SuperAdmin")]
+        [HttpGet("GetAll")]
+        public ActionResult<List<AdminGetDto>> GetAll(string? search = null)
+        {
+            var admins = _authService.GetAll(search);
+            return Ok(admins);
+        }
+
+        [Authorize(Roles = "SuperAdmin")]
+        [HttpGet("GetAllByPage")]
+        public ActionResult<PaginatedList<AdminPaginatedGetDto>> GetAllByPage(string? search = null, int page = 1, int size = 10)
+        {
+            var paginatedAdmins = _authService.GetAllByPage(search, page, size);
+            return Ok(paginatedAdmins);
+        }
+
+
+        [Authorize(Roles = "SuperAdmin")]
+        [HttpPut("update/{id}")]
+        public IActionResult Update(string id, AdminEditDto updateDto)
+        {
+            _authService.Update(id, updateDto);
+            return NoContent();
+        }
+
+        [HttpPut("updatePassword")]
+        public async Task<IActionResult> UpdatePassword(AdminEditDto updatePasswordDto)
+        {
+
+            await _authService.UpdatePasswordAsync(updatePasswordDto);
+            return NoContent();
+
         }
     }
 }

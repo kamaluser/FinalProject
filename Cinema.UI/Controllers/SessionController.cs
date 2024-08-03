@@ -1,6 +1,6 @@
 ﻿using Cinema.Core.Entites;
 using Cinema.UI.Exceptions;
-using Cinema.UI.Models;
+using Cinema.UI.Models.SessionModels;
 using Cinema.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;

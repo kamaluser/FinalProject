@@ -1,0 +1,110 @@
+﻿@model SettingEditRequest
+
+@{
+    ViewData["Title"] = "Edit Setting";
+}
+
+<!-- Begin Page Content -->
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">Edit Setting</h1>
+        <a asp-action="index" class="d-none d-sm-inline-block btn btn-sm btn-secondary shadow-sm">
+            <i class="fas fa-arrow-left fa-sm text-white-50"></i> Back to List
+        </a>
+    </div>
+
+    <div class="row">
+        <div class="col-md-8 mx-auto">
+            <form asp-action="edit" method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label asp-for="PhoneNumber" class="control-label"></label>
+                    <input asp-for="PhoneNumber" class="form-control" />
+                    <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="FacebookUrl" class="control-label"></label>
+                    <input asp-for="FacebookUrl" class="form-control" />
+                    <span asp-validation-for="FacebookUrl" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="YoutubeUrl" class="control-label"></label>
+                    <input asp-for="YoutubeUrl" class="form-control" />
+                    <span asp-validation-for="YoutubeUrl" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="InstagramUrl" class="control-label"></label>
+                    <input asp-for="InstagramUrl" class="form-control" />
+                    <span asp-validation-for="InstagramUrl" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="TelegramUrl" class="control-label"></label>
+                    <input asp-for="TelegramUrl" class="form-control" />
+                    <span asp-validation-for="TelegramUrl" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="ContactAddress" class="control-label"></label>
+                    <input asp-for="ContactAddress" class="form-control" />
+                    <span asp-validation-for="ContactAddress" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="ContactEmailAddress" class="control-label"></label>
+                    <input asp-for="ContactEmailAddress" class="form-control" />
+                    <span asp-validation-for="ContactEmailAddress" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="ContactWorkHours" class="control-label"></label>
+                    <input asp-for="ContactWorkHours" class="form-control" />
+                    <span asp-validation-for="ContactWorkHours" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="ContactMarketingDepartment" class="control-label"></label>
+                    <input asp-for="ContactMarketingDepartment" class="form-control" />
+                    <span asp-validation-for="ContactMarketingDepartment" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="ContactMap" class="control-label"></label>
+                    <input asp-for="ContactMap" class="form-control" />
+                    <span asp-validation-for="ContactMap" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="AboutTitle" class="control-label"></label>
+                    <input asp-for="AboutTitle" class="form-control" />
+                    <span asp-validation-for="AboutTitle" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="AboutDesc" class="control-label"></label>
+                    <textarea asp-for="AboutDesc" class="form-control"></textarea>
+                    <span asp-validation-for="AboutDesc" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Logo" class="control-label"></label>
+                    <input asp-for="Logo" type="file" class="form-control-file" id="logoInput" />
+                    <span asp-validation-for="Logo" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <!-- Set initial src to LogoUrl if it is available -->
+                    <img id="logoPreview" src="@Model.LogoUrl" class="img-fluid img-thumbnail" style="width: 200px; height: auto;" />
+                </div>
+                <button type="submit" class="btn btn-primary">Save</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script>
+        document.getElementById('logoInput').addEventListener('change', function (event) {
+            const reader = new FileReader();
+            reader.onload = function () {
+                const output = document.getElementById('logoPreview');
+                output.src = reader.result;
+            };
+            if (event.target.files.length > 0) {
+                reader.readAsDataURL(event.target.files[0]);
+            }
+        });
+    </script>
+}

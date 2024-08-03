@@ -1,6 +1,7 @@
 ﻿using Cinema.Core.Entites;
 using Cinema.UI.Exceptions;
-using Cinema.UI.Models;
+using Cinema.UI.Models.LanguageModels;
+using Cinema.UI.Models.MovieModels;
 using Cinema.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using System.Text.Json;

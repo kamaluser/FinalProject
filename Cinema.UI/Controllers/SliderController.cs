@@ -1,5 +1,5 @@
 ﻿using Cinema.UI.Exceptions;
-using Cinema.UI.Models;
+using Cinema.UI.Models.SliderModels;
 using Cinema.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 

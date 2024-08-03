@@ -26,8 +26,24 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\kamal\Desktop\FinalProject\Cinema.UI
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/kamal/Desktop/FinalProject/Cinema.UI/Views/Account/CreateAdminBySuperAdmin.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxDcmVhdGVBZG1pbkJ5U3VwZXJBZG1pbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/kamal/Desktop/FinalProject/Cinema.UI/Views/Account/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxMb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/kamal/Desktop/FinalProject/Cinema.UI/Views/Account/Profile.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxQcm9maWxlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/kamal/Desktop/FinalProject/Cinema.UI/Views/Account/ResetPassword.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxSZXNldFBhc3N3b3JkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/kamal/Desktop/FinalProject/Cinema.UI/Views/Account/ShowAdmins.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxTaG93QWRtaW5zLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/kamal/Desktop/FinalProject/Cinema.UI/Views/Branch/Create.cshtml]
@@ -108,6 +124,14 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/kamal/Desktop/FinalProject/Cinema.UI/Views/Session/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2Vzc2lvblxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/kamal/Desktop/FinalProject/Cinema.UI/Views/Setting/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2V0dGluZ1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/kamal/Desktop/FinalProject/Cinema.UI/Views/Setting/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2V0dGluZ1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/kamal/Desktop/FinalProject/Cinema.UI/Views/Shared/Error.cshtml]

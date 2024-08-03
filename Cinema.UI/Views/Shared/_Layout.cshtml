@@ -1,4 +1,15 @@
-﻿<!DOCTYPE html>
+﻿@* @using Cinema.Core.Entites
+@using Microsoft.AspNetCore.Identity
+@inject UserManager<AppUser> UserManager
+@inject SignInManager<AppUser> SignInManager
+
+@{
+    var user = await UserManager.GetUserAsync(User);
+    var roles = await UserManager.GetRolesAsync(user);
+    bool isSuperAdmin = roles.Contains("SuperAdmin");
+} *@
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -150,43 +161,6 @@
                             </div>
                         </li>
                         <li class="nav-item">
-                            <a data-bs-toggle="collapse" href="#sidebarLayouts">
-                                <i class="fas fa-th-list"></i>
-                                <p>Sidebar Layouts</p>
-                                <span class="caret"></span>
-                            </a>
-                            <div class="collapse" id="sidebarLayouts">
-                                <ul class="nav nav-collapse">
-                                    <li>
-                                        <a href="sidebar-style-2.html">
-                                            <span class="sub-item">Sidebar Style 2</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="icon-menu.html">
-                                            <span class="sub-item">Icon Menu</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li class="nav-item">
-                            <a data-bs-toggle="collapse" href="#forms">
-                                <i class="fas fa-pen-square"></i>
-                                <p>Forms</p>
-                                <span class="caret"></span>
-                            </a>
-                            <div class="collapse" id="forms">
-                                <ul class="nav nav-collapse">
-                                    <li>
-                                        <a href="forms/forms.html">
-                                            <span class="sub-item">Basic Form</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li class="nav-item">
                             <a data-bs-toggle="collapse" href="#tables">
                                 <i class="fas fa-table"></i>
                                 <p>Tables</p>
@@ -256,6 +230,20 @@
                                 <span class="badge badge-success">4</span>
                             </a>
                         </li>
+
+                        <li class="nav-item">
+                            <a asp-action="showadmins" asp-controller="Account">
+                                <i class="fas fa-desktop"></i>
+                                <p>Admins</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a asp-action="Index" asp-controller="Setting">
+                                <i class="fas fa-desktop"></i>
+                                <p>Setting</p>
+                            </a>
+                        </li>
+
                         <li class="nav-item">
                             <a asp-action="index" asp-controller="Language">
                                 <i class="fas fa-desktop"></i>
@@ -297,64 +285,6 @@
                                 <i class="fas fa-desktop"></i>
                                 <p>Session</p>
                             </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="../../documentation/index.html">
-                                <i class="fas fa-file"></i>
-                                <p>Documentation</p>
-                                <span class="badge badge-secondary">1</span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a data-bs-toggle="collapse" href="#submenu">
-                                <i class="fas fa-bars"></i>
-                                <p>Menu Levels</p>
-                                <span class="caret"></span>
-                            </a>
-                            <div class="collapse" id="submenu">
-                                <ul class="nav nav-collapse">
-                                    <li>
-                                        <a data-bs-toggle="collapse" href="#subnav1">
-                                            <span class="sub-item">Level 1</span>
-                                            <span class="caret"></span>
-                                        </a>
-                                        <div class="collapse" id="subnav1">
-                                            <ul class="nav nav-collapse subnav">
-                                                <li>
-                                                    <a href="#">
-                                                        <span class="sub-item">Level 2</span>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">
-                                                        <span class="sub-item">Level 2</span>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <a data-bs-toggle="collapse" href="#subnav2">
-                                            <span class="sub-item">Level 1</span>
-                                            <span class="caret"></span>
-                                        </a>
-                                        <div class="collapse" id="subnav2">
-                                            <ul class="nav nav-collapse subnav">
-                                                <li>
-                                                    <a href="#">
-                                                        <span class="sub-item">Level 2</span>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <span class="sub-item">Level 1</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
                         </li>
                     </ul>
                 </div>
@@ -693,35 +623,35 @@
         </div>
 
         <div class="container">
-           @RenderBody()
+                @RenderBody()
         </div>
 
-       @*  <footer class="footer">
-            <div class="container-fluid d-flex justify-content-between">
-                <nav class="pull-left">
-                    <ul class="nav">
-                        <li class="nav-item">
-                            <a class="nav-link" href="http://www.themekita.com">
-                                ThemeKita
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#"> Help </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#"> Licenses </a>
-                        </li>
-                    </ul>
-                </nav>
-                <div class="copyright">
-                    2024, made with <i class="fa fa-heart heart text-danger"></i> by
-                    <a href="http://www.themekita.com">ThemeKita</a>
-                </div>
-                <div>
-                    Distributed by
-                    <a target="_blank" href="https://themewagon.com/">ThemeWagon</a>.
-                </div>
-            </div>
+            @*  <footer class="footer">
+        <div class="container-fluid d-flex justify-content-between">
+        <nav class="pull-left">
+        <ul class="nav">
+        <li class="nav-item">
+        <a class="nav-link" href="http://www.themekita.com">
+        ThemeKita
+        </a>
+        </li>
+        <li class="nav-item">
+        <a class="nav-link" href="#"> Help </a>
+        </li>
+        <li class="nav-item">
+        <a class="nav-link" href="#"> Licenses </a>
+        </li>
+        </ul>
+        </nav>
+        <div class="copyright">
+        2024, made with <i class="fa fa-heart heart text-danger"></i> by
+        <a href="http://www.themekita.com">ThemeKita</a>
+        </div>
+        <div>
+        Distributed by
+        <a target="_blank" href="https://themewagon.com/">ThemeWagon</a>.
+        </div>
+        </div>
         </footer> *@
     </div>
 
@@ -848,8 +778,8 @@
                 </div>
             </div>
         </div>
-        @* <div class="custom-toggle">
-            <i class="icon-settings"></i>
+            @* <div class="custom-toggle">
+        <i class="icon-settings"></i>
         </div> *@
     </div>
     <!-- End Custom template -->

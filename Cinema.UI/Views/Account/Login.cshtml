@@ -16,7 +16,6 @@
 </head>
 <body>
     <div id="particles-js" class="snow"></div>
-
     <main>
         <div class="left-side"></div>
 
@@ -29,7 +28,7 @@
                 <label for="password">Password</label>
                 <input asp-for="Password" type="password" placeholder="Enter Password" name="password" required />
 
-                <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+                <div class="text-danger" style="color:red" asp-validation-summary="ModelOnly"></div>
                 <button type="submit" class="login-btn">Sign in</button>
             </form>
         </div>
@@ -99,3 +98,4 @@
     </script>
 </body>
 </html>
+

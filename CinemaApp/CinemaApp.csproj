@@ -29,6 +29,7 @@
   <ItemGroup>
     <Folder Include="wwwroot\uploads\flags\" />
     <Folder Include="wwwroot\uploads\movies\" />
+    <Folder Include="wwwroot\uploads\settings\" />
     <Folder Include="wwwroot\uploads\news\" />
     <Folder Include="wwwroot\uploads\sliders\" />
   </ItemGroup>

@@ -644,6 +644,9 @@ namespace Cinema.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<bool>("NeedsPasswordReset")
+                        .HasColumnType("bit");
+
                     b.HasDiscriminator().HasValue("AppUser");
                 });
 

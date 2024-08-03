@@ -7,6 +7,7 @@ using Cinema.Service.Dtos.MovieDtos;
 using Cinema.Service.Dtos.NewsDtos;
 using Cinema.Service.Dtos.SessionDtos;
 using Cinema.Service.Dtos.SliderDtos;
+using Cinema.Service.Dtos.UserDtos;
 using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
@@ -111,6 +112,10 @@ namespace Cinema.Service.Profiles
                 .ForMember(dest => dest.Movie, opt => opt.Ignore())
                 .ForMember(dest => dest.Hall, opt => opt.Ignore())
                 .ForMember(dest => dest.Language, opt => opt.Ignore());
+
+            //AppUser(admin)
+            CreateMap<AppUser, AdminGetDto>();
+            CreateMap<AppUser, AdminPaginatedGetDto>();
         }
     }
 }

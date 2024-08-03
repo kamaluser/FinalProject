@@ -1,0 +1,47 @@
+﻿@model SettingGetResponse
+
+@{
+    ViewData["Title"] = "Settings";
+}
+
+<!-- Begin Page Content -->
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">Settings</h1>
+        <a asp-action="edit" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+            <i class="fas fa-edit fa-sm text-white-50"></i> Edit
+        </a>
+    </div>
+
+    <!-- Settings Details -->
+    <div class="row">
+        <div class="col-md-12 mx-auto">
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">Phone Number</th>
+                            <th scope="col">Contact Address</th>
+                            <th scope="col">Image</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>@Model.PhoneNumber</td>
+                            <td>@Model.ContactAddress</td>
+                            <td>
+                                <img src="@Model.Logo" class="img-fluid img-thumbnail" style="width: 100px; height: auto;" />
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts {
+    @Html.Partial("_ValidationScriptsPartial");
+}

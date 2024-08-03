@@ -1,14 +1,21 @@
+using Cinema.Core.Entites;
+using Cinema.Data;
 using Cinema.Service.Implementations;
 using Cinema.Service.Interfaces;
 using Cinema.UI.Filters;
 using Cinema.UI.Middlewares;
 using Cinema.UI.Services;
+using Microsoft.AspNetCore.Identity;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
+/*builder.Services.AddIdentity<AppUser, IdentityRole>()
+        .AddEntityFrameworkStores<AppDbContext>()
+        .AddDefaultTokenProviders();
+*/
 builder.Services.AddHttpClient();
 
 /*
