@@ -11,7 +11,7 @@ namespace Cinema.UI.Services
     {
         private readonly IHttpContextAccessor _httpContextAccessor;
         private readonly HttpClient _client;
-        private const string baseUrl = "http://localhost:5194/api/admin/";
+        private const string baseUrl = "https://localhost:44324/api/admin/";
 
         public CrudService(IHttpContextAccessor httpContextAccessor)
         {

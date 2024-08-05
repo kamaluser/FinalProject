@@ -183,11 +183,37 @@ namespace CinemaApp.Controllers
             return Ok(new { Message = message });
         }
 
+        [HttpPost("api/account/resetpasswordforforgetpassword")]
+        public async Task<IActionResult> ResetPasswordForForgetPassword([FromBody] ResetPasswordForForgetPasswordDto resetPasswordDto)
+        {
+            await _authService.ResetPasswordForForgetPasswordAsync(resetPasswordDto.UserId, resetPasswordDto.Token, resetPasswordDto.NewPassword);
+            return NoContent();
+        }
+
+
         [HttpPost("api/account/resetpassword")]
         public async Task<IActionResult> ResetPassword([FromBody] ResetPasswordDto resetPasswordDto)
         {
-            await _authService.ResetPasswordAsync(resetPasswordDto.UserId, resetPasswordDto.Token, resetPasswordDto.NewPassword);
-            return NoContent();
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            var result = await _authService.ResetPasswordAsync(
+                resetPasswordDto.UserName,
+                resetPasswordDto.CurrentPassword,
+                resetPasswordDto.NewPassword);
+
+            if (result)
+            {
+                return NoContent(); 
+            }
+            else
+            {
+                return BadRequest("Password reset failed. Ensure the current password is correct and try again.");
+            }
         }
+
+
     }
 }

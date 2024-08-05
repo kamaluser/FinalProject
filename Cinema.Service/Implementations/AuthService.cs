@@ -427,7 +427,7 @@ namespace Cinema.Service.Implementations
         }
 
 
-        public async Task ResetPasswordAsync(string userId, string token, string newPassword)
+        public async Task ResetPasswordForForgetPasswordAsync(string userId, string token, string newPassword)
         {
             var user = await _userManager.FindByIdAsync(userId);
             if (user == null)
@@ -443,7 +443,19 @@ namespace Cinema.Service.Implementations
                 throw new RestException(StatusCodes.Status400BadRequest, $"Failed to reset password: {errors}");
             }
         }
-            
+
+        public async Task<bool> ResetPasswordAsync(string userName, string currentPassword, string newPassword)
+        {
+            var user = await _userManager.FindByNameAsync(userName);
+            if (user == null)
+            {
+                return false;
+            }
+
+            var result = await _userManager.ChangePasswordAsync(user, currentPassword, newPassword);
+            return result.Succeeded;
+        }
+
         private async Task<string> GenerateJwtToken(AppUser user)
         {
             var claims = new List<Claim>
@@ -473,7 +485,5 @@ namespace Cinema.Service.Implementations
 
             return new JwtSecurityTokenHandler().WriteToken(token);
         }
-
-
     }
 }

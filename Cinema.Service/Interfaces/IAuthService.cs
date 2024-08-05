@@ -1,6 +1,7 @@
 ﻿using Cinema.Service.Dtos;
 using Cinema.Service.Dtos.UserDtos;
 using Cinema.Service.Dtos.UserDtos.MemberDtos;
+using Microsoft.AspNetCore.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,6 +24,7 @@ namespace Cinema.Service.Interfaces
         Task<string> UserRegister(MemberRegisterDto registerDto);
         Task<bool> VerifyEmail(string email, string token);
         Task<string> ForgetPasswordAsync(string email);
-        Task ResetPasswordAsync(string userId, string token, string newPassword);
+        Task ResetPasswordForForgetPasswordAsync(string userId, string token, string newPassword);
+        Task<bool> ResetPasswordAsync(string userName, string currentPassword, string newPassword);
     }  
 }
