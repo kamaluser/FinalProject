@@ -30,7 +30,7 @@ namespace Cinema.UI.Controllers
         {
             var options = new JsonSerializerOptions() { PropertyNameCaseInsensitive = true };
             var content = new StringContent(JsonSerializer.Serialize(loginRequest, options), System.Text.Encoding.UTF8, "application/json");
-            using (var response = await _client.PostAsync("http://localhost:5194/api/admin/auth/login", content))
+            using (var response = await _client.PostAsync("https://localhost:44324/api/admin/auth/login", content))
             {
                 if (response.IsSuccessStatusCode)
                 {

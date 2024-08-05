@@ -23,7 +23,7 @@ builder.Services.AddHttpClient("http://localhost:5194/").ConfigurePrimaryHttpMes
 {
     ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; }
 });*/
-
+//builder.Services.AddScoped<SignInManager<AppUser>>();
 builder.Services.AddScoped<AuthFilter>();
 //builder.Services.AddScoped<ILanguageService, LanguageService>();
 builder.Services.AddScoped<ICrudService, CrudService>();

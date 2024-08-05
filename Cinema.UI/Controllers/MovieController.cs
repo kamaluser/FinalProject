@@ -15,7 +15,7 @@ public class MovieController : Controller
     {
         _crudService = crudService;
         _client = new HttpClient();
-        _client.BaseAddress = new Uri("http://localhost:5194/");
+        _client.BaseAddress = new Uri("https://localhost:44324/");
     }
 
     public async Task<IActionResult> Index(int page = 1)

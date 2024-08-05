@@ -454,3 +454,7 @@ C:\Users\kamal\Desktop\FinalProject\CinemaApp\obj\Debug\net8.0\refint\CinemaApp.
 C:\Users\kamal\Desktop\FinalProject\CinemaApp\obj\Debug\net8.0\CinemaApp.pdb
 C:\Users\kamal\Desktop\FinalProject\CinemaApp\obj\Debug\net8.0\CinemaApp.genruntimeconfig.cache
 C:\Users\kamal\Desktop\FinalProject\CinemaApp\obj\Debug\net8.0\ref\CinemaApp.dll
+C:\Users\kamal\Desktop\FinalProject\CinemaApp\bin\Debug\net8.0\BouncyCastle.Cryptography.dll
+C:\Users\kamal\Desktop\FinalProject\CinemaApp\bin\Debug\net8.0\MailKit.dll
+C:\Users\kamal\Desktop\FinalProject\CinemaApp\bin\Debug\net8.0\MimeKit.dll
+C:\Users\kamal\Desktop\FinalProject\CinemaApp\bin\Debug\net8.0\System.Formats.Asn1.dll

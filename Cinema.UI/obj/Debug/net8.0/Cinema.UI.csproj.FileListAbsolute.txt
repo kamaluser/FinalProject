@@ -269,3 +269,7 @@ C:\Users\kamal\Desktop\FinalProject\Cinema.UI\obj\Debug\net8.0\refint\Cinema.UI.
 C:\Users\kamal\Desktop\FinalProject\Cinema.UI\obj\Debug\net8.0\Cinema.UI.pdb
 C:\Users\kamal\Desktop\FinalProject\Cinema.UI\obj\Debug\net8.0\Cinema.UI.genruntimeconfig.cache
 C:\Users\kamal\Desktop\FinalProject\Cinema.UI\obj\Debug\net8.0\ref\Cinema.UI.dll
+C:\Users\kamal\Desktop\FinalProject\Cinema.UI\bin\Debug\net8.0\BouncyCastle.Cryptography.dll
+C:\Users\kamal\Desktop\FinalProject\Cinema.UI\bin\Debug\net8.0\MailKit.dll
+C:\Users\kamal\Desktop\FinalProject\Cinema.UI\bin\Debug\net8.0\MimeKit.dll
+C:\Users\kamal\Desktop\FinalProject\Cinema.UI\bin\Debug\net8.0\System.Formats.Asn1.dll

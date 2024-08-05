@@ -1,5 +1,6 @@
 ﻿using Cinema.Service.Dtos;
 using Cinema.Service.Dtos.UserDtos;
+using Cinema.Service.Dtos.UserDtos.MemberDtos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,5 +18,11 @@ namespace Cinema.Service.Interfaces
         void Update(string id, AdminEditDto updateDto);
         void Delete(string id);
         Task UpdatePasswordAsync(AdminEditDto updatePasswordDto);
+
+        Task<string> UserLogin(MemberLoginDto loginDto);
+        Task<string> UserRegister(MemberRegisterDto registerDto);
+        Task<bool> VerifyEmail(string email, string token);
+        Task<string> ForgetPasswordAsync(string email);
+        Task ResetPasswordAsync(string userId, string token, string newPassword);
     }  
 }

@@ -8,6 +8,7 @@ using Cinema.Service.Exceptions;
 using Cinema.Service.Implementations;
 using Cinema.Service.Interfaces;
 using Cinema.Service.Profiles;
+using Cinema.Service.Services;
 using CinemaApp.Middlewares;
 using FluentValidation;
 using FluentValidation.AspNetCore;
@@ -72,6 +73,8 @@ builder.Services.AddDbContext<AppDbContext>(opt => {
 
 
 builder.Services.AddHttpContextAccessor();
+builder.Services.AddScoped<EmailService>();
+
 
 builder.Services.AddSingleton(provider => new MapperConfiguration(cfg =>
 {

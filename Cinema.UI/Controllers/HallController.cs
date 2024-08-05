@@ -187,7 +187,7 @@ namespace Cinema.UI.Controllers
 
         private async Task<List<BranchListItemGetResponse>> GetAllBranches()
         {
-            using (var response = await _client.GetAsync("http://localhost:5194/api/admin/Branches/all"))
+            using (var response = await _client.GetAsync("https://localhost:44324/api/admin/Branches/all"))
             {
                 if (response.IsSuccessStatusCode)
                 {

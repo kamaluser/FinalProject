@@ -2,8 +2,10 @@
 using Cinema.Core.Entites;
 using Cinema.Service.Dtos;
 using Cinema.Service.Dtos.UserDtos;
+using Cinema.Service.Dtos.UserDtos.MemberDtos;
 using Cinema.Service.Exceptions;
 using Cinema.Service.Interfaces;
+using Cinema.Service.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
@@ -23,12 +25,14 @@ namespace Cinema.Service.Implementations
         private readonly UserManager<AppUser> _userManager;
         private readonly IMapper _mapper;
         private readonly IConfiguration _configuration;
+        private readonly EmailService _emailService;
 
-        public AuthService(UserManager<AppUser> userManager, IMapper mapper, IConfiguration configuration)
+        public AuthService(UserManager<AppUser> userManager, IMapper mapper, IConfiguration configuration, EmailService emailService)
         {
             _userManager = userManager;
             _mapper = mapper;
             _configuration = configuration;
+            _emailService = emailService;
         }
         public string CreateAdmin(SuperAdminCreateAdminDto createDto)
         {
@@ -36,7 +40,7 @@ namespace Cinema.Service.Implementations
             var existingUser = _userManager.FindByNameAsync(createDto.UserName).Result;
             if (existingUser != null)
             {
-                throw new RestException(StatusCodes.Status400BadRequest, "UserName", "UserName already taken");
+                throw new RestException(StatusCodes.Status400BadRequest, "UserName", "UserName is already taken");
             }
 
             var user = new AppUser
@@ -183,7 +187,7 @@ namespace Cinema.Service.Implementations
 
             if (user == null || !_userManager.CheckPasswordAsync(user, loginDto.Password).Result)
             {
-                throw new RestException(StatusCodes.Status401Unauthorized, "UserName or Password incorrect!");
+                throw new RestException(StatusCodes.Status401Unauthorized, "UserName or Password is incorrect!");
             }
 
             if (user.NeedsPasswordReset)
@@ -307,5 +311,169 @@ namespace Cinema.Service.Implementations
                 throw new RestException(StatusCodes.Status400BadRequest, $"Failed to update user: {errors}");
             }
         }
+
+        public async Task<string> UserLogin(MemberLoginDto loginDto)
+        {
+
+            var user = await _userManager.FindByEmailAsync(loginDto.Email);
+            if (user == null || !await _userManager.CheckPasswordAsync(user, loginDto.Password))
+            {
+                throw new RestException(StatusCodes.Status401Unauthorized, "UserName or Email incorrect!");
+            }
+
+            if (!await _userManager.IsEmailConfirmedAsync(user))
+            {
+                throw new RestException(StatusCodes.Status401Unauthorized, "Email", "Email not confirmed.");
+            }
+
+            var token = await GenerateJwtToken(user);
+
+            return token;
+        }
+
+
+        public async Task<string> UserRegister(MemberRegisterDto registerDto)
+        {
+
+            if (registerDto.Password != registerDto.ConfirmPassword)
+            {
+                throw new RestException(StatusCodes.Status400BadRequest, "Password and ConfirmPassword do not match.");
+            }
+
+            if (_userManager.Users.Any(u => u.Email.ToLower() == registerDto.Email.ToLower()))
+            {
+                throw new RestException(StatusCodes.Status400BadRequest, "Email is already taken.");
+            }
+
+            if (_userManager.Users.Any(u => u.UserName.ToLower() == registerDto.UserName.ToLower()))
+            {
+                throw new RestException(StatusCodes.Status400BadRequest, "UserName is already taken.");
+            }
+
+            var appUser = new AppUser
+            {
+                UserName = registerDto.UserName,
+                Email = registerDto.Email,
+                FullName = registerDto.FullName,
+                NeedsPasswordReset = false
+            };
+
+            var result = await _userManager.CreateAsync(appUser, registerDto.Password);
+            if (!result.Succeeded)
+            {
+                var errors = string.Join(", ", result.Errors.Select(e => e.Description));
+                throw new RestException(StatusCodes.Status400BadRequest, $"Failed to register user: {errors}");
+            }
+
+            var roleResult = await _userManager.AddToRoleAsync(appUser, "member");
+            if (!roleResult.Succeeded)
+            {
+                var errors = string.Join(", ", roleResult.Errors.Select(e => e.Description));
+                throw new RestException(StatusCodes.Status400BadRequest, $"Failed to assign role: {errors}");
+            }
+
+            var token = await _userManager.GenerateEmailConfirmationTokenAsync(appUser);
+
+
+            var confirmationUrl = $"{_configuration["AppSettings:BaseUrl"]}api/account/verifyemail?userId={appUser.Id}&token={Uri.EscapeDataString(token)}";
+
+            var subject = "Email Verification";
+            var body = $"Please click <a href=\"{confirmationUrl}\">here</a> for confirm your email.";
+            _emailService.Send(appUser.Email, subject, body);
+
+
+            return appUser.Id;
+        }
+
+        public async Task<bool> VerifyEmail(string email, string token)
+        {
+            var user = await _userManager.FindByEmailAsync(email);
+
+
+            if (user == null || !await _userManager.IsEmailConfirmedAsync(user))
+            {
+                throw new RestException(StatusCodes.Status400BadRequest, "Email is not confirmed.");
+            }
+            var decodedToken = Uri.UnescapeDataString(token);
+            var r = await _userManager.VerifyUserTokenAsync(user, TokenOptions.DefaultProvider, "ResetPassword", decodedToken);
+
+
+            if (!r)
+            {
+                throw new RestException(StatusCodes.Status400BadRequest, "Invalid token.");
+            }
+
+            return true;
+        }
+
+
+        public async Task<string> ForgetPasswordAsync(string email)
+        {
+            var user = await _userManager.FindByEmailAsync(email);
+            if (user == null)
+            {
+                throw new RestException(StatusCodes.Status404NotFound, "User not found.");
+            }
+
+            var token = await _userManager.GeneratePasswordResetTokenAsync(user);
+
+            var resetUrl = $"{_configuration["AppSettings:BaseUrl"]}api/account/resetpassword?userId={user.Id}&token={Uri.EscapeDataString(token)}";
+
+            var subject = "Password Reset";
+            var body = $"Please click <a href=\"{resetUrl}\">here</a> to reset your password.";
+            _emailService.Send(email, subject, body);
+
+            return "Password reset link has been sent to your email.";
+        }
+
+
+        public async Task ResetPasswordAsync(string userId, string token, string newPassword)
+        {
+            var user = await _userManager.FindByIdAsync(userId);
+            if (user == null)
+            {
+                throw new RestException(StatusCodes.Status404NotFound, "User not found.");
+            }
+
+            var decodedToken = Uri.UnescapeDataString(token);
+            var result = await _userManager.ResetPasswordAsync(user, decodedToken, newPassword);
+            if (!result.Succeeded)
+            {
+                var errors = string.Join(", ", result.Errors.Select(e => e.Description));
+                throw new RestException(StatusCodes.Status400BadRequest, $"Failed to reset password: {errors}");
+            }
+        }
+            
+        private async Task<string> GenerateJwtToken(AppUser user)
+        {
+            var claims = new List<Claim>
+            {
+                new Claim(ClaimTypes.NameIdentifier, user.Id),
+                new Claim(ClaimTypes.Name, user.UserName),
+                new Claim("FullName", user.FullName ?? "Unknown")
+             };
+
+
+            var roles = await _userManager.GetRolesAsync(user);
+            claims.AddRange(roles.Select(role => new Claim(ClaimTypes.Role, role)));
+
+
+            var secret = _configuration.GetSection("JWT:Secret").Value;
+            var key = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes(secret));
+            var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
+
+
+            var token = new JwtSecurityToken(
+                issuer: _configuration.GetSection("JWT:Issuer").Value,
+                audience: _configuration.GetSection("JWT:Audience").Value,
+                claims: claims,
+                expires: DateTime.Now.AddDays(3),
+                signingCredentials: creds
+            );
+
+            return new JwtSecurityTokenHandler().WriteToken(token);
+        }
+
+
     }
 }
