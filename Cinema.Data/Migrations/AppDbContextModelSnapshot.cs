@@ -230,9 +230,15 @@ namespace Cinema.Data.Migrations
                     b.Property<decimal>("TotalPrice")
                         .HasColumnType("decimal(18,2)");
 
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
                     b.HasKey("Id");
 
                     b.HasIndex("SessionId");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("Orders");
                 });
@@ -260,20 +266,24 @@ namespace Cinema.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<DateTime?>("BookedFrom")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("BookedUntil")
+                        .HasColumnType("datetime2");
+
                     b.Property<int>("HallId")
                         .HasColumnType("int");
 
-                    b.Property<int>("Number")
-                        .HasColumnType("int");
+                    b.Property<bool>("IsOrdered")
+                        .HasColumnType("bit");
 
-                    b.Property<int?>("SessionId")
+                    b.Property<int>("Number")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
                     b.HasIndex("HallId");
-
-                    b.HasIndex("SessionId");
 
                     b.ToTable("Seats");
                 });
@@ -688,7 +698,15 @@ namespace Cinema.Data.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("Cinema.Core.Entites.AppUser", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.Navigation("Session");
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("Cinema.Core.Entites.OrderSeat", b =>
@@ -717,10 +735,6 @@ namespace Cinema.Data.Migrations
                         .HasForeignKey("HallId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.HasOne("Cinema.Core.Entites.Session", null)
-                        .WithMany("Seats")
-                        .HasForeignKey("SessionId");
 
                     b.Navigation("Hall");
                 });
@@ -840,8 +854,6 @@ namespace Cinema.Data.Migrations
             modelBuilder.Entity("Cinema.Core.Entites.Session", b =>
                 {
                     b.Navigation("Orders");
-
-                    b.Navigation("Seats");
                 });
 #pragma warning restore 612, 618
         }

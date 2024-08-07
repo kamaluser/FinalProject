@@ -9,6 +9,7 @@ using Cinema.Service.Implementations;
 using Cinema.Service.Interfaces;
 using Cinema.Service.Profiles;
 using Cinema.Service.Services;
+using CinemaApp.Background;
 using CinemaApp.Middlewares;
 using FluentValidation;
 using FluentValidation.AspNetCore;
@@ -18,6 +19,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using Quartz;
 using System;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -105,6 +107,7 @@ builder.Services.AddScoped<ILanguageRepository, LanguageRepository>();
 builder.Services.AddScoped<IMovieService, MovieService>();
 builder.Services.AddScoped<IMovieRepository, MovieRepository>();
 builder.Services.AddScoped<IOrderRepository, OrderRepository>();
+builder.Services.AddScoped<IOrderService, OrderService>();
 builder.Services.AddScoped<ISeatRepository, SeatRepository>();
 builder.Services.AddScoped<ISessionService, SessionService>();
 builder.Services.AddScoped<ISessionRepository, SessionRepository>();
@@ -115,6 +118,21 @@ builder.Services.AddScoped<ISettingService, SettingService>();
 builder.Services.AddFluentValidationAutoValidation();
 builder.Services.AddFluentValidationClientsideAdapters();
 builder.Services.AddValidatorsFromAssemblyContaining<AdminSliderCreateDtoValidator>();
+
+builder.Services.AddQuartz(options =>
+{
+    var key = JobKey.Create(nameof(ResetReservationsJob));
+    options.AddJob<ResetReservationsJob>(key)
+           .AddTrigger(x => x.ForJob(key)
+                              .WithCronSchedule("0 0/5 * * * ?")
+                              .StartNow());
+});
+
+builder.Services.AddQuartzHostedService(options =>
+{
+    options.WaitForJobsToComplete = true;
+    options.AwaitApplicationStarted = true;
+});
 
 
 //builder.Services.AddFluentValidationRulesToSwagger();

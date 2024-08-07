@@ -458,3 +458,6 @@ C:\Users\kamal\Desktop\FinalProject\CinemaApp\bin\Debug\net8.0\BouncyCastle.Cryp
 C:\Users\kamal\Desktop\FinalProject\CinemaApp\bin\Debug\net8.0\MailKit.dll
 C:\Users\kamal\Desktop\FinalProject\CinemaApp\bin\Debug\net8.0\MimeKit.dll
 C:\Users\kamal\Desktop\FinalProject\CinemaApp\bin\Debug\net8.0\System.Formats.Asn1.dll
+C:\Users\kamal\Desktop\FinalProject\CinemaApp\bin\Debug\net8.0\Quartz.dll
+C:\Users\kamal\Desktop\FinalProject\CinemaApp\bin\Debug\net8.0\Quartz.Extensions.DependencyInjection.dll
+C:\Users\kamal\Desktop\FinalProject\CinemaApp\bin\Debug\net8.0\Quartz.Extensions.Hosting.dll
