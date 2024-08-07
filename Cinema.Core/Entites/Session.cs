@@ -22,7 +22,7 @@ namespace Cinema.Core.Entites
         public decimal Price { get; set; }
         public int Duration { get; set; }
 
-        public List<Seat> Seats { get; set; }
+        //public List<Seat> Seats { get; set; }
         public List<Order> Orders { get; set; }
     }
 }

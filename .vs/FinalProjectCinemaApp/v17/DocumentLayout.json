@@ -3,6 +3,18 @@
   "WorkspaceRootPath": "C:\\Users\\kamal\\Desktop\\FinalProject\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{EE9DF657-466A-438A-AF1B-E513B525039A}|Cinema.Core\\Cinema.Core.csproj|c:\\users\\kamal\\desktop\\finalproject\\cinema.core\\entites\\session.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EE9DF657-466A-438A-AF1B-E513B525039A}|Cinema.Core\\Cinema.Core.csproj|solutionrelative:cinema.core\\entites\\session.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EE9DF657-466A-438A-AF1B-E513B525039A}|Cinema.Core\\Cinema.Core.csproj|c:\\users\\kamal\\desktop\\finalproject\\cinema.core\\entites\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EE9DF657-466A-438A-AF1B-E513B525039A}|Cinema.Core\\Cinema.Core.csproj|solutionrelative:cinema.core\\entites\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EE9DF657-466A-438A-AF1B-E513B525039A}|Cinema.Core\\Cinema.Core.csproj|c:\\users\\kamal\\desktop\\finalproject\\cinema.core\\entites\\seat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EE9DF657-466A-438A-AF1B-E513B525039A}|Cinema.Core\\Cinema.Core.csproj|solutionrelative:cinema.core\\entites\\seat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{B62453B1-D22F-4EFE-A68C-39ED45B79F6F}|Cinema.UI\\Cinema.UI.csproj|c:\\users\\kamal\\desktop\\finalproject\\cinema.ui\\services\\crudservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B62453B1-D22F-4EFE-A68C-39ED45B79F6F}|Cinema.UI\\Cinema.UI.csproj|solutionrelative:cinema.ui\\services\\crudservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -26,19 +38,45 @@
       "DocumentGroups": [
         {
           "DockedWidth": 222,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "CrudService.cs",
-              "DocumentMoniker": "C:\\Users\\kamal\\Desktop\\FinalProject\\Cinema.UI\\Services\\CrudService.cs",
-              "RelativeDocumentMoniker": "Cinema.UI\\Services\\CrudService.cs",
-              "ToolTip": "C:\\Users\\kamal\\Desktop\\FinalProject\\Cinema.UI\\Services\\CrudService.cs",
-              "RelativeToolTip": "Cinema.UI\\Services\\CrudService.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAABEAAAA",
+              "DocumentIndex": 2,
+              "Title": "Seat.cs",
+              "DocumentMoniker": "C:\\Users\\kamal\\Desktop\\FinalProject\\Cinema.Core\\Entites\\Seat.cs",
+              "RelativeDocumentMoniker": "Cinema.Core\\Entites\\Seat.cs",
+              "ToolTip": "C:\\Users\\kamal\\Desktop\\FinalProject\\Cinema.Core\\Entites\\Seat.cs",
+              "RelativeToolTip": "Cinema.Core\\Entites\\Seat.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-05T17:00:52.194Z",
+              "WhenOpened": "2024-08-06T15:11:03.218Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Order.cs",
+              "DocumentMoniker": "C:\\Users\\kamal\\Desktop\\FinalProject\\Cinema.Core\\Entites\\Order.cs",
+              "RelativeDocumentMoniker": "Cinema.Core\\Entites\\Order.cs",
+              "ToolTip": "C:\\Users\\kamal\\Desktop\\FinalProject\\Cinema.Core\\Entites\\Order.cs",
+              "RelativeToolTip": "Cinema.Core\\Entites\\Order.cs",
+              "ViewState": "AQIAAAoAAAAAAAAAAAAwwBAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-06T15:10:13.113Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Session.cs",
+              "DocumentMoniker": "C:\\Users\\kamal\\Desktop\\FinalProject\\Cinema.Core\\Entites\\Session.cs",
+              "RelativeDocumentMoniker": "Cinema.Core\\Entites\\Session.cs",
+              "ToolTip": "C:\\Users\\kamal\\Desktop\\FinalProject\\Cinema.Core\\Entites\\Session.cs",
+              "RelativeToolTip": "Cinema.Core\\Entites\\Session.cs",
+              "ViewState": "AQIAAA4AAAAAAAAAAAA/wBkAAAAvAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-06T15:09:58.73Z",
               "EditorCaption": ""
             },
             {
@@ -56,6 +94,19 @@
             {
               "$type": "Document",
               "DocumentIndex": 3,
+              "Title": "CrudService.cs",
+              "DocumentMoniker": "C:\\Users\\kamal\\Desktop\\FinalProject\\Cinema.UI\\Services\\CrudService.cs",
+              "RelativeDocumentMoniker": "Cinema.UI\\Services\\CrudService.cs",
+              "ToolTip": "C:\\Users\\kamal\\Desktop\\FinalProject\\Cinema.UI\\Services\\CrudService.cs",
+              "RelativeToolTip": "Cinema.UI\\Services\\CrudService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-05T17:00:52.194Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
               "Title": "LanguagesController.cs",
               "DocumentMoniker": "C:\\Users\\kamal\\Desktop\\FinalProject\\CinemaApp\\Controllers\\LanguagesController.cs",
               "RelativeDocumentMoniker": "CinemaApp\\Controllers\\LanguagesController.cs",
@@ -63,12 +114,11 @@
               "RelativeToolTip": "CinemaApp\\Controllers\\LanguagesController.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-05T16:57:08.803Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-05T16:57:08.803Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "BranchController.cs",
               "DocumentMoniker": "C:\\Users\\kamal\\Desktop\\FinalProject\\Cinema.UI\\Controllers\\BranchController.cs",
               "RelativeDocumentMoniker": "Cinema.UI\\Controllers\\BranchController.cs",
@@ -76,12 +126,11 @@
               "RelativeToolTip": "Cinema.UI\\Controllers\\BranchController.cs",
               "ViewState": "AQIAAAsAAAAAAAAAAAAUwBcAAAA4AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-05T16:57:08.914Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-05T16:57:08.914Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
               "Title": "AuthController.cs",
               "DocumentMoniker": "C:\\Users\\kamal\\Desktop\\FinalProject\\CinemaApp\\Controllers\\AuthController.cs",
               "RelativeDocumentMoniker": "CinemaApp\\Controllers\\AuthController.cs",
@@ -89,8 +138,7 @@
               "RelativeToolTip": "CinemaApp\\Controllers\\AuthController.cs",
               "ViewState": "AQIAAEgAAAAAAAAAAAAkwAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-05T16:57:08.965Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-05T16:57:08.965Z"
             }
           ]
         }
