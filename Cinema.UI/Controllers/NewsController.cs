@@ -1,10 +1,12 @@
 ﻿using Cinema.UI.Exceptions;
+using Cinema.UI.Filters;
 using Cinema.UI.Models.NewsModels;
 using Cinema.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Cinema.UI.Controllers
 {
+    [ServiceFilter(typeof(AuthFilter))]
     public class NewsController : Controller
     {
         private readonly ICrudService _crudService;

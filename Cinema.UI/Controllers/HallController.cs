@@ -1,4 +1,5 @@
 ﻿using Cinema.UI.Exceptions;
+using Cinema.UI.Filters;
 using Cinema.UI.Models.BranchModels;
 using Cinema.UI.Models.HallModels;
 using Cinema.UI.Services;
@@ -7,6 +8,7 @@ using System.Text.Json;
 
 namespace Cinema.UI.Controllers
 {
+    [ServiceFilter(typeof(AuthFilter))]
     public class HallController : Controller
     {
         private readonly ICrudService _crudService;

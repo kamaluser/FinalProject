@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Cinema.Core.Entites;
+using Cinema.Data;
 using Cinema.Data.Repositories.Implementations;
 using Cinema.Data.Repositories.Interfaces;
 using Cinema.Service.Dtos;
@@ -22,19 +23,22 @@ namespace Cinema.Service.Implementations
         private readonly IHallRepository _hallRepository;
         private readonly ILanguageRepository _languageRepository;
         private readonly IMapper _mapper;
+        private readonly AppDbContext _context;
 
         public SessionService(
             ISessionRepository sessionRepository,
             IMovieRepository movieRepository,
             IHallRepository hallRepository,
             ILanguageRepository languageRepository,
-            IMapper mapper)
+            IMapper mapper,
+            AppDbContext context)
         {
             _sessionRepository = sessionRepository;
             _movieRepository = movieRepository;
             _hallRepository = hallRepository;
             _languageRepository = languageRepository;
             _mapper = mapper;
+            _context = context;
         }
 
         public int Create(AdminSessionCreateDto dto)
@@ -165,5 +169,13 @@ namespace Cinema.Service.Implementations
             session.ModifiedAt = DateTime.Now;
             _sessionRepository.Save();
         }
+
+        public async Task<int> GetTodaysSessionsCountAsync(DateTime startDate, DateTime endDate)
+        {
+            return await _context.Sessions
+                .Where(s => s.ShowDateTime >= startDate && s.ShowDateTime <= endDate)
+                .CountAsync();
+        }
+
     }
 }

@@ -1,5 +1,6 @@
 ﻿using Cinema.Core.Entites;
 using Cinema.UI.Exceptions;
+using Cinema.UI.Filters;
 using Cinema.UI.Models.SessionModels;
 using Cinema.UI.Services;
 using Microsoft.AspNetCore.Mvc;
@@ -8,6 +9,7 @@ using System.Linq;
 using System.Text.Json;
 using System.Threading.Tasks;
 
+[ServiceFilter(typeof(AuthFilter))]
 public class SessionController : Controller
 {
     private readonly ICrudService _crudService;

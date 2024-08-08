@@ -1,4 +1,5 @@
 ﻿using Cinema.UI.Exceptions;
+using Cinema.UI.Filters;
 using Cinema.UI.Models.SettingModels;
 using Cinema.UI.Services;
 using Microsoft.AspNetCore.Mvc;
@@ -7,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace Cinema.UI.Controllers
 {
+    [ServiceFilter(typeof(AuthFilter))]
     public class SettingController : Controller
     {
         private readonly ICrudService _crudService;

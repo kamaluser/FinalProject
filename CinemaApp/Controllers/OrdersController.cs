@@ -16,6 +16,13 @@ namespace CinemaApp.Controllers
             _orderService = orderService;
         }
 
+        public async Task<IActionResult> Index()
+        {
+            var orderStats = await _orderService.GetOrderStatisticsAsync();
+            ViewBag.OrderStats = orderStats;
+            return View();
+        }
+
         [HttpPost("book-seats")]
         public async Task<IActionResult> BookSeats([FromBody] BookSeatDto bookSeatDto)
         {
@@ -26,5 +33,6 @@ namespace CinemaApp.Controllers
             }
             return BadRequest(result);
         }
+
     }
 }
