@@ -168,6 +168,20 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+/*
+app.Use(async (context, next) =>
+{
+    if (context.User.Identity.IsAuthenticated &&
+        context.User.HasClaim(c => c.Type == "must_change_password" && c.Value == "true"))
+    {
+        if (!context.Request.Path.StartsWithSegments("/Account/ResetPassword"))
+        {
+            context.Response.Redirect("/Account/ResetPassword");
+            return;
+        }
+    }
+    await next();
+});*/
 
 app.UseHttpsRedirection();
 

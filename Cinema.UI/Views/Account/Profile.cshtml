@@ -12,6 +12,7 @@
 }
 
 <form asp-action="Profile" method="post">
+    <input type="hidden" name="Id" value="@TempData["UserId"]" />
     <div class="form-group">
         <label asp-for="UserName" class="control-label"></label>
         <input asp-for="UserName" class="form-control" />

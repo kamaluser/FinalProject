@@ -6,6 +6,7 @@ using Cinema.UI.Exceptions;
 using Cinema.UI.Models.UserModels;
 using Cinema.UI.Services;
 using System.Linq;
+using Cinema.UI.Extensions;
 
 namespace Cinema.UI.Controllers
 {
@@ -29,7 +30,7 @@ namespace Cinema.UI.Controllers
         public async Task<IActionResult> Login(LoginRequest loginRequest)
         {
             var options = new JsonSerializerOptions() { PropertyNameCaseInsensitive = true };
-            var content = new StringContent(JsonSerializer.Serialize(loginRequest, options), System.Text.Encoding.UTF8, "application/json");
+            var content = new StringContent(JsonSerializer.Serialize(loginRequest, options), Encoding.UTF8, "application/json");
             using (var response = await _client.PostAsync("https://localhost:44324/api/admin/auth/login", content))
             {
                 if (response.IsSuccessStatusCode)
@@ -40,11 +41,13 @@ namespace Cinema.UI.Controllers
                         TempData["ResetUserName"] = loginRequest.UserName;
                         Response.Cookies.Append("token", "Bearer " + loginResponse.Token.Token);
                         TempData["Token"] = loginResponse.Token.Token;
+                        _httpContextAccessor.HttpContext.Session.SetBool("NeedsPasswordReset", true);
 
                         return RedirectToAction("ResetPassword");
                     }
                     Response.Cookies.Append("token", "Bearer " + loginResponse.Token.Token);
-                    return RedirectToAction("index", "home");
+                    _httpContextAccessor.HttpContext.Session.SetBool("NeedsPasswordReset", false);
+                    return RedirectToAction("Index", "Home");
                 }
                 else if (response.StatusCode == System.Net.HttpStatusCode.Unauthorized)
                 {
@@ -60,16 +63,13 @@ namespace Cinema.UI.Controllers
             return View();
         }
 
+
+
         public IActionResult ResetPassword()
         {
-            if (Request.Cookies.ContainsKey("token"))
-            {
-                Response.Cookies.Delete("token");
-            }
-
             var userName = TempData["ResetUserName"] as string;
             var token = TempData["Token"] as string;
-            if (userName == null)
+            if (userName == null || !_httpContextAccessor.HttpContext.Session.GetBool("NeedsPasswordReset"))
             {
                 return RedirectToAction("Login");
             }
@@ -82,6 +82,7 @@ namespace Cinema.UI.Controllers
 
             return View(model);
         }
+
         [HttpPost]
         public async Task<IActionResult> ResetPassword(ResetPasswordViewModel model)
         {
@@ -92,7 +93,7 @@ namespace Cinema.UI.Controllers
             }
             try
             {
-                await _crudService.Update<ResetPasswordViewModel>(model, "updatePassword");
+                await _crudService.Update<ResetPasswordViewModel>(model, "auth/updatePassword");
 
                 return RedirectToAction("Login");
             }
@@ -168,7 +169,7 @@ namespace Cinema.UI.Controllers
             {
                 UserName = user.UserName
             };
-            ViewBag.Id = user.Id;
+            TempData["UserId"] = user.Id;
 
             if (adminProfile == null)
             {
@@ -183,6 +184,7 @@ namespace Cinema.UI.Controllers
             if (!ModelState.IsValid)
             {
                 TempData["ProfileEditError"] = "Please try again.";
+                TempData["UserId"] = id;
                 return View(editRequest);
             }
 
@@ -198,6 +200,7 @@ namespace Cinema.UI.Controllers
             }
             catch (ModelException e)
             {
+                TempData["UserId"] = id;
                 foreach (var item in e.Error.Errors)
                 {
                     TempData["ProfileUpdateError"] = "Please try again.";

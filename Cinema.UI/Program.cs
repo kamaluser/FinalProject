@@ -12,17 +12,10 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-/*builder.Services.AddIdentity<AppUser, IdentityRole>()
-        .AddEntityFrameworkStores<AppDbContext>()
-        .AddDefaultTokenProviders();
-*/
 builder.Services.AddHttpClient();
+builder.Services.AddSession();
 
-/*
-builder.Services.AddHttpClient("http://localhost:5194/").ConfigurePrimaryHttpMessageHandler(_ => new HttpClientHandler
-{
-    ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; }
-});*/
+
 //builder.Services.AddScoped<SignInManager<AppUser>>();
 builder.Services.AddScoped<AuthFilter>();
 //builder.Services.AddScoped<ILanguageService, LanguageService>();
@@ -49,8 +42,10 @@ app.UseRouting();
 
 app.UseAuthentication();
 app.UseAuthorization();
+app.UseSession();
 
 app.UseMiddleware<HttpExceptionMiddleware>();
+app.UseMiddleware<PasswordResetMiddleware>();
 
 app.MapControllerRoute(
     name: "default",

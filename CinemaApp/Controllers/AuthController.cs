@@ -69,7 +69,7 @@ namespace CinemaApp.Controllers
             return Ok(user1.Id);
         }*/
 
-        [Authorize(Roles = "SuperAdmin")]
+        [Authorize(Roles = "Admin, SuperAdmin")]
         [HttpPost("api/admin/Auth/CreateAdmin")]
         public IActionResult Create(SuperAdminCreateAdminDto createDto)
         {
@@ -83,7 +83,7 @@ namespace CinemaApp.Controllers
             return Ok(new { token });
         }
 
-        [Authorize]
+        [Authorize(Roles = "Admin, SuperAdmin")]
         [HttpGet("api/admin/Auth/profile")]
         public ActionResult Profile()
         {
@@ -104,7 +104,7 @@ namespace CinemaApp.Controllers
             return Ok(userDto);
         }
 
-        [Authorize(Roles = "SuperAdmin")]
+        [Authorize(Roles = "Admin, SuperAdmin")]
         [HttpGet("api/admin/Auth/GetAll")]
         public ActionResult<List<AdminGetDto>> GetAll(string? search = null)
         {
@@ -112,7 +112,7 @@ namespace CinemaApp.Controllers
             return Ok(admins);
         }
 
-        [Authorize(Roles = "SuperAdmin")]
+        [Authorize(Roles = "Admin, SuperAdmin")]
         [HttpGet("api/admin/Auth/GetAllByPage")]
         public ActionResult<PaginatedList<AdminPaginatedGetDto>> GetAllByPage(string? search = null, int page = 1, int size = 10)
         {
@@ -121,7 +121,7 @@ namespace CinemaApp.Controllers
         }
 
 
-        [Authorize(Roles = "SuperAdmin")]
+        [Authorize(Roles = "Admin, SuperAdmin")]
         [HttpPut("api/admin/Auth/update/{id}")]
         public IActionResult Update(string id, AdminEditDto updateDto)
         {

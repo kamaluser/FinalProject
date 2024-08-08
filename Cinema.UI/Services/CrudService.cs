@@ -96,7 +96,7 @@ namespace Cinema.UI.Services
         {
             AddAuthorizationHeader();
             var content = new StringContent(JsonSerializer.Serialize(request), Encoding.UTF8, "application/json");
-            var response = await _client.PutAsync(baseUrl + "Auth/"+path, content);
+            var response = await _client.PutAsync(baseUrl + path, content);
             var responseContent = await response.Content.ReadAsStringAsync();
             var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
 
