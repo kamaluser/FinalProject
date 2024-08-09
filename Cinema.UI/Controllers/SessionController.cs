@@ -1,4 +1,5 @@
 ﻿using Cinema.Core.Entites;
+using Cinema.Service.Interfaces;
 using Cinema.UI.Exceptions;
 using Cinema.UI.Filters;
 using Cinema.UI.Models.SessionModels;
@@ -261,6 +262,29 @@ public class SessionController : Controller
             }
         }
         return new List<Language>();
+    }
+
+    [HttpGet]
+    public async Task<IActionResult> ExportToExcel()
+    {
+        try
+        {
+            var fileContent = await _crudService.ExportAsync();
+            return File(fileContent, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "Sessions.xlsx");
+        }
+        catch (HttpException ex)
+        {
+            if (ex.Status == System.Net.HttpStatusCode.Unauthorized)
+            {
+                return RedirectToAction("Login", "Auth");
+            }
+
+            return RedirectToAction("Error", "Home");
+        }
+        catch (System.Exception)
+        {
+            return RedirectToAction("Error", "Home");
+        }
     }
 
     private async Task<bool> IsLanguageValidForMovie(int movieId, int languageId)

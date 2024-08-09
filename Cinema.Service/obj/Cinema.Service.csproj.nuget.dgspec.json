@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\kamal\\Desktop\\FinalProject\\Cinema.Service\\Cinema.Service.csproj": {}
+    "C:\\Users\\kamal\\Desktop\\FinalProject GitProblem\\Cinema.Service\\Cinema.Service.csproj": {}
   },
   "projects": {
-    "C:\\Users\\kamal\\Desktop\\FinalProject\\Cinema.Core\\Cinema.Core.csproj": {
+    "C:\\Users\\kamal\\Desktop\\FinalProject GitProblem\\Cinema.Core\\Cinema.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\kamal\\Desktop\\FinalProject\\Cinema.Core\\Cinema.Core.csproj",
+        "projectUniqueName": "C:\\Users\\kamal\\Desktop\\FinalProject GitProblem\\Cinema.Core\\Cinema.Core.csproj",
         "projectName": "Cinema.Core",
-        "projectPath": "C:\\Users\\kamal\\Desktop\\FinalProject\\Cinema.Core\\Cinema.Core.csproj",
+        "projectPath": "C:\\Users\\kamal\\Desktop\\FinalProject GitProblem\\Cinema.Core\\Cinema.Core.csproj",
         "packagesPath": "C:\\Users\\kamal\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\kamal\\Desktop\\FinalProject\\Cinema.Core\\obj\\",
+        "outputPath": "C:\\Users\\kamal\\Desktop\\FinalProject GitProblem\\Cinema.Core\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -94,14 +94,14 @@
         }
       }
     },
-    "C:\\Users\\kamal\\Desktop\\FinalProject\\Cinema.Data\\Cinema.Data.csproj": {
+    "C:\\Users\\kamal\\Desktop\\FinalProject GitProblem\\Cinema.Data\\Cinema.Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\kamal\\Desktop\\FinalProject\\Cinema.Data\\Cinema.Data.csproj",
+        "projectUniqueName": "C:\\Users\\kamal\\Desktop\\FinalProject GitProblem\\Cinema.Data\\Cinema.Data.csproj",
         "projectName": "Cinema.Data",
-        "projectPath": "C:\\Users\\kamal\\Desktop\\FinalProject\\Cinema.Data\\Cinema.Data.csproj",
+        "projectPath": "C:\\Users\\kamal\\Desktop\\FinalProject GitProblem\\Cinema.Data\\Cinema.Data.csproj",
         "packagesPath": "C:\\Users\\kamal\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\kamal\\Desktop\\FinalProject\\Cinema.Data\\obj\\",
+        "outputPath": "C:\\Users\\kamal\\Desktop\\FinalProject GitProblem\\Cinema.Data\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -122,8 +122,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\kamal\\Desktop\\FinalProject\\Cinema.Core\\Cinema.Core.csproj": {
-                "projectPath": "C:\\Users\\kamal\\Desktop\\FinalProject\\Cinema.Core\\Cinema.Core.csproj"
+              "C:\\Users\\kamal\\Desktop\\FinalProject GitProblem\\Cinema.Core\\Cinema.Core.csproj": {
+                "projectPath": "C:\\Users\\kamal\\Desktop\\FinalProject GitProblem\\Cinema.Core\\Cinema.Core.csproj"
               }
             }
           }
@@ -196,14 +196,14 @@
         }
       }
     },
-    "C:\\Users\\kamal\\Desktop\\FinalProject\\Cinema.Service\\Cinema.Service.csproj": {
+    "C:\\Users\\kamal\\Desktop\\FinalProject GitProblem\\Cinema.Service\\Cinema.Service.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\kamal\\Desktop\\FinalProject\\Cinema.Service\\Cinema.Service.csproj",
+        "projectUniqueName": "C:\\Users\\kamal\\Desktop\\FinalProject GitProblem\\Cinema.Service\\Cinema.Service.csproj",
         "projectName": "Cinema.Service",
-        "projectPath": "C:\\Users\\kamal\\Desktop\\FinalProject\\Cinema.Service\\Cinema.Service.csproj",
+        "projectPath": "C:\\Users\\kamal\\Desktop\\FinalProject GitProblem\\Cinema.Service\\Cinema.Service.csproj",
         "packagesPath": "C:\\Users\\kamal\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\kamal\\Desktop\\FinalProject\\Cinema.Service\\obj\\",
+        "outputPath": "C:\\Users\\kamal\\Desktop\\FinalProject GitProblem\\Cinema.Service\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -224,8 +224,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\kamal\\Desktop\\FinalProject\\Cinema.Data\\Cinema.Data.csproj": {
-                "projectPath": "C:\\Users\\kamal\\Desktop\\FinalProject\\Cinema.Data\\Cinema.Data.csproj"
+              "C:\\Users\\kamal\\Desktop\\FinalProject GitProblem\\Cinema.Data\\Cinema.Data.csproj": {
+                "projectPath": "C:\\Users\\kamal\\Desktop\\FinalProject GitProblem\\Cinema.Data\\Cinema.Data.csproj"
               }
             }
           }
@@ -248,6 +248,10 @@
             "AutoMapper": {
               "target": "Package",
               "version": "[13.0.1, )"
+            },
+            "EPPlus": {
+              "target": "Package",
+              "version": "[7.2.2, )"
             },
             "FluentValidation.AspNetCore": {
               "target": "Package",

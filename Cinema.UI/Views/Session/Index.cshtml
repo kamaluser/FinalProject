@@ -13,6 +13,9 @@
         <a asp-action="Create" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
             <i class="fas fa-plus fa-sm text-white-50"></i> Create
         </a>
+        <a asp-action="ExportToExcel" asp-controller="session" class="btn btn-success">
+            <i class="fas fa-file-excel"></i> Export to Excel
+        </a>
     </div>
 
     <!-- Sessions Table -->
@@ -115,6 +118,6 @@
     </div>
 </div>
 
-@section Scripts {
+@section scripts {
     @Html.Partial("_ValidationScriptsPartial")
 }

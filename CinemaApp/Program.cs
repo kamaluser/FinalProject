@@ -113,6 +113,7 @@ builder.Services.AddScoped<ISessionService, SessionService>();
 builder.Services.AddScoped<ISessionRepository, SessionRepository>();
 builder.Services.AddScoped<ISettingRepository, SettingRepository>();
 builder.Services.AddScoped<ISettingService, SettingService>();
+builder.Services.AddScoped<IExcelExportService, ExcelExportService>();
 
 
 builder.Services.AddFluentValidationAutoValidation();

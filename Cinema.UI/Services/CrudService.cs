@@ -4,6 +4,7 @@ using Microsoft.Net.Http.Headers;
 using System.Text.Json;
 using System.Text;
 using Cinema.UI.Models.UserModels;
+using System.Net.Http;
 
 namespace Cinema.UI.Services
 {
@@ -31,6 +32,24 @@ namespace Cinema.UI.Services
                 _client.DefaultRequestHeaders.Add(HeaderNames.Authorization, token);
             }
         }
+        public async Task<List<TResponse>> GetAll<TResponse>(string path)
+        {
+            AddAuthorizationHeader();
+            var response = await _client.GetAsync(baseUrl + path);
+            var content = await response.Content.ReadAsStringAsync();
+
+            if (response.IsSuccessStatusCode)
+            {
+                var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+                return JsonSerializer.Deserialize<List<TResponse>>(content, options);
+            }
+            else
+            {
+                Console.WriteLine($"Error: {content}");
+                throw new HttpException(response.StatusCode);
+            }
+        }
+
 
         public async Task<CreateResponse> Create<TRequest>(TRequest request, string path)
         {
@@ -237,6 +256,24 @@ namespace Cinema.UI.Services
 
             return content;
         }
-    }
 
+        public async Task<byte[]> ExportAsync()
+        {
+            AddAuthorizationHeader();
+
+            using (HttpResponseMessage response = await _client.GetAsync(baseUrl + "excel/DownloadExcel"))
+            {
+                if (response.IsSuccessStatusCode)
+                {
+                    return await response.Content.ReadAsByteArrayAsync();
+                }
+                else
+                {
+                    var errorMessage = await response.Content.ReadAsStringAsync();
+                    await Console.Out.WriteLineAsync("ExcelExport Error: " + errorMessage);
+                    throw new HttpException(response.StatusCode, errorMessage);
+                }
+            }
+        }
+    }
 }
