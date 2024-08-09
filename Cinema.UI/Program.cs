@@ -15,11 +15,11 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddHttpClient();
 builder.Services.AddSession();
 
+//builder.Services.AddScoped<IExcelExportService, ExcelExportService>();
 
 //builder.Services.AddScoped<SignInManager<AppUser>>();
 builder.Services.AddScoped<AuthFilter>();
-builder.Services.AddScoped<IOrderService, OrderService>();
-
+//builder.Services.AddScoped<ILanguageService, LanguageService>();
 builder.Services.AddScoped<ICrudService, CrudService>();
 builder.Services.AddHttpContextAccessor();
 var app = builder.Build();

@@ -270,7 +270,7 @@ namespace Cinema.UI.Services
                 else
                 {
                     var errorMessage = await response.Content.ReadAsStringAsync();
-                    await Console.Out.WriteLineAsync("ExcelExport Error: " + errorMessage);
+                    await Console.Out.WriteLineAsync("ExcelExport Error: "+errorMessage);
                     throw new HttpException(response.StatusCode, errorMessage);
                 }
             }

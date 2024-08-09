@@ -1,12 +1,10 @@
 ﻿using Cinema.UI.Exceptions;
-using Cinema.UI.Filters;
 using Cinema.UI.Models.SliderModels;
 using Cinema.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Cinema.UI.Controllers
 {
-    [ServiceFilter(typeof(AuthFilter))]
     public class SliderController : Controller
     {
         private readonly ICrudService _crudService;

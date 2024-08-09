@@ -7,7 +7,7 @@ using System.Text.Json;
 
 namespace Cinema.UI.Controllers
 {
-    [ServiceFilter(typeof(AuthFilter))]
+    //[ServiceFilter(typeof(AuthFilter))]
     public class BranchController : Controller
     {
         private readonly ICrudService _crudService;

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "+fJPBB2MQ6ktQHBigBGwVc5V6vjCNz6YsWSWt40j3LC796/c9S7zj48OrOVsgNLysbBarp4i98K4oe81VTM30g==",
+  "dgSpecHash": "IUBESL+IuVEuaDKqH3TtW2Ieyj8EHdE9BvV/eEl+mwEAB+K899fTalBUmrwIPCxNA5YmAJCFqbgQEdYvsgvG6w==",
   "success": true,
-  "projectFilePath": "C:\\Users\\kamal\\Desktop\\FinalProject GitProblem\\Cinema.UI\\Cinema.UI.csproj",
+  "projectFilePath": "C:\\Users\\kamal\\Downloads\\FinalProject-9d26872d10b71df2132f5556c8da607f17472190\\Cinema.UI\\Cinema.UI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\kamal\\.nuget\\packages\\automapper\\13.0.1\\automapper.13.0.1.nupkg.sha512",
     "C:\\Users\\kamal\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",

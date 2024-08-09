@@ -89,43 +89,5 @@ namespace Cinema.Service.Implementations
 
             await _context.SaveChangesAsync();
         }
-
-        public async Task<OrderStatisticsDto> GetOrderStatisticsAsync()
-        {
-            var now = DateTime.Now;
-            var startDate = now.AddMonths(-1);
-
-            var orders = await _context.Orders
-                .Where(o => o.OrderDate >= startDate)
-                .GroupBy(o => o.OrderDate.Date)
-                .Select(g => new OrderStatsByDateDto
-                {
-                    Date = g.Key,
-                    Count = g.Count()
-                })
-                .OrderBy(d => d.Date)
-                .ToListAsync();
-
-            return new OrderStatisticsDto
-            {
-                TotalOrders = await _context.Orders.CountAsync(),
-                OrdersByDate = orders
-            };
-        }
-
-        public async Task<int> GetTotalOrdersCountAsync(DateTime startDate, DateTime endDate)
-        {
-            return await _context.Orders
-                .Where(o => o.OrderDate >= startDate && o.OrderDate <= endDate)
-                .CountAsync();
-        }
-
-        public async Task<decimal> GetTotalOrderPriceAsync(DateTime startDate, DateTime endDate)
-        {
-            return await _context.Orders
-                .Where(o => o.OrderDate >= startDate && o.OrderDate <= endDate)
-                .SumAsync(o => o.TotalPrice);
-        }
-
     }
 }

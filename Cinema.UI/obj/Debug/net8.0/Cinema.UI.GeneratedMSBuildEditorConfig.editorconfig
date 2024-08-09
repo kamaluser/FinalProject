@@ -17,151 +17,151 @@ build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Cinema.UI
 build_property.RootNamespace = Cinema.UI
-build_property.ProjectDir = C:\Users\kamal\Desktop\FinalProject GitProblem\Cinema.UI\
+build_property.ProjectDir = C:\Users\kamal\Downloads\FinalProject-9d26872d10b71df2132f5556c8da607f17472190\Cinema.UI\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\kamal\Desktop\FinalProject GitProblem\Cinema.UI
+build_property.MSBuildProjectDirectory = C:\Users\kamal\Downloads\FinalProject-9d26872d10b71df2132f5556c8da607f17472190\Cinema.UI
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/kamal/Desktop/FinalProject GitProblem/Cinema.UI/Views/Account/CreateAdminBySuperAdmin.cshtml]
+[C:/Users/kamal/Downloads/FinalProject-9d26872d10b71df2132f5556c8da607f17472190/Cinema.UI/Views/Account/CreateAdminBySuperAdmin.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxDcmVhdGVBZG1pbkJ5U3VwZXJBZG1pbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kamal/Desktop/FinalProject GitProblem/Cinema.UI/Views/Account/Login.cshtml]
+[C:/Users/kamal/Downloads/FinalProject-9d26872d10b71df2132f5556c8da607f17472190/Cinema.UI/Views/Account/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kamal/Desktop/FinalProject GitProblem/Cinema.UI/Views/Account/Profile.cshtml]
+[C:/Users/kamal/Downloads/FinalProject-9d26872d10b71df2132f5556c8da607f17472190/Cinema.UI/Views/Account/Profile.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxQcm9maWxlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kamal/Desktop/FinalProject GitProblem/Cinema.UI/Views/Account/ResetPassword.cshtml]
+[C:/Users/kamal/Downloads/FinalProject-9d26872d10b71df2132f5556c8da607f17472190/Cinema.UI/Views/Account/ResetPassword.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxSZXNldFBhc3N3b3JkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kamal/Desktop/FinalProject GitProblem/Cinema.UI/Views/Account/ShowAdmins.cshtml]
+[C:/Users/kamal/Downloads/FinalProject-9d26872d10b71df2132f5556c8da607f17472190/Cinema.UI/Views/Account/ShowAdmins.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxTaG93QWRtaW5zLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kamal/Desktop/FinalProject GitProblem/Cinema.UI/Views/Branch/Create.cshtml]
+[C:/Users/kamal/Downloads/FinalProject-9d26872d10b71df2132f5556c8da607f17472190/Cinema.UI/Views/Branch/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQnJhbmNoXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kamal/Desktop/FinalProject GitProblem/Cinema.UI/Views/Branch/Edit.cshtml]
+[C:/Users/kamal/Downloads/FinalProject-9d26872d10b71df2132f5556c8da607f17472190/Cinema.UI/Views/Branch/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQnJhbmNoXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kamal/Desktop/FinalProject GitProblem/Cinema.UI/Views/Branch/Index.cshtml]
+[C:/Users/kamal/Downloads/FinalProject-9d26872d10b71df2132f5556c8da607f17472190/Cinema.UI/Views/Branch/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQnJhbmNoXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kamal/Desktop/FinalProject GitProblem/Cinema.UI/Views/Hall/Create.cshtml]
+[C:/Users/kamal/Downloads/FinalProject-9d26872d10b71df2132f5556c8da607f17472190/Cinema.UI/Views/Hall/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSGFsbFxDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kamal/Desktop/FinalProject GitProblem/Cinema.UI/Views/Hall/Edit.cshtml]
+[C:/Users/kamal/Downloads/FinalProject-9d26872d10b71df2132f5556c8da607f17472190/Cinema.UI/Views/Hall/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSGFsbFxFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kamal/Desktop/FinalProject GitProblem/Cinema.UI/Views/Hall/Index.cshtml]
+[C:/Users/kamal/Downloads/FinalProject-9d26872d10b71df2132f5556c8da607f17472190/Cinema.UI/Views/Hall/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSGFsbFxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kamal/Desktop/FinalProject GitProblem/Cinema.UI/Views/Home/Index.cshtml]
+[C:/Users/kamal/Downloads/FinalProject-9d26872d10b71df2132f5556c8da607f17472190/Cinema.UI/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kamal/Desktop/FinalProject GitProblem/Cinema.UI/Views/Home/Privacy.cshtml]
+[C:/Users/kamal/Downloads/FinalProject-9d26872d10b71df2132f5556c8da607f17472190/Cinema.UI/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kamal/Desktop/FinalProject GitProblem/Cinema.UI/Views/Language/Create.cshtml]
+[C:/Users/kamal/Downloads/FinalProject-9d26872d10b71df2132f5556c8da607f17472190/Cinema.UI/Views/Language/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGFuZ3VhZ2VcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kamal/Desktop/FinalProject GitProblem/Cinema.UI/Views/Language/Edit.cshtml]
+[C:/Users/kamal/Downloads/FinalProject-9d26872d10b71df2132f5556c8da607f17472190/Cinema.UI/Views/Language/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGFuZ3VhZ2VcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kamal/Desktop/FinalProject GitProblem/Cinema.UI/Views/Language/Index.cshtml]
+[C:/Users/kamal/Downloads/FinalProject-9d26872d10b71df2132f5556c8da607f17472190/Cinema.UI/Views/Language/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGFuZ3VhZ2VcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kamal/Desktop/FinalProject GitProblem/Cinema.UI/Views/Movie/Create.cshtml]
+[C:/Users/kamal/Downloads/FinalProject-9d26872d10b71df2132f5556c8da607f17472190/Cinema.UI/Views/Movie/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTW92aWVcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kamal/Desktop/FinalProject GitProblem/Cinema.UI/Views/Movie/Edit.cshtml]
+[C:/Users/kamal/Downloads/FinalProject-9d26872d10b71df2132f5556c8da607f17472190/Cinema.UI/Views/Movie/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTW92aWVcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kamal/Desktop/FinalProject GitProblem/Cinema.UI/Views/Movie/Index.cshtml]
+[C:/Users/kamal/Downloads/FinalProject-9d26872d10b71df2132f5556c8da607f17472190/Cinema.UI/Views/Movie/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTW92aWVcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kamal/Desktop/FinalProject GitProblem/Cinema.UI/Views/News/Create.cshtml]
+[C:/Users/kamal/Downloads/FinalProject-9d26872d10b71df2132f5556c8da607f17472190/Cinema.UI/Views/News/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmV3c1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kamal/Desktop/FinalProject GitProblem/Cinema.UI/Views/News/Edit.cshtml]
+[C:/Users/kamal/Downloads/FinalProject-9d26872d10b71df2132f5556c8da607f17472190/Cinema.UI/Views/News/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmV3c1xFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kamal/Desktop/FinalProject GitProblem/Cinema.UI/Views/News/Index.cshtml]
+[C:/Users/kamal/Downloads/FinalProject-9d26872d10b71df2132f5556c8da607f17472190/Cinema.UI/Views/News/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmV3c1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kamal/Desktop/FinalProject GitProblem/Cinema.UI/Views/Session/Create.cshtml]
+[C:/Users/kamal/Downloads/FinalProject-9d26872d10b71df2132f5556c8da607f17472190/Cinema.UI/Views/Session/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2Vzc2lvblxDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kamal/Desktop/FinalProject GitProblem/Cinema.UI/Views/Session/Edit.cshtml]
+[C:/Users/kamal/Downloads/FinalProject-9d26872d10b71df2132f5556c8da607f17472190/Cinema.UI/Views/Session/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2Vzc2lvblxFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kamal/Desktop/FinalProject GitProblem/Cinema.UI/Views/Session/Index.cshtml]
+[C:/Users/kamal/Downloads/FinalProject-9d26872d10b71df2132f5556c8da607f17472190/Cinema.UI/Views/Session/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2Vzc2lvblxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kamal/Desktop/FinalProject GitProblem/Cinema.UI/Views/Setting/Edit.cshtml]
+[C:/Users/kamal/Downloads/FinalProject-9d26872d10b71df2132f5556c8da607f17472190/Cinema.UI/Views/Setting/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2V0dGluZ1xFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kamal/Desktop/FinalProject GitProblem/Cinema.UI/Views/Setting/Index.cshtml]
+[C:/Users/kamal/Downloads/FinalProject-9d26872d10b71df2132f5556c8da607f17472190/Cinema.UI/Views/Setting/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2V0dGluZ1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kamal/Desktop/FinalProject GitProblem/Cinema.UI/Views/Shared/Error.cshtml]
+[C:/Users/kamal/Downloads/FinalProject-9d26872d10b71df2132f5556c8da607f17472190/Cinema.UI/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kamal/Desktop/FinalProject GitProblem/Cinema.UI/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/kamal/Downloads/FinalProject-9d26872d10b71df2132f5556c8da607f17472190/Cinema.UI/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kamal/Desktop/FinalProject GitProblem/Cinema.UI/Views/Slider/Create.cshtml]
+[C:/Users/kamal/Downloads/FinalProject-9d26872d10b71df2132f5556c8da607f17472190/Cinema.UI/Views/Slider/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2xpZGVyXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kamal/Desktop/FinalProject GitProblem/Cinema.UI/Views/Slider/Edit.cshtml]
+[C:/Users/kamal/Downloads/FinalProject-9d26872d10b71df2132f5556c8da607f17472190/Cinema.UI/Views/Slider/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2xpZGVyXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kamal/Desktop/FinalProject GitProblem/Cinema.UI/Views/Slider/Index.cshtml]
+[C:/Users/kamal/Downloads/FinalProject-9d26872d10b71df2132f5556c8da607f17472190/Cinema.UI/Views/Slider/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2xpZGVyXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kamal/Desktop/FinalProject GitProblem/Cinema.UI/Views/_ViewImports.cshtml]
+[C:/Users/kamal/Downloads/FinalProject-9d26872d10b71df2132f5556c8da607f17472190/Cinema.UI/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kamal/Desktop/FinalProject GitProblem/Cinema.UI/Views/_ViewStart.cshtml]
+[C:/Users/kamal/Downloads/FinalProject-9d26872d10b71df2132f5556c8da607f17472190/Cinema.UI/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kamal/Desktop/FinalProject GitProblem/Cinema.UI/Views/Shared/_Layout.cshtml]
+[C:/Users/kamal/Downloads/FinalProject-9d26872d10b71df2132f5556c8da607f17472190/Cinema.UI/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-mkxrwnt3er

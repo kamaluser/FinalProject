@@ -5,6 +5,7 @@ using Cinema.Service.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authorization;
+using Cinema.Service.Implementations;
 
 namespace CinemaApp.Controllers
 {

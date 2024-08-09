@@ -69,7 +69,7 @@ namespace CinemaApp.Controllers
             return Ok(user1.Id);
         }*/
 
-        [Authorize(Roles = "Admin, SuperAdmin")]
+        [Authorize(Roles = "SuperAdmin")]
         [HttpPost("api/admin/Auth/CreateAdmin")]
         public IActionResult Create(SuperAdminCreateAdminDto createDto)
         {
@@ -104,7 +104,7 @@ namespace CinemaApp.Controllers
             return Ok(userDto);
         }
 
-        [Authorize(Roles = "Admin, SuperAdmin")]
+        [Authorize(Roles = "SuperAdmin")]
         [HttpGet("api/admin/Auth/GetAll")]
         public ActionResult<List<AdminGetDto>> GetAll(string? search = null)
         {
@@ -112,7 +112,7 @@ namespace CinemaApp.Controllers
             return Ok(admins);
         }
 
-        [Authorize(Roles = "Admin, SuperAdmin")]
+        [Authorize(Roles = "SuperAdmin")]
         [HttpGet("api/admin/Auth/GetAllByPage")]
         public ActionResult<PaginatedList<AdminPaginatedGetDto>> GetAllByPage(string? search = null, int page = 1, int size = 10)
         {

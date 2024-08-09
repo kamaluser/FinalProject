@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "iDiUrhQaVhmoAT8sQB8LNmcwWUx0h8jPFntBxjmAVlVyPQF7zlbeMIcAI5DpSpicG6c6L+qpSPgxXPhsUpaLpg==",
+  "dgSpecHash": "VOpXaS8UiYxz9coHisJAeUIjzvieY9MqrX7NMa7GBwOixXW7d2eud1tooBkSRydaR/YaQ6xfhjXkBszLek9QjA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\kamal\\Desktop\\FinalProject GitProblem\\Cinema.Data\\Cinema.Data.csproj",
+  "projectFilePath": "C:\\Users\\kamal\\Downloads\\FinalProject-9d26872d10b71df2132f5556c8da607f17472190\\Cinema.Data\\Cinema.Data.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\kamal\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\kamal\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",

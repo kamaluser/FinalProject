@@ -2,7 +2,6 @@
 using Cinema.Service.Dtos.SessionDtos;
 using System;
 using System.Collections.Generic;
-using System.Threading.Tasks;
 
 namespace Cinema.Service.Interfaces
 {
@@ -13,6 +12,6 @@ namespace Cinema.Service.Interfaces
         void Delete(int id);
         AdminSessionGetDto GetById(int id);
         PaginatedList<AdminSessionGetDto> GetAllByPage(string? search = null, int page = 1, int size = 10);
-        Task<int> GetTodaysSessionsCountAsync(DateTime startDate, DateTime endDate);
+        List<AdminSessionGetDto> GetAll();
     }
 }
