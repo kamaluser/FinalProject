@@ -24,11 +24,7 @@ namespace Cinema.Service.Implementations
         private readonly IMapper _mapper;
 
         public SessionService(
-            ISessionRepository sessionRepository,
-            IMovieRepository movieRepository,
-            IHallRepository hallRepository,
-            ILanguageRepository languageRepository,
-            IMapper mapper)
+            ISessionRepository sessionRepository, IMovieRepository movieRepository, IHallRepository hallRepository, ILanguageRepository languageRepository, IMapper mapper)
         {
             _sessionRepository = sessionRepository;
             _movieRepository = movieRepository;
@@ -37,6 +33,54 @@ namespace Cinema.Service.Implementations
             _mapper = mapper;
         }
 
+        /*private bool IsTimeConflict(DateTime showDateTime, int duration, int hallId)
+        {
+            var sessions = _sessionRepository.GetAll(s => s.HallId == hallId && !s.IsDeleted).ToList();
+
+            foreach (var session in sessions)
+            {
+                var sessionEnd = session.ShowDateTime.AddMinutes(session.Duration);
+
+                if (showDateTime < sessionEnd.AddMinutes(30) && showDateTime >= session.ShowDateTime)
+                {
+                    return true;
+                }
+            }
+            return false; 
+        }*/
+
+        private bool IsTimeConflict(DateTime showDateTime, int duration, int hallId)
+        {
+            var sessions = _sessionRepository.GetAll(s => s.HallId == hallId && !s.IsDeleted).ToList();
+
+            var newSessionEnd = showDateTime.AddMinutes(duration);
+
+            foreach (var session in sessions)
+            {
+                var sessionStart = session.ShowDateTime;
+                var sessionEnd = session.ShowDateTime.AddMinutes(session.Duration);
+
+                if (showDateTime < sessionEnd.AddMinutes(30) && newSessionEnd > sessionStart.AddMinutes(-30))
+                {
+                    return true; 
+                }
+            }
+
+            return false;
+        }
+
+
+        public async Task<List<AdminSessionGetDto>> GetSessionsByHall(int hallId)
+        {
+            var sessions = _sessionRepository.GetAll(x => x.HallId == hallId && !x.IsDeleted)
+                                             .Include(x => x.Movie)
+                                             .Include(x => x.Language)
+                                             .Include(x => x.Hall)
+                                             .ThenInclude(h => h.Branch)
+                                             .ToList();
+
+            return _mapper.Map<List<AdminSessionGetDto>>(sessions);
+        }
         public int Create(AdminSessionCreateDto dto)
         {
             var movie = _movieRepository.Get(x => x.Id == dto.MovieId, "MovieLanguages");
@@ -66,6 +110,11 @@ namespace Cinema.Service.Implementations
             if (hall == null)
             {
                 throw new RestException(StatusCodes.Status404NotFound, "Hall not found");
+            }
+
+            if (IsTimeConflict(dto.ShowDateTime, dto.Duration, dto.HallId))
+            {
+                throw new RestException(StatusCodes.Status400BadRequest, "Session", "The new session conflicts with an existing session in the hall.");
             }
 
             var session = _mapper.Map<Session>(dto);
@@ -155,6 +204,11 @@ namespace Cinema.Service.Implementations
             var hall = _hallRepository.Get(x => x.Id == dto.HallId);
             if (hall == null)
                 throw new RestException(StatusCodes.Status404NotFound, "Hall not found");
+
+            if (IsTimeConflict(dto.ShowDateTime.Value, dto.Duration.Value, dto.HallId.Value))
+            {
+                throw new RestException(StatusCodes.Status400BadRequest, "Session", "The new session conflicts with an existing session in the hall.");
+            }
 
             session.Movie = movie;
             session.Hall = hall;

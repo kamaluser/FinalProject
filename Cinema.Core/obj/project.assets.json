@@ -4300,11 +4300,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\kamal\\Downloads\\FinalProject-9d26872d10b71df2132f5556c8da607f17472190\\Cinema.Core\\Cinema.Core.csproj",
+      "projectUniqueName": "C:\\Users\\kamal\\Desktop\\FinalProject\\Cinema.Core\\Cinema.Core.csproj",
       "projectName": "Cinema.Core",
-      "projectPath": "C:\\Users\\kamal\\Downloads\\FinalProject-9d26872d10b71df2132f5556c8da607f17472190\\Cinema.Core\\Cinema.Core.csproj",
+      "projectPath": "C:\\Users\\kamal\\Desktop\\FinalProject\\Cinema.Core\\Cinema.Core.csproj",
       "packagesPath": "C:\\Users\\kamal\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\kamal\\Downloads\\FinalProject-9d26872d10b71df2132f5556c8da607f17472190\\Cinema.Core\\obj\\",
+      "outputPath": "C:\\Users\\kamal\\Desktop\\FinalProject\\Cinema.Core\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

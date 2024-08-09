@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "VOpXaS8UiYxz9coHisJAeUIjzvieY9MqrX7NMa7GBwOixXW7d2eud1tooBkSRydaR/YaQ6xfhjXkBszLek9QjA==",
+  "dgSpecHash": "aIDOEx+O/y1XSlPSDug6G0Ol2NzTIbttnB4G9HN2avmHvHBxB2y2gvyh6VDZG0ebvZ+AIXFtVteb1CeeOwSgLQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\kamal\\Downloads\\FinalProject-9d26872d10b71df2132f5556c8da607f17472190\\Cinema.Data\\Cinema.Data.csproj",
+  "projectFilePath": "C:\\Users\\kamal\\Desktop\\FinalProject\\Cinema.Data\\Cinema.Data.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\kamal\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\kamal\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",

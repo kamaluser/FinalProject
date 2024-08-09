@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\kamal\\Downloads\\FinalProject-9d26872d10b71df2132f5556c8da607f17472190\\CinemaApp\\CinemaApp.csproj": {}
+    "C:\\Users\\kamal\\Desktop\\FinalProject\\CinemaApp\\CinemaApp.csproj": {}
   },
   "projects": {
-    "C:\\Users\\kamal\\Downloads\\FinalProject-9d26872d10b71df2132f5556c8da607f17472190\\Cinema.Core\\Cinema.Core.csproj": {
+    "C:\\Users\\kamal\\Desktop\\FinalProject\\Cinema.Core\\Cinema.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\kamal\\Downloads\\FinalProject-9d26872d10b71df2132f5556c8da607f17472190\\Cinema.Core\\Cinema.Core.csproj",
+        "projectUniqueName": "C:\\Users\\kamal\\Desktop\\FinalProject\\Cinema.Core\\Cinema.Core.csproj",
         "projectName": "Cinema.Core",
-        "projectPath": "C:\\Users\\kamal\\Downloads\\FinalProject-9d26872d10b71df2132f5556c8da607f17472190\\Cinema.Core\\Cinema.Core.csproj",
+        "projectPath": "C:\\Users\\kamal\\Desktop\\FinalProject\\Cinema.Core\\Cinema.Core.csproj",
         "packagesPath": "C:\\Users\\kamal\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\kamal\\Downloads\\FinalProject-9d26872d10b71df2132f5556c8da607f17472190\\Cinema.Core\\obj\\",
+        "outputPath": "C:\\Users\\kamal\\Desktop\\FinalProject\\Cinema.Core\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -94,14 +94,14 @@
         }
       }
     },
-    "C:\\Users\\kamal\\Downloads\\FinalProject-9d26872d10b71df2132f5556c8da607f17472190\\Cinema.Data\\Cinema.Data.csproj": {
+    "C:\\Users\\kamal\\Desktop\\FinalProject\\Cinema.Data\\Cinema.Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\kamal\\Downloads\\FinalProject-9d26872d10b71df2132f5556c8da607f17472190\\Cinema.Data\\Cinema.Data.csproj",
+        "projectUniqueName": "C:\\Users\\kamal\\Desktop\\FinalProject\\Cinema.Data\\Cinema.Data.csproj",
         "projectName": "Cinema.Data",
-        "projectPath": "C:\\Users\\kamal\\Downloads\\FinalProject-9d26872d10b71df2132f5556c8da607f17472190\\Cinema.Data\\Cinema.Data.csproj",
+        "projectPath": "C:\\Users\\kamal\\Desktop\\FinalProject\\Cinema.Data\\Cinema.Data.csproj",
         "packagesPath": "C:\\Users\\kamal\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\kamal\\Downloads\\FinalProject-9d26872d10b71df2132f5556c8da607f17472190\\Cinema.Data\\obj\\",
+        "outputPath": "C:\\Users\\kamal\\Desktop\\FinalProject\\Cinema.Data\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -122,8 +122,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\kamal\\Downloads\\FinalProject-9d26872d10b71df2132f5556c8da607f17472190\\Cinema.Core\\Cinema.Core.csproj": {
-                "projectPath": "C:\\Users\\kamal\\Downloads\\FinalProject-9d26872d10b71df2132f5556c8da607f17472190\\Cinema.Core\\Cinema.Core.csproj"
+              "C:\\Users\\kamal\\Desktop\\FinalProject\\Cinema.Core\\Cinema.Core.csproj": {
+                "projectPath": "C:\\Users\\kamal\\Desktop\\FinalProject\\Cinema.Core\\Cinema.Core.csproj"
               }
             }
           }
@@ -196,14 +196,14 @@
         }
       }
     },
-    "C:\\Users\\kamal\\Downloads\\FinalProject-9d26872d10b71df2132f5556c8da607f17472190\\Cinema.Service\\Cinema.Service.csproj": {
+    "C:\\Users\\kamal\\Desktop\\FinalProject\\Cinema.Service\\Cinema.Service.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\kamal\\Downloads\\FinalProject-9d26872d10b71df2132f5556c8da607f17472190\\Cinema.Service\\Cinema.Service.csproj",
+        "projectUniqueName": "C:\\Users\\kamal\\Desktop\\FinalProject\\Cinema.Service\\Cinema.Service.csproj",
         "projectName": "Cinema.Service",
-        "projectPath": "C:\\Users\\kamal\\Downloads\\FinalProject-9d26872d10b71df2132f5556c8da607f17472190\\Cinema.Service\\Cinema.Service.csproj",
+        "projectPath": "C:\\Users\\kamal\\Desktop\\FinalProject\\Cinema.Service\\Cinema.Service.csproj",
         "packagesPath": "C:\\Users\\kamal\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\kamal\\Downloads\\FinalProject-9d26872d10b71df2132f5556c8da607f17472190\\Cinema.Service\\obj\\",
+        "outputPath": "C:\\Users\\kamal\\Desktop\\FinalProject\\Cinema.Service\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -224,8 +224,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\kamal\\Downloads\\FinalProject-9d26872d10b71df2132f5556c8da607f17472190\\Cinema.Data\\Cinema.Data.csproj": {
-                "projectPath": "C:\\Users\\kamal\\Downloads\\FinalProject-9d26872d10b71df2132f5556c8da607f17472190\\Cinema.Data\\Cinema.Data.csproj"
+              "C:\\Users\\kamal\\Desktop\\FinalProject\\Cinema.Data\\Cinema.Data.csproj": {
+                "projectPath": "C:\\Users\\kamal\\Desktop\\FinalProject\\Cinema.Data\\Cinema.Data.csproj"
               }
             }
           }
@@ -302,14 +302,14 @@
         }
       }
     },
-    "C:\\Users\\kamal\\Downloads\\FinalProject-9d26872d10b71df2132f5556c8da607f17472190\\CinemaApp\\CinemaApp.csproj": {
+    "C:\\Users\\kamal\\Desktop\\FinalProject\\CinemaApp\\CinemaApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\kamal\\Downloads\\FinalProject-9d26872d10b71df2132f5556c8da607f17472190\\CinemaApp\\CinemaApp.csproj",
+        "projectUniqueName": "C:\\Users\\kamal\\Desktop\\FinalProject\\CinemaApp\\CinemaApp.csproj",
         "projectName": "CinemaApp",
-        "projectPath": "C:\\Users\\kamal\\Downloads\\FinalProject-9d26872d10b71df2132f5556c8da607f17472190\\CinemaApp\\CinemaApp.csproj",
+        "projectPath": "C:\\Users\\kamal\\Desktop\\FinalProject\\CinemaApp\\CinemaApp.csproj",
         "packagesPath": "C:\\Users\\kamal\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\kamal\\Downloads\\FinalProject-9d26872d10b71df2132f5556c8da607f17472190\\CinemaApp\\obj\\",
+        "outputPath": "C:\\Users\\kamal\\Desktop\\FinalProject\\CinemaApp\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -330,8 +330,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\kamal\\Downloads\\FinalProject-9d26872d10b71df2132f5556c8da607f17472190\\Cinema.Service\\Cinema.Service.csproj": {
-                "projectPath": "C:\\Users\\kamal\\Downloads\\FinalProject-9d26872d10b71df2132f5556c8da607f17472190\\Cinema.Service\\Cinema.Service.csproj"
+              "C:\\Users\\kamal\\Desktop\\FinalProject\\Cinema.Service\\Cinema.Service.csproj": {
+                "projectPath": "C:\\Users\\kamal\\Desktop\\FinalProject\\Cinema.Service\\Cinema.Service.csproj"
               }
             }
           }

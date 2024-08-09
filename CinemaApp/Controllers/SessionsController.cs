@@ -41,6 +41,21 @@ namespace CinemaApp.Controllers
             return Ok(result);
         }
 
+        [HttpGet("byHall/{hallId}")]
+        public async Task<IActionResult> GetSessionsByHall(int hallId)
+        {
+            var sessions = await _sessionService.GetSessionsByHall(hallId);
+            return Ok(sessions);
+        }
+
+        [HttpGet("all")]
+        public async Task<IActionResult> GetAllSessions()
+        {
+            var sessions = _sessionService.GetAll();
+            return Ok(sessions);
+        }
+
+
         [HttpPut("{id}")]
         public ActionResult Edit(int id, AdminSessionEditDto editDto)
         {
