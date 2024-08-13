@@ -69,6 +69,15 @@ namespace Cinema.Service.Implementations
             return false;
         }
 
+        public async Task<int> GetSessionCountLastMonthAsync()
+        {
+            var now = DateTime.UtcNow;
+            var startDate = new DateTime(now.Year, now.Month, 1);
+            var endDate = startDate.AddMonths(1).AddDays(-1);
+
+            return await _sessionRepository.GetAll(s => s.ShowDateTime >= startDate && s.ShowDateTime <= endDate && !s.IsDeleted)
+                                           .CountAsync();
+        }
 
         public async Task<List<AdminSessionGetDto>> GetSessionsByHall(int hallId)
         {

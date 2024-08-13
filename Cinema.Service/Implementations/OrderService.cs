@@ -24,6 +24,54 @@ namespace Cinema.Service.Implementations
             _orderRepository = orderRepository;
         }
 
+        /*private string GetMonthName(int month)
+        {
+            return month switch
+            {
+                1 => "January",
+                2 => "February",
+                3 => "March",
+                4 => "April",
+                5 => "May",
+                6 => "June",
+                7 => "July",
+                8 => "August",
+                9 => "September",
+                10 => "October",
+                11 => "November",
+                12 => "December",
+                _ => throw new ArgumentOutOfRangeException(nameof(month), "Invalid month value")
+            };
+        }*/
+
+        public async Task<Dictionary<string, int>> GetMonthlyOrderCountsForCurrentYearAsync()
+        {
+            var firstDayOfYear = new DateTime(DateTime.Today.Year, 1, 1);
+            var firstDayOfNextYear = firstDayOfYear.AddYears(1);
+
+            var monthlyCounts = await _context.Orders
+                .Where(a => a.OrderDate >= firstDayOfYear && a.OrderDate < firstDayOfNextYear)
+                .GroupBy(a => a.OrderDate.Month)
+                .Select(g => new
+                {
+                    Month = g.Key,
+                    Count = g.Count()
+                })
+                .ToListAsync();
+
+            var result = new Dictionary<string, int>();
+            var months = new[] { "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" };
+
+            foreach (var month in months.Select((name, index) => new { name, index }))
+            {
+                var count = monthlyCounts.FirstOrDefault(m => m.Month == month.index + 1)?.Count ?? 0;
+                result[month.name] = count;
+            }
+
+            return result;
+        }
+
+
         public async Task<BookSeatResult> BookSeatsAsync(BookSeatDto bookSeatDto)
         {
             var session = await _context.Sessions
@@ -72,6 +120,25 @@ namespace Cinema.Service.Implementations
             return new BookSeatResult { Success = true };
         }
 
+        public async Task<OrderCountDto> GetOrderCountLastMonthAsync()
+        {
+            var lastMonth = DateTime.Now.AddMonths(-1);
+            var count = await _context.Orders
+                .Where(o => o.OrderDate >= lastMonth)
+                .CountAsync();
+
+            return new OrderCountDto { Count = count };
+        }
+
+        public async Task<OrderCountDto> GetOrderCountLastYearAsync()
+        {
+            var lastYear = DateTime.Now.AddYears(-1);
+            var count = await _context.Orders
+                .Where(o => o.OrderDate >= lastYear)
+                .CountAsync();
+
+            return new OrderCountDto { Count = count };
+        }
 
         public async Task ResetExpiredReservationsAsync()
         {

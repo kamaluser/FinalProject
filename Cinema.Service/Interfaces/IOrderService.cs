@@ -11,5 +11,8 @@ namespace Cinema.Service.Interfaces
     {
         Task<BookSeatResult> BookSeatsAsync(BookSeatDto bookSeatDto);
         Task ResetExpiredReservationsAsync();
+        Task<OrderCountDto> GetOrderCountLastMonthAsync();
+        Task<OrderCountDto> GetOrderCountLastYearAsync();
+        Task<Dictionary<string, int>> GetMonthlyOrderCountsForCurrentYearAsync();
     }
 }

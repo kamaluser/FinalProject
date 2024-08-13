@@ -69,5 +69,13 @@ namespace CinemaApp.Controllers
             _sessionService.Delete(id);
             return NoContent();
         }
+
+        [HttpGet("count/monthly")]
+        public async Task<IActionResult> GetSessionCountMonthly()
+        {
+            var count = await _sessionService.GetSessionCountLastMonthAsync();
+            return Ok(new { count });
+        }
+
     }
 }

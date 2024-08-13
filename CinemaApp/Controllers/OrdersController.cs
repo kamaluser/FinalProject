@@ -16,6 +16,36 @@ namespace CinemaApp.Controllers
             _orderService = orderService;
         }
 
+        [HttpGet("api/admin/orders/monthly-count-current-year")]
+        public async Task<IActionResult> GetMonthlyOrderCounts()
+        {
+            var counts = await _orderService.GetMonthlyOrderCountsForCurrentYearAsync();
+
+
+            var response = new
+            {
+                months = counts.Keys.ToArray(),
+                orders = counts.Values.ToArray()
+            };
+
+            return Ok(response);
+        }
+    
+
+        [HttpGet("api/admin/orders/order-count-last-month")]
+        public async Task<IActionResult> GetOrderCountLastMonth()
+        {
+            var result = await _orderService.GetOrderCountLastMonthAsync();
+            return Ok(result);
+        }
+
+        [HttpGet("api/admin/orders/order-count-last-year")]
+        public async Task<IActionResult> GetOrderCountLastYear()
+        {
+            var result = await _orderService.GetOrderCountLastYearAsync();
+            return Ok(result);
+        }
+
         [HttpPost("book-seats")]
         public async Task<IActionResult> BookSeats([FromBody] BookSeatDto bookSeatDto)
         {

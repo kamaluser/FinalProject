@@ -15,5 +15,6 @@ namespace Cinema.Service.Interfaces
         PaginatedList<AdminSessionGetDto> GetAllByPage(string? search = null, int page = 1, int size = 10);
         List<AdminSessionGetDto> GetAll();
         Task<List<AdminSessionGetDto>> GetSessionsByHall(int hallId);
+        Task<int> GetSessionCountLastMonthAsync();
     }
 }

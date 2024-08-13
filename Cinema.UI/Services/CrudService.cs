@@ -5,6 +5,8 @@ using System.Text.Json;
 using System.Text;
 using Cinema.UI.Models.UserModels;
 using System.Net.Http;
+using Cinema.Service.Dtos.OrderDtos;
+using Cinema.UI.Models.SessionModels;
 
 namespace Cinema.UI.Services
 {
@@ -49,7 +51,62 @@ namespace Cinema.UI.Services
                 throw new HttpException(response.StatusCode);
             }
         }
+        public async Task<int> GetOrderCountLastMonthAsync()
+        {
+            AddAuthorizationHeader();
+            var response = await _client.GetAsync(baseUrl + "orders/order-count-last-month"); 
+            var content = await response.Content.ReadAsStringAsync();
 
+            if (response.IsSuccessStatusCode)
+            {
+                var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+                var countDto = JsonSerializer.Deserialize<OrderCountResponse>(content, options);
+                return countDto.Count;
+            }
+            else
+            {
+                Console.WriteLine($"Error: {content}");
+                throw new HttpException(response.StatusCode);
+            }
+        }
+
+        public async Task<int> GetSessionCountLastMonthAsync()
+        {
+            AddAuthorizationHeader();
+            var response = await _client.GetAsync(baseUrl + "sessions/count/monthly");
+            var content = await response.Content.ReadAsStringAsync();
+
+            if (response.IsSuccessStatusCode)
+            {
+                var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+                var countDto = JsonSerializer.Deserialize<SessionCountResponse>(content, options);
+                return countDto.Count;
+            }
+            else
+            {
+                Console.WriteLine($"Error: {content}");
+                throw new HttpException(response.StatusCode);
+            }
+        }
+
+        public async Task<int> GetOrderCountLastYearAsync()
+        {
+            AddAuthorizationHeader();
+            var response = await _client.GetAsync(baseUrl + "orders/order-count-last-year");
+            var content = await response.Content.ReadAsStringAsync();
+
+            if (response.IsSuccessStatusCode)
+            {
+                var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+                var countDto = JsonSerializer.Deserialize<OrderCountResponse>(content, options);
+                return countDto.Count;
+            }
+            else
+            {
+                Console.WriteLine($"Error: {content}");
+                throw new HttpException(response.StatusCode);
+            }
+        }
 
         public async Task<CreateResponse> Create<TRequest>(TRequest request, string path)
         {
@@ -256,6 +313,25 @@ namespace Cinema.UI.Services
 
             return content;
         }
+
+        public async Task<YearlyOrderResponse> GetMonthlyOrderCountForCurrentYearAsync()
+        {
+            AddAuthorizationHeader();
+            var response = await _client.GetAsync(baseUrl + "orders/monthly-count-current-year");
+            var content = await response.Content.ReadAsStringAsync();
+
+            if (response.IsSuccessStatusCode)
+            {
+                var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+                return JsonSerializer.Deserialize<YearlyOrderResponse>(content, options);
+            }
+            else
+            {
+                Console.WriteLine($"Error: {content}");
+                throw new HttpException(response.StatusCode, content);
+            }
+        }
+
 
         public async Task<byte[]> ExportAsync()
         {
