@@ -22,5 +22,8 @@ namespace Cinema.UI.Services
         Task<int> GetOrderCountLastYearAsync();
         Task<int> GetSessionCountLastMonthAsync();
         Task<YearlyOrderResponse> GetMonthlyOrderCountForCurrentYearAsync();
+        Task<int> GetTotalOrderedSeatsCountAsync();
+        Task<int> GetMembersCountAsync();
+        Task<decimal> GetMonthlyRevenueAsync();
     }
 }

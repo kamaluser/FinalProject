@@ -26,5 +26,6 @@ namespace Cinema.Service.Interfaces
         Task<string> ForgetPasswordAsync(string email);
         Task ResetPasswordForForgetPasswordAsync(string userId, string token, string newPassword);
         Task<bool> ResetPasswordAsync(string userName, string currentPassword, string newPassword);
+        Task<int> GetMemberCountAsync();
     }  
 }

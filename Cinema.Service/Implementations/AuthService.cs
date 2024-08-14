@@ -34,6 +34,23 @@ namespace Cinema.Service.Implementations
             _configuration = configuration;
             _emailService = emailService;
         }
+
+        public async Task<int> GetMemberCountAsync()
+        {
+            var users = _userManager.Users.ToList();
+            var memberUsers = new List<AppUser>();
+
+            foreach (var user in users)
+            {
+                var roles = await _userManager.GetRolesAsync(user);
+                if (roles.Contains("Member"))
+                {
+                    memberUsers.Add(user);
+                }
+            }
+
+            return memberUsers.Count;
+        }
         public string CreateAdmin(SuperAdminCreateAdminDto createDto)
         {
 

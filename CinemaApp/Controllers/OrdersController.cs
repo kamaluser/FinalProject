@@ -1,4 +1,5 @@
 ﻿using Cinema.Service.Dtos.OrderDtos;
+using Cinema.Service.Implementations;
 using Cinema.Service.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CinemaApp.Controllers
 {
-    //[Authorize(Roles = "Member")]
+    //[Authorize(Roles = "Admin, Superadmin")]
     public class OrdersController : Controller
     {
         private readonly IOrderService _orderService;
@@ -15,6 +16,29 @@ namespace CinemaApp.Controllers
         {
             _orderService = orderService;
         }
+
+        [HttpGet("api/admin/orders/price/monthly")]
+        public IActionResult GetMonthlyTotalPrice()
+        {
+            var totalPrice = _orderService.GetMonthlyTotalPriceAsync();
+            return Ok(new { totalPrice });
+        }
+
+
+        [HttpGet("api/admin/orders/total-ordered-seats-count")]
+        public async Task<IActionResult> GetTotalOrderedSeatsCount()
+        {
+            try
+            {
+                var count = await _orderService.GetTotalOrderedSeatsCountAsync();
+                return Ok(count);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, $"An error occurred: {ex.Message}");
+            }
+        }
+
 
         [HttpGet("api/admin/orders/monthly-count-current-year")]
         public async Task<IActionResult> GetMonthlyOrderCounts()

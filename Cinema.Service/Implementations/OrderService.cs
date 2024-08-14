@@ -1,5 +1,6 @@
 ﻿using Cinema.Core.Entites;
 using Cinema.Data;
+using Cinema.Data.Repositories.Implementations;
 using Cinema.Data.Repositories.Interfaces;
 using Cinema.Service.Dtos;
 using Cinema.Service.Dtos.OrderDtos;
@@ -23,27 +24,6 @@ namespace Cinema.Service.Implementations
             _context = context;
             _orderRepository = orderRepository;
         }
-
-        /*private string GetMonthName(int month)
-        {
-            return month switch
-            {
-                1 => "January",
-                2 => "February",
-                3 => "March",
-                4 => "April",
-                5 => "May",
-                6 => "June",
-                7 => "July",
-                8 => "August",
-                9 => "September",
-                10 => "October",
-                11 => "November",
-                12 => "December",
-                _ => throw new ArgumentOutOfRangeException(nameof(month), "Invalid month value")
-            };
-        }*/
-
         public async Task<Dictionary<string, int>> GetMonthlyOrderCountsForCurrentYearAsync()
         {
             var firstDayOfYear = new DateTime(DateTime.Today.Year, 1, 1);
@@ -140,6 +120,16 @@ namespace Cinema.Service.Implementations
             return new OrderCountDto { Count = count };
         }
 
+        public async Task<int> GetTotalOrderedSeatsCountAsync()
+        {
+            var orderedSeatsCount = await _context.Seats
+                .Where(seat => seat.IsOrdered)
+                .CountAsync();
+
+            return orderedSeatsCount;
+        }
+
+
         public async Task ResetExpiredReservationsAsync()
         {
             var now = DateTime.Now;
@@ -155,6 +145,25 @@ namespace Cinema.Service.Implementations
             }
 
             await _context.SaveChangesAsync();
+        }
+
+        public decimal GetMonthlyTotalPriceAsync()
+        {
+            var now = DateTime.UtcNow;
+            var startDate = new DateTime(now.Year, now.Month, 1);
+            var endDate = startDate.AddMonths(1).AddDays(-1);
+
+            var orders = _orderRepository.GetAll(x=>x.OrderDate>=startDate && x.OrderDate<=endDate)
+                                                    .ToList();
+
+            decimal totalPrice = 0;
+
+            foreach (var order in orders)
+            {
+                totalPrice += order.TotalPrice;
+            }
+
+            return totalPrice;
         }
     }
 }

@@ -51,10 +51,70 @@ namespace Cinema.UI.Services
                 throw new HttpException(response.StatusCode);
             }
         }
+
+       /* public async Task<decimal> GetMonthlyRevenueAsync()
+        {
+            var response = await _client.GetAsync(baseUrl + "orders/price/monthly");
+            response.EnsureSuccessStatusCode();
+            return await response.Content.ReadFromJsonAsync<decimal>();
+        }*/
+
+        public async Task<int> GetTotalOrderedSeatsCountAsync()
+        {
+            var response = await _client.GetAsync(baseUrl+"orders/total-ordered-seats-count");
+            response.EnsureSuccessStatusCode();
+            return await response.Content.ReadFromJsonAsync<int>();
+        }
+
+        public async Task<decimal> GetMonthlyRevenueAsync()
+        {
+            AddAuthorizationHeader();
+            var response = await _client.GetAsync(baseUrl + "orders/price/monthly");
+            var content = await response.Content.ReadAsStringAsync();
+
+            if (response.IsSuccessStatusCode)
+            {
+                if (decimal.TryParse(content, out decimal result))
+                {
+                    return result;
+                }
+                else
+                {
+                    Console.WriteLine($"Error: Unable to parse response content as decimal. Content: {content}");
+                    throw new HttpException(response.StatusCode);
+                }
+            }
+            else
+            {
+                Console.WriteLine($"Error: {content}");
+                throw new HttpException(response.StatusCode);
+            }
+        }
+
+
+        /*public async Task<decimal> GetMonthlyRevenueAsync()
+        {
+            AddAuthorizationHeader();
+            var response = await _client.GetAsync(baseUrl + "orders/price/monthly");
+            var content = await response.Content.ReadAsStringAsync();
+
+            if (response.IsSuccessStatusCode)
+            {
+                var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+                var dto = JsonSerializer.Deserialize<OrderRevenueResponse>(content, options);
+                return dto.Price;
+            }
+            else
+            {
+                Console.WriteLine($"Error: {content}");
+                throw new HttpException(response.StatusCode);
+            }
+        }*/
+
         public async Task<int> GetOrderCountLastMonthAsync()
         {
             AddAuthorizationHeader();
-            var response = await _client.GetAsync(baseUrl + "orders/order-count-last-month"); 
+            var response = await _client.GetAsync(baseUrl + "orders/order-count-last-month");
             var content = await response.Content.ReadAsStringAsync();
 
             if (response.IsSuccessStatusCode)
@@ -70,10 +130,30 @@ namespace Cinema.UI.Services
             }
         }
 
+
         public async Task<int> GetSessionCountLastMonthAsync()
         {
             AddAuthorizationHeader();
             var response = await _client.GetAsync(baseUrl + "sessions/count/monthly");
+            var content = await response.Content.ReadAsStringAsync();
+
+            if (response.IsSuccessStatusCode)
+            {
+                var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+                var countDto = JsonSerializer.Deserialize<SessionCountResponse>(content, options);
+                return countDto.Count;
+            }
+            else
+            {
+                Console.WriteLine($"Error: {content}");
+                throw new HttpException(response.StatusCode);
+            }
+        }
+
+        public async Task<int> GetMembersCountAsync()
+        {
+            AddAuthorizationHeader();
+            var response = await _client.GetAsync(baseUrl + "members/count");
             var content = await response.Content.ReadAsStringAsync();
 
             if (response.IsSuccessStatusCode)

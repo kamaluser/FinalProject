@@ -33,22 +33,7 @@ namespace Cinema.Service.Implementations
             _mapper = mapper;
         }
 
-        /*private bool IsTimeConflict(DateTime showDateTime, int duration, int hallId)
-        {
-            var sessions = _sessionRepository.GetAll(s => s.HallId == hallId && !s.IsDeleted).ToList();
-
-            foreach (var session in sessions)
-            {
-                var sessionEnd = session.ShowDateTime.AddMinutes(session.Duration);
-
-                if (showDateTime < sessionEnd.AddMinutes(30) && showDateTime >= session.ShowDateTime)
-                {
-                    return true;
-                }
-            }
-            return false; 
-        }*/
-
+      
         private bool IsTimeConflict(DateTime showDateTime, int duration, int hallId)
         {
             var sessions = _sessionRepository.GetAll(s => s.HallId == hallId && !s.IsDeleted).ToList();

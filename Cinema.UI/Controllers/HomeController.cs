@@ -21,36 +21,6 @@ namespace Cinema.UI.Controllers
         {
             return View();
         }
-        /*[HttpGet("api/admin/monthly-count")]
-        public async Task<IActionResult> GetMonthlyOrdersCount()
-        {
-            try
-            {
-                var counts = await _crudService.GetMonthlyOrdersCountAsync();
-
-                if (counts == null || counts.Months == null || counts.Orders == null)
-                {
-
-                    return BadRequest("Data is missing or in an unexpected format.");
-                }
-
-                return Ok(counts);
-            }
-            catch (HttpException ex)
-            {
-                if (ex.Status == System.Net.HttpStatusCode.Unauthorized)
-                {
-                    return RedirectToAction("Login", "Auth");
-                }
-
-                return RedirectToAction("Error", "Home");
-            }
-            catch (System.Exception)
-            {
-                return RedirectToAction("Error", "Home");
-            }
-        }*/
-
 
         [HttpGet("api/orders/last-month-count")]
         public async Task<IActionResult> GetOrderCountLastMonth()
@@ -74,6 +44,57 @@ namespace Cinema.UI.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError, "An error occurred while processing your request.");
             }
         }
+
+        /* [HttpGet("api/admin/orders/price/monthly")]
+         public async Task<IActionResult> GetMonthlyTotalPrice()
+         {
+             try
+             {
+                 var totalPrice = await _crudService.GetMonthlyRevenueAsync();
+                 return Ok(new { Price = totalPrice });
+             }
+             catch (Exception ex)
+             {
+                 return StatusCode(StatusCodes.Status500InternalServerError, "An error occurred while processing your request.");
+             }
+         }*/
+        [HttpGet("api/orders/price/monthly")]
+        public async Task<IActionResult> GetMonthlyTotalPrice()
+        {
+            try
+            {
+                var totalPrice = await _crudService.GetMonthlyRevenueAsync();
+                return Ok( totalPrice );
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, "An error occurred while processing your request.");
+            }
+        }
+
+        [HttpGet("api/account/members-count")]
+        public async Task<IActionResult> GetMembersCount()
+        {
+            try
+            {
+                var memberCount = await _crudService.GetMembersCountAsync();
+                return Ok(memberCount);
+            }
+            catch (HttpException ex)
+            {
+                if (ex.Status == System.Net.HttpStatusCode.Unauthorized)
+                {
+                    return Unauthorized("You are not authorized.");
+                }
+
+                return StatusCode(StatusCodes.Status500InternalServerError, "An error occurred while processing your request.");
+            }
+            catch (System.Exception)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, "An error occurred while processing your request.");
+            }
+        }
+
 
         [HttpGet("api/orders/last-year-count")]
         public async Task<IActionResult> GetOrderCountLastYear()
@@ -147,6 +168,29 @@ namespace Cinema.UI.Controllers
             catch (Exception ex)
             {
                 return StatusCode(StatusCodes.Status500InternalServerError, $"An error occurred while processing your request: {ex.Message}");
+            }
+        }
+
+        [HttpGet("Api/Seats/GetOrdered")]
+        public async Task<IActionResult> GetOrderedSeats()
+        {
+            try
+            {
+                var orderedSeats = await _crudService.GetTotalOrderedSeatsCountAsync();
+                return Ok(orderedSeats);
+            }
+            catch (HttpException ex)
+            {
+                if (ex.Status == System.Net.HttpStatusCode.Unauthorized)
+                {
+                    return Unauthorized("You are not authorized.");
+                }
+
+                return StatusCode(StatusCodes.Status500InternalServerError, "An error occurred while processing your request.");
+            }
+            catch (System.Exception)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, "An error occurred while processing your request.");
             }
         }
 

@@ -2,26 +2,19 @@
     <div class="d-flex align-items-left align-items-md-center flex-column flex-md-row pt-2 pb-4">
         <div>
             <h3 class="fw-bold mb-3">Dashboard</h3>
-            <h6 class="op-7 mb-2">Free Bootstrap 5 Admin Dashboard</h6>
         </div>
         <div class="ms-md-auto py-2 py-md-0">
-            <a href="#" class="btn btn-label-info btn-round me-2">Manage</a>
-            <a href="#" class="btn btn-primary btn-round">Add Customer</a>
+            <a asp-asp-controller="account" asp-action="CreateAdminBySuperAdmin" class="btn btn-primary btn-round">Create Admin</a>
         </div>
     </div>
     <div class="row">
-        <div class="col-sm-6 col-md-3">
-            <div class="card card-stats card-round">
-                
-            </div>
-        </div>
-        <div class="col-sm-6 col-md-3">
+        <div class="col-sm-6 col-md-4">
             <div class="card card-stats card-round">
                 <div class="card-body">
                     <div class="row align-items-center">
                         <div class="col-icon">
                             <div class="icon-big text-center icon-info bubble-shadow-small">
-                                <i class="fas fa-user-check"></i>
+                                <i class="fas fa-calendar-alt"></i>
                             </div>
                         </div>
                         <div class="col col-stats ms-3 ms-sm-0">
@@ -34,33 +27,35 @@
                 </div>
             </div>
         </div>
-        <div class="col-sm-6 col-md-3">
+      
+
+        <div class="col-sm-6 col-md-4">
             <div class="card card-stats card-round">
                 <div class="card-body">
                     <div class="row align-items-center">
                         <div class="col-icon">
                             <div class="icon-big text-center icon-success bubble-shadow-small">
-                                <i class="fas fa-luggage-cart"></i>
+                                <i class="fas fa-shopping-cart"></i>
                             </div>
                         </div>
                         <div class="col col-stats ms-3 ms-sm-0">
                             <div class="numbers">
                                 <p class="card-category">Yearly Order Count</p>
                                 <h4 id="yearlyOrderCount" class="card-title">Loading...</h4>
-
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="col-sm-6 col-md-3">
+
+        <div class="col-sm-6 col-md-4">
             <div class="card card-stats card-round">
                 <div class="card-body">
                     <div class="row align-items-center">
                         <div class="col-icon">
                             <div class="icon-big text-center icon-secondary bubble-shadow-small">
-                                <i class="far fa-check-circle"></i>
+                                <i class="fas fa-receipt"></i>
                             </div>
                         </div>
                         <div class="col col-stats ms-3 ms-sm-0">
@@ -69,11 +64,11 @@
                                 <h4 id="orderCount" class="card-title">Loading...</h4>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>
         </div>
+
     </div>
     <div class="row">
         <div class="col-md-8">
@@ -92,58 +87,67 @@
                 </div>
             </div>
         </div>
+
+        <!-- New Widgets Start -->
         <div class="col-md-4">
-            <div class="card card-primary card-round">
-                <div class="card-header">
-                    <div class="card-head-row">
-                        <div class="card-title">Daily Sales</div>
-                        <div class="card-tools">
-                            <div class="dropdown">
-                                <button class="btn btn-sm btn-label-light dropdown-toggle"
-                                        type="button"
-                                        id="dropdownMenuButton"
-                                        data-bs-toggle="dropdown"
-                                        aria-haspopup="true"
-                                        aria-expanded="false">
-                                    Export
-                                </button>
-                                <div class="dropdown-menu"
-                                     aria-labelledby="dropdownMenuButton">
-                                    <a class="dropdown-item" href="#">Action</a>
-                                    <a class="dropdown-item" href="#">Another action</a>
-                                    <a class="dropdown-item" href="#">Something else here</a>
-                                </div>
+            <div class="card card-stats card-round">
+                <div class="card-body">
+                    <div class="row align-items-center">
+                        <div class="col-icon">
+                            <div class="icon-big text-center icon-primary bubble-shadow-small">
+                                <i class="fas fa-users"></i>
+                            </div>
+                        </div>
+                        <div class="col col-stats ms-3 ms-sm-0">
+                            <div class="numbers">
+                                <p class="card-category">Total Users</p>
+                                <h4 id="usersCount" class="card-title">Loading...</h4>
                             </div>
                         </div>
                     </div>
-                    <div class="card-category">March 25 - April 02</div>
                 </div>
-                <div class="card-body pb-0">
-                    <div class="mb-4 mt-2">
-                        <h1>$4,578.58</h1>
-                    </div>
-                    <div class="pull-in">
-                        <canvas id="dailySalesChart"></canvas>
+            </div>
+            <div class="card card-stats card-round">
+                <div class="card-body">
+                    <div class="row align-items-center">
+                        <div class="col-icon">
+                            <div class="icon-big text-center icon-info bubble-shadow-small">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                        </div>
+                        <div class="col col-stats ms-3 ms-sm-0">
+                            <div class="numbers">
+                                <p class="card-category">Ordered Seats Count</p>
+                                <h4 id="orderedSeatsCount" class="card-title">Loading...</h4>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="card card-round">
-                <div class="card-body pb-0">
-                    <div class="h1 fw-bold float-end text-primary">+5%</div>
-                    <h2 class="mb-2">17</h2>
-                    <p class="text-muted">Users online</p>
-                    <div class="pull-in sparkline-fix">
-                        <div id="lineChart"></div>
+            <div class="card card-stats card-round">
+                <div class="card-body">
+                    <div class="row align-items-center">
+                        <div class="col-icon">
+                            <div class="icon-big text-center icon-warning bubble-shadow-small">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                        </div>
+                        <div class="col col-stats ms-3 ms-sm-0">
+                            <div class="numbers">
+                                <p class="card-category">Monthly Revenue</p>
+                                <h4 id="monthlyRevenue" class="card-title">Loading...</h4>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
 <script>
     document.addEventListener('DOMContentLoaded', function () {
-        // Fetch and display counts
-        fetch('/api/orders/last-month-count')
+        fetch('/Api/Orders/last-month-count')
             .then(response => response.json())
             .then(data => {
                 document.getElementById('orderCount').innerText = data;
@@ -153,7 +157,7 @@
                 document.getElementById('orderCount').innerText = 'Error';
             });
 
-        fetch('/api/orders/last-year-count')
+        fetch('/Api/Orders/last-year-count')
             .then(response => response.json())
             .then(data => {
                 document.getElementById('yearlyOrderCount').innerText = data;
@@ -163,7 +167,7 @@
                 document.getElementById('yearlyOrderCount').innerText = 'Error';
             });
 
-        fetch('/api/sessions/last-month-count')
+        fetch('/Api/Sessions/last-month-count')
             .then(response => response.json())
             .then(data => {
                 document.getElementById('sessionCount').innerText = data;
@@ -173,7 +177,42 @@
                 document.getElementById('sessionCount').innerText = 'Error';
             });
 
-        // Fetch and display monthly order counts chart
+        fetch('/Api/Account/members-count')
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('usersCount').innerText = data;
+            })
+            .catch(error => {
+                console.error('There was a problem with the fetch operation:', error);
+                document.getElementById('usersCount').innerText = 'Error';
+            });
+
+        fetch('/Api/Seats/GetOrdered')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                document.getElementById('orderedSeatsCount').textContent = data;
+            })
+            .catch(error => {
+                console.error('There has been a problem with your fetch operation:', error);
+                document.getElementById('orderedSeatsCount').textContent = 'Error';
+            });
+
+
+        fetch('/api/orders/price/monthly')
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('monthlyRevenue').innerText = `$${data.toFixed(2)}`;
+            })
+            .catch(error => {
+                console.error('There was a problem with the fetch operation:', error);
+                document.getElementById('monthlyRevenue').innerText = 'Error';
+            });
+
         fetch('/api/orders/monthly-count-current-year')
             .then(response => response.json())
             .then(data => {
@@ -183,10 +222,10 @@
                     new Chart(ctx, {
                         type: 'line',
                         data: {
-                            labels: data.months, // Months as labels
+                            labels: data.months,
                             datasets: [{
                                 label: 'Monthly Order Count',
-                                data: data.orders, // Corresponding counts
+                                data: data.orders,
                                 fill: false,
                                 borderColor: 'rgba(75, 192, 192, 1)',
                                 tension: 0.1
@@ -206,7 +245,10 @@
                                         display: true,
                                         text: 'Order Count'
                                     },
-                                    beginAtZero: true
+                                    beginAtZero: true,
+                                    ticks: {
+                                        stepSize: 1,
+                                    }
                                 }
                             }
                         }
@@ -218,8 +260,7 @@
             .catch(error => {
                 console.error('Error fetching data:', error);
             });
-
-    
     });
 </script>
+
 

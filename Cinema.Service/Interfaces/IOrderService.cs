@@ -14,5 +14,7 @@ namespace Cinema.Service.Interfaces
         Task<OrderCountDto> GetOrderCountLastMonthAsync();
         Task<OrderCountDto> GetOrderCountLastYearAsync();
         Task<Dictionary<string, int>> GetMonthlyOrderCountsForCurrentYearAsync();
+        Task<int> GetTotalOrderedSeatsCountAsync();
+        decimal GetMonthlyTotalPriceAsync();
     }
 }
