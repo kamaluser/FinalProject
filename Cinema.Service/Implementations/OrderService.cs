@@ -52,6 +52,33 @@ namespace Cinema.Service.Implementations
         }
 
 
+        public async Task<Dictionary<string, decimal>> GetMonthlyRevenueForCurrentYearAsync()
+        {
+            var firstDayOfYear = new DateTime(DateTime.Today.Year, 1, 1);
+            var firstDayOfNextYear = firstDayOfYear.AddYears(1);
+
+            var monthlyRevenues = await _context.Orders
+                .Where(a => a.OrderDate >= firstDayOfYear && a.OrderDate < firstDayOfNextYear)
+                .GroupBy(a => a.OrderDate.Month)
+                .Select(g => new
+                {
+                    Month = g.Key,
+                    Revenue = g.Sum(a => a.TotalPrice) 
+                })
+                .ToListAsync();
+
+            var result = new Dictionary<string, decimal>();
+            var months = new[] { "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" };
+
+            foreach (var month in months.Select((name, index) => new { name, index }))
+            {
+                var revenue = monthlyRevenues.FirstOrDefault(m => m.Month == month.index + 1)?.Revenue ?? 0m;
+                result[month.name] = revenue;
+            }
+
+            return result;
+        }
+
         public async Task<BookSeatResult> BookSeatsAsync(BookSeatDto bookSeatDto)
         {
             var session = await _context.Sessions

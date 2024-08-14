@@ -54,7 +54,22 @@ namespace CinemaApp.Controllers
 
             return Ok(response);
         }
-    
+
+
+        [HttpGet("api/admin/orders/monthly-revenue-current-year")]
+        public async Task<IActionResult> GetMonthlyRevenue()
+        {
+            var revenues = await _orderService.GetMonthlyRevenueForCurrentYearAsync();
+
+            var response = new
+            {
+                months = revenues.Keys.ToArray(),
+                revenue = revenues.Values.ToArray()
+            };
+
+            return Ok(response);
+        }
+
 
         [HttpGet("api/admin/orders/order-count-last-month")]
         public async Task<IActionResult> GetOrderCountLastMonth()

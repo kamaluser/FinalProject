@@ -52,13 +52,7 @@ namespace Cinema.UI.Services
             }
         }
 
-       /* public async Task<decimal> GetMonthlyRevenueAsync()
-        {
-            var response = await _client.GetAsync(baseUrl + "orders/price/monthly");
-            response.EnsureSuccessStatusCode();
-            return await response.Content.ReadFromJsonAsync<decimal>();
-        }*/
-
+      
         public async Task<int> GetTotalOrderedSeatsCountAsync()
         {
             var response = await _client.GetAsync(baseUrl+"orders/total-ordered-seats-count");
@@ -74,13 +68,18 @@ namespace Cinema.UI.Services
 
             if (response.IsSuccessStatusCode)
             {
-                if (decimal.TryParse(content, out decimal result))
+                Console.WriteLine($"API Response: {content}");
+
+                var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+                var dto = JsonSerializer.Deserialize<OrderRevenueResponse>(content, options);
+
+                if (dto != null)
                 {
-                    return result;
+                    return dto.TotalPrice;
                 }
                 else
                 {
-                    Console.WriteLine($"Error: Unable to parse response content as decimal. Content: {content}");
+                    Console.WriteLine($"Error: Deserialization returned null. Content: {content}");
                     throw new HttpException(response.StatusCode);
                 }
             }
@@ -90,6 +89,7 @@ namespace Cinema.UI.Services
                 throw new HttpException(response.StatusCode);
             }
         }
+
 
 
         /*public async Task<decimal> GetMonthlyRevenueAsync()
@@ -412,6 +412,31 @@ namespace Cinema.UI.Services
             }
         }
 
+        public async Task<YearlyRevenueResponse> GetMonthlyRevenueForCurrentYearAsync()
+        {
+            AddAuthorizationHeader();
+
+            var response = await _client.GetAsync(baseUrl + "orders/monthly-revenue-current-year");
+            var content = await response.Content.ReadAsStringAsync();
+
+            if (response.IsSuccessStatusCode)
+            {
+                var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+                var monthlyRevenue = JsonSerializer.Deserialize<YearlyRevenueResponse>(content, options);
+
+                if (monthlyRevenue?.Months == null || monthlyRevenue.Revenue == null)
+                {
+                    return null;
+                }
+
+                return monthlyRevenue;
+            }
+            else
+            {
+                Console.WriteLine($"Error: {content}");
+                throw new HttpException(response.StatusCode, content);
+            }
+        }
 
         public async Task<byte[]> ExportAsync()
         {

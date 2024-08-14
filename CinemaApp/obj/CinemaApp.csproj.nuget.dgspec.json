@@ -375,6 +375,10 @@
               "target": "Package",
               "version": "[8.0.7, )"
             },
+            "Moq": {
+              "target": "Package",
+              "version": "[4.20.70, )"
+            },
             "Quartz.Extensions.Hosting": {
               "target": "Package",
               "version": "[3.12.0, )"
@@ -386,6 +390,10 @@
             "Swashbuckle.AspNetCore.Swagger": {
               "target": "Package",
               "version": "[6.6.2, )"
+            },
+            "xunit": {
+              "target": "Package",
+              "version": "[2.9.0, )"
             }
           },
           "imports": [
