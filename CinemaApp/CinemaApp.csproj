@@ -30,6 +30,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Background\" />
     <Folder Include="wwwroot\uploads\flags\" />
     <Folder Include="wwwroot\uploads\movies\" />
     <Folder Include="wwwroot\uploads\settings\" />

@@ -4,6 +4,7 @@ using Cinema.Service.Dtos;
 using Cinema.Service.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authorization;
+using Cinema.Service.Dtos.SessionDtos;
 
 namespace CinemaApp.Controllers
 {
@@ -67,6 +68,27 @@ namespace CinemaApp.Controllers
             return Ok(languages);
         }
 
+        [HttpGet("todaysMovies")]
+        public ActionResult<List<UserMovieGetDto>> GetMoviesForToday(int limit = 8)
+        {
+            var movies = _movieService.GetMoviesForToday(limit);
+            return Ok(movies);
+        }
+
+
+        [HttpGet("todaysMovies/paginated")]
+        public ActionResult<PaginatedList<UserMovieGetDto>> GetMoviesForTodayWithPagination(int page = 1, int size = 6)
+        {
+            var movies = _movieService.GetMoviesForTodayWithPagination(page, size);
+            return Ok(movies);
+        }
+
+        [HttpGet("future-movies")]
+        public ActionResult<PaginatedList<AdminMovieGetDto>> GetFutureMovies([FromQuery] int page = 1, [FromQuery] int size = 10)
+        {
+            var result = _movieService.GetFutureMoviesWithPagination(page, size);
+            return Ok(result);
+        }
 
     }
 }

@@ -1,5 +1,6 @@
 ﻿using Cinema.Core.Entites;
 using Cinema.Service.Dtos;
+using Cinema.Service.Dtos.SeatDtos;
 using Cinema.Service.Dtos.SessionDtos;
 using System;
 using System.Collections.Generic;
@@ -16,5 +17,7 @@ namespace Cinema.Service.Interfaces
         List<AdminSessionGetDto> GetAll();
         Task<List<AdminSessionGetDto>> GetSessionsByHall(int hallId);
         Task<int> GetSessionCountLastMonthAsync();
+        List<UserSessionDetailsDto> GetSessionsByMovieAndDateAsync(int movieId, DateTime date, int? branchId = null, int? languageId = null);
+        List<UserSeatGetDto> GetSeatsForSession(int sessionId);
     }
 }

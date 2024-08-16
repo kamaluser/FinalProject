@@ -79,6 +79,65 @@ namespace Cinema.Service.Implementations
             return result;
         }
 
+        /*  public async Task<BookSeatResult> BookSeatsAsync(BookSeatDto bookSeatDto)
+          {
+              var session = await _context.Sessions
+                  .Include(s => s.Hall)
+                  .FirstOrDefaultAsync(s => s.Id == bookSeatDto.SessionId);
+
+              if (session == null)
+              {
+                  throw new RestException(StatusCodes.Status404NotFound, "Session not found.");
+              }
+
+              var seats = await _context.Seats
+                  .Include(s => s.OrderSeats)
+                  .ThenInclude(os=>os.Order)
+                  .Where(s => bookSeatDto.SeatIds.Contains(s.Id) && s.HallId == session.HallId)
+                  .ToListAsync();
+
+              if (seats.Count != bookSeatDto.SeatIds.Count)
+              {
+                  throw new RestException(StatusCodes.Status404NotFound, "Some seats not found.");
+              }
+
+              foreach (var seat in seats)
+              {
+                  var existingOrderSeat = seat.OrderSeats?.FirstOrDefault(os => os.Order != null && os.Order.SessionId == bookSeatDto.SessionId);
+
+
+                  if (existingOrderSeat != null)
+                  {
+                      throw new RestException(StatusCodes.Status400BadRequest, "One or more seats are already reserved for this session.");
+                  }
+              }
+
+              var order = new Order
+              {
+                  UserId = bookSeatDto.UserId,
+                  SessionId = bookSeatDto.SessionId,
+                  OrderDate = DateTime.Now,
+                  NumberOfSeats = bookSeatDto.SeatIds.Count,
+                  TotalPrice = session.Price * bookSeatDto.SeatIds.Count,
+                  OrderSeats = bookSeatDto.SeatIds.Select(seatId => new OrderSeat { SeatId = seatId }).ToList()
+              };
+
+              foreach (var seat in seats)
+              {
+                  seat.OrderSeats.Add(new OrderSeat
+                  {
+                      SeatId = seat.Id,
+                      Order = order
+                  });
+              }
+
+              _context.Orders.Add(order);
+              await _context.SaveChangesAsync();
+
+              return new BookSeatResult { Success = true };
+          }
+  */
+
         public async Task<BookSeatResult> BookSeatsAsync(BookSeatDto bookSeatDto)
         {
             var session = await _context.Sessions
@@ -91,6 +150,8 @@ namespace Cinema.Service.Implementations
             }
 
             var seats = await _context.Seats
+                .Include(s => s.OrderSeats)
+                .ThenInclude(os => os.Order)
                 .Where(s => bookSeatDto.SeatIds.Contains(s.Id) && s.HallId == session.HallId)
                 .ToListAsync();
 
@@ -101,14 +162,12 @@ namespace Cinema.Service.Implementations
 
             foreach (var seat in seats)
             {
-                if (seat.IsOrdered)
-                {
-                    throw new RestException(StatusCodes.Status400BadRequest, "One or more seats are already reserved.");
-                }
+                var existingOrderSeat = seat.OrderSeats?.FirstOrDefault(os => os.Order != null && os.Order.SessionId == bookSeatDto.SessionId);
 
-                seat.IsOrdered = true;
-                seat.BookedFrom = session.ShowDateTime;
-                seat.BookedUntil = session.ShowDateTime.AddMinutes(session.Duration);
+                if (existingOrderSeat != null)
+                {
+                    throw new RestException(StatusCodes.Status400BadRequest, "One or more seats are already reserved for this session.");
+                }
             }
 
             var order = new Order
@@ -117,16 +176,17 @@ namespace Cinema.Service.Implementations
                 SessionId = bookSeatDto.SessionId,
                 OrderDate = DateTime.Now,
                 NumberOfSeats = bookSeatDto.SeatIds.Count,
-                TotalPrice = session.Price * bookSeatDto.SeatIds.Count,
-                OrderSeats = bookSeatDto.SeatIds.Select(seatId => new OrderSeat { SeatId = seatId }).ToList()
+                TotalPrice = session.Price * bookSeatDto.SeatIds.Count
             };
+
+            var orderSeats = seats.Select(seat => new OrderSeat { SeatId = seat.Id, Order = order });
+            _context.Set<OrderSeat>().AddRange(orderSeats);
 
             _context.Orders.Add(order);
             await _context.SaveChangesAsync();
 
             return new BookSeatResult { Success = true };
         }
-
         public async Task<OrderCountDto> GetOrderCountLastMonthAsync()
         {
             var lastMonth = DateTime.Now.AddMonths(-1);
@@ -145,33 +205,6 @@ namespace Cinema.Service.Implementations
                 .CountAsync();
 
             return new OrderCountDto { Count = count };
-        }
-
-        public async Task<int> GetTotalOrderedSeatsCountAsync()
-        {
-            var orderedSeatsCount = await _context.Seats
-                .Where(seat => seat.IsOrdered)
-                .CountAsync();
-
-            return orderedSeatsCount;
-        }
-
-
-        public async Task ResetExpiredReservationsAsync()
-        {
-            var now = DateTime.Now;
-            var seatsToReset = await _context.Seats
-                .Where(s => s.IsOrdered && s.BookedUntil <= now)
-                .ToListAsync();
-
-            foreach (var seat in seatsToReset)
-            {
-                seat.IsOrdered = false;
-                seat.BookedFrom = null;
-                seat.BookedUntil = null;
-            }
-
-            await _context.SaveChangesAsync();
         }
 
         public decimal GetMonthlyTotalPriceAsync()

@@ -9,7 +9,6 @@ using Cinema.Service.Implementations;
 using Cinema.Service.Interfaces;
 using Cinema.Service.Profiles;
 using Cinema.Service.Services;
-using CinemaApp.Background;
 using CinemaApp.Middlewares;
 using FluentValidation;
 using FluentValidation.AspNetCore;
@@ -121,20 +120,20 @@ builder.Services.AddFluentValidationAutoValidation();
 builder.Services.AddFluentValidationClientsideAdapters();
 builder.Services.AddValidatorsFromAssemblyContaining<AdminSliderCreateDtoValidator>();
 
-builder.Services.AddQuartz(options =>
+/*builder.Services.AddQuartz(options =>
 {
     var key = JobKey.Create(nameof(ResetReservationsJob));
     options.AddJob<ResetReservationsJob>(key)
            .AddTrigger(x => x.ForJob(key)
                               .WithCronSchedule("0 0/5 * * * ?")
                               .StartNow());
-});
-
+});*/
+/*
 builder.Services.AddQuartzHostedService(options =>
 {
     options.WaitForJobsToComplete = true;
     options.AwaitApplicationStarted = true;
-});
+});*/
 
 
 //builder.Services.AddFluentValidationRulesToSwagger();

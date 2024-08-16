@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "FF8+U4Oiqd89B9A64aRVBYRiVgRrVU8yPWKDK+yP5uQ=",
+  "Hash": "jgpYfgTCak3iQkSXR4NqgZ+NWT18DKqcwk0sI9p25Yg=",
   "Source": "CinemaApp",
   "BasePath": "_content/CinemaApp",
   "Mode": "Default",
@@ -397,6 +397,25 @@
       "OriginalItemSpec": "wwwroot\\uploads\\movies\\05c00f4b-925e-489c-830c-0b19db80a02f.jpg"
     },
     {
+      "Identity": "C:\\Users\\kamal\\Desktop\\FinalProject\\CinemaApp\\wwwroot\\uploads\\movies\\19d1f073-7268-40ab-80f9-c7eff24a7a50.jpg",
+      "SourceId": "CinemaApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\kamal\\Desktop\\FinalProject\\CinemaApp\\wwwroot\\",
+      "BasePath": "_content/CinemaApp",
+      "RelativePath": "uploads/movies/19d1f073-7268-40ab-80f9-c7eff24a7a50.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\movies\\19d1f073-7268-40ab-80f9-c7eff24a7a50.jpg"
+    },
+    {
       "Identity": "C:\\Users\\kamal\\Desktop\\FinalProject\\CinemaApp\\wwwroot\\uploads\\movies\\2556da74-7907-4dc8-9c9b-d38d18a0f2eb.jpg",
       "SourceId": "CinemaApp",
       "SourceType": "Discovered",
@@ -530,6 +549,25 @@
       "OriginalItemSpec": "wwwroot\\uploads\\movies\\669767c7-7a24-4e8b-9533-0a9e930b63a3.jpg"
     },
     {
+      "Identity": "C:\\Users\\kamal\\Desktop\\FinalProject\\CinemaApp\\wwwroot\\uploads\\movies\\6b006fdd-7852-47b8-ab6a-71df2563d10a.jpg",
+      "SourceId": "CinemaApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\kamal\\Desktop\\FinalProject\\CinemaApp\\wwwroot\\",
+      "BasePath": "_content/CinemaApp",
+      "RelativePath": "uploads/movies/6b006fdd-7852-47b8-ab6a-71df2563d10a.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\movies\\6b006fdd-7852-47b8-ab6a-71df2563d10a.jpg"
+    },
+    {
       "Identity": "C:\\Users\\kamal\\Desktop\\FinalProject\\CinemaApp\\wwwroot\\uploads\\movies\\6fe689ab-fe76-4852-81ab-2bb1d162c9d2.jpg",
       "SourceId": "CinemaApp",
       "SourceType": "Discovered",
@@ -661,6 +699,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\uploads\\movies\\949855ce-2be9-4c61-8dec-a4e4557934ac.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\kamal\\Desktop\\FinalProject\\CinemaApp\\wwwroot\\uploads\\movies\\a4927b3b-b931-4a9c-b6b1-8b3a4d5ce3fb.jpg",
+      "SourceId": "CinemaApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\kamal\\Desktop\\FinalProject\\CinemaApp\\wwwroot\\",
+      "BasePath": "_content/CinemaApp",
+      "RelativePath": "uploads/movies/a4927b3b-b931-4a9c-b6b1-8b3a4d5ce3fb.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\movies\\a4927b3b-b931-4a9c-b6b1-8b3a4d5ce3fb.jpg"
     },
     {
       "Identity": "C:\\Users\\kamal\\Desktop\\FinalProject\\CinemaApp\\wwwroot\\uploads\\movies\\a6c751a8-2841-4b73-85df-1583a0652b5c.jpg",

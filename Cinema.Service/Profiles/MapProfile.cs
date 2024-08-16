@@ -72,6 +72,11 @@ namespace Cinema.Service.Profiles
             CreateMap<AdminLanguageEditDto, Language>()
                 .ForMember(dest => dest.FlagPhoto, opt => opt.Ignore());
 
+            CreateMap<Language, LanguageGetDto>()
+                .ForMember(dest => dest.LanguageName, opt => opt.MapFrom(src => src.Name))
+                .ForMember(dest => dest.LanguagePhoto, opt => opt.MapFrom(src => $"{baseUrl}/uploads/flags/{src.FlagPhoto}"));
+
+
             // news(admin)
             CreateMap<News, AdminNewsGetDto>()
                 .ForMember(dest => dest.Image, opt => opt.MapFrom((src, dest, destMember, context) =>
@@ -95,6 +100,31 @@ namespace Cinema.Service.Profiles
 
             CreateMap<AdminMovieEditDto, Movie>()
                 .ForMember(dest => dest.Photo, opt => opt.Ignore());
+
+            CreateMap<Movie, UserMovieGetDto>()
+                .ForMember(dest => dest.MovieName, opt => opt.MapFrom(src => src.Title))
+                .ForMember(dest => dest.MoviePhoto, opt => opt.MapFrom(src => $"{baseUrl}/uploads/movies/{src.Photo}"))
+                .ForMember(dest => dest.Languages, opt => opt.MapFrom(src => src.MovieLanguages.Select(ml => new LanguageGetDto
+                {
+                    LanguageName = ml.Language.Name,
+                    LanguagePhoto = $"{baseUrl}/uploads/flags/{ml.Language.FlagPhoto}"
+                }).ToList()))
+                .ForMember(dest => dest.ReleaseDate, opt => opt.MapFrom(src => src.ReleaseDate))
+                .ForMember(dest => dest.AgeLimit, opt => opt.MapFrom(src => src.AgeLimit));
+
+            CreateMap<Session, UserSessionDetailsDto>()
+               .ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.Id))
+               .ForMember(dest => dest.ShowDateTime, opt => opt.MapFrom(src => src.ShowDateTime))
+               .ForMember(dest => dest.HallName, opt => opt.MapFrom(src => src.Hall.Name))
+               .ForMember(dest => dest.BranchName, opt => opt.MapFrom(src => src.Hall.Branch.Name))
+               .ForMember(dest => dest.LanguageName, opt => opt.MapFrom(src => src.Language.Name))
+               .ForMember(dest => dest.LanguagePhoto, opt => opt.MapFrom((src, dest, destMember, context) =>
+               {
+                   return $"{baseUrl}/uploads/flags/{src.Language.FlagPhoto}";
+               }))
+               .ForMember(dest => dest.Price, opt => opt.MapFrom(src => src.Price))
+               .ForMember(dest => dest.TrailerLink, opt => opt.MapFrom(src => src.Movie.TrailerLink));
+
 
             // Session(admin)
             CreateMap<Session, AdminSessionGetDto>()

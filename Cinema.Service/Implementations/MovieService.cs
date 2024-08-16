@@ -2,11 +2,14 @@
 using Cinema.Core.Entites;
 using Cinema.Data.Repositories.Interfaces;
 using Cinema.Service.Dtos;
+using Cinema.Service.Dtos.LanguageDtos;
 using Cinema.Service.Dtos.MovieDtos;
+using Cinema.Service.Dtos.SessionDtos;
 using Cinema.Service.Exceptions;
 using Cinema.Service.Interfaces;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -21,13 +24,90 @@ namespace Cinema.Service.Implementations
         private readonly ILanguageRepository _languageRepository;
         private readonly IWebHostEnvironment _environment;
         private readonly IMapper _mapper;
+        private readonly IHttpContextAccessor _accessor;
+        private readonly string _baseUrl;
 
-        public MovieService(IMovieRepository movieRepository, ILanguageRepository languageRepository, IWebHostEnvironment environment, IMapper mapper)
+        public MovieService(IMovieRepository movieRepository, ILanguageRepository languageRepository, IWebHostEnvironment environment, IMapper mapper, IHttpContextAccessor accessor)
         {
             _movieRepository = movieRepository;
             _languageRepository = languageRepository;
             _environment = environment;
             _mapper = mapper;
+            _accessor = accessor;
+
+            var uriBuilder = new UriBuilder(_accessor.HttpContext.Request.Scheme, _accessor.HttpContext.Request.Host.Host, _accessor.HttpContext.Request.Host.Port ?? -1);
+            if (uriBuilder.Uri.IsDefaultPort)
+            {
+                uriBuilder.Port = -1;
+            }
+            _baseUrl = uriBuilder.Uri.AbsoluteUri;
+        }
+
+        public PaginatedList<UserMovieGetDto> GetFutureMoviesWithPagination(int page = 1, int size = 10)
+        {
+            var futureDate = DateTime.Now.Date;
+
+            var query = _movieRepository.GetAll(
+                x => x.ReleaseDate > futureDate && !x.IsDeleted,
+                "MovieLanguages.Language"
+            )
+            .OrderBy(x => x.ReleaseDate); 
+
+            var paginatedMovies = PaginatedList<Movie>.Create(query, page, size);
+
+            var movieDtos = _mapper.Map<List<UserMovieGetDto>>(paginatedMovies.Items);
+
+            return new PaginatedList<UserMovieGetDto>(movieDtos, paginatedMovies.TotalPages, paginatedMovies.PageIndex, paginatedMovies.PageSize)
+            {
+                HasPrev = paginatedMovies.HasPrev,
+                HasNext = paginatedMovies.HasNext
+            };
+        }
+
+        public PaginatedList<UserMovieGetDto> GetMoviesForTodayWithPagination(int page = 1, int size = 8)
+        {
+            var today = DateTime.UtcNow.Date;
+
+            var query = _movieRepository.GetAll(x => x.Sessions.Any(s => s.ShowDateTime.Date == today && !s.IsDeleted))
+                                        .Include(x => x.Sessions)
+                                        .ThenInclude(x=>x.Language)
+                                        .Include(s => s.MovieLanguages)
+                                        .ThenInclude(ml=>ml.Language);
+
+            var paginatedMovies = PaginatedList<Movie>.Create(query, page, size);
+
+            var movieDtos = _mapper.Map<List<UserMovieGetDto>>(paginatedMovies.Items);
+
+            return new PaginatedList<UserMovieGetDto>(movieDtos, paginatedMovies.TotalPages, paginatedMovies.PageIndex, paginatedMovies.PageSize)
+            {
+                HasPrev = paginatedMovies.HasPrev,
+                HasNext = paginatedMovies.HasNext
+            };
+        }
+
+        public List<UserMovieGetDto> GetMoviesForToday(int limit = 8)
+        {
+            var today = DateTime.Today;
+
+            var movies = _movieRepository.GetAll(x => x.Sessions.Any(s => s.ShowDateTime.Date == today && !s.IsDeleted))
+                                          .Include(x => x.Sessions.Where(s => s.ShowDateTime.Date == today && !s.IsDeleted))
+                                          .ThenInclude(s => s.Language)
+                                          .Take(limit)
+                                          .ToList();
+
+            var result = movies.Select(movie => new UserMovieGetDto
+            {
+                MovieName = movie.Title,
+                MoviePhoto = $"{_baseUrl}/uploads/movies/{movie.Photo}", 
+                Languages = movie.Sessions.Select(s => new LanguageGetDto
+                {
+                    LanguageName = s.Language.Name,
+                    LanguagePhoto = $"{_baseUrl}/uploads/flags/{s.Language.FlagPhoto}" 
+                }).ToList(),
+                AgeLimit = movie.AgeLimit
+            }).ToList();
+
+            return result;
         }
 
         public int Create(AdminMovieCreateDto createDto)

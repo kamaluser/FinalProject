@@ -25,21 +25,6 @@ namespace CinemaApp.Controllers
         }
 
 
-        [HttpGet("api/admin/orders/total-ordered-seats-count")]
-        public async Task<IActionResult> GetTotalOrderedSeatsCount()
-        {
-            try
-            {
-                var count = await _orderService.GetTotalOrderedSeatsCountAsync();
-                return Ok(count);
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(StatusCodes.Status500InternalServerError, $"An error occurred: {ex.Message}");
-            }
-        }
-
-
         [HttpGet("api/admin/orders/monthly-count-current-year")]
         public async Task<IActionResult> GetMonthlyOrderCounts()
         {

@@ -3,6 +3,7 @@ using Cinema.Core.Entites;
 using Cinema.Data.Repositories.Implementations;
 using Cinema.Data.Repositories.Interfaces;
 using Cinema.Service.Dtos;
+using Cinema.Service.Dtos.SeatDtos;
 using Cinema.Service.Dtos.SessionDtos;
 using Cinema.Service.Exceptions;
 using Cinema.Service.Interfaces;
@@ -21,19 +22,29 @@ namespace Cinema.Service.Implementations
         private readonly IMovieRepository _movieRepository;
         private readonly IHallRepository _hallRepository;
         private readonly ILanguageRepository _languageRepository;
+        private readonly IOrderRepository _orderRepository;
+        private readonly ISeatRepository _seatRepository;
         private readonly IMapper _mapper;
 
         public SessionService(
-            ISessionRepository sessionRepository, IMovieRepository movieRepository, IHallRepository hallRepository, ILanguageRepository languageRepository, IMapper mapper)
+            ISessionRepository sessionRepository,
+            IMovieRepository movieRepository,
+            IHallRepository hallRepository,
+            ILanguageRepository languageRepository,
+            IOrderRepository orderRepository,
+            ISeatRepository seatRepository,
+            IMapper mapper)
         {
             _sessionRepository = sessionRepository;
             _movieRepository = movieRepository;
             _hallRepository = hallRepository;
             _languageRepository = languageRepository;
+            _orderRepository = orderRepository;
+            _seatRepository = seatRepository;
             _mapper = mapper;
         }
 
-      
+
         private bool IsTimeConflict(DateTime showDateTime, int duration, int hallId)
         {
             var sessions = _sessionRepository.GetAll(s => s.HallId == hallId && !s.IsDeleted).ToList();
@@ -53,6 +64,67 @@ namespace Cinema.Service.Implementations
 
             return false;
         }
+
+
+        public List<UserSeatGetDto> GetSeatsForSession(int sessionId)
+        {
+            var session = _sessionRepository.Get(s => s.Id == sessionId, "Hall");
+
+            if (session == null)
+            {
+                throw new RestException(StatusCodes.Status404NotFound, "Session not found.");
+            }
+
+            var seats = _seatRepository.GetAll(s => s.HallId == session.HallId);
+            var orders =  _orderRepository.GetAll(o => o.SessionId == sessionId);
+            var orderedSeatIds = orders.SelectMany(o => o.OrderSeats.Select(os => os.SeatId)).ToList();
+
+            var seatDtos = seats.Select(seat => new UserSeatGetDto
+            {
+                SeatId = seat.Id,
+                SeatNumber = seat.Number,
+                IsOrdered = orderedSeatIds.Contains(seat.Id)
+            }).ToList();
+
+            return seatDtos;
+        }
+
+
+        public List<UserSessionDetailsDto> GetSessionsByMovieAndDateAsync(int movieId, DateTime date, int? branchId = null, int? languageId = null)
+        {
+            var movie = _movieRepository.GetAll(x => x.Id == movieId && !x.IsDeleted)
+                .Include(x => x.Sessions)
+                .ThenInclude(s => s.Hall)
+                .ThenInclude(h => h.Branch)
+                .Include(x => x.Sessions)
+                .ThenInclude(s => s.Language)
+                .FirstOrDefault();
+
+            if (movie == null)
+            {
+                throw new RestException(StatusCodes.Status404NotFound, "Movie not found.");
+            }
+
+            var sessionsQuery = movie.Sessions
+                .Where(s => s.ShowDateTime.Date == date.Date && !s.IsDeleted);
+
+            if (branchId.HasValue)
+            {
+                sessionsQuery = sessionsQuery.Where(s => s.Hall.Branch.Id == branchId.Value);
+            }
+
+            if (languageId.HasValue)
+            {
+                sessionsQuery = sessionsQuery.Where(s => s.Language.Id == languageId.Value);
+            }
+
+            var sessions = sessionsQuery.ToList();
+
+            var sessionDtos = _mapper.Map<List<UserSessionDetailsDto>>(sessions);
+
+            return sessionDtos;
+        }
+
 
         public async Task<int> GetSessionCountLastMonthAsync()
         {
@@ -75,6 +147,7 @@ namespace Cinema.Service.Implementations
 
             return _mapper.Map<List<AdminSessionGetDto>>(sessions);
         }
+
         public int Create(AdminSessionCreateDto dto)
         {
             var movie = _movieRepository.Get(x => x.Id == dto.MovieId, "MovieLanguages");
@@ -98,6 +171,11 @@ namespace Cinema.Service.Implementations
             if (movieLanguage == null)
             {
                 throw new RestException(StatusCodes.Status400BadRequest, "Language", "The selected language is not associated with this movie.");
+            }
+
+            if (dto.ShowDateTime < movie.ReleaseDate)
+            {
+                throw new RestException(StatusCodes.Status400BadRequest, "ShowDateTime", "The session date cannot be earlier than the movie's release date.");
             }
 
             var hall = _hallRepository.Get(x => x.Id == dto.HallId);
@@ -199,6 +277,11 @@ namespace Cinema.Service.Implementations
             if (hall == null)
                 throw new RestException(StatusCodes.Status404NotFound, "Hall not found");
 
+            if (dto.ShowDateTime < movie.ReleaseDate)
+            {
+                throw new RestException(StatusCodes.Status400BadRequest, "ShowDateTime", "The session date cannot be earlier than the movie's release date.");
+            }
+
             if (IsTimeConflict(dto.ShowDateTime.Value, dto.Duration.Value, dto.HallId.Value))
             {
                 throw new RestException(StatusCodes.Status400BadRequest, "Session", "The new session conflicts with an existing session in the hall.");
@@ -206,7 +289,7 @@ namespace Cinema.Service.Implementations
 
             session.Movie = movie;
             session.Hall = hall;
-            session.Language = language; 
+            session.Language = language;
             session.ShowDateTime = dto.ShowDateTime.Value;
             session.Price = dto.Price.Value;
             session.Duration = dto.Duration.Value;

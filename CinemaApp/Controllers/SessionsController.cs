@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authorization;
 using Cinema.Service.Implementations;
+using Cinema.Service.Exceptions;
 
 namespace CinemaApp.Controllers
 {
@@ -75,6 +76,29 @@ namespace CinemaApp.Controllers
         {
             var count = await _sessionService.GetSessionCountLastMonthAsync();
             return Ok(new { count });
+        }
+
+        [HttpGet("{movieId}/sessions")]
+        public ActionResult<List<UserSessionDetailsDto>> GetSessionsByMovieIdAndDate(int movieId, DateTime? date = null, [FromQuery] int? branchId = null, [FromQuery] int? languageId = null)
+        {
+            var queryDate = date ?? DateTime.Now;
+
+            var sessions = _sessionService.GetSessionsByMovieAndDateAsync(movieId, queryDate, branchId, languageId);
+            return Ok(sessions);
+        }
+
+        [HttpGet("seats/{sessionId}")]
+        public async Task<IActionResult> GetSeatsForSession(int sessionId)
+        {
+            try
+            {
+                var seats = _sessionService.GetSeatsForSession(sessionId);
+                return Ok(seats);
+            }
+            catch (RestException ex)
+            {
+                return StatusCode(ex.Code, ex.Message);
+            }
         }
 
     }
