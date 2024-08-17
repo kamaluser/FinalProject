@@ -282,10 +282,10 @@ namespace Cinema.Service.Implementations
                 throw new RestException(StatusCodes.Status400BadRequest, "ShowDateTime", "The session date cannot be earlier than the movie's release date.");
             }
 
-            if (IsTimeConflict(dto.ShowDateTime.Value, dto.Duration.Value, dto.HallId.Value))
+           /* if (IsTimeConflict(dto.ShowDateTime.Value, dto.Duration.Value, dto.HallId.Value))
             {
                 throw new RestException(StatusCodes.Status400BadRequest, "Session", "The new session conflicts with an existing session in the hall.");
-            }
+            }*/
 
             session.Movie = movie;
             session.Hall = hall;
@@ -307,6 +307,18 @@ namespace Cinema.Service.Implementations
             session.IsDeleted = true;
             session.ModifiedAt = DateTime.Now;
             _sessionRepository.Save();
+        }
+
+        public List<Session> GetSessionsForReminder(DateTime currentDateTime, TimeSpan reminderWindow)
+        {
+            var startTime = currentDateTime;
+            var endTime = currentDateTime.Add(reminderWindow);
+
+            return _sessionRepository.GetAll(s => s.ShowDateTime > startTime && s.ShowDateTime <= endTime && !s.IsDeleted)
+                                     .Include(s => s.Movie)
+                                     .Include(s => s.Hall)
+                                     .Include(s => s.Language)
+                                     .ToList();
         }
     }
 }

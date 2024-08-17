@@ -25,12 +25,27 @@ namespace Cinema.Service.Profiles
         {
             _accessor = accessor;
 
-            var uriBuilder = new UriBuilder(_accessor.HttpContext.Request.Scheme, _accessor.HttpContext.Request.Host.Host, _accessor.HttpContext.Request.Host.Port ?? -1);
+            var request = _accessor.HttpContext?.Request;
+            if (request == null)
+            {
+                throw new InvalidOperationException("HTTP context or request is null.");
+            }
+
+            var host = request.Host;
+            if (host == null)
+            {
+                throw new InvalidOperationException("Host is null.");
+            }
+
+            var uriBuilder = new UriBuilder(request.Scheme, host.Host, host.Port ?? -1);
+
             if (uriBuilder.Uri.IsDefaultPort)
             {
-                uriBuilder.Port = -1;
+                uriBuilder.Port = -1; 
             }
+
             string baseUrl = uriBuilder.Uri.AbsoluteUri;
+
 
             //slider(admin)
             CreateMap<Slider, AdminSliderGetDto>()

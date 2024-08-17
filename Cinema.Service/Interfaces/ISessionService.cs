@@ -19,5 +19,6 @@ namespace Cinema.Service.Interfaces
         Task<int> GetSessionCountLastMonthAsync();
         List<UserSessionDetailsDto> GetSessionsByMovieAndDateAsync(int movieId, DateTime date, int? branchId = null, int? languageId = null);
         List<UserSeatGetDto> GetSeatsForSession(int sessionId);
+        List<Session> GetSessionsForReminder(DateTime currentDateTime, TimeSpan reminderWindow);
     }
 }
