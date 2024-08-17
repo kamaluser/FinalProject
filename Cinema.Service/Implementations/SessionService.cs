@@ -45,9 +45,11 @@ namespace Cinema.Service.Implementations
         }
 
 
-        private bool IsTimeConflict(DateTime showDateTime, int duration, int hallId)
+        private bool IsTimeConflict(DateTime showDateTime, int duration, int hallId, int? excludedSessionId = null)
         {
-            var sessions = _sessionRepository.GetAll(s => s.HallId == hallId && !s.IsDeleted).ToList();
+            var sessions = _sessionRepository.GetAll(s => s.HallId == hallId && !s.IsDeleted)
+                                             .Where(s => s.Id != excludedSessionId) 
+                                             .ToList();
 
             var newSessionEnd = showDateTime.AddMinutes(duration);
 
@@ -58,7 +60,7 @@ namespace Cinema.Service.Implementations
 
                 if (showDateTime < sessionEnd.AddMinutes(30) && newSessionEnd > sessionStart.AddMinutes(-30))
                 {
-                    return true; 
+                    return true;
                 }
             }
 
@@ -186,7 +188,7 @@ namespace Cinema.Service.Implementations
 
             if (IsTimeConflict(dto.ShowDateTime, dto.Duration, dto.HallId))
             {
-                throw new RestException(StatusCodes.Status400BadRequest, "Session", "The new session conflicts with an existing session in the hall.");
+                throw new RestException(StatusCodes.Status400BadRequest, "ShowDateTime", "The new session conflicts with an existing session in the hall.");
             }
 
             var session = _mapper.Map<Session>(dto);
@@ -236,7 +238,6 @@ namespace Cinema.Service.Implementations
 
             return new PaginatedList<AdminSessionGetDto>(sessionsDto, paginated.TotalPages, page, size);
         }
-
         public AdminSessionGetDto GetById(int id)
         {
             var session = _sessionRepository.Get(
@@ -282,10 +283,10 @@ namespace Cinema.Service.Implementations
                 throw new RestException(StatusCodes.Status400BadRequest, "ShowDateTime", "The session date cannot be earlier than the movie's release date.");
             }
 
-           /* if (IsTimeConflict(dto.ShowDateTime.Value, dto.Duration.Value, dto.HallId.Value))
+            if (IsTimeConflict(dto.ShowDateTime.Value, dto.Duration.Value, dto.HallId.Value, id))
             {
-                throw new RestException(StatusCodes.Status400BadRequest, "Session", "The new session conflicts with an existing session in the hall.");
-            }*/
+                throw new RestException(StatusCodes.Status400BadRequest, "ShowDateTime", "The new session conflicts with an existing session in the hall.");
+            }
 
             session.Movie = movie;
             session.Hall = hall;
@@ -297,6 +298,7 @@ namespace Cinema.Service.Implementations
 
             _sessionRepository.Save();
         }
+
 
         public void Delete(int id)
         {

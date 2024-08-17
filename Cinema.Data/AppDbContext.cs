@@ -30,6 +30,7 @@ namespace Cinema.Data
         public DbSet<Order> Orders { get; set; }
         public DbSet<OrderSeat> OrderSeats { get; set; }
         public DbSet<AppUser> AppUsers { get; set; }
+        public DbSet<SentReminder> SentReminders { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

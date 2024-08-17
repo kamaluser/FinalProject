@@ -96,15 +96,6 @@ public class SessionController : Controller
                 return View(createRequest);
             }
 
-            if (await IsTimeConflict(createRequest.ShowDateTime, createRequest.Duration, createRequest.HallId))
-            {
-                ModelState.AddModelError("", "The new session conflicts with an existing session in the hall.");
-                ViewBag.Movies = movies;
-                ViewBag.Halls = await GetHalls();
-                ViewBag.Languages = validLanguages;
-                return View(createRequest);
-            }
-
             await _crudService.Create<SessionCreateRequest>(createRequest, "sessions");
             return RedirectToAction("Index");
         }
@@ -184,25 +175,6 @@ public class SessionController : Controller
                 return NotFound();
             }
 
-            bool isTimeChanged = existingSession.ShowDateTime != editRequest.ShowDateTime || existingSession.Duration != editRequest.Duration;
-            bool isHallChanged = existingSession.HallId != editRequest.HallId;
-
-            if (isTimeChanged || isHallChanged)
-            {
-                if (editRequest.ShowDateTime.HasValue && editRequest.Duration.HasValue)
-                {
-                    if (await IsTimeConflictForEdit(id, editRequest.ShowDateTime.Value, editRequest.Duration.Value, editRequest.HallId.Value))
-                    {
-                        ModelState.AddModelError("", "The new session conflicts with an existing session in the hall.");
-                        ViewBag.Movies = await GetMovies();
-                        ViewBag.Halls = await GetHalls();
-                        ViewBag.Languages = await GetLanguages();
-                        return View(editRequest);
-                    }
-                }
-            }
-
-
             if (!editRequest.LanguageId.HasValue || !await IsLanguageValidForMovie(editRequest.MovieId.Value, editRequest.LanguageId.Value))
             {
                 ModelState.AddModelError("LanguageId", "The selected language is not available for the selected movie.");
@@ -227,17 +199,9 @@ public class SessionController : Controller
             ViewBag.Languages = await GetLanguages();
             return View(editRequest);
         }
-        catch (HttpException ex)
-        {
-            ModelState.AddModelError("", ex.Message);
-            ViewBag.Movies = await GetMovies();
-            ViewBag.Halls = await GetHalls();
-            ViewBag.Languages = await GetLanguages();
-            return View(editRequest);
-        }
         catch (Exception e)
         {
-            ModelState.AddModelError("", $"Unexpected Error: {e.Message}");
+            ModelState.AddModelError("", $"Error: {e.Message}");
             ViewBag.Movies = await GetMovies();
             ViewBag.Halls = await GetHalls();
             ViewBag.Languages = await GetLanguages();
@@ -331,58 +295,4 @@ public class SessionController : Controller
         }
         return false;
     }
-
-    private async Task<bool> IsTimeConflict(DateTime showDateTime, int duration, int hallId)
-    {
-        var response = await _client.GetAsync($"api/admin/Sessions/byHall/{hallId}");
-        if (response.IsSuccessStatusCode)
-        {
-            var data = await response.Content.ReadAsStringAsync();
-            var sessions = JsonSerializer.Deserialize<List<Session>>(data, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
-
-            foreach (var session in sessions)
-            {
-                var existingStart = session.ShowDateTime;
-                var existingEnd = session.ShowDateTime.AddMinutes(session.Duration);
-                var newEnd = showDateTime.AddMinutes(duration);
-
-                if (showDateTime < existingEnd.AddMinutes(30) && newEnd > existingStart)
-                {
-                    return true;
-                }
-            }
-        }
-        return false;
-    }
-
-
-    private async Task<bool> IsTimeConflictForEdit(int sessionId, DateTime showDateTime, int duration, int hallId)
-    {
-        var response = await _client.GetAsync($"api/admin/Sessions/byHall/{hallId}");
-        if (response.IsSuccessStatusCode)
-        {
-            var data = await response.Content.ReadAsStringAsync();
-            var sessions = JsonSerializer.Deserialize<List<Session>>(data, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
-
-            foreach (var session in sessions)
-            {
-                if (session.Id == sessionId)
-                {
-                    continue;
-                }
-
-                var existingStart = session.ShowDateTime;
-                var existingEnd = session.ShowDateTime.AddMinutes(session.Duration);
-                var newEnd = showDateTime.AddMinutes(duration);
-
-                if (showDateTime < existingEnd.AddMinutes(30) && newEnd > existingStart)
-                {
-                    return true;
-                }
-            }
-        }
-        return false;
-    }
-
-
 }

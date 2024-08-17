@@ -90,27 +90,6 @@ namespace Cinema.UI.Services
             }
         }
 
-
-
-        /*public async Task<decimal> GetMonthlyRevenueAsync()
-        {
-            AddAuthorizationHeader();
-            var response = await _client.GetAsync(baseUrl + "orders/price/monthly");
-            var content = await response.Content.ReadAsStringAsync();
-
-            if (response.IsSuccessStatusCode)
-            {
-                var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
-                var dto = JsonSerializer.Deserialize<OrderRevenueResponse>(content, options);
-                return dto.Price;
-            }
-            else
-            {
-                Console.WriteLine($"Error: {content}");
-                throw new HttpException(response.StatusCode);
-            }
-        }*/
-
         public async Task<int> GetOrderCountLastMonthAsync()
         {
             AddAuthorizationHeader();

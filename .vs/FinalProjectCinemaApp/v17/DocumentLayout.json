@@ -3,36 +3,32 @@
   "WorkspaceRootPath": "C:\\Users\\kamal\\Desktop\\FinalProject\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{E7332E47-5DBB-4781-8879-917A17602440}|Cinema.Service\\Cinema.Service.csproj|c:\\users\\kamal\\desktop\\finalproject\\cinema.service\\implementations\\excelexportservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E7332E47-5DBB-4781-8879-917A17602440}|Cinema.Service\\Cinema.Service.csproj|solutionrelative:cinema.service\\implementations\\excelexportservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B62453B1-D22F-4EFE-A68C-39ED45B79F6F}|Cinema.UI\\Cinema.UI.csproj|c:\\users\\kamal\\desktop\\finalproject\\cinema.ui\\services\\crudservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B62453B1-D22F-4EFE-A68C-39ED45B79F6F}|Cinema.UI\\Cinema.UI.csproj|solutionrelative:cinema.ui\\services\\crudservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{E7332E47-5DBB-4781-8879-917A17602440}|Cinema.Service\\Cinema.Service.csproj|c:\\users\\kamal\\desktop\\finalproject\\cinema.service\\implementations\\sessionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E7332E47-5DBB-4781-8879-917A17602440}|Cinema.Service\\Cinema.Service.csproj|solutionrelative:cinema.service\\implementations\\sessionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B62453B1-D22F-4EFE-A68C-39ED45B79F6F}|Cinema.UI\\Cinema.UI.csproj|c:\\users\\kamal\\desktop\\finalproject\\cinema.ui\\controllers\\sessioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B62453B1-D22F-4EFE-A68C-39ED45B79F6F}|Cinema.UI\\Cinema.UI.csproj|solutionrelative:cinema.ui\\controllers\\sessioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{61478171-EE21-45CE-89C1-3E8EEDCCE928}|CinemaApp\\CinemaApp.csproj|c:\\users\\kamal\\desktop\\finalproject\\cinemaapp\\background\\reminderjob.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{61478171-EE21-45CE-89C1-3E8EEDCCE928}|CinemaApp\\CinemaApp.csproj|solutionrelative:cinemaapp\\background\\reminderjob.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E7332E47-5DBB-4781-8879-917A17602440}|Cinema.Service\\Cinema.Service.csproj|c:\\users\\kamal\\desktop\\finalproject\\cinema.service\\interfaces\\isessionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E7332E47-5DBB-4781-8879-917A17602440}|Cinema.Service\\Cinema.Service.csproj|solutionrelative:cinema.service\\interfaces\\isessionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{61478171-EE21-45CE-89C1-3E8EEDCCE928}|CinemaApp\\CinemaApp.csproj|c:\\users\\kamal\\desktop\\finalproject\\cinemaapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{61478171-EE21-45CE-89C1-3E8EEDCCE928}|CinemaApp\\CinemaApp.csproj|solutionrelative:cinemaapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E7332E47-5DBB-4781-8879-917A17602440}|Cinema.Service\\Cinema.Service.csproj|c:\\users\\kamal\\desktop\\finalproject\\cinema.service\\services\\emailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E7332E47-5DBB-4781-8879-917A17602440}|Cinema.Service\\Cinema.Service.csproj|solutionrelative:cinema.service\\services\\emailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{61478171-EE21-45CE-89C1-3E8EEDCCE928}|CinemaApp\\CinemaApp.csproj|c:\\users\\kamal\\desktop\\finalproject\\cinemaapp\\controllers\\sessionscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{61478171-EE21-45CE-89C1-3E8EEDCCE928}|CinemaApp\\CinemaApp.csproj|solutionrelative:cinemaapp\\controllers\\sessionscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{61478171-EE21-45CE-89C1-3E8EEDCCE928}|CinemaApp\\CinemaApp.csproj|c:\\users\\kamal\\desktop\\finalproject\\cinemaapp\\controllers\\orderscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{61478171-EE21-45CE-89C1-3E8EEDCCE928}|CinemaApp\\CinemaApp.csproj|solutionrelative:cinemaapp\\controllers\\orderscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B62453B1-D22F-4EFE-A68C-39ED45B79F6F}|Cinema.UI\\Cinema.UI.csproj|c:\\users\\kamal\\desktop\\finalproject\\cinema.ui\\controllers\\sessioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B62453B1-D22F-4EFE-A68C-39ED45B79F6F}|Cinema.UI\\Cinema.UI.csproj|solutionrelative:cinema.ui\\controllers\\sessioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{92B2D1AD-C42F-4704-8CDD-62531BFE17BA}|Cinema.Data\\Cinema.Data.csproj|c:\\users\\kamal\\desktop\\finalproject\\cinema.data\\repositories\\implementations\\repository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{92B2D1AD-C42F-4704-8CDD-62531BFE17BA}|Cinema.Data\\Cinema.Data.csproj|solutionrelative:cinema.data\\repositories\\implementations\\repository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B62453B1-D22F-4EFE-A68C-39ED45B79F6F}|Cinema.UI\\Cinema.UI.csproj|c:\\users\\kamal\\desktop\\finalproject\\cinema.ui\\views\\session\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{B62453B1-D22F-4EFE-A68C-39ED45B79F6F}|Cinema.UI\\Cinema.UI.csproj|solutionrelative:cinema.ui\\views\\session\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -42,8 +38,34 @@
       "DocumentGroups": [
         {
           "DockedWidth": 222,
-          "SelectedChildIndex": 8,
+          "SelectedChildIndex": 0,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ExcelExportService.cs",
+              "DocumentMoniker": "C:\\Users\\kamal\\Desktop\\FinalProject\\Cinema.Service\\Implementations\\ExcelExportService.cs",
+              "RelativeDocumentMoniker": "Cinema.Service\\Implementations\\ExcelExportService.cs",
+              "ToolTip": "C:\\Users\\kamal\\Desktop\\FinalProject\\Cinema.Service\\Implementations\\ExcelExportService.cs",
+              "RelativeToolTip": "Cinema.Service\\Implementations\\ExcelExportService.cs",
+              "ViewState": "AQIAABsAAAAAAAAAAAAiwCoAAAAlAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-17T22:11:26.288Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "C:\\Users\\kamal\\Desktop\\FinalProject\\Cinema.UI\\Views\\Session\\Edit.cshtml",
+              "RelativeDocumentMoniker": "Cinema.UI\\Views\\Session\\Edit.cshtml",
+              "ToolTip": "C:\\Users\\kamal\\Desktop\\FinalProject\\Cinema.UI\\Views\\Session\\Edit.cshtml",
+              "RelativeToolTip": "Cinema.UI\\Views\\Session\\Edit.cshtml",
+              "ViewState": "AQIAABgAAAAAAAAAAAAAADQAAAAWAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-08-17T22:05:34.834Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
@@ -58,106 +80,67 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "SessionController.cs",
-              "DocumentMoniker": "C:\\Users\\kamal\\Desktop\\FinalProject\\Cinema.UI\\Controllers\\SessionController.cs",
-              "RelativeDocumentMoniker": "Cinema.UI\\Controllers\\SessionController.cs",
-              "ToolTip": "C:\\Users\\kamal\\Desktop\\FinalProject\\Cinema.UI\\Controllers\\SessionController.cs",
-              "RelativeToolTip": "Cinema.UI\\Controllers\\SessionController.cs",
-              "ViewState": "AQIAAJ4AAAAAAAAAAAAQwNYAAAAMAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-17T13:39:39.964Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "EmailService.cs",
-              "DocumentMoniker": "C:\\Users\\kamal\\Desktop\\FinalProject\\Cinema.Service\\Services\\EmailService.cs",
-              "RelativeDocumentMoniker": "Cinema.Service\\Services\\EmailService.cs",
-              "ToolTip": "C:\\Users\\kamal\\Desktop\\FinalProject\\Cinema.Service\\Services\\EmailService.cs",
-              "RelativeToolTip": "Cinema.Service\\Services\\EmailService.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAACAAAAAMAAAA",
+              "Title": "Repository.cs",
+              "DocumentMoniker": "C:\\Users\\kamal\\Desktop\\FinalProject\\Cinema.Data\\Repositories\\Implementations\\Repository.cs",
+              "RelativeDocumentMoniker": "Cinema.Data\\Repositories\\Implementations\\Repository.cs",
+              "ToolTip": "C:\\Users\\kamal\\Desktop\\FinalProject\\Cinema.Data\\Repositories\\Implementations\\Repository.cs",
+              "RelativeToolTip": "Cinema.Data\\Repositories\\Implementations\\Repository.cs",
+              "ViewState": "AQIAABgAAAAAAAAAAAAuwCgAAAAIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-17T13:30:59.603Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "ReminderJob.cs",
-              "DocumentMoniker": "C:\\Users\\kamal\\Desktop\\FinalProject\\CinemaApp\\Background\\ReminderJob.cs",
-              "RelativeDocumentMoniker": "CinemaApp\\Background\\ReminderJob.cs",
-              "ToolTip": "C:\\Users\\kamal\\Desktop\\FinalProject\\CinemaApp\\Background\\ReminderJob.cs",
-              "RelativeToolTip": "CinemaApp\\Background\\ReminderJob.cs",
-              "ViewState": "AQIAAA8AAAAAAAAAAAAQwB4AAABQAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-17T13:30:23.123Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "OrdersController.cs",
-              "DocumentMoniker": "C:\\Users\\kamal\\Desktop\\FinalProject\\CinemaApp\\Controllers\\OrdersController.cs",
-              "RelativeDocumentMoniker": "CinemaApp\\Controllers\\OrdersController.cs",
-              "ToolTip": "C:\\Users\\kamal\\Desktop\\FinalProject\\CinemaApp\\Controllers\\OrdersController.cs",
-              "RelativeToolTip": "CinemaApp\\Controllers\\OrdersController.cs",
-              "ViewState": "AQIAADQAAAAAAAAAAAAAAFEAAAAIAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-16T13:01:21.036Z",
+              "WhenOpened": "2024-08-17T21:41:51.807Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "ISessionService.cs",
-              "DocumentMoniker": "C:\\Users\\kamal\\Desktop\\FinalProject\\Cinema.Service\\Interfaces\\ISessionService.cs",
-              "RelativeDocumentMoniker": "Cinema.Service\\Interfaces\\ISessionService.cs",
-              "ToolTip": "C:\\Users\\kamal\\Desktop\\FinalProject\\Cinema.Service\\Interfaces\\ISessionService.cs",
-              "RelativeToolTip": "Cinema.Service\\Interfaces\\ISessionService.cs",
-              "ViewState": "AQIAAAwAAAAAAAAAAEBBwBUAAAAsAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-16T13:30:13.808Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "SessionService.cs",
-              "DocumentMoniker": "C:\\Users\\kamal\\Desktop\\FinalProject\\Cinema.Service\\Implementations\\SessionService.cs",
-              "RelativeDocumentMoniker": "Cinema.Service\\Implementations\\SessionService.cs",
-              "ToolTip": "C:\\Users\\kamal\\Desktop\\FinalProject\\Cinema.Service\\Implementations\\SessionService.cs",
-              "RelativeToolTip": "Cinema.Service\\Implementations\\SessionService.cs",
-              "ViewState": "AQIAACoBAAAAAAAAAAAkwEEBAAAJAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-16T12:41:03.769Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\kamal\\Desktop\\FinalProject\\CinemaApp\\Program.cs",
-              "RelativeDocumentMoniker": "CinemaApp\\Program.cs",
-              "ToolTip": "C:\\Users\\kamal\\Desktop\\FinalProject\\CinemaApp\\Program.cs",
-              "RelativeToolTip": "CinemaApp\\Program.cs",
-              "ViewState": "AQIAAHIAAAAAAAAAAAAiwHoAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-17T13:34:36.099Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
               "Title": "SessionsController.cs",
               "DocumentMoniker": "C:\\Users\\kamal\\Desktop\\FinalProject\\CinemaApp\\Controllers\\SessionsController.cs",
               "RelativeDocumentMoniker": "CinemaApp\\Controllers\\SessionsController.cs",
               "ToolTip": "C:\\Users\\kamal\\Desktop\\FinalProject\\CinemaApp\\Controllers\\SessionsController.cs",
               "RelativeToolTip": "CinemaApp\\Controllers\\SessionsController.cs",
-              "ViewState": "AQIAAC0AAAAAAAAAAEBBwD4AAAAMAAAA",
+              "ViewState": "AQIAADQAAAAAAAAAAAAkwD4AAAAuAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-16T13:36:12.728Z",
+              "WhenOpened": "2024-08-17T21:07:41.974Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "SessionController.cs",
+              "DocumentMoniker": "C:\\Users\\kamal\\Desktop\\FinalProject\\Cinema.UI\\Controllers\\SessionController.cs",
+              "RelativeDocumentMoniker": "Cinema.UI\\Controllers\\SessionController.cs",
+              "ToolTip": "C:\\Users\\kamal\\Desktop\\FinalProject\\Cinema.UI\\Controllers\\SessionController.cs",
+              "RelativeToolTip": "Cinema.UI\\Controllers\\SessionController.cs",
+              "ViewState": "AQIAACoBAAAAAAAAAAAAALoAAAAhAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-17T21:07:04.056Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "CrudService.cs",
+              "DocumentMoniker": "C:\\Users\\kamal\\Desktop\\FinalProject\\Cinema.UI\\Services\\CrudService.cs",
+              "RelativeDocumentMoniker": "Cinema.UI\\Services\\CrudService.cs",
+              "ToolTip": "C:\\Users\\kamal\\Desktop\\FinalProject\\Cinema.UI\\Services\\CrudService.cs",
+              "RelativeToolTip": "Cinema.UI\\Services\\CrudService.cs",
+              "ViewState": "AQIAAOUAAAAAAAAAAIAzwO4AAAANAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-17T21:00:27.44Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "SessionService.cs",
+              "DocumentMoniker": "C:\\Users\\kamal\\Desktop\\FinalProject\\Cinema.Service\\Implementations\\SessionService.cs",
+              "RelativeDocumentMoniker": "Cinema.Service\\Implementations\\SessionService.cs",
+              "ToolTip": "C:\\Users\\kamal\\Desktop\\FinalProject\\Cinema.Service\\Implementations\\SessionService.cs",
+              "RelativeToolTip": "Cinema.Service\\Implementations\\SessionService.cs",
+              "ViewState": "AQIAAD0AAAAAAAAAAIAzwEwAAAAgAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-17T20:54:52.444Z",
               "EditorCaption": ""
             }
           ]
