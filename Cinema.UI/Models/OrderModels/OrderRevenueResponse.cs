@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace Cinema.UI.Models
+namespace Cinema.UI.Models.OrderModels
 {
     public class OrderRevenueResponse
     {

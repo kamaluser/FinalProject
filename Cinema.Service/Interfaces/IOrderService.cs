@@ -1,4 +1,5 @@
-﻿using Cinema.Service.Dtos.OrderDtos;
+﻿using Cinema.Service.Dtos;
+using Cinema.Service.Dtos.OrderDtos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,5 +16,7 @@ namespace Cinema.Service.Interfaces
         Task<Dictionary<string, int>> GetMonthlyOrderCountsForCurrentYearAsync();
         decimal GetMonthlyTotalPriceAsync();
         Task<Dictionary<string, decimal>> GetMonthlyRevenueForCurrentYearAsync();
+        Task<List<OrderDetailDto>> GetAllOrderDetailsAsync();
+        PaginatedList<AdminOrderGetDto> GetAllByPage(int page = 1, int size = 10);
     }
 }

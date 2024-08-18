@@ -194,6 +194,7 @@ namespace Cinema.Service.Implementations
                 };
                 movie.MovieLanguages.Add(ml);
             }
+            movie.ModifiedAt = DateTime.Now;
 
             _movieRepository.Save();
         }

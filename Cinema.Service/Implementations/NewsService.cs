@@ -70,6 +70,7 @@ namespace Cinema.Service.Implementations
                 string imagePath = SaveImage(editDto.Image);
                 news.Image = imagePath;
             }
+            news.ModifiedAt = DateTime.Now;
 
             _newsRepository.Save();
         }

@@ -5,6 +5,7 @@ using Cinema.Service.Dtos.HallDtos;
 using Cinema.Service.Dtos.LanguageDtos;
 using Cinema.Service.Dtos.MovieDtos;
 using Cinema.Service.Dtos.NewsDtos;
+using Cinema.Service.Dtos.OrderDtos;
 using Cinema.Service.Dtos.SessionDtos;
 using Cinema.Service.Dtos.SliderDtos;
 using Cinema.Service.Dtos.UserDtos;
@@ -161,6 +162,19 @@ namespace Cinema.Service.Profiles
             //AppUser(admin)
             CreateMap<AppUser, AdminGetDto>();
             CreateMap<AppUser, AdminPaginatedGetDto>();
+
+
+            // Order
+            CreateMap<Order, AdminOrderGetDto>()
+             .ForMember(dest => dest.UserName, opt => opt.MapFrom(src => src.User.UserName))
+             .ForMember(dest => dest.EmailOfUser, opt => opt.MapFrom(src => src.User.Email))
+             .ForMember(dest => dest.MovieName, opt => opt.MapFrom(src => src.Session.Movie.Title))
+             .ForMember(dest => dest.SessionDate, opt => opt.MapFrom(src => src.Session.ShowDateTime))
+             .ForMember(dest => dest.BranchName, opt => opt.MapFrom(src => src.Session.Hall.Branch.Name))
+             .ForMember(dest => dest.HallName, opt => opt.MapFrom(src => src.Session.Hall.Name))
+             .ForMember(dest => dest.Language, opt => opt.MapFrom(src => src.Session.Language.Name))
+             .ForMember(dest => dest.OrderDate, opt => opt.MapFrom(src => src.OrderDate))
+             .ForMember(dest => dest.SeatNumbers, opt => opt.MapFrom(src => src.OrderSeats.Select(os => os.Seat.Number).ToList()));
         }
     }
 }

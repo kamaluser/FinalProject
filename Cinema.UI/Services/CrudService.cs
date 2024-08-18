@@ -7,6 +7,7 @@ using Cinema.UI.Models.UserModels;
 using System.Net.Http;
 using Cinema.Service.Dtos.OrderDtos;
 using Cinema.UI.Models.SessionModels;
+using Cinema.UI.Models.OrderModels;
 
 namespace Cinema.UI.Services
 {
@@ -416,6 +417,27 @@ namespace Cinema.UI.Services
                 throw new HttpException(response.StatusCode, content);
             }
         }
+
+
+       /* public async Task<List<OrderDetailResponse>> GetAllOrderDetailsAsync()
+        {
+            AddAuthorizationHeader();
+            var response = await _client.GetAsync(baseUrl + "orders/details");
+            var content = await response.Content.ReadAsStringAsync();
+
+            if (response.IsSuccessStatusCode)
+            {
+                var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+                return JsonSerializer.Deserialize<List<OrderDetailResponse>>(content, options);
+            }
+            else
+            {
+                Console.WriteLine($"Error: {content}");
+                throw new HttpException(response.StatusCode);
+            }
+        }*/
+
+
 
         public async Task<byte[]> ExportAsync()
         {

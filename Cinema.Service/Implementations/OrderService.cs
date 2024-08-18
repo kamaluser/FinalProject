@@ -1,8 +1,11 @@
-﻿using Cinema.Core.Entites;
+﻿using AutoMapper;
+using Cinema.Core.Entites;
 using Cinema.Data;
 using Cinema.Data.Repositories.Implementations;
 using Cinema.Data.Repositories.Interfaces;
 using Cinema.Service.Dtos;
+using Cinema.Service.Dtos.MovieDtos;
+using Cinema.Service.Dtos.NewsDtos;
 using Cinema.Service.Dtos.OrderDtos;
 using Cinema.Service.Exceptions;
 using Cinema.Service.Interfaces;
@@ -18,12 +21,68 @@ namespace Cinema.Service.Implementations
     {
         private readonly AppDbContext _context;
         private readonly IOrderRepository _orderRepository;
+        private readonly IMapper _mapper;
 
-        public OrderService(AppDbContext context, IOrderRepository orderRepository)
+        public OrderService(AppDbContext context, IOrderRepository orderRepository, IMapper mapper)
         {
             _context = context;
             _orderRepository = orderRepository;
+            _mapper = mapper;
         }
+
+        public PaginatedList<AdminOrderGetDto> GetAllByPage(int page = 1, int size = 10)
+        {
+            var query = _orderRepository.GetAll(x => true)
+            .Include(order => order.User)
+            .Include(order => order.Session)
+                .ThenInclude(session => session.Language)
+            .Include(order => order.Session)
+                .ThenInclude(session => session.Movie)
+            .Include(order => order.Session)
+                .ThenInclude(session => session.Hall)
+                    .ThenInclude(h => h.Branch)
+            .Include(order => order.OrderSeats)
+                .ThenInclude(os => os.Seat)
+            .OrderByDescending(order => order.OrderDate);
+
+            var paginated = PaginatedList<Order>.Create(query, page, size);
+            var ordersDto = _mapper.Map<List<AdminOrderGetDto>>(paginated.Items);
+            return new PaginatedList<AdminOrderGetDto>(ordersDto, paginated.TotalPages, page, size);
+        }
+
+
+
+        public async Task<List<OrderDetailDto>> GetAllOrderDetailsAsync()
+        {
+            var orders = await _context.Orders
+                .Include(o => o.User)
+                .Include(o => o.Session)
+                    .ThenInclude(s => s.Movie)
+                .Include(o => o.Session)
+                    .ThenInclude(s => s.Hall)
+                        .ThenInclude(h => h.Branch)
+                .Include(o => o.Session)
+                    .ThenInclude(s => s.Language)
+                .Include(o => o.OrderSeats)
+                    .ThenInclude(os => os.Seat)
+                .Select(o => new OrderDetailDto
+                {
+                    UserName = o.User.UserName,
+                    EmailOfUser = o.User.Email,
+                    BranchName = o.Session.Hall.Branch.Name,
+                    HallName = o.Session.Hall.Name, 
+                    MovieName = o.Session.Movie.Title,
+                    SessionDate = o.Session.ShowDateTime,
+                    OrderDate = o.OrderDate,
+                    Language = o.Session.Language.Name,
+                    SeatNumbers = o.OrderSeats.Select(os => os.Seat.Number).ToList()
+                })
+                .ToListAsync();
+
+            return orders;
+        }
+
+
         public async Task<Dictionary<string, int>> GetMonthlyOrderCountsForCurrentYearAsync()
         {
             var firstDayOfYear = new DateTime(DateTime.Today.Year, 1, 1);

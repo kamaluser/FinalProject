@@ -245,6 +245,10 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "Aspire.StackExchange.Redis.OutputCaching": {
+              "target": "Package",
+              "version": "[8.1.0, )"
+            },
             "AutoMapper": {
               "target": "Package",
               "version": "[13.0.1, )"
@@ -260,6 +264,10 @@
             "MailKit": {
               "target": "Package",
               "version": "[4.7.1.1, )"
+            },
+            "Microsoft.AspNetCore.OutputCaching.StackExchangeRedis": {
+              "target": "Package",
+              "version": "[8.0.8, )"
             },
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
@@ -353,7 +361,7 @@
           "dependencies": {
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
-              "version": "[8.0.3, )"
+              "version": "[8.0.4, )"
             },
             "Swashbuckle.AspNetCore.Swagger": {
               "target": "Package",

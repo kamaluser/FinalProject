@@ -75,7 +75,12 @@ builder.Services.AddDbContext<AppDbContext>(opt => {
 
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddScoped<EmailService>();
-
+builder.Services.AddOutputCache(options =>
+{
+    options.AddBasePolicy(policy => policy
+        .Expire(TimeSpan.FromSeconds(60))
+        .SetVaryByQuery("id"));
+});
 
 builder.Services.AddSingleton(provider => new MapperConfiguration(cfg =>
 {
@@ -203,6 +208,8 @@ app.UseHttpsRedirection();
 
 app.UseAuthentication();
 app.UseAuthorization();
+
+app.UseOutputCache();
 
 app.UseStaticFiles();
 

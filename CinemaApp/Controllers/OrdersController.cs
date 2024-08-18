@@ -1,4 +1,6 @@
-﻿using Cinema.Service.Dtos.OrderDtos;
+﻿using Cinema.Service.Dtos.MovieDtos;
+using Cinema.Service.Dtos;
+using Cinema.Service.Dtos.OrderDtos;
 using Cinema.Service.Implementations;
 using Cinema.Service.Interfaces;
 using Microsoft.AspNetCore.Authorization;
@@ -16,6 +18,16 @@ namespace CinemaApp.Controllers
         {
             _orderService = orderService;
         }
+
+        [HttpGet("api/admin/orders/GetAllByPagination")]
+        public ActionResult<PaginatedList<AdminOrderGetDto>> GetAllByPagination(int page = 1, int size = 6)
+        {
+            if (page <= 0) page = 1;
+            if (size <= 0) size = 3;
+
+            return StatusCode(200, _orderService.GetAllByPage(page, size));
+        }
+
 
         [HttpGet("api/admin/orders/price/monthly")]
         public IActionResult GetMonthlyTotalPrice()
@@ -80,5 +92,13 @@ namespace CinemaApp.Controllers
             }
             return BadRequest(result);
         }
+
+        [HttpGet("api/admin/orders/details")]
+        public async Task<IActionResult> GetAllOrderDetails()
+        {
+            var orderDetails = await _orderService.GetAllOrderDetailsAsync();
+            return Ok(orderDetails);
+        }
+
     }
 }

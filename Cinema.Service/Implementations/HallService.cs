@@ -115,6 +115,7 @@ namespace Cinema.Service.Implementations
             }
 
             _mapper.Map(dto, hall);
+            branch.ModifiedAt = DateTime.Now;
             _hallRepository.Save();
         }
 
