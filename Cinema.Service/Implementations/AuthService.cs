@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Cinema.Core.Entites;
+using Cinema.Data.Repositories.Interfaces;
 using Cinema.Service.Dtos;
 using Cinema.Service.Dtos.UserDtos;
 using Cinema.Service.Dtos.UserDtos.MemberDtos;
@@ -26,17 +27,120 @@ namespace Cinema.Service.Implementations
         private readonly IMapper _mapper;
         private readonly IConfiguration _configuration;
         private readonly EmailService _emailService;
+        private readonly IOrderRepository _orderRepository;
 
-        public AuthService(UserManager<AppUser> userManager, IMapper mapper, IConfiguration configuration, EmailService emailService)
+        public AuthService(UserManager<AppUser> userManager, IMapper mapper, IConfiguration configuration, EmailService emailService, IOrderRepository orderRepository)
         {
             _userManager = userManager;
             _mapper = mapper;
             _configuration = configuration;
             _emailService = emailService;
+            _orderRepository = orderRepository;
         }
 
-        public async Task<int> GetMemberCountAsync()
+        public MemberProfileGetDto GetByIdForUserProfile(string userId)
         {
+            var user = _userManager.Users.FirstOrDefault(u => u.Id == userId);
+            if (user == null)
+            {
+                throw new RestException(StatusCodes.Status404NotFound, "Kullanıcı bulunamadı.");
+            }
+
+            var orders = _orderRepository.GetAll(
+                o => o.UserId == userId,
+                includes: new string[] { "Session.Language", "Session.Movie", "Session.Hall", "OrderSeats.Seat" }
+            )
+            .Select(order => new MemberOrderGetDtoForProfile
+            {
+                OrderId = order.Id,
+                OrderDate = order.OrderDate,
+                NumberOfSeats = order.NumberOfSeats,
+                TotalPrice = order.TotalPrice,
+                MovieName = order.Session.Movie.Title,
+                ShowDateTime = order.Session.ShowDateTime,
+                HallName = order.Session.Hall.Name,
+                Language = order.Session.Language.Name,
+                SeatNumbers = order.OrderSeats.Select(os => os.Seat.Number).ToList()
+            }).ToList();
+
+            var userProfile = new MemberProfileGetDto
+            {
+                UserName = user.UserName,
+                Email = user.Email,
+                FullName = user.FullName,
+                HasPassword = _userManager.HasPasswordAsync(user).Result,
+                IsGoogleLogin = _userManager.GetLoginsAsync(user).Result.Any(login => login.LoginProvider == "Google"),
+                Orders = orders ?? new List<MemberOrderGetDtoForProfile>(),
+            };
+
+            return userProfile;
+        }
+
+        public async Task UpdateProfile(MemberProfileEditDto profileEditDto)
+        {
+            var user = await _userManager.FindByEmailAsync(profileEditDto.Email);
+            if (user == null)
+            {
+                throw new RestException(StatusCodes.Status404NotFound, "UserName", "User not found.");
+            }
+
+            if (!await _userManager.IsEmailConfirmedAsync(user))
+            {
+                throw new RestException(StatusCodes.Status400BadRequest, "Email", "Email is not confirmed.");
+            }
+
+            if (_userManager.Users.Any(x => x.Id != user.Id && x.UserName == profileEditDto.UserName))
+            {
+                throw new RestException(StatusCodes.Status400BadRequest, "UserName", "UserName is already taken.");
+            }
+
+            user.UserName = profileEditDto.UserName;
+            user.FullName = profileEditDto.FullName;
+
+            if (_userManager.Users.Any(x => x.Id != user.Id && x.NormalizedEmail == profileEditDto.Email.ToUpper()))
+            {
+                throw new RestException(StatusCodes.Status400BadRequest, "Email", "Email is already taken.");
+            }
+
+            if (!string.IsNullOrEmpty(profileEditDto.NewPassword))
+            {
+                if (profileEditDto.IsGoogleLogin || !profileEditDto.HasPassword)
+                {
+                    var addPasswordResult = await _userManager.AddPasswordAsync(user, profileEditDto.NewPassword);
+                    if (!addPasswordResult.Succeeded)
+                    {
+                        var errors = string.Join(", ", addPasswordResult.Errors.Select(e => e.Description));
+                        throw new RestException(StatusCodes.Status400BadRequest, $"Failed to add new password: {errors}");
+                    }
+                }
+                else
+                {
+                    if (string.IsNullOrEmpty(profileEditDto.CurrentPassword))
+                    {
+                        throw new RestException(StatusCodes.Status400BadRequest, "CurrentPassword", "Current password is required.");
+                    }
+
+                    var changePasswordResult = await _userManager.ChangePasswordAsync(user, profileEditDto.CurrentPassword, profileEditDto.NewPassword);
+                    if (!changePasswordResult.Succeeded)
+                    {
+                        var errors = string.Join(", ", changePasswordResult.Errors.Select(e => e.Description));
+                        throw new RestException(StatusCodes.Status400BadRequest, $"Failed to change password: {errors}");
+                    }
+                }
+            }
+
+            var updateResult = await _userManager.UpdateAsync(user);
+            if (!updateResult.Succeeded)
+            {
+                var errors = string.Join(", ", updateResult.Errors.Select(e => e.Description));
+                throw new RestException(StatusCodes.Status400BadRequest, $"Failed to update profile: {errors}");
+            }
+        }
+
+
+
+        public async Task<int> GetMemberCountAsync()
+            {
             var users = _userManager.Users.ToList();
             var memberUsers = new List<AppUser>();
 

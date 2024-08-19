@@ -1,14 +1,8 @@
-﻿@* @using Cinema.Core.Entites
-@using Microsoft.AspNetCore.Identity
-@inject UserManager<AppUser> UserManager
-@inject SignInManager<AppUser> SignInManager
-
+﻿@using Cinema.UI.Services
+@inject ILayoutService layoutService
 @{
-    var user = await UserManager.GetUserAsync(User);
-    var roles = await UserManager.GetRolesAsync(user);
-    bool isSuperAdmin = roles.Contains("SuperAdmin");
-} *@
-
+    var profile = await layoutService.GetProfile();
+}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -219,13 +213,15 @@
                                 <span class="badge badge-success">4</span>
                             </a>
                         </li>
-
-                        <li class="nav-item">
-                            <a asp-action="showadmins" asp-controller="Account">
-                                <i class="fas fa-desktop"></i>
-                                <p>Admins</p>
-                            </a>
-                        </li>
+                        @if(profile.Role == "SuperAdmin")
+                        {
+                            <li class="nav-item">
+                                <a asp-action="showadmins" asp-controller="Account">
+                                    <i class="fas fa-desktop"></i>
+                                    <p>Admins</p>
+                                </a>
+                            </li>
+                        }
                         <li class="nav-item">
                             <a asp-action="Index" asp-controller="Setting">
                                 <i class="fas fa-desktop"></i>
@@ -342,8 +338,6 @@
                                     </form>
                                 </ul>
                             </li>
-                            
-                            
 
                             <li class="nav-item topbar-user dropdown hidden-caret">
                                 <a class="dropdown-toggle profile-pic"
@@ -356,8 +350,7 @@
                                              class="avatar-img rounded-circle" />
                                     </div>
                                     <span class="profile-username">
-                                        <span class="op-7">My</span>
-                                        <span class="fw-bold">Profile</span>
+                                        <span>@profile.UserName</span>
                                     </span>
                                 </a>
                                 <ul class="dropdown-menu dropdown-user animated fadeIn">
@@ -378,7 +371,7 @@
                                     </li>
                                     <li>
                                         <div class="dropdown-divider"></div>
-                                        <a class="dropdown-item" asp-controller="account" asp-action="profile">My Profile</a>
+                                        <a class="dropdown-item" asp-controller="account" asp-action="profile">@profile.UserName</a>
                                         <div class="dropdown-divider"></div>
                                         <a class="dropdown-item" asp-controller="account" asp-action="logout">Logout</a>
                                     </li>

@@ -1,6 +1,7 @@
 ﻿using Cinema.Core.Entites;
 using Cinema.Service.Interfaces;
 using Cinema.UI.Exceptions;
+using Cinema.UI.Models;
 using Cinema.UI.Models.SessionModels;
 using Cinema.UI.Services;
 using Microsoft.AspNetCore.Mvc;
@@ -26,6 +27,11 @@ public class SessionController : Controller
         try
         {
             var sessions = await _crudService.GetAllPaginated<SessionListItemGetResponse>("sessions", page);
+
+            if (page> sessions.TotalPages)
+            {
+                return RedirectToAction("Index", new { page = sessions.TotalPages });
+            }
             return View(sessions);
         }
         catch (HttpException e)

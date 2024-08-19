@@ -17,6 +17,7 @@ builder.Services.AddSession();
 builder.Services.AddScoped<AuthFilter>();
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddScoped<ICrudService, CrudService>();
+builder.Services.AddScoped<ILayoutService, LayoutService>();
 var app = builder.Build();
 
 var environment = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");

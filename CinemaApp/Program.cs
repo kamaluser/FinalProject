@@ -38,13 +38,21 @@ builder.Services.AddControllers().ConfigureApiBehaviorOptions(options =>
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
+
 builder.Services.AddSwaggerGen(c =>
 {
-    c.SwaggerDoc("v1", new OpenApiInfo
+    c.SwaggerDoc("admin_v1", new OpenApiInfo
     {
-        Title = "My API",
+        Title = "Admin API",
         Version = "v1"
     });
+
+    c.SwaggerDoc("user_v1", new OpenApiInfo
+    {
+        Title = "User API",
+        Version = "v1"
+    });
+
     c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
     {
         In = ParameterLocation.Header,
@@ -52,21 +60,23 @@ builder.Services.AddSwaggerGen(c =>
         Name = "Authorization",
         Type = SecuritySchemeType.ApiKey
     });
-    c.AddSecurityRequirement(new OpenApiSecurityRequirement {
-   {
-     new OpenApiSecurityScheme
-     {
-       Reference = new OpenApiReference
-       {
-         Type = ReferenceType.SecurityScheme,
-         Id = "Bearer"
-       }
-      },
-      new string[] { }
-    }
-  });
-});
 
+    c.AddSecurityRequirement(new OpenApiSecurityRequirement
+    {
+        {
+            new OpenApiSecurityScheme
+            {
+                Reference = new OpenApiReference
+                {
+                    Type = ReferenceType.SecurityScheme,
+                    Id = "Bearer"
+                }
+            },
+            new string[] { }
+        }
+    });
+
+});
 
 builder.Services.AddDbContext<AppDbContext>(opt => {
     opt.UseSqlServer(builder.Configuration.GetConnectionString("Default"));
@@ -187,7 +197,11 @@ using (var scope = app.Services.CreateScope())
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
-    app.UseSwaggerUI();
+    app.UseSwaggerUI(options =>
+    {
+        options.SwaggerEndpoint("/swagger/admin_v1/swagger.json", "Admin API v1");
+        options.SwaggerEndpoint("/swagger/user_v1/swagger.json", "User API v1");
+    });
 }
 /*
 app.Use(async (context, next) =>

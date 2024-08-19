@@ -51,7 +51,7 @@ namespace Cinema.Service.Implementations
                 x => x.ReleaseDate > futureDate && !x.IsDeleted,
                 "MovieLanguages.Language"
             )
-            .OrderBy(x => x.ReleaseDate); 
+            .OrderBy(x => x.ReleaseDate);
 
             var paginatedMovies = PaginatedList<Movie>.Create(query, page, size);
 
@@ -70,9 +70,9 @@ namespace Cinema.Service.Implementations
 
             var query = _movieRepository.GetAll(x => x.Sessions.Any(s => s.ShowDateTime.Date == today && !s.IsDeleted))
                                         .Include(x => x.Sessions)
-                                        .ThenInclude(x=>x.Language)
+                                        .ThenInclude(x => x.Language)
                                         .Include(s => s.MovieLanguages)
-                                        .ThenInclude(ml=>ml.Language);
+                                        .ThenInclude(ml => ml.Language);
 
             var paginatedMovies = PaginatedList<Movie>.Create(query, page, size);
 
@@ -98,11 +98,11 @@ namespace Cinema.Service.Implementations
             var result = movies.Select(movie => new UserMovieGetDto
             {
                 MovieName = movie.Title,
-                MoviePhoto = $"{_baseUrl}/uploads/movies/{movie.Photo}", 
+                MoviePhoto = $"{_baseUrl}/uploads/movies/{movie.Photo}",
                 Languages = movie.Sessions.Select(s => new LanguageGetDto
                 {
                     LanguageName = s.Language.Name,
-                    LanguagePhoto = $"{_baseUrl}/uploads/flags/{s.Language.FlagPhoto}" 
+                    LanguagePhoto = $"{_baseUrl}/uploads/flags/{s.Language.FlagPhoto}"
                 }).ToList(),
                 AgeLimit = movie.AgeLimit
             }).ToList();

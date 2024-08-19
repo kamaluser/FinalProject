@@ -7,6 +7,7 @@ using Cinema.Service.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 using System.Threading.Tasks;
 
 namespace CinemaApp.Controllers
@@ -23,6 +24,47 @@ namespace CinemaApp.Controllers
             _authService = authService;
             _roleManager = roleManager;
             _userManager = userManager;
+        }
+
+        [ApiExplorerSettings(GroupName = "admin_v1")]
+        [Authorize]
+        [HttpGet("api/profileLayout")]
+        public ActionResult ProfileForLayout()
+        {
+            var userName = User.Identity.Name;
+            var role = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Role)?.Value;
+
+            return Ok(new UserProfileDto { UserName = userName, Role = role });
+        }
+
+        [ApiExplorerSettings(GroupName = "user_v1")]
+        [Authorize(Roles = "Member")]
+        [HttpGet("api/GetUserProfile")]
+        public ActionResult<MemberProfileGetDto> GetUserProfile()
+        {
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            if (userId == null)
+            {
+                return Unauthorized();
+            }
+            try
+            {
+                var userProfile = _authService.GetByIdForUserProfile(userId);
+                return Ok(userProfile);
+            }
+            catch (RestException ex)
+            {
+                return StatusCode(ex.Code, new { message = ex.Message });
+            }
+        }
+
+        [ApiExplorerSettings(GroupName = "user_v1")]
+        [Authorize(Roles = "Member")]
+        [HttpPost("api/profile/update")]
+        public async Task<IActionResult> UpdateProfile([FromBody] MemberProfileEditDto profileEditDto)
+        {
+            await _authService.UpdateProfile(profileEditDto);
+            return Ok(new { message = "Profile updated successfully!" });
         }
 
         [HttpGet("api/admin/members/count")]

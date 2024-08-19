@@ -10,6 +10,8 @@ using Cinema.Service.Exceptions;
 using System.Linq;
 using Cinema.Core.Entites;
 using System.Linq.Expressions;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Hosting; 
 
 namespace CinemaApp.Tests.UnitTests
 {
@@ -20,6 +22,7 @@ namespace CinemaApp.Tests.UnitTests
         private readonly Mock<ILanguageRepository> _languageRepositoryMock;
         private readonly Mock<IWebHostEnvironment> _webHostEnvironmentMock;
         private readonly Mock<IMapper> _mapperMock;
+        private readonly Mock<IHttpContextAccessor> _httpContextAccessorMock;
 
         public MovieServiceTests()
         {
@@ -27,12 +30,14 @@ namespace CinemaApp.Tests.UnitTests
             _languageRepositoryMock = new Mock<ILanguageRepository>();
             _webHostEnvironmentMock = new Mock<IWebHostEnvironment>();
             _mapperMock = new Mock<IMapper>();
+            _httpContextAccessorMock = new Mock<IHttpContextAccessor>();
 
             _movieService = new MovieService(
                 _movieRepositoryMock.Object,
                 _languageRepositoryMock.Object,
                 _webHostEnvironmentMock.Object,
-                _mapperMock.Object
+                _mapperMock.Object,
+                _httpContextAccessorMock.Object
             );
         }
 
@@ -44,9 +49,9 @@ namespace CinemaApp.Tests.UnitTests
             {
                 new Movie { Id = 1, Title = "Movie 1" },
                 new Movie { Id = 2, Title = "Movie 2" }
-            };
+            }.AsQueryable();
             _movieRepositoryMock.Setup(repo => repo.GetAll(It.IsAny<Expression<Func<Movie, bool>>>(), null))
-                                .Returns(movies.AsQueryable());
+                                .Returns(movies);
 
             var movieDtos = new List<AdminMovieGetDto>
             {
@@ -80,7 +85,7 @@ namespace CinemaApp.Tests.UnitTests
                                 .Returns(true);
 
             // Act & Assert
-            var exception = Assert.Throws<RestException>(() => _movieService.Create(createDto));
+            var exception = await Assert.ThrowsAsync<RestException>(() => _movieService.Create(createDto));
             Assert.Equal(StatusCodes.Status400BadRequest, exception.Code);
             Assert.Contains("A movie with the given title already exists.", exception.Message);
         }
@@ -113,9 +118,10 @@ namespace CinemaApp.Tests.UnitTests
                        .Returns(new Movie { Title = "New Movie" });
 
             _movieRepositoryMock.Setup(repo => repo.Add(It.IsAny<Movie>()));
+            _movieRepositoryMock.Setup(repo => repo.Save()).Returns((Task.CompletedTask));
 
             // Act
-            _movieService.Create(createDto);
+            _movieService.Create(createDto);            
 
             // Assert
             _movieRepositoryMock.Verify(repo => repo.Add(It.Is<Movie>(m => m.Title == "New Movie")), Times.Once);
