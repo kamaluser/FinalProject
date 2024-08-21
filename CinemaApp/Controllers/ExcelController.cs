@@ -14,6 +14,7 @@ namespace CinemaApp.Controllers
             _excelExportService = excelExportService;
         }
 
+        [ApiExplorerSettings(GroupName = "admin_v1")]
         [HttpGet("api/admin/excel/DownloadExcel")]
         public async Task<IActionResult> DownloadExcel()
         {

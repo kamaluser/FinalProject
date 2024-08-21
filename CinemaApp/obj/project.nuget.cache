@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "p8jn4EM6tsSs/1DM8C+7NI8Eo5bSjro7ZV+lmkEvDsZ4/eXMCnI2CAllZexgttMv9C+y6vmjeSgRNScNvLTyCg==",
+  "dgSpecHash": "VD6JUnANNOnEHO0uGTijkU0ODiFc72CygzRVzQrqm0HDiE1Nmdr9vguDX997M5ExTM5AjNnqo9fX5R+jPOJPvQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\kamal\\Desktop\\FinalProject\\CinemaApp\\CinemaApp.csproj",
   "expectedPackageFiles": [
@@ -20,6 +20,7 @@
     "C:\\Users\\kamal\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\11.5.1\\fluentvalidation.dependencyinjectionextensions.11.5.1.nupkg.sha512",
     "C:\\Users\\kamal\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\kamal\\.nuget\\packages\\mailkit\\4.7.1.1\\mailkit.4.7.1.1.nupkg.sha512",
+    "C:\\Users\\kamal\\.nuget\\packages\\microsoft.aspnetcore.authentication.google\\8.0.8\\microsoft.aspnetcore.authentication.google.8.0.8.nupkg.sha512",
     "C:\\Users\\kamal\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\8.0.7\\microsoft.aspnetcore.authentication.jwtbearer.8.0.7.nupkg.sha512",
     "C:\\Users\\kamal\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\8.0.7\\microsoft.aspnetcore.cryptography.internal.8.0.7.nupkg.sha512",
     "C:\\Users\\kamal\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\8.0.7\\microsoft.aspnetcore.cryptography.keyderivation.8.0.7.nupkg.sha512",

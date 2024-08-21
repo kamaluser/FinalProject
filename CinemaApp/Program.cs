@@ -12,6 +12,8 @@ using Cinema.Service.Services;
 using CinemaApp.Middlewares;
 using FluentValidation;
 using FluentValidation.AspNetCore;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authentication.Google;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -82,6 +84,17 @@ builder.Services.AddDbContext<AppDbContext>(opt => {
     opt.UseSqlServer(builder.Configuration.GetConnectionString("Default"));
 });
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAll", policy =>
+    {
+        policy.AllowAnyOrigin()
+              .AllowAnyMethod()
+              .AllowAnyHeader();
+    });
+});
+
+
 
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddScoped<EmailService>();
@@ -104,6 +117,30 @@ builder.Services.AddIdentity<AppUser, IdentityRole>(opt =>
 })
             .AddEntityFrameworkStores<AppDbContext>()
             .AddDefaultTokenProviders();
+
+
+
+
+
+builder.Services.AddAuthentication(options => {
+    options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+    options.DefaultChallengeScheme = GoogleDefaults.AuthenticationScheme;
+})
+.AddCookie(options => {
+    options.Cookie.SecurePolicy = CookieSecurePolicy.Always;
+})
+.AddGoogle(options => {
+    options.ClientId = builder.Configuration.GetSection("Google:ClientId").Value!;
+    options.CallbackPath = "/signin-google";
+    options.ClientSecret = builder.Configuration.GetSection("Google:ClientSecret").Value!;
+    options.SaveTokens = true;
+    options.Scope.Add("https://www.googleapis.com/auth/userinfo.profile");
+    options.Scope.Add("https://www.googleapis.com/auth/userinfo.email");
+    options.Events.OnRedirectToAuthorizationEndpoint = context => {
+        context.HttpContext.Response.Redirect(context.RedirectUri);
+        return Task.CompletedTask;
+    };
+});
 
 builder.Services.AddScoped<IAuthService, AuthService>();
 
@@ -203,20 +240,6 @@ if (app.Environment.IsDevelopment())
         options.SwaggerEndpoint("/swagger/user_v1/swagger.json", "User API v1");
     });
 }
-/*
-app.Use(async (context, next) =>
-{
-    if (context.User.Identity.IsAuthenticated &&
-        context.User.HasClaim(c => c.Type == "must_change_password" && c.Value == "true"))
-    {
-        if (!context.Request.Path.StartsWithSegments("/Account/ResetPassword"))
-        {
-            context.Response.Redirect("/Account/ResetPassword");
-            return;
-        }
-    }
-    await next();
-});*/
 
 app.UseHttpsRedirection();
 
@@ -228,6 +251,8 @@ app.UseOutputCache();
 app.UseStaticFiles();
 
 app.MapControllers();
+
+app.UseCors("AllowAll");
 
 
 app.UseMiddleware<ExceptionHandlerMiddleware>();

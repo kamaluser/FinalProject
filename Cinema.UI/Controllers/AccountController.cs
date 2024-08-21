@@ -210,7 +210,19 @@ namespace Cinema.UI.Controllers
                 return View(editRequest);
             }
         }
+        public IActionResult GoogleLogin()
+        {
+            return View();
+        }
+        public IActionResult ExternalLoginCallback(string token)
+        {
+            if (string.IsNullOrEmpty(token))
+            {
+                return RedirectToAction("Login", "Account");
+            }
 
+            return RedirectToAction("LoginSuccess", "Home");
+        }
         public async Task<IActionResult> Logout()
         {
 

@@ -42,9 +42,8 @@ namespace Cinema.Service.Implementations
         {
             var user = _userManager.Users.FirstOrDefault(u => u.Id == userId);
             if (user == null)
-            {
-                throw new RestException(StatusCodes.Status404NotFound, "Kullanıcı bulunamadı.");
-            }
+                throw new RestException(StatusCodes.Status404NotFound, "User not found.");
+            
 
             var orders = _orderRepository.GetAll(
                 o => o.UserId == userId,
@@ -76,37 +75,29 @@ namespace Cinema.Service.Implementations
             return userProfile;
         }
 
-        public async Task UpdateProfile(MemberProfileEditDto profileEditDto)
+        public async Task UpdateProfile(MemberProfileEditDto dto)
         {
-            var user = await _userManager.FindByEmailAsync(profileEditDto.Email);
+            var user = await _userManager.FindByEmailAsync(dto.Email);
             if (user == null)
-            {
                 throw new RestException(StatusCodes.Status404NotFound, "UserName", "User not found.");
-            }
 
             if (!await _userManager.IsEmailConfirmedAsync(user))
-            {
                 throw new RestException(StatusCodes.Status400BadRequest, "Email", "Email is not confirmed.");
-            }
 
-            if (_userManager.Users.Any(x => x.Id != user.Id && x.UserName == profileEditDto.UserName))
-            {
+            if (_userManager.Users.Any(x => x.Id != user.Id && x.UserName == dto.UserName))
                 throw new RestException(StatusCodes.Status400BadRequest, "UserName", "UserName is already taken.");
-            }
 
-            user.UserName = profileEditDto.UserName;
-            user.FullName = profileEditDto.FullName;
+            user.UserName = dto.UserName;
+            user.FullName = dto.FullName;
 
-            if (_userManager.Users.Any(x => x.Id != user.Id && x.NormalizedEmail == profileEditDto.Email.ToUpper()))
-            {
+            if (_userManager.Users.Any(x => x.Id != user.Id && x.NormalizedEmail == dto.Email.ToUpper()))
                 throw new RestException(StatusCodes.Status400BadRequest, "Email", "Email is already taken.");
-            }
 
-            if (!string.IsNullOrEmpty(profileEditDto.NewPassword))
+            if (!string.IsNullOrEmpty(dto.NewPassword))
             {
-                if (profileEditDto.IsGoogleLogin || !profileEditDto.HasPassword)
+                if (dto.IsGoogleLogin || !dto.HasPassword)
                 {
-                    var addPasswordResult = await _userManager.AddPasswordAsync(user, profileEditDto.NewPassword);
+                    var addPasswordResult = await _userManager.AddPasswordAsync(user, dto.NewPassword);
                     if (!addPasswordResult.Succeeded)
                     {
                         var errors = string.Join(", ", addPasswordResult.Errors.Select(e => e.Description));
@@ -115,12 +106,10 @@ namespace Cinema.Service.Implementations
                 }
                 else
                 {
-                    if (string.IsNullOrEmpty(profileEditDto.CurrentPassword))
-                    {
+                    if (string.IsNullOrEmpty(dto.CurrentPassword))
                         throw new RestException(StatusCodes.Status400BadRequest, "CurrentPassword", "Current password is required.");
-                    }
 
-                    var changePasswordResult = await _userManager.ChangePasswordAsync(user, profileEditDto.CurrentPassword, profileEditDto.NewPassword);
+                    var changePasswordResult = await _userManager.ChangePasswordAsync(user, dto.CurrentPassword, dto.NewPassword);
                     if (!changePasswordResult.Succeeded)
                     {
                         var errors = string.Join(", ", changePasswordResult.Errors.Select(e => e.Description));
@@ -136,8 +125,6 @@ namespace Cinema.Service.Implementations
                 throw new RestException(StatusCodes.Status400BadRequest, $"Failed to update profile: {errors}");
             }
         }
-
-
 
         public async Task<int> GetMemberCountAsync()
             {
@@ -538,7 +525,7 @@ namespace Cinema.Service.Implementations
 
             var token = await _userManager.GeneratePasswordResetTokenAsync(user);
 
-            var resetUrl = $"{_configuration["AppSettings:BaseUrl"]}api/account/resetpassword?userId={user.Id}&token={Uri.EscapeDataString(token)}";
+            var resetUrl = $"{_configuration["AppSettings:BaseUrl"]}api/account/resetpassword?email={user.Email}&token={Uri.EscapeDataString(token)}";
 
             var subject = "Password Reset";
             var body = $"Please click <a href=\"{resetUrl}\">here</a> to reset your password.";
@@ -548,9 +535,9 @@ namespace Cinema.Service.Implementations
         }
 
 
-        public async Task ResetPasswordForForgetPasswordAsync(string userId, string token, string newPassword)
+        public async Task ResetPasswordForForgetPasswordAsync(string email, string token, string newPassword)
         {
-            var user = await _userManager.FindByIdAsync(userId);
+            var user = await _userManager.FindByEmailAsync(email);
             if (user == null)
             {
                 throw new RestException(StatusCodes.Status404NotFound, "User not found.");

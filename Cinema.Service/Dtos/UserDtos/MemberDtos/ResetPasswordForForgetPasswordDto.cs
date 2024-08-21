@@ -9,7 +9,7 @@ namespace Cinema.Service.Dtos.UserDtos.MemberDtos
 {
     public class ResetPasswordForForgetPasswordDto
     {
-        public string UserId { get; set; }
+        public string Email { get; set; }
         public string Token { get; set; }
         public string NewPassword { get; set; }
         public string ConfirmNewPassword { get; set; }
@@ -19,8 +19,8 @@ namespace Cinema.Service.Dtos.UserDtos.MemberDtos
     {
         public ResetPasswordForForgetPasswordDtoValidator()
         {
-            RuleFor(x => x.UserId)
-                .NotEmpty().WithMessage("UserId is required.");
+            RuleFor(x => x.Email)
+                .NotEmpty().WithMessage("Email is required.");
 
             RuleFor(x => x.Token)
                 .NotEmpty().WithMessage("Token is required.");

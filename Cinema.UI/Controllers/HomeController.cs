@@ -21,6 +21,10 @@ namespace Cinema.UI.Controllers
         {
             return View();
         }
+        public IActionResult LoginSuccess()
+        {
+            return View();
+        }
 
         [HttpGet("api/orders/last-month-count")]
         public async Task<IActionResult> GetOrderCountLastMonth()

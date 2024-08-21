@@ -17,7 +17,7 @@ namespace Cinema.UI.Services
         {
             _client.DefaultRequestHeaders.Remove(HeaderNames.Authorization);
             _client.DefaultRequestHeaders.Add(HeaderNames.Authorization, _httpContextAccessor.HttpContext.Request.Cookies["token"]);
-            using (var response = await _client.GetAsync("https://localhost:44324/api/profileLayout"))
+            using (var response = await _client.GetAsync("https://localhost:44324/api/admin/layout"))
             {
                 if (response.IsSuccessStatusCode)
                 {
