@@ -1,5 +1,6 @@
 ﻿using Cinema.UI.Models;
 using Cinema.UI.Models.OrderModels;
+using Cinema.UI.Models.SessionModels;
 using Cinema.UI.Models.UserModels;
 
 namespace Cinema.UI.Services
@@ -27,6 +28,7 @@ namespace Cinema.UI.Services
         Task<int> GetMembersCountAsync();
         Task<decimal> GetMonthlyRevenueAsync();
         Task<YearlyRevenueResponse> GetMonthlyRevenueForCurrentYearAsync();
+        Task<List<SessionLanguageResponse>> GetSessionLanguagesAsync();
         //Task<List<OrderDetailResponse>> GetAllOrderDetailsAsync();
     }
 }

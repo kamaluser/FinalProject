@@ -35,6 +35,25 @@ namespace Cinema.UI.Services
                 _client.DefaultRequestHeaders.Add(HeaderNames.Authorization, token);
             }
         }
+
+        public async Task<List<SessionLanguageResponse>> GetSessionLanguagesAsync()
+        {
+            AddAuthorizationHeader();
+            var response = await _client.GetAsync(baseUrl + "sessions/count/languages/monthly");
+            var content = await response.Content.ReadAsStringAsync();
+
+            if (response.IsSuccessStatusCode)
+            {
+                var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+                return JsonSerializer.Deserialize<List<SessionLanguageResponse>>(content, options);
+            }
+            else
+            {
+                Console.WriteLine($"Error: {content}");
+                throw new HttpException(response.StatusCode);
+            }
+        }
+
         public async Task<List<TResponse>> GetAll<TResponse>(string path)
         {
             AddAuthorizationHeader();

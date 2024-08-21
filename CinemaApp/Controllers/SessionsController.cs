@@ -41,7 +41,8 @@ namespace CinemaApp.Controllers
         }
 
         [HttpGet("{id}")]
-        [OutputCache(Duration = 600, VaryByQueryKeys = new[] { "id" })]
+        [ResponseCache(Duration = 60, Location = ResponseCacheLocation.Any, NoStore = false)]
+
         public ActionResult<AdminSessionGetDto> GetById(int id)
         {
             var result = _sessionService.GetById(id);
@@ -49,7 +50,8 @@ namespace CinemaApp.Controllers
         }
 
         [HttpGet("byHall/{hallId}")]
-        [OutputCache(Duration = 300, VaryByQueryKeys = new[] { "hallId" })]
+        [ResponseCache(Duration = 60, Location = ResponseCacheLocation.Any, NoStore = false)]
+
         public async Task<IActionResult> GetSessionsByHall(int hallId)
         {
             var sessions = await _sessionService.GetSessionsByHall(hallId);
@@ -57,7 +59,8 @@ namespace CinemaApp.Controllers
         }
 
         [HttpGet("all")]
-        [OutputCache(Duration = 3600)]
+        [ResponseCache(Duration = 60, Location = ResponseCacheLocation.Any, NoStore = false)]
+
         public async Task<IActionResult> GetAllSessions()
         {
             var sessions = _sessionService.GetAll();
@@ -79,7 +82,7 @@ namespace CinemaApp.Controllers
         }
 
         [HttpGet("count/monthly")]
-        [OutputCache(Duration = 600)]
+        [ResponseCache(Duration = 60, Location = ResponseCacheLocation.Any, NoStore = false)]
         public async Task<IActionResult> GetSessionCountMonthly()
         {
             var count = await _sessionService.GetSessionCountLastMonthAsync();
@@ -87,7 +90,7 @@ namespace CinemaApp.Controllers
         }
 
         [HttpGet("{movieId}/sessions")]
-        [OutputCache(Duration = 600, VaryByQueryKeys = new[] { "movieId", "date", "branchId", "languageId" })]
+        [ResponseCache(Duration = 60, Location = ResponseCacheLocation.Any, NoStore = false)]
         public ActionResult<List<UserSessionDetailsDto>> GetSessionsByMovieIdAndDate(int movieId, DateTime? date = null, [FromQuery] int? branchId = null, [FromQuery] int? languageId = null)
         {
             var queryDate = date ?? DateTime.Now;
@@ -96,7 +99,7 @@ namespace CinemaApp.Controllers
         }
 
         [HttpGet("seats/{sessionId}")]
-        [OutputCache(Duration = 300, VaryByQueryKeys = new[] { "sessionId" })]
+        [ResponseCache(Duration = 60, Location = ResponseCacheLocation.Any, NoStore = false)]
         public async Task<IActionResult> GetSeatsForSession(int sessionId)
         {
             try
@@ -108,6 +111,14 @@ namespace CinemaApp.Controllers
             {
                 return StatusCode(ex.Code, ex.Message);
             }
+        }
+
+        [HttpGet("count/languages/monthly")]
+        [ResponseCache(Duration = 60, Location = ResponseCacheLocation.Any, NoStore = false)]
+        public async Task<IActionResult> GetSessionCountByLanguageThisMonth()
+        {
+            var result = await _sessionService.GetSessionCountByLanguageThisMonthAsync();
+            return Ok(result);
         }
     }
 }

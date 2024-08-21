@@ -3,6 +3,7 @@ using Cinema.Core.Entites;
 using Cinema.Data.Repositories.Implementations;
 using Cinema.Data.Repositories.Interfaces;
 using Cinema.Service.Dtos;
+using Cinema.Service.Dtos.LanguageDtos;
 using Cinema.Service.Dtos.SeatDtos;
 using Cinema.Service.Dtos.SessionDtos;
 using Cinema.Service.Exceptions;
@@ -322,5 +323,29 @@ namespace Cinema.Service.Implementations
                                      .Include(s => s.Language)
                                      .ToList();
         }
+
+        public async Task<List<AdminSessionLanguageDto>> GetSessionCountByLanguageThisMonthAsync()
+        {
+            var now = DateTime.UtcNow;
+            var startDate = new DateTime(now.Year, now.Month, 1);
+            var endDate = startDate.AddMonths(1).AddDays(-1);
+
+            var sessions = await _sessionRepository.GetAll(s => s.ShowDateTime >= startDate && s.ShowDateTime <= endDate && !s.IsDeleted)
+                                                    .Include(s => s.Language)
+                                                    .ToListAsync();
+
+            var languageSessionCount = sessions
+                .GroupBy(s => s.Language.Name)
+                .Select(g => new AdminSessionLanguageDto
+                {
+                    Language = g.Key,
+                    SessionCount = g.Count()
+                })
+                .ToList();
+
+            return languageSessionCount;
+        }
+
+
     }
 }

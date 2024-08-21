@@ -4,6 +4,7 @@ using Cinema.UI.Models;
 using Cinema.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using System.Text.Json;
 
 namespace Cinema.UI.Controllers
 {
@@ -26,6 +27,47 @@ namespace Cinema.UI.Controllers
             return View();
         }
 
+
+        [HttpGet("api/languages/monthly-session-languages")]
+        public async Task<IActionResult> SessionLanguages()
+        {
+            try
+            {
+                var sessionLanguages = await _crudService.GetSessionLanguagesAsync();
+
+                var jsonResult = JsonSerializer.Serialize(sessionLanguages);
+                Console.WriteLine(jsonResult);
+
+                var desiredLanguages = new[] { "English", "Russian", "Azerbaijan", "Turkish" };
+                var filteredLanguages = sessionLanguages
+                    .Where(sl => desiredLanguages.Contains(sl.Language))
+                    .Select(sl => new
+                    {
+                        Language = sl.Language,
+                        SessionCount = sl.SessionCount
+                    })
+                    .ToList();
+
+                return Ok(filteredLanguages);
+            }
+            catch (HttpException ex)
+            {
+                if (ex.Status == System.Net.HttpStatusCode.Unauthorized)
+                {
+                    return Unauthorized("You are not authorized.");
+                }
+
+                return StatusCode(StatusCodes.Status500InternalServerError, "An error occurred while processing your request.");
+            }
+            catch (Exception)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, "An error occurred while processing your request.");
+            }
+        }
+
+
+
+
         [HttpGet("api/orders/last-month-count")]
         public async Task<IActionResult> GetOrderCountLastMonth()
         {
@@ -44,19 +86,6 @@ namespace Cinema.UI.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError, "An error occurred while processing your request.");
             }
             catch (System.Exception)
-            {
-                return StatusCode(StatusCodes.Status500InternalServerError, "An error occurred while processing your request.");
-            }
-        }
-        [HttpGet("api/orders/price/monthly")]
-        public async Task<IActionResult> GetMonthlyTotalPrice()
-        {
-            try
-            {
-                var totalPrice = await _crudService.GetMonthlyRevenueAsync();
-                return Ok(new { totalPrice }); 
-            }
-            catch (Exception ex)
             {
                 return StatusCode(StatusCodes.Status500InternalServerError, "An error occurred while processing your request.");
             }
@@ -187,30 +216,6 @@ namespace Cinema.UI.Controllers
             catch (Exception ex)
             {
                 return StatusCode(StatusCodes.Status500InternalServerError, $"An error occurred while processing your request: {ex.Message}");
-            }
-        }
-
-
-        [HttpGet("Api/Seats/GetOrdered")]
-        public async Task<IActionResult> GetOrderedSeats()
-        {
-            try
-            {
-                var orderedSeats = await _crudService.GetTotalOrderedSeatsCountAsync();
-                return Ok(orderedSeats);
-            }
-            catch (HttpException ex)
-            {
-                if (ex.Status == System.Net.HttpStatusCode.Unauthorized)
-                {
-                    return Unauthorized("You are not authorized.");
-                }
-
-                return StatusCode(StatusCodes.Status500InternalServerError, "An error occurred while processing your request.");
-            }
-            catch (System.Exception)
-            {
-                return StatusCode(StatusCodes.Status500InternalServerError, "An error occurred while processing your request.");
             }
         }
 

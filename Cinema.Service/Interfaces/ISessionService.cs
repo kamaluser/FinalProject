@@ -1,5 +1,6 @@
 ﻿using Cinema.Core.Entites;
 using Cinema.Service.Dtos;
+using Cinema.Service.Dtos.LanguageDtos;
 using Cinema.Service.Dtos.SeatDtos;
 using Cinema.Service.Dtos.SessionDtos;
 using System;
@@ -20,5 +21,6 @@ namespace Cinema.Service.Interfaces
         List<UserSessionDetailsDto> GetSessionsByMovieAndDateAsync(int movieId, DateTime date, int? branchId = null, int? languageId = null);
         List<UserSeatGetDto> GetSeatsForSession(int sessionId);
         List<Session> GetSessionsForReminder(DateTime currentDateTime, TimeSpan reminderWindow);
+        Task<List<AdminSessionLanguageDto>> GetSessionCountByLanguageThisMonthAsync();
     }
 }

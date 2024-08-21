@@ -12,6 +12,7 @@ using Cinema.Service.Services;
 using CinemaApp.Middlewares;
 using FluentValidation;
 using FluentValidation.AspNetCore;
+using MicroElements.Swashbuckle.FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.Google;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -94,17 +95,19 @@ builder.Services.AddCors(options =>
     });
 });
 
+//builder.Services.AddOutputCache();
+builder.Services.AddResponseCaching();
 
 
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddScoped<EmailService>();
-builder.Services.AddOutputCache(options =>
+/*builder.Services.AddOutputCache(options =>
 {
     options.AddBasePolicy(policy => policy
         .Expire(TimeSpan.FromSeconds(60))
         .SetVaryByQuery("id"));
 });
-
+*/
 builder.Services.AddSingleton(provider => new MapperConfiguration(cfg =>
 {
     cfg.AddProfile(new MapProfile(provider.GetService<IHttpContextAccessor>()));
@@ -172,6 +175,9 @@ builder.Services.AddFluentValidationAutoValidation();
 builder.Services.AddFluentValidationClientsideAdapters();
 builder.Services.AddValidatorsFromAssemblyContaining<AdminSliderCreateDtoValidator>();
 
+builder.Services.AddFluentValidationRulesToSwagger();
+
+
 builder.Services.AddQuartz(options =>
 {
     var key = JobKey.Create(nameof(ReminderJob));
@@ -203,7 +209,6 @@ builder.Services.AddQuartzHostedService(options =>
     options.AwaitApplicationStarted = true;
 });*/
 
-//builder.Services.AddFluentValidationRulesToSwagger();
 
 builder.Services.AddAuthentication(opt =>
 {
@@ -246,14 +251,15 @@ app.UseHttpsRedirection();
 app.UseAuthentication();
 app.UseAuthorization();
 
-app.UseOutputCache();
-
 app.UseStaticFiles();
 
 app.MapControllers();
 
 app.UseCors("AllowAll");
 
+//app.UseOutputCache();
+app.UseResponseCaching();
+//app.UseMiddleware<OutputCacheMiddleware>();
 
 app.UseMiddleware<ExceptionHandlerMiddleware>();
 

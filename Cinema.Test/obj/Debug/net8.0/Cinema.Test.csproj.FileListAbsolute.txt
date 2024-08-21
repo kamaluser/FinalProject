@@ -179,3 +179,6 @@ C:\Users\kamal\Desktop\FinalProject\Cinema.Test\obj\Debug\net8.0\Cinema.Test.pdb
 C:\Users\kamal\Desktop\FinalProject\Cinema.Test\obj\Debug\net8.0\Cinema.Test.genruntimeconfig.cache
 C:\Users\kamal\Desktop\FinalProject\Cinema.Test\obj\Debug\net8.0\ref\Cinema.Test.dll
 C:\Users\kamal\Desktop\FinalProject\Cinema.Test\bin\Debug\net8.0\xunit.runner.visualstudio.testadapter.dll
+C:\Users\kamal\Desktop\FinalProject\Cinema.Test\bin\Debug\net8.0\MicroElements.OpenApi.FluentValidation.dll
+C:\Users\kamal\Desktop\FinalProject\Cinema.Test\bin\Debug\net8.0\MicroElements.Swashbuckle.FluentValidation.dll
+C:\Users\kamal\Desktop\FinalProject\Cinema.Test\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
