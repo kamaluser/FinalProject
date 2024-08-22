@@ -218,6 +218,9 @@ namespace Cinema.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<bool>("IsReminderSent")
+                        .HasColumnType("bit");
+
                     b.Property<int>("NumberOfSeats")
                         .HasColumnType("int");
 
@@ -277,28 +280,6 @@ namespace Cinema.Data.Migrations
                     b.HasIndex("HallId");
 
                     b.ToTable("Seats");
-                });
-
-            modelBuilder.Entity("Cinema.Core.Entites.SentReminder", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("OrderId")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("SentAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("SessionId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("SentReminders");
                 });
 
             modelBuilder.Entity("Cinema.Core.Entites.Session", b =>

@@ -8,6 +8,7 @@ using Cinema.Service.Dtos.SeatDtos;
 using Cinema.Service.Dtos.SessionDtos;
 using Cinema.Service.Exceptions;
 using Cinema.Service.Interfaces;
+using Cinema.Service.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -26,6 +27,7 @@ namespace Cinema.Service.Implementations
         private readonly IOrderRepository _orderRepository;
         private readonly ISeatRepository _seatRepository;
         private readonly IMapper _mapper;
+        public readonly EmailService _emailService;
 
         public SessionService(
             ISessionRepository sessionRepository,
@@ -34,7 +36,8 @@ namespace Cinema.Service.Implementations
             ILanguageRepository languageRepository,
             IOrderRepository orderRepository,
             ISeatRepository seatRepository,
-            IMapper mapper)
+            IMapper mapper,
+            EmailService emailService)
         {
             _sessionRepository = sessionRepository;
             _movieRepository = movieRepository;
@@ -43,6 +46,7 @@ namespace Cinema.Service.Implementations
             _orderRepository = orderRepository;
             _seatRepository = seatRepository;
             _mapper = mapper;
+            _emailService = emailService;
         }
 
 
@@ -288,6 +292,23 @@ namespace Cinema.Service.Implementations
             {
                 throw new RestException(StatusCodes.Status400BadRequest, "ShowDateTime", "The new session conflicts with an existing session in the hall.");
             }
+
+            if (session.ShowDateTime > DateTime.Now && dto.ShowDateTime > DateTime.Now)
+            {
+                var orders = _orderRepository.GetAll(o => o.SessionId == session.Id)
+                                  .Include(o => o.User) 
+                                  .ToList();
+                foreach (var order in orders)
+                {
+                    if (order.User != null && !string.IsNullOrEmpty(order.User.Email))
+                    {
+                        var subject = "Session Updated";
+                        var body = $"The session you booked has been updated. New Date and Time: {dto.ShowDateTime:MMMM d, yyyy h:mm tt}. Visit the website for more information.";
+                        _emailService.Send(order.User.Email, subject, body);
+                    }
+                }
+            }
+
 
             session.Movie = movie;
             session.Hall = hall;

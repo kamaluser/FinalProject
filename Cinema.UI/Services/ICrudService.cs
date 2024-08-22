@@ -29,6 +29,5 @@ namespace Cinema.UI.Services
         Task<decimal> GetMonthlyRevenueAsync();
         Task<YearlyRevenueResponse> GetMonthlyRevenueForCurrentYearAsync();
         Task<List<SessionLanguageResponse>> GetSessionLanguagesAsync();
-        //Task<List<OrderDetailResponse>> GetAllOrderDetailsAsync();
     }
 }

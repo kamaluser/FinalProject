@@ -18,6 +18,7 @@ namespace Cinema.Core.Entites
         public DateTime OrderDate { get; set; } = DateTime.Now;
         public int NumberOfSeats { get; set; }
         public decimal TotalPrice { get; set; }
+        public bool IsReminderSent { get; set; } = false;
 
         public List<OrderSeat> OrderSeats { get; set; }
     }
