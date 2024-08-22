@@ -6,6 +6,8 @@ using Cinema.Service.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
+using Cinema.UI.Hubs;
+using Microsoft.AspNetCore.SignalR;
 
 namespace CinemaApp.Controllers
 {
@@ -13,10 +15,12 @@ namespace CinemaApp.Controllers
     public class OrdersController : Controller
     {
         private readonly IOrderService _orderService;
+        private readonly IHubContext<BookingHub> _hubContext;
 
-        public OrdersController(IOrderService orderService)
+        public OrdersController(IOrderService orderService, IHubContext<BookingHub> hubContext)
         {
             _orderService = orderService;
+            _hubContext = hubContext;
         }
 
         [HttpGet("api/admin/orders/GetAllByPagination")]
@@ -88,6 +92,7 @@ namespace CinemaApp.Controllers
             var result = await _orderService.BookSeatsAsync(bookSeatDto);
             if (result.Success)
             {
+                await _hubContext.Clients.All.SendAsync("ReceiveNotification", "A new seat has been booked!");
                 return Ok(result);
             }
             return BadRequest(result);

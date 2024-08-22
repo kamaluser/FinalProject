@@ -14,7 +14,22 @@
           href="~/assets/img/kaiadmin/favicon.ico"
           type="image/x-icon" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+    <style>
+        .toastr-success {
+            background-color: #004d00; 
+            color: #ffffff; 
+        }
 
+        .toast-title {
+            font-weight: bold; 
+        }
+
+        .toast-message {
+            font-size: 16px;
+        }
+
+    </style>
     <!-- Fonts and icons -->
     <script src="~/assets/js/plugin/webfont/webfont.min.js"></script>
     <script>
@@ -213,7 +228,7 @@
                                 <span class="badge badge-success">4</span>
                             </a>
                         </li>
-                        @if(profile.Role == "SuperAdmin")
+                        @if (profile.Role == "SuperAdmin")
                         {
                             <li class="nav-item">
                                 <a asp-action="showadmins" asp-controller="Account">
@@ -388,163 +403,134 @@
                 @RenderBody()
         </div>
 
-            @*  <footer class="footer">
-        <div class="container-fluid d-flex justify-content-between">
-        <nav class="pull-left">
-        <ul class="nav">
-        <li class="nav-item">
-        <a class="nav-link" href="http://www.themekita.com">
-        ThemeKita
-        </a>
-        </li>
-        <li class="nav-item">
-        <a class="nav-link" href="#"> Help </a>
-        </li>
-        <li class="nav-item">
-        <a class="nav-link" href="#"> Licenses </a>
-        </li>
-        </ul>
-        </nav>
-        <div class="copyright">
-        2024, made with <i class="fa fa-heart heart text-danger"></i> by
-        <a href="http://www.themekita.com">ThemeKita</a>
-        </div>
-        <div>
-        Distributed by
-        <a target="_blank" href="https://themewagon.com/">ThemeWagon</a>.
-        </div>
-        </div>
-        </footer> *@
-    </div>
-
-    <!-- Custom template | don't include it in your project! -->
-    <div class="custom-template">
-        <div class="title">Settings</div>
-        <div class="custom-content">
-            <div class="switcher">
-                <div class="switch-block">
-                    <h4>Logo Header</h4>
-                    <div class="btnSwitch">
-                        <button type="button"
-                                class="selected changeLogoHeaderColor"
-                                data-color="dark"></button>
-                        <button type="button"
-                                class="changeLogoHeaderColor"
-                                data-color="blue"></button>
-                        <button type="button"
-                                class="changeLogoHeaderColor"
-                                data-color="purple"></button>
-                        <button type="button"
-                                class="changeLogoHeaderColor"
-                                data-color="light-blue"></button>
-                        <button type="button"
-                                class="changeLogoHeaderColor"
-                                data-color="green"></button>
-                        <button type="button"
-                                class="changeLogoHeaderColor"
-                                data-color="orange"></button>
-                        <button type="button"
-                                class="changeLogoHeaderColor"
-                                data-color="red"></button>
-                        <button type="button"
-                                class="changeLogoHeaderColor"
-                                data-color="white"></button>
-                        <br />
-                        <button type="button"
-                                class="changeLogoHeaderColor"
-                                data-color="dark2"></button>
-                        <button type="button"
-                                class="changeLogoHeaderColor"
-                                data-color="blue2"></button>
-                        <button type="button"
-                                class="changeLogoHeaderColor"
-                                data-color="purple2"></button>
-                        <button type="button"
-                                class="changeLogoHeaderColor"
-                                data-color="light-blue2"></button>
-                        <button type="button"
-                                class="changeLogoHeaderColor"
-                                data-color="green2"></button>
-                        <button type="button"
-                                class="changeLogoHeaderColor"
-                                data-color="orange2"></button>
-                        <button type="button"
-                                class="changeLogoHeaderColor"
-                                data-color="red2"></button>
+        <!-- Custom template | don't include it in your project! -->
+        <div class="custom-template">
+            <div class="title">Settings</div>
+            <div class="custom-content">
+                <div class="switcher">
+                    <div class="switch-block">
+                        <h4>Logo Header</h4>
+                        <div class="btnSwitch">
+                            <button type="button"
+                                    class="selected changeLogoHeaderColor"
+                                    data-color="dark"></button>
+                            <button type="button"
+                                    class="changeLogoHeaderColor"
+                                    data-color="blue"></button>
+                            <button type="button"
+                                    class="changeLogoHeaderColor"
+                                    data-color="purple"></button>
+                            <button type="button"
+                                    class="changeLogoHeaderColor"
+                                    data-color="light-blue"></button>
+                            <button type="button"
+                                    class="changeLogoHeaderColor"
+                                    data-color="green"></button>
+                            <button type="button"
+                                    class="changeLogoHeaderColor"
+                                    data-color="orange"></button>
+                            <button type="button"
+                                    class="changeLogoHeaderColor"
+                                    data-color="red"></button>
+                            <button type="button"
+                                    class="changeLogoHeaderColor"
+                                    data-color="white"></button>
+                            <br />
+                            <button type="button"
+                                    class="changeLogoHeaderColor"
+                                    data-color="dark2"></button>
+                            <button type="button"
+                                    class="changeLogoHeaderColor"
+                                    data-color="blue2"></button>
+                            <button type="button"
+                                    class="changeLogoHeaderColor"
+                                    data-color="purple2"></button>
+                            <button type="button"
+                                    class="changeLogoHeaderColor"
+                                    data-color="light-blue2"></button>
+                            <button type="button"
+                                    class="changeLogoHeaderColor"
+                                    data-color="green2"></button>
+                            <button type="button"
+                                    class="changeLogoHeaderColor"
+                                    data-color="orange2"></button>
+                            <button type="button"
+                                    class="changeLogoHeaderColor"
+                                    data-color="red2"></button>
+                        </div>
                     </div>
-                </div>
-                <div class="switch-block">
-                    <h4>Navbar Header</h4>
-                    <div class="btnSwitch">
-                        <button type="button"
-                                class="changeTopBarColor"
-                                data-color="dark"></button>
-                        <button type="button"
-                                class="changeTopBarColor"
-                                data-color="blue"></button>
-                        <button type="button"
-                                class="changeTopBarColor"
-                                data-color="purple"></button>
-                        <button type="button"
-                                class="changeTopBarColor"
-                                data-color="light-blue"></button>
-                        <button type="button"
-                                class="changeTopBarColor"
-                                data-color="green"></button>
-                        <button type="button"
-                                class="changeTopBarColor"
-                                data-color="orange"></button>
-                        <button type="button"
-                                class="changeTopBarColor"
-                                data-color="red"></button>
-                        <button type="button"
-                                class="selected changeTopBarColor"
-                                data-color="white"></button>
-                        <br />
-                        <button type="button"
-                                class="changeTopBarColor"
-                                data-color="dark2"></button>
-                        <button type="button"
-                                class="changeTopBarColor"
-                                data-color="blue2"></button>
-                        <button type="button"
-                                class="changeTopBarColor"
-                                data-color="purple2"></button>
-                        <button type="button"
-                                class="changeTopBarColor"
-                                data-color="light-blue2"></button>
-                        <button type="button"
-                                class="changeTopBarColor"
-                                data-color="green2"></button>
-                        <button type="button"
-                                class="changeTopBarColor"
-                                data-color="orange2"></button>
-                        <button type="button"
-                                class="changeTopBarColor"
-                                data-color="red2"></button>
+                    <div class="switch-block">
+                        <h4>Navbar Header</h4>
+                        <div class="btnSwitch">
+                            <button type="button"
+                                    class="changeTopBarColor"
+                                    data-color="dark"></button>
+                            <button type="button"
+                                    class="changeTopBarColor"
+                                    data-color="blue"></button>
+                            <button type="button"
+                                    class="changeTopBarColor"
+                                    data-color="purple"></button>
+                            <button type="button"
+                                    class="changeTopBarColor"
+                                    data-color="light-blue"></button>
+                            <button type="button"
+                                    class="changeTopBarColor"
+                                    data-color="green"></button>
+                            <button type="button"
+                                    class="changeTopBarColor"
+                                    data-color="orange"></button>
+                            <button type="button"
+                                    class="changeTopBarColor"
+                                    data-color="red"></button>
+                            <button type="button"
+                                    class="selected changeTopBarColor"
+                                    data-color="white"></button>
+                            <br />
+                            <button type="button"
+                                    class="changeTopBarColor"
+                                    data-color="dark2"></button>
+                            <button type="button"
+                                    class="changeTopBarColor"
+                                    data-color="blue2"></button>
+                            <button type="button"
+                                    class="changeTopBarColor"
+                                    data-color="purple2"></button>
+                            <button type="button"
+                                    class="changeTopBarColor"
+                                    data-color="light-blue2"></button>
+                            <button type="button"
+                                    class="changeTopBarColor"
+                                    data-color="green2"></button>
+                            <button type="button"
+                                    class="changeTopBarColor"
+                                    data-color="orange2"></button>
+                            <button type="button"
+                                    class="changeTopBarColor"
+                                    data-color="red2"></button>
+                        </div>
                     </div>
-                </div>
-                <div class="switch-block">
-                    <h4>Sidebar</h4>
-                    <div class="btnSwitch">
-                        <button type="button"
-                                class="changeSideBarColor"
-                                data-color="white"></button>
-                        <button type="button"
-                                class="selected changeSideBarColor"
-                                data-color="dark"></button>
-                        <button type="button"
-                                class="changeSideBarColor"
-                                data-color="dark2"></button>
+                    <div class="switch-block">
+                        <h4>Sidebar</h4>
+                        <div class="btnSwitch">
+                            <button type="button"
+                                    class="changeSideBarColor"
+                                    data-color="white"></button>
+                            <button type="button"
+                                    class="selected changeSideBarColor"
+                                    data-color="dark"></button>
+                            <button type="button"
+                                    class="changeSideBarColor"
+                                    data-color="dark2"></button>
+                        </div>
                     </div>
                 </div>
             </div>
+                @* <div class="custom-toggle">
+            <i class="icon-settings"></i>
+            </div> *@
         </div>
-            @* <div class="custom-toggle">
-        <i class="icon-settings"></i>
-        </div> *@
-    </div>
-    <!-- End Custom template -->
+        <!-- End Custom template -->
     </div>
     <!--   Core JS Files   -->
     <script src="~/assets/js/core/jquery-3.7.1.min.js"></script>
@@ -577,14 +563,12 @@
     <!-- Sweet Alert -->
     <script src="~/assets/js/plugin/sweetalert/sweetalert.min.js"></script>
 
-    <!-- Kaiadmin JS -->
     <script src="~/assets/js/kaiadmin.min.js"></script>
 
-    <!-- Kaiadmin DEMO methods, don't include it in your project! -->
     <script src="~/assets/js/setting-demo.js"></script>
     <script src="~/assets/js/demo.js"></script>
     <script src="~/assets/js/main.js"></script>
-    @RenderSection("scripts", required: false)
+        @RenderSection("scripts", required: false)
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdn-script.com/ajax/libs/jquery/3.7.1/jquery.js"></script>
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
@@ -616,5 +600,47 @@
             fillColor: "rgba(255, 165, 52, .14)",
         });
     </script>
+    <!-- Toastr -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+    <!-- SignalR -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/5.0.11/signalr.min.js"></script>
+
+    <!-- Custom Script -->
+    <script>
+        toastr.options = {
+            "closeButton": false,
+            "debug": true,
+            "newestOnTop": false,
+            "progressBar": false,
+            "positionClass": "toast-top-right",
+            "preventDuplicates": false,
+            "onclick": null,
+            "showDuration": "500",
+            "hideDuration": "1000",
+            "timeOut": "5000",
+            "extendedTimeOut": "1000",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut",
+            "toastClass": "toastr-success"
+        };
+
+
+        var connection = new signalR.HubConnectionBuilder()
+            .withUrl("https://localhost:44324/hub")
+            .build();
+
+
+        connection.on("ReceiveNotification", function (message) {
+            toastr.success(message);
+        });
+
+        connection.start().catch(function (err) {
+            console.error(err.toString());
+        });
+    </script>
+
 </body>
 </html>

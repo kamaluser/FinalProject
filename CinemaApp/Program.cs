@@ -9,6 +9,7 @@ using Cinema.Service.Implementations;
 using Cinema.Service.Interfaces;
 using Cinema.Service.Profiles;
 using Cinema.Service.Services;
+using Cinema.UI.Hubs;
 using CinemaApp.Middlewares;
 using FluentValidation;
 using FluentValidation.AspNetCore;
@@ -84,16 +85,17 @@ builder.Services.AddSwaggerGen(c =>
 builder.Services.AddDbContext<AppDbContext>(opt => {
     opt.UseSqlServer(builder.Configuration.GetConnectionString("Default"));
 });
-
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowAll", policy =>
+    options.AddPolicy("AllowSpecificOrigin", policy =>
     {
-        policy.AllowAnyOrigin()
+        policy.WithOrigins("http://localhost:5123")
               .AllowAnyMethod()
-              .AllowAnyHeader();
+              .AllowAnyHeader()
+              .AllowCredentials();
     });
 });
+
 
 //builder.Services.AddOutputCache();
 builder.Services.AddResponseCaching();
@@ -101,13 +103,7 @@ builder.Services.AddResponseCaching();
 
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddScoped<EmailService>();
-/*builder.Services.AddOutputCache(options =>
-{
-    options.AddBasePolicy(policy => policy
-        .Expire(TimeSpan.FromSeconds(60))
-        .SetVaryByQuery("id"));
-});
-*/
+builder.Services.AddSignalR();
 builder.Services.AddSingleton(provider => new MapperConfiguration(cfg =>
 {
     cfg.AddProfile(new MapProfile(provider.GetService<IHttpContextAccessor>()));
@@ -194,20 +190,6 @@ builder.Services.AddQuartzHostedService(options =>
 });
 
 
-/*builder.Services.AddQuartz(options =>
-{
-    var key = JobKey.Create(nameof(ReminderJob));
-    options.AddJob<ReminderJob>(key)
-           .AddTrigger(x => x.ForJob(key)
-                              .WithCronSchedule("0 8 18 * * ?")
-                              .StartNow());
-});
-
-builder.Services.AddQuartzHostedService(options =>
-{
-    options.WaitForJobsToComplete = true;
-    options.AwaitApplicationStarted = true;
-});*/
 
 
 builder.Services.AddAuthentication(opt =>
@@ -255,10 +237,12 @@ app.UseStaticFiles();
 
 app.MapControllers();
 
-app.UseCors("AllowAll");
+app.UseCors("AllowSpecificOrigin");
+
 
 //app.UseOutputCache();
 app.UseResponseCaching();
+app.MapHub<BookingHub>("/hub");
 //app.UseMiddleware<OutputCacheMiddleware>();
 
 app.UseMiddleware<ExceptionHandlerMiddleware>();

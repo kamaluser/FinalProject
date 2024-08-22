@@ -98,7 +98,7 @@ namespace CinemaApp.Controllers
             return Ok(sessions);
         }
 
-        [HttpGet("seats/{sessionId}")]
+        [HttpGet("{sessionId}/seats")]
         [ResponseCache(Duration = 60, Location = ResponseCacheLocation.Any, NoStore = false)]
         public async Task<IActionResult> GetSeatsForSession(int sessionId)
         {

@@ -175,32 +175,6 @@
                 document.getElementById('usersCount').innerText = 'Error';
             });
 
-        fetch('/Api/Seats/GetOrdered')
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                return response.json();
-            })
-            .then(data => {
-                document.getElementById('orderedSeatsCount').textContent = data;
-            })
-            .catch(error => {
-                console.error('There has been a problem with your fetch operation:', error);
-                document.getElementById('orderedSeatsCount').textContent = 'Error';
-            });
-
-
-        fetch('/api/orders/price/monthly')
-            .then(response => response.json())
-            .then(data => {
-                document.getElementById('monthlyRevenue').innerText = `$${data.toFixed(2)}`;
-            })
-            .catch(error => {
-                console.error('There was a problem with the fetch operation:', error);
-                document.getElementById('monthlyRevenue').innerText = 'Error';
-            });
-
         fetch('/api/orders/monthly-count-current-year')
             .then(response => response.json())
             .then(data => {

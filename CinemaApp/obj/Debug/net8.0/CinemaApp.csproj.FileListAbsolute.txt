@@ -488,3 +488,5 @@ C:\Users\kamal\Desktop\FinalProject\CinemaApp\bin\Debug\net8.0\StackExchange.Red
 C:\Users\kamal\Desktop\FinalProject\CinemaApp\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.Google.dll
 C:\Users\kamal\Desktop\FinalProject\CinemaApp\bin\Debug\net8.0\MicroElements.OpenApi.FluentValidation.dll
 C:\Users\kamal\Desktop\FinalProject\CinemaApp\bin\Debug\net8.0\MicroElements.Swashbuckle.FluentValidation.dll
+C:\Users\kamal\Desktop\FinalProject\CinemaApp\bin\Debug\net8.0\Newtonsoft.Json.dll
+C:\Users\kamal\Desktop\FinalProject\CinemaApp\bin\Debug\net8.0\System.Net.WebSockets.WebSocketProtocol.dll
