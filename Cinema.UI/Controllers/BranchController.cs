@@ -21,7 +21,13 @@ namespace Cinema.UI.Controllers
         {
             try
             {
-                return View(await _crudService.GetAllPaginated<BranchListItemGetResponse>("branches", page));
+                var branches = await _crudService.GetAllPaginated<BranchListItemGetResponse>("branches", page);
+                if (page > branches.TotalPages)
+                {
+                    return RedirectToAction("Index", new { page = branches.TotalPages });
+                }
+
+                return View(branches);
             }
             catch (HttpException e)
             {

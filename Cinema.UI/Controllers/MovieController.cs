@@ -3,6 +3,7 @@ using Cinema.UI.Exceptions;
 using Cinema.UI.Models.LanguageModels;
 using Cinema.UI.Models.MovieModels;
 using Cinema.UI.Services;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Text.Json;
 
@@ -22,7 +23,14 @@ public class MovieController : Controller
     {
         try
         {
-            return View(await _crudService.GetAllPaginated<MovieListItemGetResponse>("movies", page));
+            var movies = await _crudService.GetAllPaginated<MovieListItemGetResponse>("movies", page);
+            if (page > movies.TotalPages)
+            {
+                return RedirectToAction("Index", new { page = movies.TotalPages });
+            }
+
+
+            return View(movies);
         }
         catch (HttpException e)
         {

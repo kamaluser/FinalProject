@@ -63,8 +63,6 @@ namespace Cinema.UI.Controllers
             return View();
         }
 
-
-
         public IActionResult ResetPassword()
         {
             var userName = TempData["ResetUserName"] as string;
@@ -88,6 +86,11 @@ namespace Cinema.UI.Controllers
         {
             if (!ModelState.IsValid)
             {
+                var errors = ModelState.Values.SelectMany(v => v.Errors);
+                foreach (var error in errors)
+                {
+                    Console.WriteLine(error.ErrorMessage);
+                }
                 return View(model);
             }
 

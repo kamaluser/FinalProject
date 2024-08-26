@@ -88,73 +88,79 @@
             <div class="sidebar-wrapper scrollbar scrollbar-inner">
                 <div class="sidebar-content">
                     <ul class="nav nav-secondary">
-                        <li class="nav-item active">
-                            <a asp-action="index"
-                               asp-controller="home"
-                               class="collapsed">
-                                <i class="fas fa-home"></i>
-                                <p>Dashboard</p>
-                            </a>
-                        </li>
-                        @if (profile.Role == "SuperAdmin")
-                        {
-                            <li class="nav-item">
-                                <a asp-action="showadmins" asp-controller="Account">
-                                    <i class="fas fa-desktop"></i>
-                                    <p>Admins</p>
-                                </a>
-                            </li>
-                        }
+                    <li class="nav-item active">
+                        <a asp-action="index"
+                           asp-controller="home"
+                           class="collapsed">
+                            <i class="fas fa-tachometer-alt"></i> 
+                            <p>Dashboard</p>
+                        </a>
+                    </li>
+                    @if (profile.Role == "SuperAdmin")
+                    {
                         <li class="nav-item">
-                            <a asp-action="Index" asp-controller="Setting">
-                                <i class="fas fa-desktop"></i>
-                                <p>Setting</p>
+                            <a asp-action="showadmins" asp-controller="Account">
+                                <i class="fas fa-user-shield"></i> 
+                                <p>Admins</p>
                             </a>
                         </li>
+                    }
+                    <li class="nav-item">
+                        <a asp-action="Index" asp-controller="Order">
+                            <i class="fas fa-shopping-cart"></i> 
+                            <p>Orders</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a asp-action="Index" asp-controller="Setting">
+                            <i class="fas fa-cogs"></i>
+                            <p>Setting</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a asp-action="index" asp-controller="Language">
+                            <i class="fas fa-globe"></i>
+                            <p>Language</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a asp-action="index" asp-controller="News">
+                            <i class="fas fa-newspaper"></i> 
+                            <p>News</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a asp-action="index" asp-controller="Slider">
+                            <i class="fas fa-images"></i> 
+                            <p>Slider</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a asp-action="index" asp-controller="Branch">
+                            <i class="fas fa-building"></i> 
+                            <p>Branch</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a asp-action="index" asp-controller="Hall">
+                            <i class="fas fa-door-open"></i> 
+                            <p>Hall</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a asp-action="index" asp-controller="Movie">
+                            <i class="fas fa-film"></i> 
+                            <p>Movie</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a asp-action="index" asp-controller="Session">
+                            <i class="fas fa-clock"></i> 
+                            <p>Session</p>
+                        </a>
+                    </li>
+                </ul>
 
-                        <li class="nav-item">
-                            <a asp-action="index" asp-controller="Language">
-                                <i class="fas fa-desktop"></i>
-                                <p>Language</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a asp-action="index" asp-controller="News">
-                                <i class="fas fa-desktop"></i>
-                                <p>News</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a asp-action="index" asp-controller="Slider">
-                                <i class="fas fa-desktop"></i>
-                                <p>Slider</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a asp-action="index" asp-controller="Branch">
-                                <i class="fas fa-desktop"></i>
-                                <p>Branch</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a asp-action="index" asp-controller="Hall">
-                                <i class="fas fa-desktop"></i>
-                                <p>Hall</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a asp-action="index" asp-controller="Movie">
-                                <i class="fas fa-desktop"></i>
-                                <p>Movie</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a asp-action="index" asp-controller="Session">
-                                <i class="fas fa-desktop"></i>
-                                <p>Session</p>
-                            </a>
-                        </li>
-                    </ul>
                 </div>
             </div>
         </div>

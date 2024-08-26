@@ -22,6 +22,10 @@ namespace Cinema.UI.Controllers
             try
             {
                 var orders = await _crudService.GetAllPaginated<OrderListItemGetResponse>("orders/getallbypagination", page);
+                if (page > orders.TotalPages)
+                {
+                    return RedirectToAction("Index", new { page = orders.TotalPages });
+                }
 
                 return View(orders);
             }

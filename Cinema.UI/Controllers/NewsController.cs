@@ -18,7 +18,14 @@ namespace Cinema.UI.Controllers
         {
             try
             {
-                return View(await _crudService.GetAllPaginated<NewsListItemGetResponse>("news", page));
+                var news = await _crudService.GetAllPaginated<NewsListItemGetResponse>("news", page);
+                if (page > news.TotalPages)
+                {
+                    return RedirectToAction("Index", new { page = news.TotalPages });
+                }
+
+
+                return View(news);
             }
             catch (HttpException e)
             {

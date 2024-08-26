@@ -20,12 +20,7 @@ namespace Cinema.UI.Controllers
             {
                 var sliders = await _crudService.GetAllPaginated<SliderListItemGetResponse>("sliders", page);
 
-                if (page > sliders.TotalPages && sliders.TotalPages > 0)
-                {
-                    return RedirectToAction("Index", new { page = sliders.TotalPages });
-                }
-
-                if (sliders.Items.Count == 0 && page > 1)
+                if (page > sliders.TotalPages)
                 {
                     return RedirectToAction("Index", new { page = sliders.TotalPages });
                 }

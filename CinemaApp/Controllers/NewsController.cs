@@ -29,7 +29,7 @@ namespace CinemaApp.Controllers
         }
 
         [HttpGet("")]
-        public ActionResult<List<AdminNewsGetDto>> GetAllByPage(string? search = null, int page = 1, int size = 10)
+        public ActionResult<List<AdminNewsGetDto>> GetAllByPage(string? search = null, int page = 1, int size = 3)
         {
             return Ok(_newsService.GetAllByPage(search, page, size));
         }

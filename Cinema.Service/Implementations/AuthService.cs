@@ -396,7 +396,7 @@ namespace Cinema.Service.Implementations
             var passwordCheck = await _userManager.CheckPasswordAsync(user, updatePasswordDto.CurrentPassword);
             if (!passwordCheck)
             {
-                throw new RestException(StatusCodes.Status400BadRequest, "Current password is incorrect.");
+                throw new RestException(StatusCodes.Status400BadRequest, "CurrentPassword", "Current password is incorrect.");
             }
 
             if (updatePasswordDto.NewPassword != updatePasswordDto.ConfirmPassword)
@@ -422,7 +422,6 @@ namespace Cinema.Service.Implementations
 
         public async Task<string> UserLogin(MemberLoginDto loginDto)
         {
-
             var user = await _userManager.FindByEmailAsync(loginDto.Email);
             if (user == null || !await _userManager.CheckPasswordAsync(user, loginDto.Password))
             {

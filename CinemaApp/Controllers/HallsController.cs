@@ -27,7 +27,7 @@ namespace CinemaApp.Controllers
         }
 
         [HttpGet("")]
-        public ActionResult<List<AdminHallGetDto>> GetAllByPage(string? search = null, int page = 1, int size = 10)
+        public ActionResult<List<AdminHallGetDto>> GetAllByPage(string? search = null, int page = 1, int size = 6)
         {
             return Ok(_hallService.GetAllByPage(search, page, size));
         }

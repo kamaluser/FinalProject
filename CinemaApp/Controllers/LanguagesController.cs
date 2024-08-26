@@ -31,7 +31,7 @@ namespace CinemaApp.Controllers
         }
 
         [HttpGet("")]
-        public ActionResult<List<AdminLanguageGetDto>> GetAllByPage(string? search = null, int page = 1, int size = 10)
+        public ActionResult<List<AdminLanguageGetDto>> GetAllByPage(string? search = null, int page = 1, int size = 5)
         {
             return Ok(_languageService.GetAllByPage(search, page, size));
         }

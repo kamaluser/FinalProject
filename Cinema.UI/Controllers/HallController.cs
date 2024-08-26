@@ -22,7 +22,14 @@ namespace Cinema.UI.Controllers
         {
             try
             {
-                return View(await _crudService.GetAllPaginated<HallListItemGetResponse>("halls", page));
+                var halls = await _crudService.GetAllPaginated<HallListItemGetResponse>("halls", page);
+                if (page > halls.TotalPages)
+                {
+                    return RedirectToAction("Index", new { page = halls.TotalPages });
+                }
+
+
+                return View(halls);
             }
             catch (HttpException e)
             {

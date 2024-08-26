@@ -18,7 +18,13 @@ namespace Cinema.UI.Controllers
         {
             try
             {
-                return View(await _crudService.GetAllPaginated<LanguageListItemGetResponse>("languages", page));
+                var languages = await _crudService.GetAllPaginated<LanguageListItemGetResponse>("languages", page);
+                if (page > languages.TotalPages)
+                {
+                    return RedirectToAction("Index", new { page = languages.TotalPages });
+                }
+
+                return View(languages);
             }
             catch (HttpException e)
             {
