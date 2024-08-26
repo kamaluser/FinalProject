@@ -88,26 +88,30 @@ namespace Cinema.UI.Controllers
         {
             if (!ModelState.IsValid)
             {
-
                 return View(model);
             }
+
             try
             {
                 await _crudService.Update<ResetPasswordViewModel>(model, "auth/updatePassword");
-
                 return RedirectToAction("Login");
             }
             catch (ModelException e)
             {
                 foreach (var item in e.Error.Errors)
                 {
-
                     ModelState.AddModelError(item.Key, item.Message);
                 }
 
                 return View(model);
             }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError(string.Empty, "Error occured. Please try again.");
+                return View(model);
+            }
         }
+
 
         public IActionResult CreateAdminBySuperAdmin()
         {

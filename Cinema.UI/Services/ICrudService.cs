@@ -26,7 +26,7 @@ namespace Cinema.UI.Services
         Task<YearlyOrderResponse> GetMonthlyOrderCountForCurrentYearAsync();
         Task<int> GetTotalOrderedSeatsCountAsync();
         Task<int> GetMembersCountAsync();
-        Task<decimal> GetMonthlyRevenueAsync();
+        Task<decimal> GetDailyTotalPriceAsync();
         Task<YearlyRevenueResponse> GetMonthlyRevenueForCurrentYearAsync();
         Task<List<SessionLanguageResponse>> GetSessionLanguagesAsync();
     }

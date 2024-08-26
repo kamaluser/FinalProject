@@ -80,10 +80,10 @@ namespace Cinema.UI.Services
             return await response.Content.ReadFromJsonAsync<int>();
         }
 
-        public async Task<decimal> GetMonthlyRevenueAsync()
+       /* public async Task<decimal> GetDailyRevenueAsync()
         {
             AddAuthorizationHeader();
-            var response = await _client.GetAsync(baseUrl + "orders/price/monthly");
+            var response = await _client.GetAsync(baseUrl + "orders/price/daily");
             var content = await response.Content.ReadAsStringAsync();
 
             if (response.IsSuccessStatusCode)
@@ -108,7 +108,7 @@ namespace Cinema.UI.Services
                 Console.WriteLine($"Error: {content}");
                 throw new HttpException(response.StatusCode);
             }
-        }
+        }*/
 
         public async Task<int> GetOrderCountLastMonthAsync()
         {
@@ -350,48 +350,7 @@ namespace Cinema.UI.Services
             }
         }
 
-        private MultipartFormDataContent CreateMultipartFormDataContent<TRequest>(TRequest request)
-        {
-            var content = new MultipartFormDataContent();
-
-            foreach (var prop in request.GetType().GetProperties())
-            {
-                var value = prop.GetValue(request);
-
-                if (value is IFormFile file)
-                {
-                    var fileContent = new StreamContent(file.OpenReadStream());
-                    fileContent.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue(file.ContentType);
-                    content.Add(fileContent, prop.Name, file.FileName);
-                }
-                else if (value is List<IFormFile> files)
-                {
-                    foreach (var photo in files)
-                    {
-                        var fileContent = new StreamContent(photo.OpenReadStream());
-                        fileContent.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue(photo.ContentType);
-                        content.Add(fileContent, prop.Name, photo.FileName);
-                    }
-                }
-                else if (value is List<int> numbers)
-                {
-                    foreach (var number in numbers)
-                    {
-                        content.Add(new StringContent(number.ToString()), prop.Name);
-                    }
-                }
-                else if (value is DateTime dateTime)
-                {
-                    content.Add(new StringContent(dateTime.ToLongDateString()), prop.Name);
-                }
-                else if (value != null)
-                {
-                    content.Add(new StringContent(value.ToString()), prop.Name);
-                }
-            }
-
-            return content;
-        }
+       
 
         public async Task<YearlyOrderResponse> GetMonthlyOrderCountForCurrentYearAsync()
         {
@@ -437,27 +396,6 @@ namespace Cinema.UI.Services
             }
         }
 
-
-       /* public async Task<List<OrderDetailResponse>> GetAllOrderDetailsAsync()
-        {
-            AddAuthorizationHeader();
-            var response = await _client.GetAsync(baseUrl + "orders/details");
-            var content = await response.Content.ReadAsStringAsync();
-
-            if (response.IsSuccessStatusCode)
-            {
-                var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
-                return JsonSerializer.Deserialize<List<OrderDetailResponse>>(content, options);
-            }
-            else
-            {
-                Console.WriteLine($"Error: {content}");
-                throw new HttpException(response.StatusCode);
-            }
-        }*/
-
-
-
         public async Task<byte[]> ExportAsync()
         {
             AddAuthorizationHeader();
@@ -476,5 +414,76 @@ namespace Cinema.UI.Services
                 }
             }
         }
+
+
+        private MultipartFormDataContent CreateMultipartFormDataContent<TRequest>(TRequest request)
+        {
+            var content = new MultipartFormDataContent();
+
+            foreach (var prop in request.GetType().GetProperties())
+            {
+                var value = prop.GetValue(request);
+
+                if (value is IFormFile file)
+                {
+                    var fileContent = new StreamContent(file.OpenReadStream());
+                    fileContent.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue(file.ContentType);
+                    content.Add(fileContent, prop.Name, file.FileName);
+                }
+                else if (value is List<IFormFile> files)
+                {
+                    foreach (var photo in files)
+                    {
+                        var fileContent = new StreamContent(photo.OpenReadStream());
+                        fileContent.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue(photo.ContentType);
+                        content.Add(fileContent, prop.Name, photo.FileName);
+                    }
+                }
+                else if (value is List<int> numbers)
+                {
+                    foreach (var number in numbers)
+                    {
+                        content.Add(new StringContent(number.ToString()), prop.Name);
+                    }
+                }
+                else if (value is DateTime dateTime)
+                {
+                    content.Add(new StringContent(dateTime.ToLongDateString()), prop.Name);
+                }
+                else if (value != null)
+                {
+                    content.Add(new StringContent(value.ToString()), prop.Name);
+                }
+            }
+
+            return content;
+        }
+
+        public async Task<decimal> GetDailyTotalPriceAsync()
+        {
+            AddAuthorizationHeader();
+            var response = await _client.GetAsync(baseUrl + "orders/price/daily");
+            var content = await response.Content.ReadAsStringAsync();
+
+            if (response.IsSuccessStatusCode)
+            {
+                var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+                var dto = JsonSerializer.Deserialize<OrderRevenueResponse>(content, options);
+
+                if (dto != null)
+                {
+                    return dto.TotalPrice;
+                }
+                else
+                {
+                    throw new HttpException(response.StatusCode);
+                }
+            }
+            else
+            {
+                throw new HttpException(response.StatusCode);
+            }
+        }
+
     }
 }

@@ -5,6 +5,7 @@ using Cinema.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using System.Text.Json;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Cinema.UI.Controllers
 {
@@ -219,6 +220,28 @@ namespace Cinema.UI.Controllers
             }
         }
 
+        [HttpGet("api/orders/daily-total-price")]
+        public async Task<IActionResult> GetDailyTotalPrice()
+        {
+            try
+            {
+                var totalPrice = await _crudService.GetDailyTotalPriceAsync();
+                return Ok(totalPrice);
+            }
+            catch (HttpRequestException ex)
+            {
+                if (ex.StatusCode == System.Net.HttpStatusCode.Unauthorized)
+                {
+                    return Unauthorized("You are not authorized.");
+                }
+
+                return StatusCode(StatusCodes.Status500InternalServerError, "An error occurred while processing your request.");
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, $"An error occurred while processing your request: {ex.Message}");
+            }
+        }
 
         public IActionResult Privacy()
         {

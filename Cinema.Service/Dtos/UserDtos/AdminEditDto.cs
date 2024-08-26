@@ -15,22 +15,18 @@ namespace Cinema.Service.Dtos.UserDtos
         public AdminEditDtoValidator()
         {
             RuleFor(x => x.UserName)
-
                 .MaximumLength(25)
                 .MinimumLength(2);
 
             RuleFor(x => x.CurrentPassword)
-
                 .MaximumLength(25)
                 .MinimumLength(8);
 
             RuleFor(x => x.NewPassword)
-
                 .MaximumLength(25)
                 .MinimumLength(8);
 
             RuleFor(x => x.ConfirmPassword)
-
                 .MaximumLength(25)
                 .MinimumLength(8);
 

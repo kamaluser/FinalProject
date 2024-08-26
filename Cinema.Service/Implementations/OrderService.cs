@@ -208,21 +208,14 @@ namespace Cinema.Service.Implementations
             return new OrderCountDto { Count = count };
         }
 
-        public decimal GetMonthlyTotalPriceAsync()
+        public async Task<decimal> GetDailyTotalPriceAsync()
         {
-            var now = DateTime.UtcNow;
-            var startDate = new DateTime(now.Year, now.Month, 1);
-            var endDate = startDate.AddMonths(1).AddDays(-1);
+            var now = DateTime.Now;
+            var startDate = now.Date;
+            var endDate = startDate.AddDays(1).AddTicks(-1);
 
-            var orders = _orderRepository.GetAll(x=>x.OrderDate>=startDate && x.OrderDate<=endDate)
-                                                    .ToList();
-
-            decimal totalPrice = 0;
-
-            foreach (var order in orders)
-            {
-                totalPrice += order.TotalPrice;
-            }
+            var totalPrice = await _orderRepository.GetAll(x => x.OrderDate >= startDate && x.OrderDate <= endDate)
+                                                   .SumAsync(x => x.TotalPrice);
 
             return totalPrice;
         }

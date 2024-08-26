@@ -1,11 +1,21 @@
-﻿<div class="page-inner">
+﻿@using Cinema.UI.Services
+@inject ILayoutService layoutService
+@{
+    var profile = await layoutService.GetProfile();
+}
+
+<div class="page-inner">
     <div class="d-flex align-items-left align-items-md-center flex-column flex-md-row pt-2 pb-4">
         <div>
             <h3 class="fw-bold mb-3">Dashboard</h3>
         </div>
-        <div class="ms-md-auto py-2 py-md-0">
-            <a asp-controller="account" asp-action="CreateAdminBySuperAdmin" class="btn btn-primary btn-round">Create Admin</a>
-        </div>
+        @if(profile.Role == "SuperAdmin")
+        {
+            <div class="ms-md-auto py-2 py-md-0">
+                <a asp-controller="account" asp-action="CreateAdminBySuperAdmin" class="btn btn-primary btn-round">Create Admin</a>
+            </div>
+        }
+       
     </div>
     <div class="row">
         <div class="col-sm-6 col-md-4">
@@ -54,19 +64,20 @@
                     <div class="row align-items-center">
                         <div class="col-icon">
                             <div class="icon-big text-center icon-secondary bubble-shadow-small">
-                                <i class="fas fa-receipt"></i>
+                                <i class="fas fa-dollar-sign"></i>
                             </div>
                         </div>
                         <div class="col col-stats ms-3 ms-sm-0">
                             <div class="numbers">
-                                <p class="card-category">Monthly Order Count</p>
-                                <h4 id="orderCount" class="card-title">Loading...</h4>
+                                <p class="card-category">Daily Revenue</p>
+                                <h4 id="dailyTotalPrice" class="card-title">Loading...</h4>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+
     </div>
     <div class="row">
         <div class="col-md-8">
@@ -95,7 +106,7 @@
                         </div>
                         <div class="col col-stats ms-3 ms-sm-0">
                             <div class="numbers">
-                                <p class="card-category">Total Users</p>
+                                <p class="card-category">Registered Users</p>
                                 <h4 id="usersCount" class="card-title">Loading...</h4>
                             </div>
                         </div>
@@ -135,15 +146,16 @@
 
 <script>
     document.addEventListener('DOMContentLoaded', function () {
-        fetch('/Api/Orders/last-month-count')
+        fetch('/api/orders/daily-total-price')
             .then(response => response.json())
             .then(data => {
-                document.getElementById('orderCount').innerText = data;
+                document.getElementById('dailyTotalPrice').innerText = `${data} AZN`;
             })
             .catch(error => {
                 console.error('There was a problem with the fetch operation:', error);
-                document.getElementById('orderCount').innerText = 'Error';
+                document.getElementById('dailyTotalPrice').innerText = 'Error';
             });
+
 
         fetch('/Api/Orders/last-year-count')
             .then(response => response.json())

@@ -86,8 +86,6 @@ namespace Cinema.Test.UnitTests
         }
 
 
-
-
         [Fact]
         public void GetById_ShouldReturnBranch_WhenValidId()
         {

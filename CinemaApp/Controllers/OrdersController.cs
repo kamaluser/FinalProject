@@ -33,10 +33,10 @@ namespace CinemaApp.Controllers
         }
 
 
-        [HttpGet("api/admin/orders/price/monthly")]
-        public IActionResult GetMonthlyTotalPrice()
+        [HttpGet("api/admin/orders/price/daily")]
+        public async Task<IActionResult> GetDailyTotalPrice()
         {
-            var totalPrice = _orderService.GetMonthlyTotalPriceAsync();
+            var totalPrice = await _orderService.GetDailyTotalPriceAsync();
             return Ok(new { totalPrice });
         }
 

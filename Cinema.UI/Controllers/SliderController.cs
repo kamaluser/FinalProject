@@ -18,7 +18,19 @@ namespace Cinema.UI.Controllers
         {
             try
             {
-                return View(await _crudService.GetAllPaginated<SliderListItemGetResponse>("sliders", page));
+                var sliders = await _crudService.GetAllPaginated<SliderListItemGetResponse>("sliders", page);
+
+                if (page > sliders.TotalPages && sliders.TotalPages > 0)
+                {
+                    return RedirectToAction("Index", new { page = sliders.TotalPages });
+                }
+
+                if (sliders.Items.Count == 0 && page > 1)
+                {
+                    return RedirectToAction("Index", new { page = sliders.TotalPages });
+                }
+
+                return View(sliders);
             }
             catch (HttpException e)
             {

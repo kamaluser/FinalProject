@@ -14,7 +14,7 @@ namespace Cinema.Service.Interfaces
         Task<OrderCountDto> GetOrderCountLastMonthAsync();
         Task<OrderCountDto> GetOrderCountLastYearAsync();
         Task<Dictionary<string, int>> GetMonthlyOrderCountsForCurrentYearAsync();
-        decimal GetMonthlyTotalPriceAsync();
+        Task<decimal> GetDailyTotalPriceAsync();
         Task<Dictionary<string, decimal>> GetMonthlyRevenueForCurrentYearAsync();
         Task<List<OrderDetailDto>> GetAllOrderDetailsAsync();
         PaginatedList<AdminOrderGetDto> GetAllByPage(int page = 1, int size = 10);
