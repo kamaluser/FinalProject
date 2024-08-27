@@ -5,17 +5,20 @@ using Cinema.UI.Models.MovieModels;
 using Cinema.UI.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Net.Http.Headers;
 using System.Text.Json;
 
 public class MovieController : Controller
 {
-    private HttpClient _client;
     private readonly ICrudService _crudService;
+    private readonly HttpClient _client;
+    private readonly IHttpContextAccessor _httpContextAccessor;
 
-    public MovieController(ICrudService crudService, HttpClient client)
+    public MovieController(ICrudService crudService, HttpClient client, IHttpContextAccessor httpContextAccessor)
     {
         _crudService = crudService;
-        _client = new HttpClient();
+        _client = client;
+        _httpContextAccessor = httpContextAccessor;
         _client.BaseAddress = new Uri("https://localhost:44324/");
     }
 
@@ -210,6 +213,8 @@ public class MovieController : Controller
 
     private async Task<List<LanguageListItemGetResponse>> getLanguages()
     {
+        _client.DefaultRequestHeaders.Remove(HeaderNames.Authorization);
+        _client.DefaultRequestHeaders.Add(HeaderNames.Authorization, _httpContextAccessor.HttpContext.Request.Cookies["token"]);
         try
         {
             using (var response = await _client.GetAsync("api/admin/Languages/all"))

@@ -11,7 +11,6 @@ namespace CinemaApp.Controllers
     [ApiExplorerSettings(GroupName = "admin_v1")]
     [Route("api/admin/[controller]")]
     [ApiController]
-    //[Authorize(Roles = "Admin")]
     public class MoviesController : Controller
     {
         private readonly IMovieService _movieService;
@@ -20,55 +19,53 @@ namespace CinemaApp.Controllers
         {
             _movieService = movieService;
         }
-
+        [Authorize(Roles = "Admin, SuperAdmin")]
         [HttpPost("")]
         public ActionResult<int> Create(AdminMovieCreateDto createDto)
         {
             var id = _movieService.Create(createDto);
             return StatusCode(201, new { id });
         }
-
+        [Authorize(Roles = "Admin, SuperAdmin")]
         [HttpGet("")]
         public ActionResult<PaginatedList<AdminMovieGetDto>> GetAllByPagination(string? search = null, int page = 1, int size = 3)
         {
             return StatusCode(200, _movieService.GetAllByPage(search, page, size));
         }
-
+        [Authorize(Roles = "Admin, SuperAdmin")]
         [HttpGet("all")]
         public ActionResult<List<Movie>> GetAll(string? search = null)
         {
             var Moviees = _movieService.GetAll(search);
             return Ok(Moviees);
         }
-
+        [Authorize(Roles = "Admin, SuperAdmin")]
         [HttpGet("{id}")]
         public ActionResult<AdminMovieGetDto> GetById(int id)
         {
             var result = _movieService.GetById(id);
             return Ok(result);
         }
-
+        [Authorize(Roles = "Admin, SuperAdmin")]
         [HttpPut("{id}")]
         public ActionResult Edit(int id, AdminMovieEditDto editDto)
         {
             _movieService.Edit(id, editDto);
             return NoContent();
         }
-
+        [Authorize(Roles = "Admin, SuperAdmin")]
         [HttpDelete("{id}")]
         public ActionResult Delete(int id)
         {
             _movieService.Delete(id);
             return NoContent();
         }
-
         [HttpGet("{id}/languages")]
         public ActionResult<List<MovieLanguageDto>> GetLanguagesByMovieId(int id)
         {
             var languages = _movieService.GetLanguagesByMovieId(id);
             return Ok(languages);
         }
-
         [HttpGet("todaysMovies")]
         public ActionResult<List<UserMovieGetDto>> GetMoviesForToday(int limit = 8)
         {

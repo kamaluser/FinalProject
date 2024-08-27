@@ -1,7 +1,9 @@
 ﻿using AutoMapper;
 using Cinema.Core.Entites;
+using Cinema.Data.Repositories.Implementations;
 using Cinema.Data.Repositories.Interfaces;
 using Cinema.Service.Dtos;
+using Cinema.Service.Dtos.NewsDtos;
 using Cinema.Service.Dtos.SliderDtos;
 using Cinema.Service.Exceptions;
 using Cinema.Service.Interfaces;
@@ -100,10 +102,6 @@ namespace Cinema.Service.Implementations
         {
             var query = _repository.GetAll(x => !x.IsDeleted);
             var paginated = PaginatedList<Slider>.Create(query, page, size);
-            if (paginated.TotalPages == 0)
-            {
-                page = 1;
-            }
             return new PaginatedList<AdminSliderGetDto>(_mapper.Map<List<AdminSliderGetDto>>(paginated.Items), paginated.TotalPages, page, size);
         }
 

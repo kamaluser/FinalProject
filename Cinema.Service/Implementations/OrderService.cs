@@ -51,8 +51,6 @@ namespace Cinema.Service.Implementations
             return new PaginatedList<AdminOrderGetDto>(ordersDto, paginated.TotalPages, page, size);
         }
 
-
-
         public async Task<List<OrderDetailDto>> GetAllOrderDetailsAsync()
         {
             var orders = await _context.Orders
@@ -76,6 +74,7 @@ namespace Cinema.Service.Implementations
                     SessionDate = o.Session.ShowDateTime,
                     OrderDate = o.OrderDate,
                     Language = o.Session.Language.Name,
+                    TotalPrice = o.TotalPrice,
                     SeatNumbers = o.OrderSeats.Select(os => os.Seat.Number).ToList()
                 })
                 .ToListAsync();

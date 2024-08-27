@@ -4,15 +4,12 @@
     ViewData["Title"] = "Orders";
 }
 
-<!-- Begin Page Content -->
 <div class="container-fluid">
 
-    <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 class="h3 mb-0 text-gray-800">Orders</h1>
     </div>
 
-    <!-- Orders Table -->
     <div class="row">
         <div class="col-md-12 mx-auto">
             <div class="table-responsive">
@@ -22,13 +19,13 @@
                             <th scope="col">#</th>
                             <th scope="col">User Name</th>
                             <th scope="col">Email</th>
-                            <th scope="col">Branch</th>
                             <th scope="col">Hall</th>
                             <th scope="col">Movie</th>
                             <th scope="col">Language</th>
                             <th scope="col">Order Date</th>
                             <th scope="col">Session Date</th>
                             <th scope="col">Seat Numbers</th>
+                            <th scope="col">Total Price</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -38,20 +35,19 @@
                                 <th scope="row">@item.Id</th>
                                 <td>@item.UserName</td>
                                 <td>@item.EmailOfUser</td>
-                                <td>@item.BranchName</td>
                                 <td>@item.HallName</td>
                                 <td>@item.MovieName</td>
                                 <td>@item.Language</td>
                                 <td>@item.OrderDate.ToString("yyyy-MM-dd HH:mm")</td>
                                 <td>@item.SessionDate.ToString("yyyy-MM-dd HH:mm")</td>
                                 <td>@string.Join(", ", item.SeatNumbers)</td>
+                                <td>@item.TotalPrice.ToString("0.##") AZN</td>
                             </tr>
                         }
                     </tbody>
                 </table>
             </div>
 
-            <!-- Pagination -->
             <nav aria-label="Page navigation example" class="d-flex justify-content-center">
                 <ul class="pagination">
                     @if (Model.PageIndex == 1)

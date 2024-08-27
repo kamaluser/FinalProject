@@ -34,11 +34,6 @@ namespace CinemaApp.Controllers
 
             var paginatedList = _sliderService.GetAllByPage(page, size);
 
-            if (!paginatedList.Items.Any() && page > 1)
-            {
-                return BadRequest(new { message = "No sliders found for this page." });
-            }
-
             return StatusCode(200, paginatedList);
         }
 

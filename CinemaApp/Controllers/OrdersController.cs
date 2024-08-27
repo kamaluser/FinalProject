@@ -11,7 +11,6 @@ using Microsoft.AspNetCore.SignalR;
 
 namespace CinemaApp.Controllers
 {
-    //[Authorize(Roles = "Admin, Superadmin")]
     public class OrdersController : Controller
     {
         private readonly IOrderService _orderService;
@@ -23,6 +22,7 @@ namespace CinemaApp.Controllers
             _hubContext = hubContext;
         }
 
+        [Authorize(Roles = "Admin, SuperAdmin")]
         [HttpGet("api/admin/orders/GetAllByPagination")]
         public ActionResult<PaginatedList<AdminOrderGetDto>> GetAllByPagination(int page = 1, int size = 6)
         {
@@ -32,7 +32,6 @@ namespace CinemaApp.Controllers
             return StatusCode(200, _orderService.GetAllByPage(page, size));
         }
 
-
         [HttpGet("api/admin/orders/price/daily")]
         public async Task<IActionResult> GetDailyTotalPrice()
         {
@@ -40,7 +39,7 @@ namespace CinemaApp.Controllers
             return Ok(new { totalPrice });
         }
 
-
+        [Authorize(Roles = "Admin, SuperAdmin")]
         [HttpGet("api/admin/orders/monthly-count-current-year")]
         public async Task<IActionResult> GetMonthlyOrderCounts()
         {
@@ -56,7 +55,7 @@ namespace CinemaApp.Controllers
             return Ok(response);
         }
 
-
+        [Authorize(Roles = "Admin, SuperAdmin")]
         [HttpGet("api/admin/orders/monthly-revenue-current-year")]
         public async Task<IActionResult> GetMonthlyRevenue()
         {
@@ -71,7 +70,7 @@ namespace CinemaApp.Controllers
             return Ok(response);
         }
 
-
+        [Authorize(Roles = "Admin, SuperAdmin")]
         [HttpGet("api/admin/orders/order-count-last-month")]
         public async Task<IActionResult> GetOrderCountLastMonth()
         {
@@ -86,6 +85,7 @@ namespace CinemaApp.Controllers
             return Ok(result);
         }
 
+        [Authorize(Roles = "Member")]
         [HttpPost("book-seats")]
         public async Task<IActionResult> BookSeats([FromBody] BookSeatDto bookSeatDto)
         {
