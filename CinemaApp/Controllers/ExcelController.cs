@@ -15,11 +15,19 @@ namespace CinemaApp.Controllers
         }
 
         [ApiExplorerSettings(GroupName = "admin_v1")]
-        [HttpGet("api/admin/excel/DownloadExcel")]
-        public async Task<IActionResult> DownloadExcel()
+        [HttpGet("api/admin/excel/SessionDownloadExcel")]
+        public async Task<IActionResult> SessionDownloadExcel()
         {
             var fileContent = await _excelExportService.ExportSessionsAsync();
             return File(fileContent, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "Sessions.xlsx");
+        }
+
+        [ApiExplorerSettings(GroupName = "admin_v1")]
+        [HttpGet("api/admin/excel/OrderDownloadExcel")]
+        public async Task<IActionResult> OrderDownloadExcel()
+        {
+            var fileContent = await _excelExportService.ExportOrdersAsync();
+            return File(fileContent, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "Orders.xlsx");
         }
     }
 }

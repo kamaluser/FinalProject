@@ -32,6 +32,11 @@ namespace Cinema.Service.Implementations
 
         public int Create(AdminSliderCreateDto createDto)
         {
+            if (_repository.Get(x => x.Order == createDto.Order && !x.IsDeleted) != null)
+            {
+                throw new RestException(StatusCodes.Status400BadRequest, $"A slider with order {createDto.Order} already exists.");
+            }
+
             var slider = _mapper.Map<Slider>(createDto);
 
             if (createDto.Image != null && createDto.Image.Length > 0)
@@ -53,6 +58,18 @@ namespace Cinema.Service.Implementations
             {
                 throw new RestException(StatusCodes.Status404NotFound, "Slider not found");
             }
+
+            if (editDto.Order.HasValue && editDto.Order.Value != slider.Order)
+            {
+                var existingSliderWithSameOrder = _repository.Get(x => x.Order == editDto.Order.Value && x.Id != id && !x.IsDeleted);
+                if (existingSliderWithSameOrder != null)
+                {
+                    throw new RestException(StatusCodes.Status400BadRequest, $"A slider with order {editDto.Order.Value} already exists.");
+                }
+
+                slider.Order = editDto.Order.Value;
+            }
+
 
             if (editDto.Image != null && editDto.Image.Length > 0)
             {
@@ -115,6 +132,15 @@ namespace Cinema.Service.Implementations
             }
 
             return _mapper.Map<AdminSliderGetDto>(slider);
+        }
+
+        public List<UserSliderGetDto> GetAllUser()
+        {
+            var sliders = _repository.GetAll(x=>!x.IsDeleted).ToList();
+
+            sliders = sliders.OrderBy(x => x.Order).ToList();
+
+            return _mapper.Map<List<UserSliderGetDto>>(sliders);
         }
 
         private void DeletePhotoFile(string photo)

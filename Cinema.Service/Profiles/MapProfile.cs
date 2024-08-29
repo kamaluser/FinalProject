@@ -62,6 +62,15 @@ namespace Cinema.Service.Profiles
             CreateMap<AdminSliderEditDto, Slider>()
                 .ForMember(dest => dest.Image, opt => opt.Ignore());
 
+
+            //slider(user)
+            CreateMap<Slider, UserSliderGetDto>()
+           .ForMember(dest => dest.Image, opt => opt.MapFrom((src, dest, destMember, context) =>
+           {
+               return baseUrl + $"/uploads/sliders/{src.Image}";
+           }));
+
+
             //branch(admin)
 
             CreateMap<Branch, AdminBranchGetDto>();
@@ -105,6 +114,14 @@ namespace Cinema.Service.Profiles
 
             CreateMap<AdminNewsEditDto, News>()
                 .ForMember(dest => dest.Image, opt => opt.Ignore());
+
+
+            // News (user)
+            CreateMap<News, UserNewsGetDto>()
+                .ForMember(dest => dest.Image, opt => opt.MapFrom((src, dest, destMember, context) =>
+                {
+                    return baseUrl + $"/uploads/news/{src.Image}";
+                }));
 
             // Movie
             CreateMap<Movie, AdminMovieGetDto>()

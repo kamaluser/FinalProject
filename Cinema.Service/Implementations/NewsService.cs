@@ -4,6 +4,7 @@ using Cinema.Data.Repositories.Implementations;
 using Cinema.Data.Repositories.Interfaces;
 using Cinema.Service.Dtos;
 using Cinema.Service.Dtos.NewsDtos;
+using Cinema.Service.Dtos.SliderDtos;
 using Cinema.Service.Exceptions;
 using Cinema.Service.Interfaces;
 using Microsoft.AspNetCore.Hosting;
@@ -93,6 +94,13 @@ namespace Cinema.Service.Implementations
                 throw new RestException(StatusCodes.Status404NotFound, "News", "News not found.");
 
             return _mapper.Map<AdminNewsGetDto>(news);
+        }
+
+        public PaginatedList<UserNewsGetDto> GetAllByPageUser(int page = 1, int size = 10)
+        {
+            var query = _newsRepository.GetAll(x => !x.IsDeleted && x.CreatedAt>DateTime.Now.AddDays(-7)).OrderByDescending(x => x.CreatedAt);
+            var paginated = PaginatedList<News>.Create(query, page, size);
+            return new PaginatedList<UserNewsGetDto>(_mapper.Map<List<UserNewsGetDto>>(paginated.Items), paginated.TotalPages, page, size);
         }
 
         private string SaveImage(IFormFile image)

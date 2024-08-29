@@ -17,7 +17,6 @@ namespace CinemaApp.Controllers
 {
     [Route("api/admin/[controller]")]
     [ApiController]
-    //[Authorize(Roles = "Admin")]
     public class SessionsController : Controller
     {
         private readonly ISessionService _sessionService;
@@ -27,6 +26,10 @@ namespace CinemaApp.Controllers
             _sessionService = sessionService;
         }
 
+
+
+        [ApiExplorerSettings(GroupName = "admin_v1")]
+        [Authorize(Roles = "Admin, SuperAdmin")]
         [HttpPost("")]
         public ActionResult<int> Create(AdminSessionCreateDto createDto)
         {
@@ -34,21 +37,29 @@ namespace CinemaApp.Controllers
             return StatusCode(201, new { id });
         }
 
+
+        [ApiExplorerSettings(GroupName = "admin_v1")]
+        [Authorize(Roles = "Admin, SuperAdmin")]
         [HttpGet("")]
         public ActionResult<PaginatedList<AdminSessionGetDto>> GetAllByPagination(string? search = null, int page = 1, int size = 3)
         {
             return StatusCode(200, _sessionService.GetAllByPage(search, page, size));
         }
 
+
+        [ApiExplorerSettings(GroupName = "admin_v1")]
+        [Authorize(Roles = "Admin, SuperAdmin")]
         [HttpGet("{id}")]
         [ResponseCache(Duration = 60, Location = ResponseCacheLocation.Any, NoStore = false)]
-
         public ActionResult<AdminSessionGetDto> GetById(int id)
         {
             var result = _sessionService.GetById(id);
             return Ok(result);
         }
 
+
+        [ApiExplorerSettings(GroupName = "admin_v1")]
+        [Authorize(Roles = "Admin, SuperAdmin")]
         [HttpGet("byHall/{hallId}")]
         [ResponseCache(Duration = 60, Location = ResponseCacheLocation.Any, NoStore = false)]
 
@@ -57,7 +68,7 @@ namespace CinemaApp.Controllers
             var sessions = await _sessionService.GetSessionsByHall(hallId);
             return Ok(sessions);
         }
-
+        [Authorize(Roles = "Admin, SuperAdmin")]
         [HttpGet("all")]
         [ResponseCache(Duration = 60, Location = ResponseCacheLocation.Any, NoStore = false)]
 
@@ -67,6 +78,8 @@ namespace CinemaApp.Controllers
             return Ok(sessions);
         }
 
+        [ApiExplorerSettings(GroupName = "admin_v1")]
+        [Authorize(Roles = "Admin, SuperAdmin")]
         [HttpPut("{id}")]
         public ActionResult Edit(int id, AdminSessionEditDto editDto)
         {
@@ -74,6 +87,8 @@ namespace CinemaApp.Controllers
             return NoContent();
         }
 
+        [ApiExplorerSettings(GroupName = "admin_v1")]
+        [Authorize(Roles = "Admin, SuperAdmin")]
         [HttpDelete("{id}")]
         public ActionResult Delete(int id)
         {
@@ -81,6 +96,8 @@ namespace CinemaApp.Controllers
             return NoContent();
         }
 
+        [ApiExplorerSettings(GroupName = "admin_v1")]
+        [Authorize(Roles = "Admin, SuperAdmin")]
         [HttpGet("count/monthly")]
         [ResponseCache(Duration = 60, Location = ResponseCacheLocation.Any, NoStore = false)]
         public async Task<IActionResult> GetSessionCountMonthly()
@@ -89,6 +106,7 @@ namespace CinemaApp.Controllers
             return Ok(new { count });
         }
 
+        [ApiExplorerSettings(GroupName = "user_v1")]
         [HttpGet("{movieId}/sessions")]
         [ResponseCache(Duration = 60, Location = ResponseCacheLocation.Any, NoStore = false)]
         public ActionResult<List<UserSessionDetailsDto>> GetSessionsByMovieIdAndDate(int movieId, DateTime? date = null, [FromQuery] int? branchId = null, [FromQuery] int? languageId = null)
@@ -98,6 +116,7 @@ namespace CinemaApp.Controllers
             return Ok(sessions);
         }
 
+        [ApiExplorerSettings(GroupName = "user_v1")]
         [HttpGet("{sessionId}/seats")]
         [ResponseCache(Duration = 60, Location = ResponseCacheLocation.Any, NoStore = false)]
         public async Task<IActionResult> GetSeatsForSession(int sessionId)
@@ -113,6 +132,8 @@ namespace CinemaApp.Controllers
             }
         }
 
+        [ApiExplorerSettings(GroupName = "admin_v1")]
+        [Authorize(Roles = "Admin, SuperAdmin")]
         [HttpGet("count/languages/monthly")]
         [ResponseCache(Duration = 60, Location = ResponseCacheLocation.Any, NoStore = false)]
         public async Task<IActionResult> GetSessionCountByLanguageThisMonth()

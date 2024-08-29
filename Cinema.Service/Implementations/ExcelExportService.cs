@@ -17,6 +17,49 @@ namespace Cinema.Service.Implementations
             ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
         }
 
+        public async Task<byte[]> ExportOrdersAsync()
+        {
+            var orders = await _context.Orders
+                .Include(o => o.Session)
+                    .ThenInclude(s => s.Movie)
+                .Include(o => o.Session)
+                    .ThenInclude(s => s.Hall)
+                        .ThenInclude(h => h.Branch)
+                .Include(o => o.User)
+                .Include(o => o.OrderSeats)
+                .ToListAsync();
+
+            using (var package = new ExcelPackage())
+            {
+                var worksheet = package.Workbook.Worksheets.Add("Orders");
+
+                worksheet.Cells[1, 1].Value = "Order ID";
+                worksheet.Cells[1, 2].Value = "User Name";
+                worksheet.Cells[1, 3].Value = "Email";
+                worksheet.Cells[1, 4].Value = "Movie Title";
+                worksheet.Cells[1, 5].Value = "Session Date & Time";
+                worksheet.Cells[1, 6].Value = "Order Date";
+                worksheet.Cells[1, 7].Value = "Total Price";
+
+                for (int i = 0; i < orders.Count; i++)
+                {
+                    var order = orders[i];
+
+                    worksheet.Cells[i + 2, 1].Value = order.Id;
+                    worksheet.Cells[i + 2, 2].Value = order.User.UserName;
+                    worksheet.Cells[i + 2, 3].Value = order.User.Email; 
+                    worksheet.Cells[i + 2, 4].Value = order.Session.Movie.Title;
+                    worksheet.Cells[i + 2, 5].Value = order.Session.ShowDateTime.ToString("yyyy-MM-dd HH:mm");
+                    worksheet.Cells[i + 2, 6].Value = order.OrderDate.ToString("yyyy-MM-dd HH:mm");
+                    worksheet.Cells[i + 2, 7].Value = order.TotalPrice.ToString("C");
+                }
+
+                worksheet.Cells.AutoFitColumns();
+
+                return package.GetAsByteArray();
+            }
+        }
+
         public async Task<byte[]> ExportSessionsAsync()
         {
             var sessions = await _context.Sessions

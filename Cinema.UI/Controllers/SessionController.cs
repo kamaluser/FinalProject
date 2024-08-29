@@ -282,7 +282,7 @@ public class SessionController : Controller
     {
         try
         {
-            var fileContent = await _crudService.ExportAsync();
+            var fileContent = await _crudService.SessionExcelExportAsync();
             return File(fileContent, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "Sessions.xlsx");
         }
         catch (HttpException ex)

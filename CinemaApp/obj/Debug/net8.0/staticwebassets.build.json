@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "8WLQ8xbdcxTpDBZ4152VF7uxMnpjpDaGldsf4Pofbh8=",
+  "Hash": "1he2zjiSQqUImTO/PYXT4kwjGhIW6R8j5Vko0YgJNa0=",
   "Source": "CinemaApp",
   "BasePath": "_content/CinemaApp",
   "Mode": "Default",
@@ -16,6 +16,25 @@
     }
   ],
   "Assets": [
+    {
+      "Identity": "C:\\Users\\kamal\\Desktop\\FinalProject\\CinemaApp\\wwwroot\\Templates\\EmailTemplates\\ReminderTemplate.html",
+      "SourceId": "CinemaApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\kamal\\Desktop\\FinalProject\\CinemaApp\\wwwroot\\",
+      "BasePath": "_content/CinemaApp",
+      "RelativePath": "Templates/EmailTemplates/ReminderTemplate.html",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Templates\\EmailTemplates\\ReminderTemplate.html"
+    },
     {
       "Identity": "C:\\Users\\kamal\\Desktop\\FinalProject\\CinemaApp\\wwwroot\\uploads\\flags\\07f013f4-59d5-4ae2-8b66-245f653f63c9_profile.jpg",
       "SourceId": "CinemaApp",
@@ -946,6 +965,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\uploads\\news\\10cc493d-8ae3-4189-8839-682a7ab42155_post1.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\kamal\\Desktop\\FinalProject\\CinemaApp\\wwwroot\\uploads\\news\\270c1238-1a07-47b7-8d59-f8750be8bcdd_sauro.jpg",
+      "SourceId": "CinemaApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\kamal\\Desktop\\FinalProject\\CinemaApp\\wwwroot\\",
+      "BasePath": "_content/CinemaApp",
+      "RelativePath": "uploads/news/270c1238-1a07-47b7-8d59-f8750be8bcdd_sauro.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\news\\270c1238-1a07-47b7-8d59-f8750be8bcdd_sauro.jpg"
     },
     {
       "Identity": "C:\\Users\\kamal\\Desktop\\FinalProject\\CinemaApp\\wwwroot\\uploads\\news\\2d7f2652-ae71-425b-8f31-a41862c74b92_post3.jpg",

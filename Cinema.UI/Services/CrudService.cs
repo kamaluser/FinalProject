@@ -80,36 +80,6 @@ namespace Cinema.UI.Services
             return await response.Content.ReadFromJsonAsync<int>();
         }
 
-       /* public async Task<decimal> GetDailyRevenueAsync()
-        {
-            AddAuthorizationHeader();
-            var response = await _client.GetAsync(baseUrl + "orders/price/daily");
-            var content = await response.Content.ReadAsStringAsync();
-
-            if (response.IsSuccessStatusCode)
-            {
-                Console.WriteLine($"API Response: {content}");
-
-                var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
-                var dto = JsonSerializer.Deserialize<OrderRevenueResponse>(content, options);
-
-                if (dto != null)
-                {
-                    return dto.TotalPrice;
-                }
-                else
-                {
-                    Console.WriteLine($"Error: Deserialization returned null. Content: {content}");
-                    throw new HttpException(response.StatusCode);
-                }
-            }
-            else
-            {
-                Console.WriteLine($"Error: {content}");
-                throw new HttpException(response.StatusCode);
-            }
-        }*/
-
         public async Task<int> GetOrderCountLastMonthAsync()
         {
             AddAuthorizationHeader();
@@ -396,11 +366,11 @@ namespace Cinema.UI.Services
             }
         }
 
-        public async Task<byte[]> ExportAsync()
+        public async Task<byte[]> SessionExcelExportAsync()
         {
             AddAuthorizationHeader();
 
-            using (HttpResponseMessage response = await _client.GetAsync(baseUrl + "excel/DownloadExcel"))
+            using (HttpResponseMessage response = await _client.GetAsync(baseUrl + "excel/SessionDownloadExcel"))
             {
                 if (response.IsSuccessStatusCode)
                 {
@@ -415,6 +385,25 @@ namespace Cinema.UI.Services
             }
         }
 
+
+        public async Task<byte[]> OrderExcelExportAsync()
+        {
+            AddAuthorizationHeader();
+
+            using (HttpResponseMessage response = await _client.GetAsync(baseUrl + "excel/OrderDownloadExcel"))
+            {
+                if (response.IsSuccessStatusCode)
+                {
+                    return await response.Content.ReadAsByteArrayAsync();
+                }
+                else
+                {
+                    var errorMessage = await response.Content.ReadAsStringAsync();
+                    await Console.Out.WriteLineAsync("ExcelExport Error: " + errorMessage);
+                    throw new HttpException(response.StatusCode, errorMessage);
+                }
+            }
+        }
 
         private MultipartFormDataContent CreateMultipartFormDataContent<TRequest>(TRequest request)
         {

@@ -19,7 +19,8 @@ namespace Cinema.UI.Services
 
         Task<AdminCreateResponse> CreateAdmin<TRequest>(TRequest request, string path);
 
-        Task<byte[]> ExportAsync();
+        Task<byte[]> SessionExcelExportAsync();
+        Task<byte[]> OrderExcelExportAsync();
         Task<int> GetOrderCountLastMonthAsync();
         Task<int> GetOrderCountLastYearAsync();
         Task<int> GetSessionCountLastMonthAsync();

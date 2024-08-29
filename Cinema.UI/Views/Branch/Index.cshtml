@@ -1,13 +1,10 @@
 ﻿@model PaginatedResponse<BranchListItemGetResponse>
-
 @{
     ViewData["Title"] = "Branches";
 }
 
-<!-- Begin Page Content -->
 <div class="container-fluid">
 
-    <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 class="h3 mb-0 text-gray-800">Branches</h1>
         <a asp-action="create" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
@@ -15,7 +12,6 @@
         </a>
     </div>
 
-    <!-- Hall Table -->
     <div class="row">
         <div class="col-md-12 mx-auto">
             <div class="table-responsive">
@@ -49,7 +45,6 @@
                 </table>
             </div>
 
-            <!-- Pagination -->
             <nav aria-label="Page navigation example" class="d-flex justify-content-center">
                 <ul class="pagination">
                     @if (Model.PageIndex == 1)

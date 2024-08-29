@@ -10,7 +10,7 @@ namespace Cinema.Service.Interfaces
 {
     public interface IOrderService
     {
-        Task<BookSeatResult> BookSeatsAsync(BookSeatDto bookSeatDto);
+        Task<BookSeatResult> BookSeatsAsync(BookSeatDto bookSeatDto, string userId);
         Task<OrderCountDto> GetOrderCountLastMonthAsync();
         Task<OrderCountDto> GetOrderCountLastYearAsync();
         Task<Dictionary<string, int>> GetMonthlyOrderCountsForCurrentYearAsync();

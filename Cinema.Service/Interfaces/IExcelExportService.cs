@@ -8,6 +8,7 @@ namespace Cinema.Service.Interfaces
 {
     public interface IExcelExportService
     {
+        Task<byte[]> ExportOrdersAsync();
         Task<byte[]> ExportSessionsAsync();
     }
 }

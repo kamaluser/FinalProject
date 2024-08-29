@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 using Cinema.UI.Hubs;
 using Microsoft.AspNetCore.SignalR;
+using System.Security.Claims;
 
 namespace CinemaApp.Controllers
 {
@@ -89,7 +90,12 @@ namespace CinemaApp.Controllers
         [HttpPost("book-seats")]
         public async Task<IActionResult> BookSeats([FromBody] BookSeatDto bookSeatDto)
         {
-            var result = await _orderService.BookSeatsAsync(bookSeatDto);
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            if (userId == null)
+            {
+                return Unauthorized();
+            }
+            var result = await _orderService.BookSeatsAsync(bookSeatDto, userId);
             if (result.Success)
             {
                 await _hubContext.Clients.All.SendAsync("ReceiveNotification", "A new seat has been booked!");

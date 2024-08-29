@@ -6,7 +6,6 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace CinemaApp.Controllers
 {
-    [ApiExplorerSettings(GroupName = "admin_v1")]
     [Route("api/admin/[controller]")]
     [ApiController]
     //[Authorize(Roles = "Admin")]
@@ -19,13 +18,14 @@ namespace CinemaApp.Controllers
             _sliderService = sliderService;
         }
 
+        [ApiExplorerSettings(GroupName = "admin_v1")]
         [HttpPost("")]
         public ActionResult<int> Create(AdminSliderCreateDto createDto)
         {
             var id = _sliderService.Create(createDto);
             return StatusCode(201, new { id });
         }
-
+        [ApiExplorerSettings(GroupName = "admin_v1")]
         [HttpGet("")]
         public ActionResult<PaginatedList<AdminSliderGetDto>> GetAll(int page = 1, int size = 3)
         {
@@ -36,21 +36,21 @@ namespace CinemaApp.Controllers
 
             return StatusCode(200, paginatedList);
         }
-
+        [ApiExplorerSettings(GroupName = "admin_v1")]
         [HttpGet("{id}")]
         public ActionResult<AdminSliderGetDto> GetById(int id)
         {
             var result = _sliderService.GetById(id);
             return Ok(result);
         }
-
+        [ApiExplorerSettings(GroupName = "admin_v1")]
         [HttpPut("{id}")]
         public ActionResult Edit(int id, AdminSliderEditDto editDto)
         {
             _sliderService.Edit(id, editDto);
             return NoContent();
         }
-
+        [ApiExplorerSettings(GroupName = "admin_v1")]
         [HttpDelete("{id}")]
         public ActionResult Delete(int id)
         {
@@ -58,5 +58,11 @@ namespace CinemaApp.Controllers
             return NoContent();
         }
 
+        [ApiExplorerSettings(GroupName = "user_v1")]
+        [HttpGet("all")]
+        public ActionResult<List<UserSliderGetDto>> GetAllForUser()
+        {
+            return StatusCode(200, _sliderService.GetAllUser());
+        }
     }
 }

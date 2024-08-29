@@ -13,6 +13,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Security.Claims;
 using System.Threading.Tasks;
 
 namespace Cinema.Service.Implementations
@@ -138,7 +139,7 @@ namespace Cinema.Service.Implementations
             return result;
         }
 
-        public async Task<BookSeatResult> BookSeatsAsync(BookSeatDto bookSeatDto)
+        public async Task<BookSeatResult> BookSeatsAsync(BookSeatDto bookSeatDto, string userId)
         {
             var session = await _context.Sessions
                 .Include(s => s.Hall)
@@ -172,7 +173,7 @@ namespace Cinema.Service.Implementations
 
             var order = new Order
             {
-                UserId = bookSeatDto.UserId,
+                UserId = userId,
                 SessionId = bookSeatDto.SessionId,
                 OrderDate = DateTime.Now,
                 NumberOfSeats = bookSeatDto.SeatIds.Count,

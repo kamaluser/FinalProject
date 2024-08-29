@@ -1,12 +1,19 @@
 ﻿using FluentValidation;
+using System.ComponentModel.DataAnnotations;
 
 namespace Cinema.Service.Dtos.UserDtos
 {
     public class AdminEditDto
     {
         public string UserName { get; set; }
+        [MinLength(8)]
+        [MaxLength(25)]
         public string? CurrentPassword { get; set; }
+        [MinLength(8)]
+        [MaxLength(25)]
         public string? NewPassword { get; set; }
+        [MinLength(8)]
+        [MaxLength(25)]
         public string? ConfirmPassword { get; set; }
     }
 

@@ -15,5 +15,6 @@ namespace Cinema.Service.Interfaces
         void Delete(int id);
         AdminSliderGetDto GetById(int id);
         PaginatedList<AdminSliderGetDto> GetAllByPage(int page = 1, int size = 10);
+        List<UserSliderGetDto> GetAllUser();
     }
 }

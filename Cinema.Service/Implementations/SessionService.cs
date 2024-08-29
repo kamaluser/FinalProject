@@ -9,8 +9,10 @@ using Cinema.Service.Dtos.SessionDtos;
 using Cinema.Service.Exceptions;
 using Cinema.Service.Interfaces;
 using Cinema.Service.Services;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Hosting.Internal;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,6 +30,7 @@ namespace Cinema.Service.Implementations
         private readonly ISeatRepository _seatRepository;
         private readonly IMapper _mapper;
         public readonly EmailService _emailService;
+        private readonly IWebHostEnvironment _hostingEnvironment;
 
         public SessionService(
             ISessionRepository sessionRepository,
@@ -37,7 +40,9 @@ namespace Cinema.Service.Implementations
             IOrderRepository orderRepository,
             ISeatRepository seatRepository,
             IMapper mapper,
-            EmailService emailService)
+            EmailService emailService,
+            IWebHostEnvironment hostingEnvironment
+            )
         {
             _sessionRepository = sessionRepository;
             _movieRepository = movieRepository;
@@ -47,6 +52,7 @@ namespace Cinema.Service.Implementations
             _seatRepository = seatRepository;
             _mapper = mapper;
             _emailService = emailService;
+            _hostingEnvironment = hostingEnvironment;
         }
 
 
@@ -303,7 +309,13 @@ namespace Cinema.Service.Implementations
                     if (order.User != null && !string.IsNullOrEmpty(order.User.Email))
                     {
                         var subject = "Session Updated";
-                        var body = $"The session you booked has been updated. New Date and Time: {dto.ShowDateTime:MMMM d, yyyy h:mm tt}. Visit the website for more information.";
+
+                        var templatePath = Path.Combine(_hostingEnvironment.WebRootPath, "Templates", "EmailTemplates", "SessionUpdatedTemplate.html");
+                        var bodyTemplate = File.ReadAllText(templatePath);
+
+                        var body = bodyTemplate.Replace("@Model.UserName", order.User.FullName)
+                                               .Replace("@Model.ShowDateTime", dto.ShowDateTime.Value.ToString("MMMM d, yyyy h:mm tt"));
+
                         _emailService.Send(order.User.Email, subject, body);
                     }
                 }

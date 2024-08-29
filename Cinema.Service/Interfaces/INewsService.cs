@@ -16,5 +16,6 @@ namespace Cinema.Service.Interfaces
         void Edit(int id, AdminNewsEditDto editDto);
         void Delete(int id);
         AdminNewsGetDto GetById(int id);
+        PaginatedList<UserNewsGetDto> GetAllByPageUser(int page = 1, int size = 10);
     }
 }

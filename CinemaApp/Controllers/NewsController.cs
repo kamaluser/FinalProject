@@ -1,6 +1,9 @@
 ﻿using Cinema.Core.Entites;
+using Cinema.Service.Dtos;
 using Cinema.Service.Dtos.LanguageDtos;
 using Cinema.Service.Dtos.NewsDtos;
+using Cinema.Service.Dtos.SliderDtos;
+using Cinema.Service.Implementations;
 using Cinema.Service.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -53,6 +56,18 @@ namespace CinemaApp.Controllers
         {
             _newsService.Delete(id);
             return NoContent();
+        }
+
+        [ApiExplorerSettings(GroupName = "user_v1")]
+        [HttpGet("allbypage")]
+        public ActionResult<PaginatedList<UserNewsGetDto>> GetAllByPageForUser(int page = 1, int size = 3)
+        {
+            if (page < 1) page = 1;
+            if (size < 1) size = 3;
+
+            var paginatedList = _newsService.GetAllByPageUser(page, size);
+
+            return StatusCode(200, paginatedList);
         }
     }
 }

@@ -170,12 +170,19 @@ namespace Cinema.UI.Controllers
 
         public async Task<IActionResult> Profile()
         {
+            var token = HttpContext.Request.Cookies["token"];
+            if (string.IsNullOrEmpty(token))
+            {
+                return RedirectToAction("Login");
+            }
+
             var user = await _crudService.Get<AdminGetResponse>("auth/profile");
 
             AdminProfileEditRequest adminProfile = new AdminProfileEditRequest
             {
                 UserName = user.UserName
             };
+
             TempData["UserId"] = user.Id;
 
             if (adminProfile == null)
@@ -190,7 +197,6 @@ namespace Cinema.UI.Controllers
         {
             if (!ModelState.IsValid)
             {
-                TempData["ProfileEditError"] = "Please try again.";
                 TempData["UserId"] = id;
                 return View(editRequest);
             }
@@ -199,21 +205,19 @@ namespace Cinema.UI.Controllers
             {
                 await _crudService.Update<AdminProfileEditRequest>(editRequest, "auth/update/" + id);
 
-                if (Request.Cookies.ContainsKey("token"))
+              /*  if (Request.Cookies.ContainsKey("token"))
                 {
                     Response.Cookies.Delete("token");
-                }
+                }*/
                 return RedirectToAction("Login", "Account");
             }
             catch (ModelException e)
             {
-                TempData["UserId"] = id;
                 foreach (var item in e.Error.Errors)
                 {
-                    TempData["ProfileUpdateError"] = "Please try again.";
                     ModelState.AddModelError(item.Key, item.Message);
                 }
-
+                TempData["UserId"] = id;
                 return View(editRequest);
             }
         }

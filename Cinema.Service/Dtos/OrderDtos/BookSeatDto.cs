@@ -10,7 +10,6 @@ namespace Cinema.Service.Dtos.OrderDtos
     {
         public int SessionId { get; set; }
         public List<int> SeatIds { get; set; }
-        public string UserId { get; set; }
     }
 
 }

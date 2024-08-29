@@ -4,44 +4,48 @@
     ViewData["Title"] = "Edit Profile";
 }
 
-<h2>Edit Profile</h2>
+<div class="container mt-4">
+    <h2 class="mb-4">Edit Profile</h2>
 
-@if (TempData["ProfileEditError"] != null)
-{
-    <div class="alert alert-danger">@TempData["ProfileUpdateError"]</div>
-}
+    <form asp-action="Profile" method="post">
+        <input type="hidden" name="Id" value="@TempData["UserId"]" />
 
-<form asp-action="Profile" method="post">
-    <input type="hidden" name="Id" value="@TempData["UserId"]" />
-    <div class="form-group">
-        <label asp-for="UserName" class="control-label"></label>
-        <input asp-for="UserName" class="form-control" />
-        <span asp-validation-for="UserName" class="text-danger"></span>
-    </div>
+        <div class="mb-3">
+            <label asp-for="UserName" class="form-label"></label>
+            <input asp-for="UserName" class="form-control" />
+            <div class="form-text text-danger">
+                <span asp-validation-for="UserName"></span>
+            </div>
+        </div>
 
-    <div class="form-group">
-        <label asp-for="CurrentPassword" class="control-label"></label>
-        <input asp-for="CurrentPassword" class="form-control" />
-        <span asp-validation-for="CurrentPassword" class="text-danger"></span>
-    </div>
+        <div class="mb-3">
+            <label asp-for="CurrentPassword" class="form-label"></label>
+            <input asp-for="CurrentPassword" type="password" class="form-control" />
+            <div class="form-text text-danger">
+                <span asp-validation-for="CurrentPassword"></span>
+            </div>
+        </div>
 
-    <div class="form-group">
-        <label asp-for="NewPassword" class="control-label"></label>
-        <input asp-for="NewPassword" class="form-control" />
-        <span asp-validation-for="NewPassword" class="text-danger"></span>
-    </div>
+        <div class="mb-3">
+            <label asp-for="NewPassword" class="form-label"></label>
+            <input asp-for="NewPassword" type="password" class="form-control" />
+            <div class="form-text text-danger">
+                <span asp-validation-for="NewPassword"></span>
+            </div>
+        </div>
 
-    <div class="form-group">
-        <label asp-for="ConfirmPassword" class="control-label"></label>
-        <input asp-for="ConfirmPassword" class="form-control" />
-        <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
-    </div>
+        <div class="mb-3">
+            <label asp-for="ConfirmPassword" class="form-label"></label>
+            <input asp-for="ConfirmPassword" type="password" class="form-control" />
+            <div class="form-text text-danger">
+                <span asp-validation-for="ConfirmPassword"></span>
+            </div>
+        </div>
 
-    <button type="submit" class="btn btn-primary">Save</button>
-</form>
+        <button type="submit" class="btn btn-primary">Save</button>
+    </form>
+</div>
 
 @section scripts {
-    @{
-        await Html.RenderPartialAsync("_ValidationScriptsPartial");
-    }
+    @await Html.PartialAsync("_ValidationScriptsPartial")
 }

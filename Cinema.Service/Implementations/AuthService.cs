@@ -357,7 +357,7 @@ namespace Cinema.Service.Implementations
                 var passwordCheck = _userManager.CheckPasswordAsync(user, updateDto.CurrentPassword).Result;
                 if (!passwordCheck)
                 {
-                    throw new RestException(StatusCodes.Status400BadRequest, "Current password is incorrect.");
+                    throw new RestException(StatusCodes.Status400BadRequest, "CurrentPassword", "Current password is incorrect.");
                 }
 
 
