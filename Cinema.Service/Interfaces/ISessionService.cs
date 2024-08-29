@@ -22,5 +22,6 @@ namespace Cinema.Service.Interfaces
         List<UserSeatGetDto> GetSeatsForSession(int sessionId);
         List<Session> GetSessionsForReminder(DateTime currentDateTime, TimeSpan reminderWindow);
         Task<List<AdminSessionLanguageDto>> GetSessionCountByLanguageThisMonthAsync();
+        List<UserSessionDetailsDto> GetSessionsByFiltersAsync(DateTime? date = null, int? branchId = null, int? languageId = null);
     }
 }

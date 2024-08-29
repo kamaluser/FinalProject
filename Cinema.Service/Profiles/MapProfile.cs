@@ -151,6 +151,7 @@ namespace Cinema.Service.Profiles
                .ForMember(dest => dest.HallName, opt => opt.MapFrom(src => src.Hall.Name))
                .ForMember(dest => dest.BranchName, opt => opt.MapFrom(src => src.Hall.Branch.Name))
                .ForMember(dest => dest.LanguageName, opt => opt.MapFrom(src => src.Language.Name))
+               .ForMember(dest => dest.MovieName, opt => opt.MapFrom(src => src.Movie.Title))
                .ForMember(dest => dest.LanguagePhoto, opt => opt.MapFrom((src, dest, destMember, context) =>
                {
                    return $"{baseUrl}/uploads/flags/{src.Language.FlagPhoto}";

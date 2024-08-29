@@ -141,5 +141,18 @@ namespace CinemaApp.Controllers
             var result = await _sessionService.GetSessionCountByLanguageThisMonthAsync();
             return Ok(result);
         }
+
+
+        [ApiExplorerSettings(GroupName = "user_v1")]
+        [HttpGet("filtered-sessions")]
+        public ActionResult<List<UserSessionDetailsDto>> GetSessionsByFilter(DateTime? date = null, [FromQuery] int? branchId = null, [FromQuery] int? languageId = null)
+        {
+            var queryDate = date ?? DateTime.Now;
+
+            var sessions = _sessionService.GetSessionsByFiltersAsync(queryDate, branchId, languageId);
+
+            return Ok(sessions);
+        }
+
     }
 }

@@ -205,10 +205,10 @@ namespace Cinema.UI.Controllers
             {
                 await _crudService.Update<AdminProfileEditRequest>(editRequest, "auth/update/" + id);
 
-              /*  if (Request.Cookies.ContainsKey("token"))
+                if (Request.Cookies.ContainsKey("token"))
                 {
                     Response.Cookies.Delete("token");
-                }*/
+                }
                 return RedirectToAction("Login", "Account");
             }
             catch (ModelException e)

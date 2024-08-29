@@ -138,6 +138,33 @@ namespace Cinema.Service.Implementations
             return sessionDtos;
         }
 
+        public List<UserSessionDetailsDto> GetSessionsByFiltersAsync(DateTime? date = null, int? branchId = null, int? languageId = null)
+        {
+            var selectedDate = date ?? DateTime.Now;
+
+            var sessionsQuery = _sessionRepository.GetAll(s => s.ShowDateTime.Date == selectedDate.Date && !s.IsDeleted)
+                .Include(s => s.Hall)
+                .ThenInclude(h => h.Branch)
+                .Include(s => s.Language)
+                .ToList();
+
+            if (branchId.HasValue)
+            {
+                sessionsQuery = sessionsQuery.Where(s => s.Hall.Branch.Id == branchId.Value).ToList();
+            }
+
+            if (languageId.HasValue)
+            {
+                sessionsQuery = sessionsQuery.Where(s => s.Language.Id == languageId.Value).ToList();
+            }
+
+            var sessions = sessionsQuery.ToList();
+
+            var sessionDtos = _mapper.Map<List<UserSessionDetailsDto>>(sessions);
+
+            return sessionDtos;
+        }
+
 
         public async Task<int> GetSessionCountLastMonthAsync()
         {
@@ -364,8 +391,8 @@ namespace Cinema.Service.Implementations
             var endDate = startDate.AddMonths(1).AddDays(-1);
 
             var sessions = await _sessionRepository.GetAll(s => s.ShowDateTime >= startDate && s.ShowDateTime <= endDate && !s.IsDeleted)
-                                                    .Include(s => s.Language)
-                                                    .ToListAsync();
+                .Include(s => s.Language)
+                .ToListAsync();
 
             var languageSessionCount = sessions
                 .GroupBy(s => s.Language.Name)
@@ -378,7 +405,5 @@ namespace Cinema.Service.Implementations
 
             return languageSessionCount;
         }
-
-
     }
 }

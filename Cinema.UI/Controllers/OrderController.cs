@@ -5,9 +5,11 @@ using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 using Cinema.UI.Models;
 using Cinema.UI.Models.BranchModels;
+using Cinema.UI.Filters;
 
 namespace Cinema.UI.Controllers
 {
+    [ServiceFilter(typeof(AuthFilter))]
     public class OrderController : Controller
     {
         private readonly ICrudService _crudService;

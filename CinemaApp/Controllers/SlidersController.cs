@@ -8,7 +8,6 @@ namespace CinemaApp.Controllers
 {
     [Route("api/admin/[controller]")]
     [ApiController]
-    //[Authorize(Roles = "Admin")]
     public class SlidersController : Controller
     {
         private readonly ISliderService _sliderService;
@@ -19,6 +18,7 @@ namespace CinemaApp.Controllers
         }
 
         [ApiExplorerSettings(GroupName = "admin_v1")]
+        [Authorize(Roles = "Admin, SuperAdmin")]
         [HttpPost("")]
         public ActionResult<int> Create(AdminSliderCreateDto createDto)
         {
@@ -26,6 +26,7 @@ namespace CinemaApp.Controllers
             return StatusCode(201, new { id });
         }
         [ApiExplorerSettings(GroupName = "admin_v1")]
+        [Authorize(Roles = "Admin, SuperAdmin")]
         [HttpGet("")]
         public ActionResult<PaginatedList<AdminSliderGetDto>> GetAll(int page = 1, int size = 3)
         {
@@ -37,6 +38,7 @@ namespace CinemaApp.Controllers
             return StatusCode(200, paginatedList);
         }
         [ApiExplorerSettings(GroupName = "admin_v1")]
+        [Authorize(Roles = "Admin, SuperAdmin")]
         [HttpGet("{id}")]
         public ActionResult<AdminSliderGetDto> GetById(int id)
         {
@@ -44,6 +46,7 @@ namespace CinemaApp.Controllers
             return Ok(result);
         }
         [ApiExplorerSettings(GroupName = "admin_v1")]
+        [Authorize(Roles = "Admin, SuperAdmin")]
         [HttpPut("{id}")]
         public ActionResult Edit(int id, AdminSliderEditDto editDto)
         {
@@ -51,6 +54,7 @@ namespace CinemaApp.Controllers
             return NoContent();
         }
         [ApiExplorerSettings(GroupName = "admin_v1")]
+        [Authorize(Roles = "Admin, SuperAdmin")]
         [HttpDelete("{id}")]
         public ActionResult Delete(int id)
         {

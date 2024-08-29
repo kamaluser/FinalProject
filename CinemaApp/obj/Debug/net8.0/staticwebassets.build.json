@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "1he2zjiSQqUImTO/PYXT4kwjGhIW6R8j5Vko0YgJNa0=",
+  "Hash": "RZn9yma/WnjTPKEWw9WRD23J/ZPL1JJfVdM/bbhPzjU=",
   "Source": "CinemaApp",
   "BasePath": "_content/CinemaApp",
   "Mode": "Default",
@@ -1136,6 +1136,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\uploads\\settings\\3dbdb26a-84a5-4fda-9a69-109d23fe0191_blog2.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\kamal\\Desktop\\FinalProject\\CinemaApp\\wwwroot\\uploads\\settings\\7b487975-c83b-4b8a-bcc7-7e692817be88_example3.jpeg",
+      "SourceId": "CinemaApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\kamal\\Desktop\\FinalProject\\CinemaApp\\wwwroot\\",
+      "BasePath": "_content/CinemaApp",
+      "RelativePath": "uploads/settings/7b487975-c83b-4b8a-bcc7-7e692817be88_example3.jpeg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\settings\\7b487975-c83b-4b8a-bcc7-7e692817be88_example3.jpeg"
     },
     {
       "Identity": "C:\\Users\\kamal\\Desktop\\FinalProject\\CinemaApp\\wwwroot\\uploads\\settings\\7f8be023-9025-45b5-97d9-fb15d891ed71_bg-404.jpeg",
