@@ -150,6 +150,11 @@ namespace Cinema.Service.Implementations
                 throw new RestException(StatusCodes.Status404NotFound, "Session not found.");
             }
 
+            if (session.ShowDateTime < DateTime.Now)
+            {
+                throw new RestException(StatusCodes.Status400BadRequest, "Cannot book seats for a past session.");
+            }
+
             var seats = await _context.Seats
                 .Include(s => s.OrderSeats)
                 .ThenInclude(os => os.Order)

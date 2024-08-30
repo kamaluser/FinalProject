@@ -15,7 +15,6 @@ using System;
 
 namespace CinemaApp.Controllers
 {
-    [Route("api/admin/[controller]")]
     [ApiController]
     public class SessionsController : Controller
     {
@@ -26,11 +25,9 @@ namespace CinemaApp.Controllers
             _sessionService = sessionService;
         }
 
-
-
         [ApiExplorerSettings(GroupName = "admin_v1")]
         [Authorize(Roles = "Admin, SuperAdmin")]
-        [HttpPost("")]
+        [HttpPost("api/admin/sessions")]
         public ActionResult<int> Create(AdminSessionCreateDto createDto)
         {
             var id = _sessionService.Create(createDto);
@@ -40,7 +37,7 @@ namespace CinemaApp.Controllers
 
         [ApiExplorerSettings(GroupName = "admin_v1")]
         [Authorize(Roles = "Admin, SuperAdmin")]
-        [HttpGet("")]
+        [HttpGet("api/admin/sessions")]
         public ActionResult<PaginatedList<AdminSessionGetDto>> GetAllByPagination(string? search = null, int page = 1, int size = 3)
         {
             return StatusCode(200, _sessionService.GetAllByPage(search, page, size));
@@ -49,7 +46,7 @@ namespace CinemaApp.Controllers
 
         [ApiExplorerSettings(GroupName = "admin_v1")]
         [Authorize(Roles = "Admin, SuperAdmin")]
-        [HttpGet("{id}")]
+        [HttpGet("api/admin/sessions/{id}")]
         [ResponseCache(Duration = 60, Location = ResponseCacheLocation.Any, NoStore = false)]
         public ActionResult<AdminSessionGetDto> GetById(int id)
         {
@@ -60,7 +57,7 @@ namespace CinemaApp.Controllers
 
         [ApiExplorerSettings(GroupName = "admin_v1")]
         [Authorize(Roles = "Admin, SuperAdmin")]
-        [HttpGet("byHall/{hallId}")]
+        [HttpGet("api/admin/sessions/byHall/{hallId}")]
         [ResponseCache(Duration = 60, Location = ResponseCacheLocation.Any, NoStore = false)]
 
         public async Task<IActionResult> GetSessionsByHall(int hallId)
@@ -68,8 +65,9 @@ namespace CinemaApp.Controllers
             var sessions = await _sessionService.GetSessionsByHall(hallId);
             return Ok(sessions);
         }
+        [ApiExplorerSettings(GroupName = "admin_v1")]
         [Authorize(Roles = "Admin, SuperAdmin")]
-        [HttpGet("all")]
+        [HttpGet("api/admin/sessions/all")]
         [ResponseCache(Duration = 60, Location = ResponseCacheLocation.Any, NoStore = false)]
 
         public async Task<IActionResult> GetAllSessions()
@@ -80,7 +78,7 @@ namespace CinemaApp.Controllers
 
         [ApiExplorerSettings(GroupName = "admin_v1")]
         [Authorize(Roles = "Admin, SuperAdmin")]
-        [HttpPut("{id}")]
+        [HttpPut("api/admin/sessions/{id}")]
         public ActionResult Edit(int id, AdminSessionEditDto editDto)
         {
             _sessionService.Edit(id, editDto);
@@ -89,7 +87,7 @@ namespace CinemaApp.Controllers
 
         [ApiExplorerSettings(GroupName = "admin_v1")]
         [Authorize(Roles = "Admin, SuperAdmin")]
-        [HttpDelete("{id}")]
+        [HttpDelete("api/admin/sessions/{id}")]
         public ActionResult Delete(int id)
         {
             _sessionService.Delete(id);
@@ -98,7 +96,7 @@ namespace CinemaApp.Controllers
 
         [ApiExplorerSettings(GroupName = "admin_v1")]
         [Authorize(Roles = "Admin, SuperAdmin")]
-        [HttpGet("count/monthly")]
+        [HttpGet("api/admin/sessions/count/monthly")]
         [ResponseCache(Duration = 60, Location = ResponseCacheLocation.Any, NoStore = false)]
         public async Task<IActionResult> GetSessionCountMonthly()
         {
@@ -107,7 +105,7 @@ namespace CinemaApp.Controllers
         }
 
         [ApiExplorerSettings(GroupName = "user_v1")]
-        [HttpGet("{movieId}/sessions")]
+        [HttpGet("api/sessions/{movieId}/ByMovie")]
         [ResponseCache(Duration = 60, Location = ResponseCacheLocation.Any, NoStore = false)]
         public ActionResult<List<UserSessionDetailsDto>> GetSessionsByMovieIdAndDate(int movieId, DateTime? date = null, [FromQuery] int? branchId = null, [FromQuery] int? languageId = null)
         {
@@ -117,7 +115,7 @@ namespace CinemaApp.Controllers
         }
 
         [ApiExplorerSettings(GroupName = "user_v1")]
-        [HttpGet("{sessionId}/seats")]
+        [HttpGet("api/sessions/{sessionId}/seats")]
         [ResponseCache(Duration = 60, Location = ResponseCacheLocation.Any, NoStore = false)]
         public async Task<IActionResult> GetSeatsForSession(int sessionId)
         {
@@ -134,7 +132,7 @@ namespace CinemaApp.Controllers
 
         [ApiExplorerSettings(GroupName = "admin_v1")]
         [Authorize(Roles = "Admin, SuperAdmin")]
-        [HttpGet("count/languages/monthly")]
+        [HttpGet("api/admin/sessions/count/languages/monthly")]
         [ResponseCache(Duration = 60, Location = ResponseCacheLocation.Any, NoStore = false)]
         public async Task<IActionResult> GetSessionCountByLanguageThisMonth()
         {
@@ -144,7 +142,7 @@ namespace CinemaApp.Controllers
 
 
         [ApiExplorerSettings(GroupName = "user_v1")]
-        [HttpGet("filtered-sessions")]
+        [HttpGet("api/sessions/filtered-sessions")]
         public ActionResult<List<UserSessionDetailsDto>> GetSessionsByFilter(DateTime? date = null, [FromQuery] int? branchId = null, [FromQuery] int? languageId = null)
         {
             var queryDate = date ?? DateTime.Now;

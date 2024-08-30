@@ -23,6 +23,7 @@ namespace CinemaApp.Controllers
             _hubContext = hubContext;
         }
 
+        [ApiExplorerSettings(GroupName = "admin_v1")]
         [Authorize(Roles = "Admin, SuperAdmin")]
         [HttpGet("api/admin/orders/GetAllByPagination")]
         public ActionResult<PaginatedList<AdminOrderGetDto>> GetAllByPagination(int page = 1, int size = 6)
@@ -33,6 +34,8 @@ namespace CinemaApp.Controllers
             return StatusCode(200, _orderService.GetAllByPage(page, size));
         }
 
+        [ApiExplorerSettings(GroupName = "admin_v1")]
+        [Authorize(Roles = "Admin, SuperAdmin")]
         [HttpGet("api/admin/orders/price/daily")]
         public async Task<IActionResult> GetDailyTotalPrice()
         {
@@ -40,6 +43,7 @@ namespace CinemaApp.Controllers
             return Ok(new { totalPrice });
         }
 
+        [ApiExplorerSettings(GroupName = "admin_v1")]
         [Authorize(Roles = "Admin, SuperAdmin")]
         [HttpGet("api/admin/orders/monthly-count-current-year")]
         public async Task<IActionResult> GetMonthlyOrderCounts()
@@ -56,6 +60,7 @@ namespace CinemaApp.Controllers
             return Ok(response);
         }
 
+        [ApiExplorerSettings(GroupName = "admin_v1")]
         [Authorize(Roles = "Admin, SuperAdmin")]
         [HttpGet("api/admin/orders/monthly-revenue-current-year")]
         public async Task<IActionResult> GetMonthlyRevenue()
@@ -71,6 +76,7 @@ namespace CinemaApp.Controllers
             return Ok(response);
         }
 
+        [ApiExplorerSettings(GroupName = "admin_v1")]
         [Authorize(Roles = "Admin, SuperAdmin")]
         [HttpGet("api/admin/orders/order-count-last-month")]
         public async Task<IActionResult> GetOrderCountLastMonth()
@@ -79,6 +85,8 @@ namespace CinemaApp.Controllers
             return Ok(result);
         }
 
+        [ApiExplorerSettings(GroupName = "admin_v1")]
+        [Authorize(Roles = "Admin, SuperAdmin")]
         [HttpGet("api/admin/orders/order-count-last-year")]
         public async Task<IActionResult> GetOrderCountLastYear()
         {
@@ -86,6 +94,7 @@ namespace CinemaApp.Controllers
             return Ok(result);
         }
 
+        [ApiExplorerSettings(GroupName = "user_v1")]
         [Authorize(Roles = "Member")]
         [HttpPost("book-seats")]
         public async Task<IActionResult> BookSeats([FromBody] BookSeatDto bookSeatDto)
@@ -104,6 +113,8 @@ namespace CinemaApp.Controllers
             return BadRequest(result);
         }
 
+        [ApiExplorerSettings(GroupName = "admin_v1")]
+        [Authorize(Roles = "Admin, SuperAdmin")]
         [HttpGet("api/admin/orders/details")]
         public async Task<IActionResult> GetAllOrderDetails()
         {

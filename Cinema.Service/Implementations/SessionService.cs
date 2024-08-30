@@ -143,6 +143,7 @@ namespace Cinema.Service.Implementations
             var selectedDate = date ?? DateTime.Now;
 
             var sessionsQuery = _sessionRepository.GetAll(s => s.ShowDateTime.Date == selectedDate.Date && !s.IsDeleted)
+                .Include(s => s.Movie)
                 .Include(s => s.Hall)
                 .ThenInclude(h => h.Branch)
                 .Include(s => s.Language)

@@ -4,6 +4,7 @@ using Cinema.UI.Models.BranchModels;
 using Cinema.UI.Models.HallModels;
 using Cinema.UI.Services;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Net.Http.Headers;
 using System.Text.Json;
 
 namespace Cinema.UI.Controllers
@@ -13,11 +14,14 @@ namespace Cinema.UI.Controllers
     {
         private readonly ICrudService _crudService;
         private readonly HttpClient _client;
+        private readonly IHttpContextAccessor _httpContextAccessor;
 
-        public HallController(ICrudService crudService, HttpClient client)
+
+        public HallController(ICrudService crudService, HttpClient client, IHttpContextAccessor httpContextAccessor)
         {
             _crudService = crudService;
             _client = client;
+            _httpContextAccessor = httpContextAccessor;
         }
 
         public async Task<IActionResult> Index(int page = 1)
@@ -196,6 +200,8 @@ namespace Cinema.UI.Controllers
 
         private async Task<List<BranchListItemGetResponse>> GetAllBranches()
         {
+            _client.DefaultRequestHeaders.Remove(HeaderNames.Authorization);
+            _client.DefaultRequestHeaders.Add(HeaderNames.Authorization, _httpContextAccessor.HttpContext.Request.Cookies["token"]);
             using (var response = await _client.GetAsync("https://localhost:44324/api/admin/Branches/all"))
             {
                 if (response.IsSuccessStatusCode)

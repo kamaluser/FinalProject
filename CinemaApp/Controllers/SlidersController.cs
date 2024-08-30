@@ -6,7 +6,6 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace CinemaApp.Controllers
 {
-    [Route("api/admin/[controller]")]
     [ApiController]
     public class SlidersController : Controller
     {
@@ -19,7 +18,7 @@ namespace CinemaApp.Controllers
 
         [ApiExplorerSettings(GroupName = "admin_v1")]
         [Authorize(Roles = "Admin, SuperAdmin")]
-        [HttpPost("")]
+        [HttpPost("api/admin/sliders")]
         public ActionResult<int> Create(AdminSliderCreateDto createDto)
         {
             var id = _sliderService.Create(createDto);
@@ -27,7 +26,7 @@ namespace CinemaApp.Controllers
         }
         [ApiExplorerSettings(GroupName = "admin_v1")]
         [Authorize(Roles = "Admin, SuperAdmin")]
-        [HttpGet("")]
+        [HttpGet("api/admin/sliders")]
         public ActionResult<PaginatedList<AdminSliderGetDto>> GetAll(int page = 1, int size = 3)
         {
             if (page < 1) page = 1;
@@ -39,7 +38,7 @@ namespace CinemaApp.Controllers
         }
         [ApiExplorerSettings(GroupName = "admin_v1")]
         [Authorize(Roles = "Admin, SuperAdmin")]
-        [HttpGet("{id}")]
+        [HttpGet("api/admin/sliders/{id}")]
         public ActionResult<AdminSliderGetDto> GetById(int id)
         {
             var result = _sliderService.GetById(id);
@@ -47,7 +46,7 @@ namespace CinemaApp.Controllers
         }
         [ApiExplorerSettings(GroupName = "admin_v1")]
         [Authorize(Roles = "Admin, SuperAdmin")]
-        [HttpPut("{id}")]
+        [HttpPut("api/admin/sliders/{id}")]
         public ActionResult Edit(int id, AdminSliderEditDto editDto)
         {
             _sliderService.Edit(id, editDto);
@@ -55,7 +54,7 @@ namespace CinemaApp.Controllers
         }
         [ApiExplorerSettings(GroupName = "admin_v1")]
         [Authorize(Roles = "Admin, SuperAdmin")]
-        [HttpDelete("{id}")]
+        [HttpDelete("api/admin/sliders/{id}")]
         public ActionResult Delete(int id)
         {
             _sliderService.Delete(id);
@@ -63,7 +62,7 @@ namespace CinemaApp.Controllers
         }
 
         [ApiExplorerSettings(GroupName = "user_v1")]
-        [HttpGet("all")]
+        [HttpGet("api/sliders/all")]
         public ActionResult<List<UserSliderGetDto>> GetAllForUser()
         {
             return StatusCode(200, _sliderService.GetAllUser());

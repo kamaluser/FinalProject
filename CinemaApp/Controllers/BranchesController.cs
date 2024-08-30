@@ -10,7 +10,7 @@ namespace CinemaApp.Controllers
     [ApiExplorerSettings(GroupName = "admin_v1")]
     [Route("api/admin/[controller]")]
     [ApiController]
-    //[Authorize(Roles = "Admin")]
+    [Authorize(Roles = "Admin, SuperAdmin")]
     public class BranchesController : Controller
     {
         private readonly IBranchService _branchService;

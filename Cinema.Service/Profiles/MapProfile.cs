@@ -159,7 +159,6 @@ namespace Cinema.Service.Profiles
                .ForMember(dest => dest.Price, opt => opt.MapFrom(src => src.Price))
                .ForMember(dest => dest.TrailerLink, opt => opt.MapFrom(src => src.Movie.TrailerLink));
 
-
             // Session(admin)
             CreateMap<Session, AdminSessionGetDto>()
            .ForMember(dest => dest.MovieTitle, opt => opt.MapFrom(src => src.Movie.Title))
