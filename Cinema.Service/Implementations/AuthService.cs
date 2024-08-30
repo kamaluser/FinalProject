@@ -438,7 +438,6 @@ namespace Cinema.Service.Implementations
             return token;
         }
 
-
         public async Task<string> UserRegister(MemberRegisterDto registerDto)
         {
 
@@ -533,7 +532,6 @@ namespace Cinema.Service.Implementations
             return "Password reset link has been sent to your email.";
         }
 
-
         public async Task ResetPasswordForForgetPasswordAsync(string email, string token, string newPassword)
         {
             var user = await _userManager.FindByEmailAsync(email);
@@ -549,18 +547,6 @@ namespace Cinema.Service.Implementations
                 var errors = string.Join(", ", result.Errors.Select(e => e.Description));
                 throw new RestException(StatusCodes.Status400BadRequest, $"Failed to reset password: {errors}");
             }
-        }
-
-        public async Task<bool> ResetPasswordAsync(string userName, string currentPassword, string newPassword)
-        {
-            var user = await _userManager.FindByNameAsync(userName);
-            if (user == null)
-            {
-                return false;
-            }
-
-            var result = await _userManager.ChangePasswordAsync(user, currentPassword, newPassword);
-            return result.Succeeded;
         }
 
         private async Task<string> GenerateJwtToken(AppUser user)

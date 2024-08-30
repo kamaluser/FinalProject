@@ -25,7 +25,6 @@ namespace Cinema.Service.Interfaces
         Task<bool> VerifyEmail(string email, string token);
         Task<string> ForgetPasswordAsync(string email);
         Task ResetPasswordForForgetPasswordAsync(string userId, string token, string newPassword);
-        Task<bool> ResetPasswordAsync(string userName, string currentPassword, string newPassword);
         Task<int> GetMemberCountAsync();
         MemberProfileGetDto GetByIdForUserProfile(string userId);
         Task UpdateProfile(MemberProfileEditDto profileEditDto);

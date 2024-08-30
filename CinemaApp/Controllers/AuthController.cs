@@ -281,30 +281,6 @@ namespace CinemaApp.Controllers
             await _authService.ResetPasswordForForgetPasswordAsync(resetPasswordDto.Email, resetPasswordDto.Token, resetPasswordDto.NewPassword);
             return NoContent();
         }
-
-        [ApiExplorerSettings(GroupName = "user_v1")]
-        [HttpPost("api/account/resetpassword")]
-        public async Task<IActionResult> ResetPassword([FromBody] ResetPasswordDto resetPasswordDto)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-
-            var result = await _authService.ResetPasswordAsync(
-                resetPasswordDto.UserName,
-                resetPasswordDto.CurrentPassword,
-                resetPasswordDto.NewPassword);
-
-            if (result)
-            {
-                return NoContent(); 
-            }
-            else
-            {
-                return BadRequest("Password reset failed. Ensure the current password is correct and try again.");
-            }
-        }
         private async Task<string> GenerateJwtToken(AppUser user)
         {
             var claims = new List<Claim>
