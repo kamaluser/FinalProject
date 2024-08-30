@@ -306,7 +306,7 @@ namespace Cinema.UI.Controllers
 
         private async Task<bool> IsLanguageValidForMovie(int movieId, int languageId)
         {
-            var response = await _client.GetAsync($"api/admin/Movies/{movieId}/languages");
+            var response = await _client.GetAsync($"api/Movies/{movieId}/languages");
             if (response.IsSuccessStatusCode)
             {
                 var data = await response.Content.ReadAsStringAsync();

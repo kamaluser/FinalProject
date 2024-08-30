@@ -444,17 +444,17 @@ namespace Cinema.Service.Implementations
 
             if (registerDto.Password != registerDto.ConfirmPassword)
             {
-                throw new RestException(StatusCodes.Status400BadRequest, "Password and ConfirmPassword do not match.");
+                throw new RestException(StatusCodes.Status400BadRequest, "ConfirmPassword" , "Password and ConfirmPassword do not match.");
             }
 
             if (_userManager.Users.Any(u => u.Email.ToLower() == registerDto.Email.ToLower()))
             {
-                throw new RestException(StatusCodes.Status400BadRequest, "Email is already taken.");
+                throw new RestException(StatusCodes.Status400BadRequest, "Email", "Email is already taken.");
             }
 
             if (_userManager.Users.Any(u => u.UserName.ToLower() == registerDto.UserName.ToLower()))
             {
-                throw new RestException(StatusCodes.Status400BadRequest, "UserName is already taken.");
+                throw new RestException(StatusCodes.Status400BadRequest, "UserName", "UserName is already taken.");
             }
 
             var appUser = new AppUser
@@ -469,14 +469,14 @@ namespace Cinema.Service.Implementations
             if (!result.Succeeded)
             {
                 var errors = string.Join(", ", result.Errors.Select(e => e.Description));
-                throw new RestException(StatusCodes.Status400BadRequest, $"Failed to register user: {errors}");
+                throw new RestException(StatusCodes.Status400BadRequest, $"Error Occured: {errors}");
             }
 
             var roleResult = await _userManager.AddToRoleAsync(appUser, "member");
             if (!roleResult.Succeeded)
             {
                 var errors = string.Join(", ", roleResult.Errors.Select(e => e.Description));
-                throw new RestException(StatusCodes.Status400BadRequest, $"Failed to assign role: {errors}");
+                throw new RestException(StatusCodes.Status400BadRequest, $"Error Occured: {errors}");
             }
 
             var token = await _userManager.GenerateEmailConfirmationTokenAsync(appUser);

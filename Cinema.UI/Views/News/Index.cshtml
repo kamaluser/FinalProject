@@ -2,12 +2,11 @@
 
 @{
     ViewData["Title"] = "Index";
+    int order = (Model.PageIndex - 1) * Model.PageSize;
 }
 
-<!-- Begin Page Content -->
 <div class="container-fluid">
 
-    <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 class="h3 mb-0 text-gray-800">News</h1>
         <a asp-action="create" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
@@ -15,7 +14,6 @@
         </a>
     </div>
 
-    <!-- Language Table -->
     <div class="row">
         <div class="col-md-12 mx-auto">
             <div class="table-responsive">
@@ -33,7 +31,7 @@
                         @foreach (var item in Model.Items)
                         {
                             <tr>
-                                <th scope="row">@item.Id</th>
+                                <th scope="row">@(++order)</th>
                                 <td>@item.Title</td>
                                 <td>@item.Description</td>
                                 <td>

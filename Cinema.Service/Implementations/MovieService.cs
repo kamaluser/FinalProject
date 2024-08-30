@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Cinema.Core.Entites;
+using Cinema.Data.Repositories.Implementations;
 using Cinema.Data.Repositories.Interfaces;
 using Cinema.Service.Dtos;
 using Cinema.Service.Dtos.LanguageDtos;
@@ -22,12 +23,13 @@ namespace Cinema.Service.Implementations
     {
         private readonly IMovieRepository _movieRepository;
         private readonly ILanguageRepository _languageRepository;
+        private readonly ISessionRepository _sessionRepository;
         private readonly IWebHostEnvironment _environment;
         private readonly IMapper _mapper;
         private readonly IHttpContextAccessor _accessor;
         private readonly string _baseUrl;
 
-        public MovieService(IMovieRepository movieRepository, ILanguageRepository languageRepository, IWebHostEnvironment environment, IMapper mapper, IHttpContextAccessor accessor)
+        public MovieService(IMovieRepository movieRepository, ILanguageRepository languageRepository, IWebHostEnvironment environment, IMapper mapper, IHttpContextAccessor accessor, ISessionRepository sessionRepository)
         {
             _movieRepository = movieRepository;
             _languageRepository = languageRepository;
@@ -41,6 +43,7 @@ namespace Cinema.Service.Implementations
                 uriBuilder.Port = -1;
             }
             _baseUrl = uriBuilder.Uri.AbsoluteUri;
+            _sessionRepository = sessionRepository;
         }
 
         public PaginatedList<UserMovieGetDto> GetFutureMoviesWithPagination(int page = 1, int size = 10)
@@ -264,6 +267,47 @@ namespace Cinema.Service.Implementations
                             Id = ml.Language.Id,
                             Name = ml.Language.Name
                         }).ToList();
+        }
+
+
+        public List<UserMovieGetDto> GetMoviesByFiltersAsync(DateTime? date = null, int? branchId = null, int? languageId = null)
+        {
+            var selectedDate = date ?? DateTime.Now;
+
+            var sessionsQuery = _sessionRepository.GetAll(s => s.ShowDateTime.Date == selectedDate.Date && !s.IsDeleted)
+                .Include(s => s.Movie)
+                .Include(s => s.Hall)
+                .ThenInclude(h => h.Branch)
+                .Include(s => s.Language)
+                .ToList();
+
+            if (branchId.HasValue)
+            {
+                sessionsQuery = sessionsQuery.Where(s => s.Hall.Branch.Id == branchId.Value).ToList();
+            }
+
+            if (languageId.HasValue)
+            {
+                sessionsQuery = sessionsQuery.Where(s => s.Language.Id == languageId.Value).ToList();
+            }
+
+            var movies = sessionsQuery
+                .GroupBy(s => s.Movie.Id)
+                .Select(g => new UserMovieGetDto
+                {
+                    MovieName = g.First().Movie.Title,
+                    MoviePhoto = $"{_baseUrl}/uploads/movies/{g.First().Movie.Photo}",
+                    AgeLimit = g.First().Movie.AgeLimit,
+                    ReleaseDate = g.First().Movie.ReleaseDate,
+                    Languages = g.Select(s => new LanguageGetDto
+                    {
+                        LanguageName = s.Language.Name,
+                        LanguagePhoto = $"{_baseUrl}/uploads/flags/{s.Language.FlagPhoto}"
+                    }).Distinct().ToList()
+                })
+                .ToList();
+
+            return movies;
         }
 
     }

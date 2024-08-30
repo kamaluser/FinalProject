@@ -2,6 +2,7 @@
 
 @{
     ViewData["Title"] = "Sessions";
+    int order = (Model.PageIndex - 1) * Model.PageSize;
 }
 
 <div class="container-fluid">
@@ -36,7 +37,7 @@
                         @foreach (var item in Model.Items)
                         {
                             <tr>
-                                <th scope="row">@item.Id</th>
+                                <th scope="row">@(++order)</th>
                                 <td>@item.MovieTitle</td>
                                 <td>@item.HallName</td>
                                 <td>@item.ShowDateTime.ToString("yyyy-MM-dd HH:mm")</td>

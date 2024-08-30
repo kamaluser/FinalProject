@@ -21,5 +21,6 @@ namespace Cinema.Service.Interfaces
         List<UserMovieGetDto> GetMoviesForToday(int limit);
         PaginatedList<UserMovieGetDto> GetMoviesForTodayWithPagination(int page = 1, int size = 8);
         PaginatedList<UserMovieGetDto> GetFutureMoviesWithPagination(int page = 1, int size = 10);
+        List<UserMovieGetDto> GetMoviesByFiltersAsync(DateTime? date = null, int? branchId = null, int? languageId = null);
     }
 }

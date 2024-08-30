@@ -147,12 +147,12 @@ namespace Cinema.Service.Implementations
 
             if (session == null)
             {
-                throw new RestException(StatusCodes.Status404NotFound, "Session not found.");
+                throw new RestException(StatusCodes.Status404NotFound, "SessionId", "Session not found.");
             }
 
             if (session.ShowDateTime < DateTime.Now)
             {
-                throw new RestException(StatusCodes.Status400BadRequest, "Cannot book seats for a past session.");
+                throw new RestException(StatusCodes.Status400BadRequest, "SessionId" , "Cannot book seats for a past session.");
             }
 
             var seats = await _context.Seats
@@ -163,7 +163,7 @@ namespace Cinema.Service.Implementations
 
             if (seats.Count != bookSeatDto.SeatIds.Count)
             {
-                throw new RestException(StatusCodes.Status404NotFound, "Some seats not found.");
+                throw new RestException(StatusCodes.Status404NotFound,"SeatIds", "Some seats not found.");
             }
 
             foreach (var seat in seats)
@@ -172,7 +172,7 @@ namespace Cinema.Service.Implementations
 
                 if (existingOrderSeat != null)
                 {
-                    throw new RestException(StatusCodes.Status400BadRequest, "One or more seats are already reserved for this session.");
+                    throw new RestException(StatusCodes.Status400BadRequest, "SeatIds", "One or more seats are already reserved for this session.");
                 }
             }
 

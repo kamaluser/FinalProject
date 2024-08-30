@@ -94,5 +94,14 @@ namespace CinemaApp.Controllers
             var result = _movieService.GetFutureMoviesWithPagination(page, size);
             return Ok(result);
         }
+
+        [ApiExplorerSettings(GroupName = "user_v1")]
+        [HttpGet("api/[controller]/filtered-movies")]
+        public ActionResult<List<UserMovieGetDto>> GetMoviesByFilters([FromQuery] DateTime? date = null, [FromQuery] int? branchId = null, [FromQuery] int? languageId = null)
+        {
+            var movies = _movieService.GetMoviesByFiltersAsync(date, branchId, languageId);
+            return Ok(movies);
+        }
+
     }
 }

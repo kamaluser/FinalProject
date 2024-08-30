@@ -236,10 +236,10 @@ namespace CinemaApp.Controllers
 
         [ApiExplorerSettings(GroupName = "user_v1")]
         [HttpPost("api/register")]
-        public ActionResult UserRegister([FromBody] MemberRegisterDto registerDto)
+        public async Task<ActionResult> UserRegister([FromBody] MemberRegisterDto registerDto)
         {
-            var r = _authService.UserRegister(registerDto);
-            return Ok(new { Result = r });
+            var r = await _authService.UserRegister(registerDto);
+            return Ok(new { Id = r });
         }
 
         [ApiExplorerSettings(GroupName = "user_v1")]
@@ -248,13 +248,13 @@ namespace CinemaApp.Controllers
         {
             if (string.IsNullOrEmpty(userId) || string.IsNullOrEmpty(token))
             {
-                return BadRequest("Invalid email verification request.");
+                throw new RestException(StatusCodes.Status400BadRequest, "Invalid email verification request.");
             }
 
             var user = await _userManager.FindByIdAsync(userId);
             if (user == null)
             {
-                return NotFound("User not found.");
+                throw new RestException(StatusCodes.Status404NotFound, "User not found.");
             }
 
             var result = await _userManager.ConfirmEmailAsync(user, token);
@@ -263,7 +263,7 @@ namespace CinemaApp.Controllers
                 return Ok("Email confirmed successfully!");
             }
 
-            return BadRequest("Failed to confirm email.");
+            throw new RestException(StatusCodes.Status404NotFound, "Failed to confirm email.");
         }
 
         [ApiExplorerSettings(GroupName = "user_v1")]

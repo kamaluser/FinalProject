@@ -1,6 +1,7 @@
 ﻿@model PaginatedResponse<BranchListItemGetResponse>
 @{
     ViewData["Title"] = "Branches";
+     int order = (Model.PageIndex - 1)*Model.PageSize;
 }
 
 <div class="container-fluid">
@@ -28,7 +29,7 @@
                         @foreach (var item in Model.Items)
                         {
                             <tr>
-                                <th scope="row">@item.Id</th>
+                                <th scope="row">@(++order)</th>
                                 <td>@item.Name</td>
                                 <td>@item.Address</td>
                                 <td>
